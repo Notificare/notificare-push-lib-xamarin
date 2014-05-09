@@ -283,7 +283,7 @@ namespace Notificare.iOS
 		 */
 
 		/// <summary>
-		/// Shared this instance.
+		/// The shared singleton implementation.
 		/// </summary>
 		[Static][Export("shared")]
 		NotificarePushLib Shared();
@@ -293,7 +293,7 @@ namespace Notificare.iOS
 		 */
 
 		/// <summary>
-		/// Launch this instance.
+		/// Initializes, checks and retrieves memory data
 		/// </summary>
 		[Export("launch")]
 		void Launch();
@@ -303,7 +303,7 @@ namespace Notificare.iOS
 		 */
 
 		/// <summary>
-		/// Registers for remote notifications.
+		/// Registers for APNS
 		/// </summary>
 		/// <param name="types">Types.</param>
 		[Export("registerForRemoteNotificationsTypes:")]
@@ -314,7 +314,7 @@ namespace Notificare.iOS
 		 */
 
 		/// <summary>
-		/// Handles the launch options.
+		/// Handles notifications opened from the background
 		/// </summary>
 		/// <param name="options">Options.</param>
 		[Export("handleOptions:")]
@@ -325,7 +325,9 @@ namespace Notificare.iOS
 		 */
 
 		/// <summary>
-		/// Registers the device.
+		/// Registers the APNS token from Apple anonymously
+		/// Consider using the method with the completion and error blocks if you want to make sure that you create tags or start location updates
+		/// only after successfully register a device token.
 		/// </summary>
 		/// <param name="token">Token.</param>
 		[Export("registerDevice:")]
@@ -336,7 +338,7 @@ namespace Notificare.iOS
 		 */
 
 		/// <summary>
-		/// Registers the device.
+		/// Registers the APNS token from Apple anonymously
 		/// </summary>
 		/// <param name="token">Token.</param>
 		/// <param name="completionHandler">Completion handler.</param>
@@ -350,32 +352,99 @@ namespace Notificare.iOS
 		 */
 
 		/// <summary>
-		/// Registers the device with user identifier
+		/// Registers the APNS token from Apple by creating a user profile with any string
+		/// This allows the registrations of more than one device in one user profile
+		/// You can also map this ID to your existing user ID if you eventually using any means of authentication
+		/// Consider using the method with the completion and error blocks if you want to make sure that you create tags or start location updates
+		/// only after successfully register a device token.
 		/// </summary>
 		/// <param name="token">Token.</param>
 		/// <param name="userID">User identifier.</param>
 		[Export("registerDevice:withUserID:")]
-		void registerDeviceWithUserID( NSData token, NSString userID );
+		void RegisterDeviceWithUserID( NSData token, NSString userID );
+
+		/*
+		 * - (void)registerDevice:(NSData *)token withUserID:(NSString *)userID completionHandler:(SuccessBlock)info errorHandler:(ErrorBlock)error;
+		 */
+
+		/// <summary>
+		/// Registers the APNS token from Apple by creating a user profile with any string
+		/// This allows the registrations of more than one device in one user profile
+		/// You can also map this ID to your existing user ID if you eventually using any means of authentication
+		/// Consider using the method with the completion and error blocks if you want to make sure that you create tags or start location updates
+		/// only after successfully register a device token.
+		/// </summary>
+		/// <param name="token">Token.</param>
+		/// <param name="userID">User ID.</param>
+		/// <param name="completionHandler">Completion handler.</param>
+		/// <param name="errorHandler">Error handler.</param>
+		[Export("registerDevice:withUserID:completionHandler:errorHandler:")]
+		void RegisterDeviceWithUserID( NSData token, NSString userID, SuccessCallback completionHandler, ErrorCallback errorHandler );
 
 		/*
 		 * - (void)registerDevice:(NSData *)token withUserID:(NSString *)userID withUsername:(NSString *)username;
 		 */
 
 		/// <summary>
-		/// Registers the device with user identifier and username.
+		/// Registers the APNS token from Apple by creating a user profile with any string
+		/// This allows the registrations of more than one device in one user profile
+		/// You can also map this ID to your existing user ID if you eventually using any means of authentication
+		/// Consider using the method with the completion and error blocks if you want to make sure that you create tags or start location updates
+		/// only after successfully register a device token.
+		/// Adds another string that can be used to display name
 		/// </summary>
 		/// <param name="token">Token.</param>
 		/// <param name="userID">User ID.</param>
 		/// <param name="username">Username.</param>
 		[Export("registerDevice:withUserID:withUsername:")]
-		void registerDeviceWithUserIDAndUsername( NSData token, NSString userID, NSString username );
+		void RegisterDeviceWithUserIDWithUsername( NSData token, NSString userID, NSString username );
+
+		/*
+		 * - (void)registerDevice:(NSData *)token withUserID:(NSString *)userID withUsername:(NSString *)username completionHandler:(SuccessBlock)info errorHandler:(ErrorBlock)error;
+		 */
+
+		/// <summary>
+		/// Registers the APNS token from Apple by creating a user profile with any string
+		/// This allows the registrations of more than one device in one user profile
+		/// You can also map this ID to your existing user ID if you eventually using any means of authentication
+		/// Adds another string that can be used to display name
+		/// </summary>
+		/// <param name="token">Token.</param>
+		/// <param name="userID">User ID.</param>
+		/// <param name="username">Username.</param>
+		/// <param name="completionHandler">Completion handler.</param>
+		/// <param name="errorHandler">Error handler.</param>
+		[Export("registerDevice:withUserID:withUsername:completionHandler:errorHandler:")]
+		void RegisterDeviceWithUserIDWithUsername( NSData token, NSString userID, NSString username, SuccessCallback completionHandler, ErrorCallback errorHandler );
+
+		/*
+		 * - (void)unregisterDevice;
+		 */
+
+		/// <summary>
+		/// This method allows you to prevent Notificare from sending notifications
+		/// If you also wish to remove the device from APNS also call [[UIApplication sharedApplication] unregisterForRemoteNotifications]
+		/// </summary>
+		[Export("unregisterDevice")]
+		void UnregisterDevice();
+
+		/*
+		 * - (void)updateBadge:(NSNumber *)badge;
+		 */
+
+		/// <summary>
+		/// Update app badge, accepts a NSNumber
+		/// </summary>
+		/// <param name="badge">Badge.</param>
+		[Export("updateBadge:")]
+		void UpdateBadge (NSNumber badge);
 
 		/*
 		 * - (void)openNotification:(NSDictionary *)notification;
 		 */
 
 		/// <summary>
-		/// Opens the notification.
+		/// Displays text or rich content notifications. Usually used in the delegate didReceiveRemoteNotification
 		/// </summary>
 		/// <param name="notification">Notification.</param>
 		[Export("openNotification:")]
@@ -386,7 +455,7 @@ namespace Notificare.iOS
 		 */
 
 		/// <summary>
-		/// Gets the notification.
+		/// Fetches a notification's full payload. Usually used if you gonna handle the notifications yourself.
 		/// </summary>
 		/// <param name="notificationID">Notification ID.</param>
 		/// <param name="completionHandler">Completion handler.</param>
@@ -394,52 +463,23 @@ namespace Notificare.iOS
 		[Export("getNotification:completionHandler:errorHandler:")]
 		void GetNotification( NSString notificationID, SuccessCallback completionHandler, ErrorCallback errorHandler );
 
-
-		/*
-		 * - (void)addTags:(NSArray *)tags;
-		 */
-
-		/// <summary>
-		/// Adds the tags.
-		/// </summary>
-		/// <param name="tags">Tags.</param>
-		[Export("addTags:")]
-		void AddTags( NSArray tags );
-
-		/*
-		 * - (void)addTags:(NSArray *)tags completionHandler:(SuccessBlock)info errorHandler:(ErrorBlock)error;
-		 */
-		//
-		[Export("addTags:completionHandler:errorHandler:")]
-		void AddTags( NSArray tags, SuccessCallback info, ErrorCallback error );
-
 		/*
 		 * - (void)clearNotification:(NSString *)notification;
 		 */
 
 		/// <summary>
-		/// Clears the notification.
+		/// Deletes a notification. Should be used if you want to remove a notification from our system
 		/// </summary>
 		/// <param name="notificationID">Notification I.</param>
 		[Export("clearNotification:")]
 		void ClearNotification( NSString notificationID );
 
 		/*
-		 * - (void)unregisterDevice;
-		 */
-
-		/// <summary>
-		/// Unregisters the device.
-		/// </summary>
-		[Export("unregisterDevice")]
-		void UnregisterDevice();
-
-		/*
 		 * -(void)startLocationUpdates;
 		 */
 
 		/// <summary>
-		/// Starts the location updates.
+		/// Starts the location manager for geo-targeting, geo-fencing and beacons
 		/// </summary>
 		[Export ("startLocationUpdates")]
 		void StartLocationUpdates();
@@ -449,48 +489,428 @@ namespace Notificare.iOS
 		 */
 
 		/// <summary>
-		/// Updates the location.
+		/// Update the device's location manually
 		/// </summary>
 		/// <param name="device">Device.</param>
 		/// <param name="latitude">Latitude.</param>
 		/// <param name="longitude">Longitude.</param>
 		[Export ("updateLocation:withLatitude:andLongitude:")]
-		void updateLocation( NSString device, float latitude, float longitude );
+		void UpdateLocation( NSString device, float latitude, float longitude );
 
 		/*
-		 * Properties
+		 * -(void)stopLocationUpdates;
 		 */
+
+		/// <summary>
+		/// Stops the location manager from collecting location updates
+		/// </summary>
+		[Export ("stopLocationUpdates")]
+		void StopLocationUpdates();
+
+		/*
+		 * - (void)getTags:(SuccessBlock)info errorHandler:(ErrorBlock)error;
+		 */
+		/// <summary>
+		/// Get the device tags. Tags are used to easily categorize devices according to any kpi, point or area of
+		/// </summary>
+		/// <param name="completionHandler">Completion handler.</param>
+		/// <param name="errorHandler">Error handler.</param>
+		[Export ("getTags:errorHandler:")]
+		void GetTags (SuccessCallback completionHandler, ErrorCallback errorHandler);
+
+		/*
+		 * - (void)addTags:(NSArray *)tags;
+		 */
+
+		/// <summary>
+		/// Add tags. Tags are used to easily categorize devices according to any kpi, point or area of
+		/// </summary>
+		/// <param name="tags">Tags.</param>
+		[Export("addTags:")]
+		void AddTags( NSArray tags );
+
+		/*
+		 * - (void)addTags:(NSArray *)tags completionHandler:(SuccessBlock)info errorHandler:(ErrorBlock)error;
+		 */
+		/// <summary>
+		/// Add tags. Tags are used to easily categorize devices according to any kpi, point or area of
+		/// </summary>
+		/// <param name="tags">Tags.</param>
+		/// <param name="completionHandler">Completion handler.</param>
+		/// <param name="errorHandler">Error handler.</param>
+		[Export("addTags:completionHandler:errorHandler:")]
+		void AddTags( NSArray tags, SuccessCallback completionHandler, ErrorCallback errorHandler);
+
+		/* 
+		 * - (void)removeTag:(NSString *)tag;
+		 */
+
+		/// <summary>
+		/// Removes the tag.
+		/// </summary>
+		/// <param name="tag">Tag.</param>
+		[Export("removeTag:")]
+		void RemoveTag (NSString tag);
+
+		/* 
+		 * - (void)removeTag:(NSString *)tag completionHandler:(SuccessBlock)info errorHandler:(ErrorBlock)error;
+		 */
+
+		/// <summary>
+		/// Removes the tag.
+		/// </summary>
+		/// <param name="tag">Tag.</param>
+		/// <param name="completionHandler">Completion handler.</param>
+		/// <param name="errorHandler">Error handler.</param>
+		[Export("removeTag:completionHandler:errorHandler:")]
+		void RemoveTag(NSString tag, SuccessCallback completionHandler, ErrorCallback errorHandler);
+
+		/*
+		 * - (void)clearTags:(SuccessBlock)info errorHandler:(ErrorBlock)error;
+		 */
+
+		/// <summary>
+		/// Clears the tags.
+		/// </summary>
+		/// <param name="tags">Tags.</param>
+		/// <param name="completionHandler">Completion handler.</param>
+		/// <param name="errorHandler">Error handler.</param>
+		[Export("clearTags:errorHandler:")]
+		void ClearTags( SuccessCallback completionHandler, ErrorCallback errorHandler);
+
+		/*
+		 * - (void)startMonitoringBeaconRegion:(NSUUID *)uuid;
+		 */
+
+		/// <summary>
+		/// Manually start Beacons without a geofence
+		/// </summary>
+		/// <param name="uuid">UUID.</param>
+		[Export("startMonitoringBeaconRegion:")]
+		void StartMonitoringBeaconRegion (NSUuid uuid);
+
+		/*
+		 * - (void)startMonitoringBeaconRegion:(NSUUID *)uuid andMajor:(NSNumber *)major;
+		 */
+
+		/// <summary>
+		/// Manually start Beacons without a geofence
+		/// </summary>
+		/// <param name="uuid">UUID.</param>
+		/// <param name="major">Major.</param>
+		[Export("startMonitoringBeaconRegion:andMajor:")]
+		void StartMonitoringBeaconRegion (NSUuid uuid, NSNumber major);
+
+		/*
+		 * - (void)startMonitoringBeaconRegion:(NSUUID *)uuid andMajor:(NSNumber *)major andMinor:(NSNumber *)minor;
+		 */
+
+		/// <summary>
+		/// Manually start Beacons without a geofence
+		/// </summary>
+		/// <param name="uuid">UUID.</param>
+		/// <param name="major">Major.</param>
+		/// <param name="minor">Minor.</param>
+		[Export("startMonitoringBeaconRegion:andMajor:andMinor:")]
+		void StartMonitoringBeaconRegion (NSUuid uuid, NSNumber major, NSNumber minor);
+
+
+		/*
+		 * - (void)openBeacon:(NSDictionary *)beacon;
+		 */
+
+		/// <summary>
+		/// Displays text or rich content attached to that beacon. Usually used in the delegate didRangeBeacons
+		/// </summary>
+		/// <param name="beacon">Beacon.</param>
+		[Export("openBeacon:")]
+		void OpenBeacon (NSDictionary beacon);
+
+		/*
+		 * - (void)openBeacons;
+		 */
+
+		/// <summary>
+		/// Displays text or rich content attached to ranged beacons. Usually used in the delegate didRangeBeacons
+		/// </summary>
+		[Export("openBeacons")]
+		void OpenBeacons ();
+
+		/*
+		 * - (void)openUserPreferences;
+		 */
+
+		/// <summary>
+		/// Displays a view with for user control of notifications, location updates and key-value pairs inserted in NotificareTags.plist
+		/// </summary>
+		[Export("openUserPreferences")]
+		void OpenUserPreferences();
+
+
+		/*
+		 * - (void)reply:(NSString *)notification withLabel:(NSString *)label andData:(NSDictionary *)data;
+		 */
+
+		/// <summary>
+		/// Register an action event manually. Usually needed when you handling notifications yourself and want to use the actions to register a certain user choice.
+		/// </summary>
+		/// <param name="notification">Notification.</param>
+		/// <param name="label">Label.</param>
+		/// <param name="data">Data.</param>
+		[Export("reply:withLabel:andData:")]
+		void ReplyWithLabelAndData (NSString notification, NSString label, NSDictionary data);
+
+
+
+		// Properties
+
+		/*
+		 * @property (nonatomic, assign) id <NotificarePushLibDelegate> delegate;
+		 */
+
+		/// <summary>
+		/// Public delegate to handle Notificare events
+		/// </summary>
+		/// <value>The delegate.</value>
 		[Export ("delegate", ArgumentSemantic.Assign)][NullAllowed]
 		INotificarePushLibDelegate Delegate { get; set; }
 
+		/*
+		 * @property (strong, nonatomic) NSString * deviceToken;
+		 */
 
 		/// <summary>
-		/// Gets or sets the location manager.
+		/// Returns the device Token 
+		/// </summary>
+		/// <value>The device token.</value>
+		[Export("deviceToken")]
+		NSString DeviceToken { get; }
+
+		/*
+		 * @property (strong, nonatomic) NSString * device;
+		 */
+		/// <summary>
+		/// Gets the device.
+		/// </summary>
+		/// <value>The device.</value>
+		[Export("device")]
+		NSString Device { get; }
+
+		/*
+		 * @property (strong, nonatomic) NSString * userID;
+		 */
+		/// <summary>
+		/// Gets the user ID.
+		/// </summary>
+		/// <value>The user I.</value>
+		[Export("userID")]
+		NSString UserID { get; }
+
+		/*
+		 * @property (strong, nonatomic) NSString * username;
+		 */
+
+		/// <summary>
+		/// Gets the name of the user.
+		/// </summary>
+		/// <value>The name of the user.</value>
+		[Export("userName")]
+		NSString UserName { get; }
+
+		/*
+		 * @property (nonatomic, assign) UIRemoteNotificationType notificationTypes;
+		 */
+
+		/// <summary>
+		/// Gets the notification types.
+		/// </summary>
+		/// <value>The notification types.</value>
+		[Export("notificationTypes")]
+		UIRemoteNotificationType notificationTypes { get; }
+
+
+		/*
+		 * @property (assign) BOOL isOpen;
+		 */
+
+		/// <summary>
+		/// Boolean for checking if notification is open
+		/// </summary>
+		/// <value><c>true</c> if this instance is open; otherwise, <c>false</c>.</value>
+		[Export("isOpen")]
+		bool IsOpen{ get; }
+
+		/*
+		 * @property (assign) BOOL displayMessage;
+		 */
+
+		/// <summary>
+		/// Gets or sets a value indicating whether we should always display alert message.
+		/// </summary>
+		/// <value><c>true</c> if display message; otherwise, <c>false</c>.</value>
+		[Export("displayMessage")]
+		bool DisplayMessage { get; set; }
+
+		/*
+		 * @property (strong, nonatomic) CLRegion * currentFence;
+		 */
+
+		/// <summary>
+		/// Gets the current fence.
+		/// </summary>
+		/// <value>The current fence.</value>
+		[Export("currentFence")]
+		CLRegion CurrentFence { get; }
+
+		/*
+		 * @property (strong, nonatomic) NSMutableArray * notificationQueue;
+		 */
+
+		/// <summary>
+		/// Returns all queued notifications
+		/// </summary>
+		/// <value>The notification queue.</value>
+		[Export("notificationQueue")]
+		NSMutableArray NotificationQueue { get; }
+
+		/*
+		 * @property (strong, nonatomic) NSDictionary * activeNotification;
+		 */
+
+		/// <summary>
+		/// Gets the active notification.
+		/// </summary>
+		/// <value>The active notification.</value>
+		[Export("activeNotification")]
+		NSDictionary ActiveNotification { get; }
+
+		/*
+		 * @property (strong, nonatomic) CLLocationManager *locationManager;
+		 */
+
+		/// <summary>
+		/// Core Location Manager that handles significant change updates
 		/// </summary>
 		/// <value>The location manager.</value>
 		[Export("locationManager")]
 		CLLocationManager LocationManager { get; set; } 
 
-		/// <summary>
-		/// Gets or sets the device token.
-		/// </summary>
-		/// <value>The device token.</value>
-		[Export("deviceToken")]
-		NSString DeviceToken { get; set; }
+
+
+		/*
+		 * @property (strong, nonatomic) NSMutableArray *lastLocations;
+		 */
 
 		/// <summary>
-		/// Gets or sets the user ID.
+		/// A mutable array that holds lasts readings from Core Location
 		/// </summary>
-		/// <value>The user ID.</value>
-		[Export("userID")]
-		NSString userID { get; set; }
+		/// <value>The last locations.</value>
+		[Export("lastLocations")]
+		NSMutableArray LastLocations { get; }
+
+		/*
+		 * @property (strong, nonatomic) NSMutableArray * regionSession;
+		 */
 
 		/// <summary>
-		/// Gets or sets the name of the user.
+		/// A mutable dictionary that holds hold the enter/exit time and location updates
 		/// </summary>
-		/// <value>The name of the user.</value>
-		[Export("userName")]
-		NSString userName { get; set; }
+		/// <value>The region session.</value>
+		[Export("regionSession")]
+		NSMutableArray RegionSession { get; }
+
+		/*
+		 * @property (strong, nonatomic) NSMutableArray * beaconSession;
+		 */
+
+		/// <summary>
+		/// A mutable dictionary that holds hold the range time in each of the beacons in range
+		/// </summary>
+		/// <value>The beacon session.</value>
+		[Export("beaconSession")]
+		NSMutableArray BeaconSession { get; }
+
+		/*
+		 * @property (strong, nonatomic) CLBeaconRegion *beaconRegion;
+		 */
+
+		/// <summary>
+		/// A iBeacon region with UUID loaded from plist
+		/// </summary>
+		/// <value>The beacon region.</value>
+		[Export("beaconRegion")]
+		CLBeaconRegion BeaconRegion { get; }
+
+		/*
+		 * @property (nonatomic, assign) BOOL ranging;
+		 */
+
+		/// <summary>
+		/// A BOOL to flag when iBeacon is in range
+		/// </summary>
+		/// <value><c>true</c> if ranging; otherwise, <c>false</c>.</value>
+		[Export("ranging")]
+		bool Ranging { get; }
+
+
+		/*
+		 * @property (strong, nonatomic) NSDictionary * applicationInfo;
+		 */
+
+		/// <summary>
+		/// Returns application's public info
+		/// </summary>
+		/// <value>The application info.</value>
+		[Export("applicationInfo")]
+		NSDictionary ApplicationInfo { get; }
+
+
+		/*
+		 * @property (strong, nonatomic) NSMutableArray * geofences;
+		 */
+
+		/// <summary>
+		/// Returns Regions being monitored
+		/// </summary>
+		/// <value>The geo fences.</value>
+		[Export("geoFences")]
+		NSMutableArray GeoFences { get; }
+
+
+		/*
+		 * @property (strong, nonatomic) NSMutableArray * beacons;
+		 */
+
+		/// <summary>
+		/// Returns Beacons being monitored
+		/// </summary>
+		/// <value>The beacons.</value>
+		[Export("beacons")]
+		NSMutableArray Beacons { get; }
+
+
+		/*
+		 * @property (strong, nonatomic) NSMutableArray * stateEntries;
+		 */
+
+		/// <summary>
+		/// Returns an array of regions that were triggered by entry
+		/// </summary>
+		/// <value>The state entries.</value>
+		[Export("stateEntries")]
+		NSMutableArray StateEntries { get; }
+
+
+		/*
+		 * @property (strong, nonatomic) NSMutableArray * stateBeacons;
+		 */
+
+		/// <summary>
+		/// Returns an array of beacons that were triggered by entry
+		/// </summary>
+		/// <value>The state beacons.</value>
+		[Export("stateBeacons")]
+		NSMutableArray StateBeacons { get; }
 
 	}
 

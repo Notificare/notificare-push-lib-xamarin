@@ -64,14 +64,29 @@ namespace Notificare.iOS.TestApp
 			return new NSString ( stringBuilder.ToString () );
 		}
 
+		private void AddTags(NSArray tags) {
+			NotificarePushLib.Shared ().AddTags (
+				tags,
+				(NSDictionary info) => {
+					Console.WriteLine ("tags added");
+				},
+				(NSError error) => {
+					Console.WriteLine ("error adding tags: {0}", error);
+				}
+			);
+		}
+
 		public override void RegisteredForRemoteNotifications (UIApplication application, NSData deviceToken)
 		{
 			Console.WriteLine ("Registering device: {0}", deviceToken );
 
+			// If you have a userID and userName, use RegisterDeviceWithUserID / RegisterDeviceWithUserIDWithUserName
 			NotificarePushLib.Shared ().RegisterDevice (
 				deviceToken,
 				(NSDictionary info) => {
 					Console.WriteLine("Device registered: {0}", info);
+					// Add tags for this device. Normally, you would leave this up to the user or other conditions in the app.
+					AddTags(NSArray.FromStrings("tag_something", "tag_something2"));
 					NotificarePushLib.Shared ().StartLocationUpdates ();
 				},
 				(NSError error) => {
@@ -91,6 +106,7 @@ namespace Notificare.iOS.TestApp
 			// Open Notification Directly
 			NotificarePushLib.Shared ().OpenNotification (userInfo);
 		}
+			
 
 		class MyPushLibDelegate : NotificarePushLibDelegate {
 			public override bool ShouldHandleNotification(NotificarePushLib library, NSDictionary info)
