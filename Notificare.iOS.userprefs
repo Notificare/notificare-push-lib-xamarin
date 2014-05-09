@@ -1,6 +1,14 @@
-﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="AppStore|iPhone" />
-  <MonoDevelop.Ide.Workbench />
+﻿<Properties GitUserInfo="UsingGIT">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.Kabouter Wesley" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Notificare.iOS/ApiDefinition.cs">
+    <Files>
+      <File FileName="Notificare.iOS/ApiDefinition.cs" Line="900" Column="27" />
+      <File FileName="Notificare.iOS.TestApp/AppDelegate.cs" Line="105" Column="4" />
+      <File FileName="Notificare.iOS/NotificarePushLib.linkwith.cs" Line="8" Column="1" />
+      <File FileName="Notificare.iOS.TestApp/NotificareResources.bundle/en.lproj/Localizable.strings" Line="15" Column="1" />
+      <File FileName="Notificare.iOS.TestApp/Notificare.plist" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/Users/GertJanA/Documents/AppDev/HEMA App/Development/v2.0/HemaMobile.Libraries/Macaw.XPoseView.iOS/XPoseNativeView/XposeFinder.cs" line="72" column="1" />

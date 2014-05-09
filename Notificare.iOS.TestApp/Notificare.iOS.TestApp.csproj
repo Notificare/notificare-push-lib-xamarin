@@ -131,6 +131,16 @@
     <BundleResource Include="NotificareResources.bundle\en.lproj\Localizable.strings" />
     <BundleResource Include="NotificareResources.bundle\nl.lproj\Localizable.strings" />
     <BundleResource Include="Notificare.plist" />
+    <BundleResource Include="NotificareResources.bundle\Images\actionsIcon.png" />
+    <BundleResource Include="NotificareResources.bundle\Images\actionsIcon%402x.png" />
+    <BundleResource Include="Resources\Default.png" />
+    <BundleResource Include="Resources\Default%402x.png" />
+    <BundleResource Include="Resources\Icon-60%402x.png" />
+    <BundleResource Include="Resources\Icon%402x.png" />
+    <BundleResource Include="Resources\Icon-Small-40%402x.png" />
+    <BundleResource Include="Resources\Icon-Small%402x.png" />
+    <BundleResource Include="Resources\Icon-Small.png" />
+    <BundleResource Include="Resources\Icon.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
