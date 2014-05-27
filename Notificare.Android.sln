@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notificare.Android", "Notificare.Android\Notificare.Android.csproj", "{4365C44D-8374-4943-B076-B03CF68B7554}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notificare.Sample.Android", "Notificare.Android.Sample\Notificare.Sample.Android.csproj", "{11FC6752-09A2-4776-8093-C1F4152B9FD4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{11FC6752-09A2-4776-8093-C1F4152B9FD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11FC6752-09A2-4776-8093-C1F4152B9FD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11FC6752-09A2-4776-8093-C1F4152B9FD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11FC6752-09A2-4776-8093-C1F4152B9FD4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4365C44D-8374-4943-B076-B03CF68B7554}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4365C44D-8374-4943-B076-B03CF68B7554}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4365C44D-8374-4943-B076-B03CF68B7554}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4365C44D-8374-4943-B076-B03CF68B7554}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Notificare.Android.Sample\Notificare.Sample.Android.csproj
+	EndGlobalSection
+EndGlobal

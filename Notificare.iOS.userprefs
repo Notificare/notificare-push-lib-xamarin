@@ -2,11 +2,12 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.Kabouter Wesley" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Notificare.iOS/ApiDefinition.cs">
     <Files>
-      <File FileName="Notificare.iOS/ApiDefinition.cs" Line="900" Column="27" />
-      <File FileName="Notificare.iOS.TestApp/AppDelegate.cs" Line="105" Column="4" />
-      <File FileName="Notificare.iOS/NotificarePushLib.linkwith.cs" Line="8" Column="1" />
-      <File FileName="Notificare.iOS.TestApp/NotificareResources.bundle/en.lproj/Localizable.strings" Line="15" Column="1" />
+      <File FileName="Notificare.iOS/ApiDefinition.cs" Line="230" Column="67" />
+      <File FileName="Notificare.iOS.TestApp/AppDelegate.cs" Line="115" Column="5" />
+      <File FileName="Notificare.iOS/NotificarePushLib.linkwith.cs" Line="1" Column="1" />
+      <File FileName="Notificare.iOS.TestApp/NotificareResources.bundle/en.lproj/Localizable.strings" Line="1" Column="1" />
       <File FileName="Notificare.iOS.TestApp/Notificare.plist" />
+      <File FileName="Notificare.iOS.TestApp/Info.plist" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
@@ -15,4 +16,5 @@
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <AuthorInfo Name="Joris Verbogt" Email="joris@notifica.re" Copyright="Notificare B.V." Company="Notificare B.V." Trademark="Notificare" />
 </Properties>

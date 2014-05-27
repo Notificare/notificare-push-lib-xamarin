@@ -1,0 +1,23 @@
+﻿<metadata>
+	<!--
+  This sample removes the class: android.support.v4.content.AsyncTaskLoader.LoadTask:
+  <remove-node path="/api/package[@name='android.support.v4.content']/class[@name='AsyncTaskLoader.LoadTask']" />
+  
+  This sample removes the method: android.support.v4.content.CursorLoader.loadInBackground:
+  <remove-node path="/api/package[@name='android.support.v4.content']/class[@name='CursorLoader']/method[@name='loadInBackground']" />
+-->
+  <attr path="/api/package[@name='re.notifica']" name="managedName">Notificare.Android</attr>
+  <attr path="/api/package[@name='re.notifica.action']" name="managedName">Notificare.Android.Action</attr>
+  <attr path="/api/package[@name='re.notifica.api']" name="managedName">Notificare.Android.API</attr>
+  <attr path="/api/package[@name='re.notifica.model']" name="managedName">Notificare.Android.Model</attr>
+  <attr path="/api/package[@name='re.notifica.notification']" name="managedName">Notificare.Android.Notification</attr>
+  <attr path="/api/package[@name='re.notifica.push.gcm']" name="managedName">Notificare.Android.Push.GCM</attr>
+  <attr path="/api/package[@name='re.notifica.receiver']" name="managedName">Notificare.Android.Receiver</attr>
+  <attr path="/api/package[@name='re.notifica.support.v4.app']" name="managedName">Notificare.Android.Support.V4.App</attr>
+  <attr path="/api/package[@name='re.notifica.support.v7.app']" name="managedName">Notificare.Android.Support.V7.App</attr>
+  <attr path="/api/package[@name='re.notifica.ui']" name="managedName">Notificare.Android.UI</attr>
+  <attr path="/api/package[@name='re.notifica.urlimageviewhelper']" name="managedName">Notificare.Android.UrlImageviewHelper</attr>
+<!--  <attr path="/api/package[@name='com.google.android.gcm']" name="managedName">com.google.android.gcm</attr>-->
+	<remove-node path="/api/package[@name='re.notifica.api']/class[@name='RequestAsyncTask']/method[@name='doInBackground']" />
+	<remove-node path="/api/package[@name='re.notifica.api']/class[@name='UploadAsyncTask']/method[@name='doInBackground']" />
+</metadata>

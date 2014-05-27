@@ -11,6 +11,7 @@
     <RootNamespace>Notificare.iOS.TestApp</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AssemblyName>NotificareiOSTestApp</AssemblyName>
+    <ReleaseVersion>1.0-RC15</ReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
     <DebugSymbols>true</DebugSymbols>

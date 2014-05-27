@@ -726,7 +726,7 @@ namespace Notificare.iOS
 		/// </summary>
 		/// <value>The notification types.</value>
 		[Export("notificationTypes")]
-		UIRemoteNotificationType notificationTypes { get; }
+		UIRemoteNotificationType NotificationTypes { get; }
 
 
 		/*
@@ -739,6 +739,17 @@ namespace Notificare.iOS
 		/// <value><c>true</c> if this instance is open; otherwise, <c>false</c>.</value>
 		[Export("isOpen")]
 		bool IsOpen{ get; }
+
+		/*
+		 * @property (assign) BOOL isFixingGPS;
+		 */
+
+		/// <summary>
+		/// Boolean for checking if position is being fixed
+		/// </summary>
+		/// <value><c>true</c> if position is being fixed; otherwise, <c>false</c>.</value>
+		[Export("isFixingGPS")]
+		bool IsFixingGPS{ get; }
 
 		/*
 		 * @property (assign) BOOL displayMessage;

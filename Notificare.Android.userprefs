@@ -1,0 +1,32 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Notificare.Android/Transforms/Metadata.xml">
+    <Files>
+      <File FileName="Notificare.Android.Sample/obj/Debug/android/AndroidManifest.xml" Line="56" Column="1" />
+      <File FileName="Notificare.Android.Sample/MainApplication.cs" Line="27" Column="93" />
+      <File FileName="Notificare.Android.Sample/MyIntentReceiver.cs" Line="31" Column="1" />
+      <File FileName="Notificare.Android.Sample/MainActivity.cs" Line="20" Column="20" />
+      <File FileName="Notificare.Android.Sample/Properties/AndroidManifest.xml" Line="36" Column="45" />
+      <File FileName="Notificare.Android/Transforms/Metadata.xml" Line="11" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="Notificare.Android" expanded="True">
+            <Node name="References" expanded="True" />
+            <Node name="Additions" expanded="True" />
+            <Node name="Properties" expanded="True" />
+            <Node name="Transforms" expanded="True">
+              <Node name="Metadata.xml" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.Notificare.Sample.Android AndroidDeviceId-Debug="8e9372c7" />
+</Properties>
