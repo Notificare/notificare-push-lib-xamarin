@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="2" android:versionName="1.0.1" package="notificare.sample.android">
-	<uses-sdk android:minSdkVersion="8" android:targetSdkVersion="19" />
+	<uses-sdk android:minSdkVersion="10" android:targetSdkVersion="20" />
 	<!-- PERMISSIONS -->
 	<uses-permission android:name="android.permission.GET_ACCOUNTS" />
 	<uses-permission android:name="android.permission.WAKE_LOCK" />
@@ -40,8 +40,7 @@
 	    	Service running in the background that receives your Push Notifications 
 	     -->
 		<service android:name="re.notifica.push.gcm.PushService" android:label="Notificare Push Service" />
-		<service android:name="re.notifica.location.LocationService" android:label="Notificare Location Service" />
-		<!--
+:		<!--
 	    	Receiver to dispatch GCM registration, push notifications and custom push actions.
 	    	By default, it will register the device as an anonymous user, launch the default 
 	    	Notification activity declared below when receiving notifications, and will 
