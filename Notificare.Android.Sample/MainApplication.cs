@@ -20,17 +20,15 @@ namespace Notificare.Sample.Android
 		{
 			base.OnCreate ();
 
-			Console.WriteLine ("Loading...");
-
 			// Launch Notificare system
 			Notificare.Android.Notificare.Shared ().Launch (this);
+			// Use our custom intent receiver
 			Notificare.Android.Notificare.Shared ().IntentReceiver = Java.Lang.Class.FromType(typeof(MyIntentReceiver));
+			// Keep notifications in the drawer, remove this line or set to true if you want them to clear automatically when opened
 			Notificare.Android.Notificare.Shared ().AutoCancel = Java.Lang.Boolean.False;
 
-			// Will this work?
+			// Enable notifications
 			Notificare.Android.Notificare.Shared ().EnableNotifications ();
-			Console.WriteLine ("Done loading");
-
 		}
 	}
 }

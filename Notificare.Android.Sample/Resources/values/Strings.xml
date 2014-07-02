@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="hello">Hello World, Click Me!</string>
+	<string name="open_user_preferences">Open User Preferences</string>
 	<string name="app_name">Notificare.Android.Sample</string>
 </resources>

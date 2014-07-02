@@ -6,12 +6,14 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 
+using Notificare.Android;
+using Notificare.Android.Push.GCM;
+
 namespace Notificare.Sample.Android
 {
 	[Activity (Label = "Notificare.Sample", MainLauncher = true)]
-	public class MainActivity : Activity
+	public class MainActivity : BaseActivity
 	{
-		int count = 1;
 
 		protected override void OnCreate (Bundle bundle)
 		{
@@ -24,7 +26,7 @@ namespace Notificare.Sample.Android
 			Button button = FindViewById<Button> (Resource.Id.myButton);
 			
 			button.Click += delegate {
-				button.Text = string.Format ("{0} clicks!", count++);
+				Notificare.Android.Notificare.Shared().StartUserPreferencesActivity(this);
 			};
 		}
 	}

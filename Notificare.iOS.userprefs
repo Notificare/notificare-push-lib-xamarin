@@ -1,14 +1,24 @@
 ﻿<Properties GitUserInfo="UsingGIT">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.Kabouter Wesley" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhoneRetina.7.1" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Notificare.iOS/ApiDefinition.cs">
     <Files>
       <File FileName="Notificare.iOS/ApiDefinition.cs" Line="230" Column="67" />
-      <File FileName="Notificare.iOS.TestApp/AppDelegate.cs" Line="115" Column="5" />
+      <File FileName="Notificare.iOS.TestApp/AppDelegate.cs" Line="1" Column="1" />
       <File FileName="Notificare.iOS/NotificarePushLib.linkwith.cs" Line="1" Column="1" />
       <File FileName="Notificare.iOS.TestApp/NotificareResources.bundle/en.lproj/Localizable.strings" Line="1" Column="1" />
       <File FileName="Notificare.iOS.TestApp/Notificare.plist" />
       <File FileName="Notificare.iOS.TestApp/Info.plist" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="Notificare.iOS" expanded="True">
+            <Node name="Resources" selected="True" />
+          </Node>
+          <Node name="Notificare.iOS.TestApp" expanded="True" />
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>

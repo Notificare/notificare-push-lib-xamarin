@@ -14,17 +14,33 @@ using Notificare.Android;
 
 namespace Notificare.Sample.Android
 {
-	public class RegisterDeviceCallback : Java.Lang.Object, INotificareCallback
+
+	public class AddDeviceTagsCallback: Java.Lang.Object, INotificareCallback
 	{
 		void INotificareCallback.OnSuccess(Java.Lang.Object success)
 		{
-			Console.WriteLine ("success");
-			Notificare.Android.Notificare.Shared ().EnableLocationUpdates ();
+			Console.WriteLine ("successfully added device tags");
 		}
 
 		void INotificareCallback.OnError(NotificareError error)
 		{
-			Console.WriteLine ("error");
+			Console.WriteLine ("error adding device tags: " + error.Message);
+		}
+	}
+
+	public class RegisterDeviceCallback : Java.Lang.Object, INotificareCallback
+	{
+		void INotificareCallback.OnSuccess(Java.Lang.Object success)
+		{
+			Console.WriteLine ("successfully registered device");
+			// Now, enable location updates
+			Notificare.Android.Notificare.Shared ().EnableLocationUpdates ();
+			Notificare.Android.Notificare.Shared ().AddDeviceTags (new List<String> (){ "xamarin" }, new AddDeviceTagsCallback ());
+		}
+
+		void INotificareCallback.OnError(NotificareError error)
+		{
+			Console.WriteLine ("error registering device: " + error.Message);
 		}
 	}
 
@@ -33,6 +49,8 @@ namespace Notificare.Sample.Android
 	{
 		public override void OnRegistrationFinished(String deviceId) 
 		{
+			Console.WriteLine ("application registered with GCM");
+			// register this device
 			Notificare.Android.Notificare.Shared ().RegisterDevice (deviceId, new RegisterDeviceCallback ());
 		}
 

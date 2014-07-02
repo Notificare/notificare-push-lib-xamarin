@@ -40,6 +40,7 @@
 	    	Service running in the background that receives your Push Notifications 
 	     -->
 		<service android:name="re.notifica.push.gcm.PushService" android:label="Notificare Push Service" />
+		<service android:name="re.notifica.location.LocationService" android:label="Notificare Location Service" />
 		<!--
 	    	Receiver to dispatch GCM registration, push notifications and custom push actions.
 	    	By default, it will register the device as an anonymous user, launch the default 
@@ -62,6 +63,7 @@
         	re.notifica.ui.NotificationActivity
          -->
 		<activity android:name="re.notifica.ui.NotificationActivity" />
+		<activity android:name="re.notifica.ui.UserPreferencesActivity" />
 		<!-- API key for Google Maps -->
 		<!--		<meta-data
             android:name="com.google.android.gms.version"
