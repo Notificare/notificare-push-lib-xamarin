@@ -110,30 +110,7 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Default-568h%402x.png" />
-    <BundleResource Include="NotificareResources.bundle\Images\barBackground.png" />
-    <BundleResource Include="NotificareResources.bundle\Images\barButtonBackDisabled.png" />
-    <BundleResource Include="NotificareResources.bundle\Images\barButtonBackDisabled%402x.png" />
-    <BundleResource Include="NotificareResources.bundle\Images\barButtonBackPressed.png" />
-    <BundleResource Include="NotificareResources.bundle\Images\barButtonBackPressed%402x.png" />
-    <BundleResource Include="NotificareResources.bundle\Images\barButtonDisabled.png" />
-    <BundleResource Include="NotificareResources.bundle\Images\barButtonDisabled%402x.png" />
-    <BundleResource Include="NotificareResources.bundle\Images\barButtonPressed.png" />
-    <BundleResource Include="NotificareResources.bundle\Images\barButtonPressed%402x.png" />
-    <BundleResource Include="NotificareResources.bundle\Images\closeIcon.png" />
-    <BundleResource Include="NotificareResources.bundle\Images\closeIcon%402x.png" />
-    <BundleResource Include="NotificareResources.bundle\Images\mapMarker.png" />
-    <BundleResource Include="NotificareResources.bundle\Images\mapMarker%402x.png" />
-    <BundleResource Include="NotificareResources.bundle\Images\mapMarkerUserLocation.png" />
-    <BundleResource Include="NotificareResources.bundle\Images\mapMarkerUserLocation%402x.png" />
-    <BundleResource Include="NotificareResources.bundle\Images\toolbarButtonDisabled.png" />
-    <BundleResource Include="NotificareResources.bundle\Images\toolbarButtonDisabled%402x.png" />
-    <BundleResource Include="NotificareResources.bundle\Images\toolbarButtonPressed.png" />
-    <BundleResource Include="NotificareResources.bundle\Images\toolbarButtonPressed%402x.png" />
-    <BundleResource Include="NotificareResources.bundle\en.lproj\Localizable.strings" />
-    <BundleResource Include="NotificareResources.bundle\nl.lproj\Localizable.strings" />
     <BundleResource Include="Notificare.plist" />
-    <BundleResource Include="NotificareResources.bundle\Images\actionsIcon.png" />
-    <BundleResource Include="NotificareResources.bundle\Images\actionsIcon%402x.png" />
     <BundleResource Include="Resources\Default.png" />
     <BundleResource Include="Resources\Default%402x.png" />
     <BundleResource Include="Resources\Icon-60%402x.png" />
@@ -142,6 +119,38 @@
     <BundleResource Include="Resources\Icon-Small%402x.png" />
     <BundleResource Include="Resources\Icon-Small.png" />
     <BundleResource Include="Resources\Icon.png" />
+    <BundleResource Include="DefaultTheme.bundle\Images\actionsIcon.png" />
+    <BundleResource Include="DefaultTheme.bundle\Images\actionsIcon%402x.png" />
+    <BundleResource Include="DefaultTheme.bundle\Images\backButton.png" />
+    <BundleResource Include="DefaultTheme.bundle\Images\backButton%402x.png" />
+    <BundleResource Include="DefaultTheme.bundle\Images\barButtonBackDisabled.png" />
+    <BundleResource Include="DefaultTheme.bundle\Images\barButtonBackDisabled%402x.png" />
+    <BundleResource Include="DefaultTheme.bundle\Images\barButtonBackPressed.png" />
+    <BundleResource Include="DefaultTheme.bundle\Images\barButtonBackPressed%402x.png" />
+    <BundleResource Include="DefaultTheme.bundle\Images\barButtonDisabled.png" />
+    <BundleResource Include="DefaultTheme.bundle\Images\barButtonDisabled%402x.png" />
+    <BundleResource Include="DefaultTheme.bundle\Images\barButtonPressed.png" />
+    <BundleResource Include="DefaultTheme.bundle\Images\barButtonPressed%402x.png" />
+    <BundleResource Include="DefaultTheme.bundle\Images\closeIcon.png" />
+    <BundleResource Include="DefaultTheme.bundle\Images\closeIcon%402x.png" />
+    <BundleResource Include="DefaultTheme.bundle\Images\forwardButton.png" />
+    <BundleResource Include="DefaultTheme.bundle\Images\forwardButton%402x.png" />
+    <BundleResource Include="DefaultTheme.bundle\Images\mapMarker.png" />
+    <BundleResource Include="DefaultTheme.bundle\Images\mapMarker%402x.png" />
+    <BundleResource Include="DefaultTheme.bundle\Images\mapMarkerUserLocation.png" />
+    <BundleResource Include="DefaultTheme.bundle\Images\mapMarkerUserLocation%402x.png" />
+    <BundleResource Include="DefaultTheme.bundle\Images\refreshButton.png" />
+    <BundleResource Include="DefaultTheme.bundle\Images\refreshButton%402x.png" />
+    <BundleResource Include="DefaultTheme.bundle\Images\sendButton.png" />
+    <BundleResource Include="DefaultTheme.bundle\Images\sendButton%402x.png" />
+    <BundleResource Include="DefaultTheme.bundle\Images\toolbarButtonDisabled.png" />
+    <BundleResource Include="DefaultTheme.bundle\Images\toolbarButtonDisabled%402x.png" />
+    <BundleResource Include="DefaultTheme.bundle\Images\toolbarButtonPressed.png" />
+    <BundleResource Include="DefaultTheme.bundle\Images\toolbarButtonPressed%402x.png" />
+    <BundleResource Include="DefaultTheme.bundle\en.lproj\Localizable.strings" />
+    <BundleResource Include="DefaultTheme.bundle\nl.lproj\Localizable.strings" />
+    <BundleResource Include="DefaultTheme.bundle\pt-PT.lproj\Localizable.strings" />
+    <BundleResource Include="DefaultTheme.bundle\pt.lproj\Localizable.strings" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -166,6 +175,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="NotificareResources.bundle\" />
+    <Folder Include="DefaultTheme.bundle\" />
   </ItemGroup>
 </Project>

@@ -264,8 +264,56 @@ namespace Notificare.iOS
 		/// <param name="library">Library.</param>
 		/// <param name="beacons">Beacons.</param>
 		/// <param name="region">Region.</param>
-		[Export ("notificarePushLib:didRangeBeacons:inRegion")]
+		[Export ("notificarePushLib:didRangeBeacons:inRegion:")]
 		void DidRangeBeaconsInRegion (NotificarePushLib library, NSArray beacons, CLRegion region);
+
+		/*
+		 * - (void)notificarePushLib:(NotificarePushLib *)library didChangeAccountNotification:(NSDictionary *)info;
+		 */
+
+		/// <summary>
+		/// Did change account notification.
+		/// </summary>
+		/// <param name="library">Library.</param>
+		/// <param name="info">Info.</param>
+		[Export ("notificarePushLib:didChangeAccountNotification:")]
+		void DidChangeAccountNotification (NotificarePushLib library, NSDictionary info);
+
+		/*
+		 * - (void)notificarePushLib:(NotificarePushLib *)library didFailToRequestAccessNotification:(NSError *)error;
+		 */
+
+		/// <summary>
+		/// Did fail to request access notification.
+		/// </summary>
+		/// <param name="library">Library.</param>
+		/// <param name="error">Error.</param>
+		[Export ("notificarePushLib:didFailToRequestAccessNotification:")]
+		void DidFailToRequestAccessNotification (NotificarePushLib library, NSError error);
+
+		/*
+		 * - (void)notificarePushLib:(NotificarePushLib *)library didReceiveActivationToken:(NSString *)token;
+		 */
+
+		/// <summary>
+		/// Did receive the activation token.
+		/// </summary>
+		/// <param name="library">Library.</param>
+		/// <param name="token">Token.</param>
+		[Export ("notificarePushLib:didReceiveActivationToken:")]
+		void DidReceiveActivationToken (NotificarePushLib library, NSString token);
+
+		/*
+		 * - (void)notificarePushLib:(NotificarePushLib *)library didReceiveResetPasswordToken:(NSString *)token;
+		 */
+
+		/// <summary>
+		/// Did receive the reset password token.
+		/// </summary>
+		/// <param name="library">Library.</param>
+		/// <param name="token">Token.</param>
+		[Export ("notificarePushLib:didReceiveResetPasswordToken:")]
+		void DidReceiveResetPasswordToken (NotificarePushLib library, NSString token);
 
 	}
 
@@ -660,6 +708,140 @@ namespace Notificare.iOS
 		[Export("reply:withLabel:andData:")]
 		void ReplyWithLabelAndData (NSString notification, NSString label, NSDictionary data);
 
+		/*
+		 * - (void)createAccount:(NSDictionary *)params completionHandler:(SuccessBlock)result errorHandler:(ErrorBlock)errorBlock;
+		 */
+
+		/// <summary>
+		/// Creates the account.
+		/// </summary>
+		/// <param name="parameters">Parameters.</param>
+		/// <param name="completionHandler">Completion handler.</param>
+		/// <param name="errorHandler">Error handler.</param>
+		[Export("createAccount:completionHandler:errorHandler:")]
+		void CreateAccount(NSDictionary parameters, SuccessCallback completionHandler, ErrorCallback errorHandler);
+
+		/*
+		 * - (void)resetPassword:(NSDictionary *)params withToken:(NSString *)token completionHandler:(SuccessBlock)result errorHandler:(ErrorBlock)errorBlock;
+		 */
+
+		/// <summary>
+		/// Resets the password.
+		/// </summary>
+		/// <param name="parameters">Parameters.</param>
+		/// <param name="completionHandler">Completion handler.</param>
+		/// <param name="errorHandler">Error handler.</param>
+		[Export("resetPassword:completionHandler:errorHandler:")]
+		void ResetPassword(NSDictionary parameters, SuccessCallback completionHandler, ErrorCallback errorHandler);
+
+		/*
+		 * - (void)sendPassword:(NSDictionary *)params completionHandler:(SuccessBlock)result errorHandler:(ErrorBlock)errorBlock;
+		 */
+
+		/// <summary>
+		/// Sends the password.
+		/// </summary>
+		/// <param name="parameters">Parameters.</param>
+		/// <param name="completionHandler">Completion handler.</param>
+		/// <param name="errorHandler">Error handler.</param>
+		[Export("sendPassword:completionHandler:errorHandler:")]
+		void SendPassword(NSDictionary parameters, SuccessCallback completionHandler, ErrorCallback errorHandler);
+
+		/*
+		 * - (void)loginWithUsername:(NSString *)username andPassword:(NSString *)password completionHandler:(SuccessBlock)info errorHandler:(ErrorBlock)error;
+		 */
+
+		/// <summary>
+		/// Logins the with username and password.
+		/// </summary>
+		/// <param name="username">Username.</param>
+		/// <param name="password">Password.</param>
+		/// <param name="completionHandler">Completion handler.</param>
+		/// <param name="errorHandler">Error handler.</param>
+		[Export("loginWithUsername:andPassword:completionHandler:errorHandler:")]
+		void LoginWithUsernameAndPassword(NSString username, NSString password, SuccessCallback completionHandler, ErrorCallback errorHandler);
+
+		/*
+		 * - (void)fetchAccountDetails:(SuccessBlock)info errorHandler:(ErrorBlock)error;
+		 */
+
+		/// <summary>
+		/// Fetchs the account details.
+		/// </summary>
+		/// <param name="completionHandler">Completion handler.</param>
+		/// <param name="errorHandler">Error handler.</param>
+		[Export("fetchAccountDetails:errorHandler:")]
+		void FetchAccountDetails(SuccessCallback completionHandler, ErrorCallback errorHandler);
+
+		/*
+		 * - (void)generateAccessToken:(SuccessBlock)info errorHandler:(ErrorBlock)error;
+		 */
+
+		/// <summary>
+		/// Generates the access token.
+		/// </summary>
+		/// <param name="completionHandler">Completion handler.</param>
+		/// <param name="errorHandler">Error handler.</param>
+		[Export("generateAccessToken:errorHandler:")]
+		void GenerateAccessToken(SuccessCallback completionHandler, ErrorCallback errorHandler);
+
+		/*
+		 * - (void)changePassword:(NSDictionary *)params completionHandler:(SuccessBlock)info errorHandler:(ErrorBlock)error;
+		 */
+
+		/// <summary>
+		/// Changes the password.
+		/// </summary>
+		/// <param name="parameters">Parameters.</param>
+		/// <param name="completionHandler">Completion handler.</param>
+		/// <param name="errorHandler">Error handler.</param>
+		[Export("changePassword:completionHandler:errorHandler:")]
+		void ChangePassword(NSDictionary parameters, SuccessCallback completionHandler, ErrorCallback errorHandler);
+
+		/*
+		 * - (void)checkAccount:(NSString *)user completionHandler:(SuccessBlock)info errorHandler:(ErrorBlock)error;
+		 */
+
+		/// <summary>
+		/// Checks the account.
+		/// </summary>
+		/// <param name="user">User.</param>
+		/// <param name="completionHandler">Completion handler.</param>
+		/// <param name="errorHandler">Error handler.</param>
+		[Export("checkAccount:completionHandler:errorHandler:")]
+		void CheckAccount(NSString user, SuccessCallback completionHandler, ErrorCallback errorHandler);
+
+		/*
+		 * - (void)handleOpenURL:(NSURL *)url;
+		 */
+
+		/// <summary>
+		/// Opens the URL
+		/// </summary>
+		/// <param name="url">URL.</param>
+		[Export("handleOpenURL:")]
+		void HandleOpenURL(NSUrl url);
+
+		/*
+		 * - (void)logoutAccount;
+		 */
+
+		/// <summary>
+		/// Logs out the account.
+		/// </summary>
+		[Export("logoutAccount")]
+		void LogoutAccount();
+
+		/*
+		 * - (BOOL)isLoggedIn;
+		 */
+
+		/// <summary>
+		/// Is the user logged in?
+		/// </summary>
+		/// <returns><c>true</c>, if logged in was ised, <c>false</c> otherwise.</returns>
+		[Export("isLoggedIn")]
+		bool isLoggedIn();
 
 
 		// Properties

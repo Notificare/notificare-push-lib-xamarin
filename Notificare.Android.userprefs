@@ -1,11 +1,11 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.8e9372c7" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Notificare.Android.Sample/MainActivity.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Android-4.2" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Notificare.Android/Transforms/Metadata.xml">
     <Files>
-      <File FileName="Notificare.Android.Sample/MyIntentReceiver.cs" Line="38" Column="1" />
-      <File FileName="Notificare.Android.Sample/Properties/AndroidManifest.xml" Line="43" Column="98" />
+      <File FileName="Notificare.Android/Transforms/Metadata.xml" Line="10" Column="14" />
+      <File FileName="Notificare.Android/Jars/AboutJars.txt" Line="1" Column="1" />
       <File FileName="Notificare.Android.Sample/MainApplication.cs" Line="1" Column="1" />
-      <File FileName="Notificare.Android.Sample/MainActivity.cs" Line="29" Column="5" />
+      <File FileName="Notificare.Android.Sample/MainActivity.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

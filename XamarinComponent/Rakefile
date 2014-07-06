@@ -27,8 +27,8 @@ task :default => "xamarin-component/xamarin-component.exe" do
 		--icon="icons/notificare_512x512.png" \
 		--library="ios":"../Notificare.iOS/bin/Release/Notificare.iOS.dll" \
 		--library="android":"../Notificare.Android/bin/Release/Notificare.Android.dll" \
-		--sample="iOS Sample. Demonstrates Notificare on iOS.":"samples/Notificare.iOS.SampleApp/Notificare.iOS.SampleApp.sln"
-		--sample="Android Sample. Demonstrates Notificare on Android.":"samples/Notificare.Android.SampleApp/Notificare.Android.SampleApp.sln"
+		--sample="iOS Sample. Demonstrates Notificare on iOS.":"samples/Notificare.iOS.SampleApp/Notificare.iOS.SampleApp.sln" \
+		--sample="Android Sample. Demonstrates Notificare on Android.":"samples/Notificare.Android.Sample/Notificare.Android.Sample.sln"
 		END
 	puts "* Creating #{COMPONENT}..."
 	puts line.strip.gsub "\t\t", "\\\n    "

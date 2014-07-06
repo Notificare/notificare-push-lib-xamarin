@@ -174,13 +174,9 @@ namespace Notificare.iOS.TestApp
 				Console.WriteLine ("Update locations");
 			}
 
-			public override void DidRangeBeaconsInRegion (NotificarePushLib library, NSArray beacons, CLBeaconRegion region) 
+			public override void DidRangeBeaconsInRegion (NotificarePushLib library, NSArray beacons, CLRegion region) 
 			{
-				foreach (NSDictionary item in beacons) {
-					if (item.ContainsKey ("info")) {
-						NotificarePushLib.Shared ().OpenBeacon (item.ObjectForKey ("info"));
-					}
-				}
+				Console.WriteLine ("Did range {0} beacons", beacons.Count);
 			}
 		
 		}

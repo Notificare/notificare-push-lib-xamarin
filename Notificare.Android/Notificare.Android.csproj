@@ -25,14 +25,18 @@
     <ConsolePause>false</ConsolePause>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>full</DebugType>
-    <Optimize>true</Optimize>
+    <Optimize>false</Optimize>
     <OutputPath>bin\Release</OutputPath>
     <DefineConstants>__MOBILE__;__ANDROID__;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
     <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
+    <EnvironmentVariables>
+      <EnvironmentVariables>
+        <Variable name="JAVA_OPTS" value="-XX:-UseSplitVerifier" />
+      </EnvironmentVariables>
+    </EnvironmentVariables>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -56,13 +60,14 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Xamarin.Android.Bindings.targets" />
   <ItemGroup>
-    <EmbeddedJar Include="Jars\notificare-push-lib.jar" />
-  </ItemGroup>
-  <ItemGroup>
     <LibraryProjectZip Include="NotificarePushLib.zip" />
   </ItemGroup>
   <ItemGroup>
     <ReferenceJar Include="Jars\android-support-v4.jar" />
+    <ReferenceJar Include="Jars\android-support-v7-appcompat.jar" />
     <ReferenceJar Include="Jars\google-play-services.jar" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedJar Include="Jars\notificare-push-lib.jar" />
   </ItemGroup>
 </Project>

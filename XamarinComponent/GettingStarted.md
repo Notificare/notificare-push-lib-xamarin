@@ -186,6 +186,7 @@ add the following inside the AndroidManifest application element
 
     <service android:name="re.notifica.push.gcm.PushService" android:label="Notificare Push Service" />
     <activity android:name="re.notifica.ui.NotificationActivity" />
+    <activity android:name="re.notifica.ui.UserPreferencesActivity" />
 ```
 
 If you need to push maps to your app, you will need an API key for Google Maps for Android. See [Android Documentation](https://developers.google.com/maps/documentation/android/start#get_an_android_certificate_and_the_google_maps_api_key) for details
@@ -193,7 +194,7 @@ If you need to push maps to your app, you will need an API key for Google Maps f
 If you want to log app activity events to Notificare, like app opens and session length, your activities should either override re.notifica.push.gcm.BaseActivity, or add the following method calls to OnResume and OnPause
 
 ```csharp
-	protected override void OnCreate (Bundle bundle)
+	protected override void OnResume (Bundle bundle)
 	{
 		base.OnResume (bundle);
 
@@ -203,7 +204,7 @@ If you want to log app activity events to Notificare, like app opens and session
 		Notificare.Android.Notificare.Shared ().EventLogger.LogStartSession ();
 	}
 
-	protected override void OnDestroy
+	protected override void OnPause
 	{
 		base.OnPause();
 

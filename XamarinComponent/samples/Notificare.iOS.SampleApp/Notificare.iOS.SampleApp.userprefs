@@ -1,6 +1,6 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhoneRetina.7.1" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Notificare.iOS.SampleApp/Notificare.plist">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Notificare.iOS.SampleApp/Notificare_iOS_SampleAppViewController.cs">
     <Files>
       <File FileName="../../Details.md" Line="1" Column="1" />
       <File FileName="Notificare.iOS.SampleApp/AppDelegate.cs" Line="1" Column="1" />
@@ -13,17 +13,6 @@
       <File FileName="Notificare.iOS.SampleApp/NotificareResources.bundle/nl.lproj/Localizable.strings" Line="1" Column="1" />
       <File FileName="Notificare.iOS.SampleApp/NotificareTags.plist" />
     </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State expanded="True">
-          <Node name="Notificare.iOS.SampleApp" expanded="True">
-            <Node name="References" expanded="True" />
-            <Node name="Notificare.plist" selected="True" />
-            <Node name="Notificare_iOS_SampleAppViewController.cs" expanded="True" />
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
