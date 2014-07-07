@@ -1,19 +1,6 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhoneRetina.7.1" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Notificare.iOS.SampleApp/Notificare_iOS_SampleAppViewController.cs">
-    <Files>
-      <File FileName="../../Details.md" Line="1" Column="1" />
-      <File FileName="Notificare.iOS.SampleApp/AppDelegate.cs" Line="1" Column="1" />
-      <File FileName="../../GettingStarted.md" Line="1" Column="1" />
-      <File FileName="Notificare.iOS.SampleApp/Notificare.plist" />
-      <File FileName="Notificare.iOS.SampleApp/Info.plist" />
-      <File FileName="Notificare.iOS.SampleApp/Notificare_iOS_SampleAppViewController.designer.cs" Line="1" Column="1" />
-      <File FileName="Notificare.iOS.SampleApp/Notificare_iOS_SampleAppViewController.cs" Line="1" Column="1" />
-      <File FileName="Notificare.iOS.SampleApp/NotificareResources.bundle/en.lproj/Localizable.strings" Line="1" Column="1" />
-      <File FileName="Notificare.iOS.SampleApp/NotificareResources.bundle/nl.lproj/Localizable.strings" Line="1" Column="1" />
-      <File FileName="Notificare.iOS.SampleApp/NotificareTags.plist" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.Kabouter Wesley" />
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
