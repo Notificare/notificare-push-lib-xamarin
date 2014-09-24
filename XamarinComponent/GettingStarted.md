@@ -23,7 +23,7 @@ The official Notificare Xamarin SDK. Rich and interactive push notifications for
 * In Xamarin Studio or Visual Studio, create a new Android project with that same package name.
 * Using Xamarin Studio's built-in Component Store, add the free Notificare component to your project.
 * In the same Component Store, add the Google Play Services component for Gingerbread.
-* Find your Application Key and Application Secret in the [Notificare dashboard](https://dashboard.notifica.re/) under Settings - App Keys. Use these to fill notificare.properties together with the Project Number from the Google API Console.
+* Find your Application Key and Application Secret in the [Notificare dashboard](https://dashboard.notifica.re/) under Settings - App Keys. Use these to fill notificareconfig.properties together with the Project Number from the Google API Console.
 
 ### Implementation iOS
 
@@ -48,7 +48,7 @@ public partial class AppDelegate : UIApplicationDelegate
 		NotificarePushLib.Shared().Launch ();
 
 		// Start notifications
-		NotificarePushLib.Shared().RegisterForRemoteNotifications (UIRemoteNotificationType.Alert | UIRemoteNotificationType.Sound | UIRemoteNotificationType.Badge);
+		NotificarePushLib.Shared().RegisterForNotifications ();
 		if (options != null && options.ContainsKey( UIApplication.LaunchOptionsRemoteNotificationKey ) ) 
 		{
 			NotificarePushLib.Shared().HandleOptions (options [UIApplication.LaunchOptionsRemoteNotificationKey] as NSDictionary);

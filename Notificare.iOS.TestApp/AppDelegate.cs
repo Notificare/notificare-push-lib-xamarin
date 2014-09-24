@@ -44,7 +44,7 @@ namespace Notificare.iOS.TestApp
 
 
 			// Start notifications
-			NotificarePushLib.Shared().RegisterForRemoteNotifications (UIRemoteNotificationType.Alert | UIRemoteNotificationType.Sound | UIRemoteNotificationType.Badge);
+			NotificarePushLib.Shared().RegisterForNotifications ();
 			if (options != null && options.ContainsKey( UIApplication.LaunchOptionsRemoteNotificationKey ) ) 
 			{
 				NotificarePushLib.Shared().HandleOptions (options [UIApplication.LaunchOptionsRemoteNotificationKey] as NSDictionary);
@@ -114,27 +114,27 @@ namespace Notificare.iOS.TestApp
 				return true;
 			}
 
-			public override void WillOpenNotification(NotificarePushLib library, Notification notification)
+			public override void WillOpenNotification(NotificarePushLib library, NotificareNotification notification)
 			{
 				Console.WriteLine ("Will open notification");
 			}
 
-			public override void DidOpenNotification(NotificarePushLib library, Notification notification)
+			public override void DidOpenNotification(NotificarePushLib library, NotificareNotification notification)
 			{
 				Console.WriteLine ("Did open notification: {0}", notification);
 			}
 
-			public override void DidCloseNotification(NotificarePushLib library, Notification notification)
+			public override void DidCloseNotification(NotificarePushLib library, NotificareNotification notification)
 			{
 				Console.WriteLine ("Did close notification");
 			}
 
-			public override void DidFailToOpenNotification(NotificarePushLib library, Notification notification)
+			public override void DidFailToOpenNotification(NotificarePushLib library, NotificareNotification notification)
 			{
 				Console.WriteLine ("Failed to open notification");
 			}
 
-			public override void WillExecuteAction(NotificarePushLib library, Notification notification)
+			public override void WillExecuteAction(NotificarePushLib library, NotificareNotification notification)
 			{
 				Console.WriteLine ("Will exexcute action");
 			}

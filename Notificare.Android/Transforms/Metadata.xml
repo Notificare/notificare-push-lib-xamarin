@@ -14,7 +14,6 @@
   <attr path="/api/package[@name='re.notifica.oauth2']" name="managedName">Notificare.Android.OAuth2</attr>
   <attr path="/api/package[@name='re.notifica.push.gcm']" name="managedName">Notificare.Android.Push.GCM</attr>
   <attr path="/api/package[@name='re.notifica.receiver']" name="managedName">Notificare.Android.Receiver</attr>
-  <attr path="/api/package[@name='re.notifica.support.v4.app']" name="managedName">Notificare.Android.Support.V4.App</attr>
   <attr path="/api/package[@name='re.notifica.support.v7.app']" name="managedName">Notificare.Android.Support.V7.App</attr>
   <attr path="/api/package[@name='re.notifica.ui']" name="managedName">Notificare.Android.UI</attr>
   <attr path="/api/package[@name='re.notifica.urlimageviewhelper']" name="managedName">Notificare.Android.UrlImageviewHelper</attr>

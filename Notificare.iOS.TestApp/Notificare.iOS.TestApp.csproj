@@ -52,7 +52,7 @@
     <MtouchI18n>
     </MtouchI18n>
     <MtouchArch>ARMv7, ARMv7s</MtouchArch>
-    <CodesignProvision>7BBCEEED-9A70-461D-8E0F-CDD949120AD0</CodesignProvision>
+    <CodesignProvision>25C80311-B025-4AAE-B46F-B24105F7EE86</CodesignProvision>
     <IpaPackageName>
     </IpaPackageName>
     <MtouchLink>None</MtouchLink>
@@ -168,6 +168,7 @@
     <InterfaceDefinition Include="Notificare_iOS_TestAppViewController.xib" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\Notificare.iOS\Notificare.iOS.csproj">
       <Project>{D26680A7-801B-499A-A5AA-5CE5F0E49425}</Project>

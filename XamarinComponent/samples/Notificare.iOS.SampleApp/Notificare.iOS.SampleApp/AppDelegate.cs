@@ -40,24 +40,13 @@ namespace Notificare.iOS.SampleApp
 
 
 			// Start notifications
-			NotificarePushLib.Shared().RegisterForRemoteNotifications (UIRemoteNotificationType.Alert | UIRemoteNotificationType.Sound | UIRemoteNotificationType.Badge);
+			NotificarePushLib.Shared().RegisterForNotifications ();
 			if (options != null && options.ContainsKey( UIApplication.LaunchOptionsRemoteNotificationKey ) ) 
 			{
 				NotificarePushLib.Shared().HandleOptions (options [UIApplication.LaunchOptionsRemoteNotificationKey] as NSDictionary);
 			}
 
 			return true;
-		}
-
-		private NSString DeviceTokenConverter( NSData token )
-		{
-			var stringBuilder = new StringBuilder ("");
-
-			foreach (var tokenByte in token) {
-				stringBuilder.Append ( tokenByte.ToString ("x2") );
-			}
-
-			return new NSString ( stringBuilder.ToString () );
 		}
 
 		private void AddTags(NSArray tags) {
@@ -113,27 +102,27 @@ namespace Notificare.iOS.SampleApp
 				return true;
 			}
 
-			public override void WillOpenNotification(NotificarePushLib library, Notification notification)
+			public override void WillOpenNotification(NotificarePushLib library, NotificareNotification notification)
 			{
 				Console.WriteLine ("Will open notification");
 			}
 
-			public override void DidOpenNotification(NotificarePushLib library, Notification notification)
+			public override void DidOpenNotification(NotificarePushLib library, NotificareNotification notification)
 			{
 				Console.WriteLine ("Did open notification: {0}", notification);
 			}
 
-			public override void DidCloseNotification(NotificarePushLib library, Notification notification)
+			public override void DidCloseNotification(NotificarePushLib library, NotificareNotification notification)
 			{
 				Console.WriteLine ("Did close notification");
 			}
 
-			public override void DidFailToOpenNotification(NotificarePushLib library, Notification notification)
+			public override void DidFailToOpenNotification(NotificarePushLib library, NotificareNotification notification)
 			{
 				Console.WriteLine ("Failed to open notification");
 			}
 
-			public override void WillExecuteAction(NotificarePushLib library, Notification notification)
+			public override void WillExecuteAction(NotificarePushLib library, NotificareNotification notification)
 			{
 				Console.WriteLine ("Will exexcute action");
 			}

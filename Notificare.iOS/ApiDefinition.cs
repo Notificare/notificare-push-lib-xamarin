@@ -10,7 +10,7 @@ namespace Notificare.iOS
 	#region NotificarePushLib
 
 	[BaseType (typeof (NSObject))]
-	interface Notification
+	interface NotificareNotification
 	{
 
 	}
@@ -18,6 +18,70 @@ namespace Notificare.iOS
 	[BaseType (typeof (NSObject))]
 	[Model, Protocol]
 	interface NotificarePushLibDelegate {
+
+		/*
+		 * - (void)notificarePushLib:(NotificarePushLib *)library onReady:(NSDictionary *)info;
+		 */
+
+		/// <summary>
+		/// Raises the ready event.
+		/// </summary>
+		/// <param name="library">Library.</param>
+		/// <param name="info">Info.</param>
+		[Export ("notificarePushLib:onReady:")]
+		void OnReady (NotificarePushLib library, NSDictionary info);
+
+		/*
+		 * - (void)notificarePushLib:(NotificarePushLib *)library didRegisterForWebsocketsNotifications:(NSString *)token;
+		 */
+
+		/// <summary>
+		/// Did register for websockets notifications.
+		/// </summary>
+		/// <param name="library">Library.</param>
+		/// <param name="token">Token.</param>
+		[Export ("notificarePushLib:didRegisterForWebsocketsNotifications:")]
+		void DidRegisterForWebsocketsNotifications (NotificarePushLib library, NSString token);
+
+
+		/*
+		 * - (void)notificarePushLib:(NotificarePushLib *)library didReceiveWebsocketNotification:(NSDictionary *)info;
+		 */
+
+		/// <summary>
+		/// Did receive websocket notification.
+		/// </summary>
+		/// <param name="library">Library.</param>
+		/// <param name="info">Info.</param>
+		[Export ("notificarePushLib:didReceiveWebsocketNotification:")]
+		void DidReceiveWebsocketNotification (NotificarePushLib library, NSDictionary info);
+
+
+		/*
+		 * - (void)notificarePushLib:(NotificarePushLib *)library didFailToRegisterWebsocketNotifications:(NSError *)error;
+		 */
+
+		/// <summary>
+		/// Did fail to register websocket notifications.
+		/// </summary>
+		/// <param name="library">Library.</param>
+		/// <param name="error">Error.</param>
+		[Export ("notificarePushLib:didFailToRegisterWebsocketNotifications:")]
+		void DidFailToRegisterWebsocketNotifications (NotificarePushLib library, NSError error);
+
+
+		/*
+		 * - (void)notificarePushLib:(NotificarePushLib *)library didCloseWebsocketConnection:(NSString *)reason;
+		 */
+
+		/// <summary>
+		/// Did close websocket connection.
+		/// </summary>
+		/// <param name="library">Library.</param>
+		/// <param name="reason">Reason.</param>
+		[Export ("notificarePushLib:didCloseWebsocketConnection:")]
+		void DidCloseWebsocketConnection (NotificarePushLib library, NSString reason);
+
 
 		/*
 		 * - (BOOL)notificarePushLib:(NotificarePushLib *)library shouldHandleNotification:(NSDictionary *)info;
@@ -32,6 +96,20 @@ namespace Notificare.iOS
 		[Export ("notificarePushLib:shouldHandleNotification:"), DefaultValue ("true")]
 		bool ShouldHandleNotification (NotificarePushLib library, NSDictionary info);
 
+
+		/*
+		 * - (void)notificarePushLib:(NotificarePushLib *)library didUpdateBadge:(int)badge;
+		 */
+
+		/// <summary>
+		/// Did update the badge.
+		/// </summary>
+		/// <param name="library">Library.</param>
+		/// <param name="badge">Badge.</param>
+		[Export ("notificarePushLib:didUpdatebadge:")]
+		void DidUpdateBadge (NotificarePushLib library, int badge);
+
+
 		/*
 		 * - (void)notificarePushLib:(NotificarePushLib *)library willOpenNotification:(Notification *)notification;
 		 */
@@ -42,7 +120,7 @@ namespace Notificare.iOS
 		/// <param name="library">Library.</param>
 		/// <param name="notification">Notification.</param>
 		[Export ("notificarePushLib:willOpenNotification:")]
-		void WillOpenNotification (NotificarePushLib library, Notification notification);
+		void WillOpenNotification (NotificarePushLib library, NotificareNotification notification);
 
 		/*
 		 * - (void)notificarePushLib:(NotificarePushLib *)library didOpenNotification:(Notification *)notification;
@@ -54,7 +132,7 @@ namespace Notificare.iOS
 		/// <param name="library">Library.</param>
 		/// <param name="notification">Notification.</param>
 		[Export ("notificarePushLib:didOpenNotification:")]
-		void DidOpenNotification (NotificarePushLib library, Notification notification);
+		void DidOpenNotification (NotificarePushLib library, NotificareNotification notification);
 
 		/*
 		 * - (void)notificarePushLib:(NotificarePushLib *)library didCloseNotification:(Notification *)notification;
@@ -66,7 +144,7 @@ namespace Notificare.iOS
 		/// <param name="library">Library.</param>
 		/// <param name="notification">Notification.</param>
 		[Export ("notificarePushLib:didCloseNotification:")]
-		void DidCloseNotification (NotificarePushLib library, Notification notification);
+		void DidCloseNotification (NotificarePushLib library, NotificareNotification notification);
 
 		/*
 		 * - (void)notificarePushLib:(NotificarePushLib *)library didFailToOpenNotification:(Notification *)notification;
@@ -78,7 +156,7 @@ namespace Notificare.iOS
 		/// <param name="library">Library.</param>
 		/// <param name="notification">Notification.</param>
 		[Export ("notificarePushLib:didFailToOpenNotification:")]
-		void DidFailToOpenNotification (NotificarePushLib library, Notification notification);
+		void DidFailToOpenNotification (NotificarePushLib library, NotificareNotification notification);
 
 		/*
 		 * - (void)notificarePushLib:(NotificarePushLib *)library willExecuteAction:(Notification *)notification;
@@ -90,7 +168,7 @@ namespace Notificare.iOS
 		/// <param name="library">Library.</param>
 		/// <param name="notification">Notification.</param>
 		[Export ("notificarePushLib:willExecuteAction:")]
-		void WillExecuteAction (NotificarePushLib library, Notification notification);
+		void WillExecuteAction (NotificarePushLib library, NotificareNotification notification);
 
 		/*
 		 * - (void)notificarePushLib:(NotificarePushLib *)library didExecuteAction:(NSDictionary *)info;
@@ -322,7 +400,7 @@ namespace Notificare.iOS
 	public delegate void SuccessCallback( NSDictionary info );
 	public delegate void ErrorCallback( NSError error );
 
-	// @interface NotificarePushLib : NSObject <SRWebSocketDelegate,NotificareDelegate,NotificareActionsDelegate,CLLocationManagerDelegate>
+	// @interface NotificarePushLib : NSObject <NotificareSRWebSocketDelegate,NotificareDelegate,NotificareActionsDelegate,CLLocationManagerDelegate>
 	[BaseType (typeof (NSObject))]
 	interface NotificarePushLib 
 	{
@@ -355,7 +433,21 @@ namespace Notificare.iOS
 		/// </summary>
 		/// <param name="types">Types.</param>
 		[Export("registerForRemoteNotificationsTypes:")]
+		[Obsolete("RegisterForRemoteNotifications is deprecated, please use RegisterForNotifications instead.", true)]
 		void RegisterForRemoteNotifications (UIRemoteNotificationType types);
+
+
+		/*
+		 * - (void)registerForNotifications;
+		 */
+
+		/// <summary>
+		/// Registers for APNS
+		/// </summary>
+		/// <param name="types">Types.</param>
+		[Export("registerForNotifications")]
+		void RegisterForNotifications ();
+
 
 		/*
 		 * - (void)handleOptions:(NSDictionary *)options;
@@ -379,6 +471,7 @@ namespace Notificare.iOS
 		/// </summary>
 		/// <param name="token">Token.</param>
 		[Export("registerDevice:")]
+		[Obsolete ("RegisterDevice is deprecated, use RegisterDevice with callbacks")] 
 		void RegisterDevice( NSData token );
 
 		/*
@@ -409,6 +502,7 @@ namespace Notificare.iOS
 		/// <param name="token">Token.</param>
 		/// <param name="userID">User identifier.</param>
 		[Export("registerDevice:withUserID:")]
+		[Obsolete ("RegisterDeviceWithUserID is deprecated, use RegisterDeviceWithUserID with callbacks")] 
 		void RegisterDeviceWithUserID( NSData token, NSString userID );
 
 		/*
@@ -445,6 +539,7 @@ namespace Notificare.iOS
 		/// <param name="userID">User ID.</param>
 		/// <param name="username">Username.</param>
 		[Export("registerDevice:withUserID:withUsername:")]
+		[Obsolete ("RegisterDeviceWithUserIDWithUsername is deprecated, use RegisterDeviceWithUserIDWithUsername with callbacks")] 
 		void RegisterDeviceWithUserIDWithUsername( NSData token, NSString userID, NSString username );
 
 		/*
@@ -464,6 +559,76 @@ namespace Notificare.iOS
 		/// <param name="errorHandler">Error handler.</param>
 		[Export("registerDevice:withUserID:withUsername:completionHandler:errorHandler:")]
 		void RegisterDeviceWithUserIDWithUsername( NSData token, NSString userID, NSString username, SuccessCallback completionHandler, ErrorCallback errorHandler );
+
+		/*
+		 * - (void)registerForWebsockets;
+		 */
+
+		/// <summary>
+		/// Registers for websockets.
+		/// </summary>
+		[Export("registerForWebsockets")]
+		void RegisterForWebsockets();
+
+		/*
+		 * - (void)unregisterForWebsockets;
+		 */
+
+		/// <summary>
+		/// Unregisters for websockets.
+		/// </summary>
+		[Export("unregisterForWebsockets")]
+		void UnregisterForWebsockets();
+
+		/*
+		 * - (void)registerDeviceForWebsockets:(NSString *)token completionHandler:(SuccessBlock)info errorHandler:(ErrorBlock)error;
+		 */
+
+		/// <summary>
+		/// Registers the Websockets token from Notificare anonymously
+		/// </summary>
+		/// <param name="token">Token.</param>
+		/// <param name="completionHandler">Completion handler.</param>
+		/// <param name="errorHandler">Error handler.</param>
+		[Export("registerDeviceForWebsockets:completionHandler:errorHandler:")]
+		void RegisterDeviceForWebsockets( NSString token, SuccessCallback completionHandler, ErrorCallback errorHandler );
+
+		/*
+		 * - (void)registerDeviceForWebsockets:(NSString *)token withUserID:(NSString *)userID completionHandler:(SuccessBlock)info errorHandler:(ErrorBlock)error;
+		 */
+
+		/// <summary>
+		/// Registers the Websockets token from Notificare by creating a user profile with any string
+		/// This allows the registrations of more than one device in one user profile
+		/// You can also map this ID to your existing user ID if you eventually using any means of authentication
+		/// Consider using the method with the completion and error blocks if you want to make sure that you create tags or start location updates
+		/// only after successfully register a device token.
+		/// </summary>
+		/// <param name="token">Token.</param>
+		/// <param name="userID">User ID.</param>
+		/// <param name="completionHandler">Completion handler.</param>
+		/// <param name="errorHandler">Error handler.</param>
+		[Export("registerDeviceForWebsockets:withUserID:completionHandler:errorHandler:")]
+		void RegisterDeviceForWebsocketsWithUserID( NSString token, NSString userID, SuccessCallback completionHandler, ErrorCallback errorHandler );
+
+		/*
+		 * - (void)registerDeviceForWebsockets:(NSString *)token withUserID:(NSString *)userID withUsername:(NSString *)username completionHandler:(SuccessBlock)info errorHandler:(ErrorBlock)error;
+		 */
+
+		/// <summary>
+		/// Registers the Websockets token from Notificare by creating a user profile with any string
+		/// This allows the registrations of more than one device in one user profile
+		/// You can also map this ID to your existing user ID if you eventually using any means of authentication
+		/// Adds another string that can be used to display name
+		/// </summary>
+		/// <param name="token">Token.</param>
+		/// <param name="userID">User ID.</param>
+		/// <param name="username">Username.</param>
+		/// <param name="completionHandler">Completion handler.</param>
+		/// <param name="errorHandler">Error handler.</param>
+		[Export("registerDeviceForWebsockets:withUserID:withUsername:completionHandler:errorHandler:")]
+		void RegisterDeviceForWebsocketsWithUserIDWithUsername( NSString token, NSString userID, NSString username, SuccessCallback completionHandler, ErrorCallback errorHandler );
+
 
 		/*
 		 * - (void)unregisterDevice;
@@ -531,6 +696,13 @@ namespace Notificare.iOS
 		/// </summary>
 		[Export ("startLocationUpdates")]
 		void StartLocationUpdates();
+
+		/*
+		 * -(BOOL)checkLocationUpdates;
+		 */
+
+		[Export ("checkLocationUpdates")]
+		bool CheckLocationUpdates ();
 
 		/*
 		 * - (void)updateLocation:(NSString*)device withLatitude:(float)latitude andLongitude:(float)longitude;
@@ -709,6 +881,99 @@ namespace Notificare.iOS
 		void ReplyWithLabelAndData (NSString notification, NSString label, NSDictionary data);
 
 		/*
+		 * - (void)handleAction:(NSString *)action forNotification:(NSDictionary *)notification withData:(NSDictionary *)data completionHandler:(SuccessBlock)info errorHandler:(ErrorBlock)errorBlock;
+		 */
+
+		/// <summary>
+		/// Handles the action for notification with data for iOS8.
+		/// </summary>
+		/// <param name="action">Action.</param>
+		/// <param name="notification">Notification.</param>
+		/// <param name="data">Data.</param>
+		/// <param name="completionHandler">Completion handler.</param>
+		/// <param name="errorHandler">Error handler.</param>
+		[Export ("handleAction:forNotification:withData:completionHandler:errorHandler:")]
+		void HandleActionForNotificationWithData (NSString action, NSDictionary notification, NSDictionary data, SuccessCallback completionHandler, ErrorCallback errorHandler);
+
+
+		/*
+		 * - (void)logCustomEvent:(NSString *)name withData:(NSDictionary *)data completionHandler:(SuccessBlock)info errorHandler:(ErrorBlock)error;
+		 */
+
+		/// <summary>
+		/// Logs the custom event with data.
+		/// </summary>
+		/// <param name="name">Name.</param>
+		/// <param name="data">Data.</param>
+		/// <param name="completionHandler">Completion handler.</param>
+		/// <param name="errorHandler">Error handler.</param>
+		[Export ("logCustomEvent:withData:completionHandler:errorHandler:")]
+		void LogCustomEventWithData (NSString name, NSDictionary data, SuccessCallback completionHandler, ErrorCallback errorHandler);
+
+
+		/*
+		 * - (void)saveToInbox:(NSDictionary *)notification forApplication:(UIApplication *)application completionHandler:(SuccessBlock)result errorHandler:(ErrorBlock)errorBlock;
+		 */
+
+		/// <summary>
+		/// Saves to inbox for application.
+		/// </summary>
+		/// <param name="notification">Notification.</param>
+		/// <param name="application">Application.</param>
+		/// <param name="completionHandler">Completion handler.</param>
+		/// <param name="errorHandler">Error handler.</param>
+		[Export ("saveToInbox:forApplication:completionHandler:errorHandler:")]
+		void SaveToInboxForApplication (NSDictionary notification, UIApplication application, SuccessCallback completionHandler, ErrorCallback errorHandler);
+
+
+		/*
+		 * - (void)removeFromInbox:(NSDictionary *)notification;
+		 */
+
+		/// <summary>
+		/// Removes from inbox.
+		/// </summary>
+		/// <param name="notification">Notification.</param>
+		[Export ("removeFromInbox:")]
+		void RemoveFromInbox (NSDictionary notification);
+
+
+		/*
+		 * -(void)openInbox;
+		 */
+
+		/// <summary>
+		/// Opens the inbox.
+		/// </summary>
+		[Export ("openInbox")]
+		void OpenInbox ();
+
+
+		/*
+		 * - (NSArray *)myInbox
+		 */
+
+		/// <summary>
+		/// The inbox.
+		/// </summary>
+		/// <returns>The inbox.</returns>
+		[Export ("myInbox")]
+		NSArray MyInbox ();
+
+
+		/*
+		 * -(int)myBadge;
+		 */
+
+		/// <summary>
+		/// The badge.
+		/// </summary>
+		/// <returns>The badge.</returns>
+		[Export ("myBadge")]
+		int MyBadge ();
+
+
+		/*
 		 * - (void)createAccount:(NSDictionary *)params completionHandler:(SuccessBlock)result errorHandler:(ErrorBlock)errorBlock;
 		 */
 
@@ -733,6 +998,19 @@ namespace Notificare.iOS
 		/// <param name="errorHandler">Error handler.</param>
 		[Export("resetPassword:completionHandler:errorHandler:")]
 		void ResetPassword(NSDictionary parameters, SuccessCallback completionHandler, ErrorCallback errorHandler);
+
+		/*
+		 * - (void)validateAccount:(NSString *)token completionHandler:(SuccessBlock)result errorHandler:(ErrorBlock)errorBlock;
+		 */
+
+		/// <summary>
+		/// Validates the account.
+		/// </summary>
+		/// <param name="token">Token.</param>
+		/// <param name="completionHandler">Completion handler.</param>
+		/// <param name="errorHandler">Error handler.</param>
+		[Export("validateAccount:completionHandler:errorHandler:")]
+		void ValidateAccount(NSString token, SuccessCallback completionHandler, ErrorCallback errorHandler);
 
 		/*
 		 * - (void)sendPassword:(NSDictionary *)params completionHandler:(SuccessBlock)result errorHandler:(ErrorBlock)errorBlock;
@@ -896,8 +1174,8 @@ namespace Notificare.iOS
 		/// Gets the name of the user.
 		/// </summary>
 		/// <value>The name of the user.</value>
-		[Export("userName")]
-		NSString UserName { get; }
+		[Export("username")]
+		NSString Username { get; }
 
 		/*
 		 * @property (nonatomic, assign) UIRemoteNotificationType notificationTypes;
@@ -1033,6 +1311,17 @@ namespace Notificare.iOS
 		/// <value>The beacon region.</value>
 		[Export("beaconRegion")]
 		CLBeaconRegion BeaconRegion { get; }
+
+		/*
+		 * @property (nonatomic, assign) BOOL shouldAlwaysLogBeacons;
+		 */
+
+		/// <summary>
+		/// Gets or sets a value indicating whether this <see cref="Notificare.iOS.NotificarePushLib"/> should always log beacons.
+		/// </summary>
+		/// <value><c>true</c> if should always log beacons; otherwise, <c>false</c>.</value>
+		[Export ("shouldAlwaysLogBeacons")]
+		bool ShouldAlwaysLogBeacons { get; set; }
 
 		/*
 		 * @property (nonatomic, assign) BOOL ranging;

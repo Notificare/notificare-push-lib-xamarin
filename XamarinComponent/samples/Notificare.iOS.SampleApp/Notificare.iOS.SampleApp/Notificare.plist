@@ -3,17 +3,17 @@
 <plist version="1.0">
 <dict>
 	<key>DEVELOPMENT_APP_KEY</key>
-	<string>APPLICATION_KEY</string>
+	<string></string>
 	<key>DEVELOPMENT_APP_SECRET</key>
-	<string>APPLICATION_SECRET</string>
+	<string></string>
 	<key>PRODUCTION_APP_KEY</key>
-	<string>APPLICATION_KEY</string>
+	<string></string>
 	<key>PRODUCTION_APP_SECRET</key>
-	<string>APPLICATION_SECRET</string>
+	<string></string>
 	<key>DEVELOPMENT</key>
 	<true/>
 	<key>RESOURCE_BUNDLE</key>
-	<string>NotificareResources.bundle</string>
+	<string>DefaultTheme.bundle</string>
 	<key>OPTIONS</key>
 	<dict>
 		<key>APP_RUNS_ON_BACKGROUND</key>
