@@ -1,5 +1,7 @@
+.idea/
 .DS_Store
 bin/
 obj/
 Components/
 *.xam
+notificareconfig.properties

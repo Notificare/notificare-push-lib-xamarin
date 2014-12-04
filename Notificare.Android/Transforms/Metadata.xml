@@ -1,14 +1,11 @@
 ﻿<metadata>
-	<!--
-  This sample removes the class: android.support.v4.content.AsyncTaskLoader.LoadTask:
-  <remove-node path="/api/package[@name='android.support.v4.content']/class[@name='AsyncTaskLoader.LoadTask']" />
-  
-  This sample removes the method: android.support.v4.content.CursorLoader.loadInBackground:
-  <remove-node path="/api/package[@name='android.support.v4.content']/class[@name='CursorLoader']/method[@name='loadInBackground']" />
--->
   <attr path="/api/package[@name='re.notifica']" name="managedName">Notificare.Android</attr>
   <attr path="/api/package[@name='re.notifica.action']" name="managedName">Notificare.Android.Action</attr>
   <attr path="/api/package[@name='re.notifica.api']" name="managedName">Notificare.Android.API</attr>
+<!--  
+  <attr path="/api/package[@name='re.notifica.beacon']" name="managedName">Notificare.Android.Beacon</attr>
+  <attr path="/api/package[@name='re.notifica.billing']" name="managedName">Notificare.Android.Billing</attr>
+-->
   <attr path="/api/package[@name='re.notifica.model']" name="managedName">Notificare.Android.Model</attr>
   <attr path="/api/package[@name='re.notifica.notification']" name="managedName">Notificare.Android.Notification</attr>
   <attr path="/api/package[@name='re.notifica.oauth2']" name="managedName">Notificare.Android.OAuth2</attr>

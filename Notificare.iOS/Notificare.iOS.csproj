@@ -11,7 +11,7 @@
     <RootNamespace>Notificare.iOS</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AssemblyName>Notificare.iOS</AssemblyName>
-    <ReleaseVersion>1.0-RC15</ReleaseVersion>
+    <ReleaseVersion>1.1.2</ReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -49,10 +49,5 @@
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Xamarin.ObjcBinding.CSharp.targets" />
   <ItemGroup>
     <ObjcBindingNativeLibrary Include="NotificarePushLib.a" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="NotificarePushLib.linkwith.cs">
-      <DependentUpon>NotificarePushLib.a</DependentUpon>
-    </Compile>
   </ItemGroup>
 </Project>
