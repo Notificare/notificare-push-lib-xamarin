@@ -5,17 +5,9 @@
       <File FileName="Notificare.iOS/ApiDefinition.cs" Line="1" Column="1" />
       <File FileName="Notificare.iOS.TestApp/AppDelegate.cs" Line="1" Column="1" />
       <File FileName="Notificare.iOS.TestApp/Info.plist" />
+      <File FileName="Notificare.iOS/NotificarePushLib.linkwith.cs" Line="55" Column="55" />
+      <File FileName="Notificare.iOS.TestApp/Notificare_iOS_TestAppViewController.cs" Line="1" Column="1" />
     </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State expanded="True">
-          <Node name="Notificare.iOS" expanded="True">
-            <Node name="ApiDefinition.cs" selected="True" />
-          </Node>
-          <Node name="Notificare.iOS.TestApp" expanded="True" />
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
