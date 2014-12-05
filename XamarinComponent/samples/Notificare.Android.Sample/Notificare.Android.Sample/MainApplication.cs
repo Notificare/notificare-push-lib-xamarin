@@ -29,8 +29,7 @@ namespace Notificare.Android.Sample
 			// Keep notifications in the drawer, remove this line or set to true if you want them to clear automatically when opened
 			Notificare.Shared ().AutoCancel = Java.Lang.Boolean.False;
 
-			// Enable notifications
-			Notificare.Shared ().EnableNotifications ();
+
 		}
 	}
 }

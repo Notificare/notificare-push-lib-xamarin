@@ -171,6 +171,7 @@
     <BundleResource Include="DefaultTheme.bundle\pt-PT.lproj\Localizable.strings" />
     <BundleResource Include="DefaultTheme.bundle\pt.lproj\Localizable.strings" />
     <BundleResource Include="NotificareTags.plist" />
+    <BundleResource Include="Notificare.plist" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />

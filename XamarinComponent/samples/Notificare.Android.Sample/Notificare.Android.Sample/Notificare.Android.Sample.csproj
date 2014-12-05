@@ -9,7 +9,7 @@
     <AssemblyName>Notificare.Android.Sample</AssemblyName>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
-    <TargetFrameworkVersion>v4.4</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v5.0</TargetFrameworkVersion>
     <RootNamespace>Notificare.Android.Sample</RootNamespace>
     <AndroidApplication>True</AndroidApplication>
     <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
@@ -17,6 +17,7 @@
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
     <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
+    <ReleaseVersion>1.1.3</ReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>

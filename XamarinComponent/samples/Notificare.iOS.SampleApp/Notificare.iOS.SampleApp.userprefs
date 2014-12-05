@@ -1,14 +1,23 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.Kabouter Wesley" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Notificare.iOS.SampleApp/Notificare.plist">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Notificare.iOS.SampleApp/Info.plist">
     <Files>
       <File FileName="Notificare.iOS.SampleApp/Notificare.plist" />
       <File FileName="Notificare.iOS.SampleApp/NotificareTags.plist" />
       <File FileName="Notificare.iOS.SampleApp/AppDelegate.cs" Line="1" Column="1" />
+      <File FileName="Notificare.iOS.SampleApp/Info.plist" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True" selected="True">
+          <Node name="Notificare.iOS.SampleApp" expanded="True" />
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <AuthorInfo Name="" Email="" Copyright="Notificare B.V." Company="" Trademark="" />
 </Properties>

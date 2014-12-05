@@ -44,7 +44,6 @@ namespace Notificare.iOS.TestApp
 
 
 			// Start notifications
-			NotificarePushLib.Shared().RegisterForNotifications ();
 			if (options != null && options.ContainsKey( UIApplication.LaunchOptionsRemoteNotificationKey ) ) 
 			{
 				NotificarePushLib.Shared().HandleOptions (options [UIApplication.LaunchOptionsRemoteNotificationKey] as NSDictionary);
@@ -107,11 +106,25 @@ namespace Notificare.iOS.TestApp
 			NotificarePushLib.Shared ().OpenNotification (userInfo);
 		}
 			
+		public override void HandleAction (UIApplication application, string actionIdentifier, NSDictionary remoteNotificationInfo, Action completionHandler)
+		{
+			NotificarePushLib.Shared ().HandleActionForNotificationWithData ((NSString)actionIdentifier, 
+				remoteNotificationInfo, 
+				null, 
+				(NSDictionary info) => {
+					completionHandler();
+				},
+				(NSError error) => {
+					completionHandler();
+				}
+			);
+		}
 
 		class MyPushLibDelegate : NotificarePushLibDelegate {
-			public override bool ShouldHandleNotification(NotificarePushLib library, NSDictionary info)
+
+			public override void OnReady (NotificarePushLib library, NSDictionary info)
 			{
-				return true;
+				library.RegisterForNotifications ();
 			}
 
 			public override void WillOpenNotification(NotificarePushLib library, NotificareNotification notification)

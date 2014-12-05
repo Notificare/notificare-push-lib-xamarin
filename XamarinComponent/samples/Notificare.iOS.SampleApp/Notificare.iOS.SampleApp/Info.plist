@@ -5,9 +5,7 @@
 	<key>CFBundleDisplayName</key>
 	<string>Notificare.iOS.SampleApp</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
-	<key>CFBundleVersion</key>
-	<string>1.0</string>
+	<string>1.1.3</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>MinimumOSVersion</key>
@@ -28,5 +26,13 @@
 	</array>
 	<key>CFBundleIdentifier</key>
 	<string>re.notifica.xamarin</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string></string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>remote-notification</string>
+	</array>
+	<key>CFBundleVersion</key>
+	<string>1</string>
 </dict>
 </plist>

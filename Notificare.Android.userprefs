@@ -1,28 +1,44 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" PreferredExecutionTarget="Android.0019328f6e206e" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Notificare.Android.Sample/Assets/notificareconfig.properties">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" PreferredExecutionTarget="Android.068f9ebe2115a907" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Notificare.Android.Sample/MainApplication.cs">
     <Files>
-      <File FileName="Notificare.Android/Transforms/Metadata.xml" Line="6" Column="6" />
+      <File FileName="Notificare.Android/Transforms/Metadata.xml" Line="1" Column="1" />
       <File FileName="Notificare.Android/Jars/AboutJars.txt" Line="1" Column="1" />
-      <File FileName="Notificare.Android.Sample/MainApplication.cs" Line="22" Column="22" />
-      <File FileName="Notificare.Android.Sample/MainActivity.cs" Line="23" Column="23" />
+      <File FileName="Notificare.Android.Sample/MainApplication.cs" Line="1" Column="1" />
+      <File FileName="Notificare.Android.Sample/MainActivity.cs" Line="1" Column="1" />
       <File FileName="Notificare.Android/Transforms/EnumMethods.xml" Line="1" Column="1" />
       <File FileName="Notificare.Android/Transforms/EnumFields.xml" Line="1" Column="1" />
       <File FileName="Notificare.Android/Properties/AssemblyInfo.cs" Line="1" Column="1" />
       <File FileName="Notificare.Android/Additions/OAuth2RequestAsyncTask.cs" Line="1" Column="1" />
       <File FileName="Notificare.Android/Additions/RequestAsyncTask.cs" Line="1" Column="1" />
-      <File FileName="Notificare.Android.Sample/MyIntentReceiver.cs" Line="22" Column="22" />
+      <File FileName="Notificare.Android.Sample/MyIntentReceiver.cs" Line="1" Column="1" />
       <File FileName="Notificare.Android/obj/Release/generated/src/Notificare.Android.Notificare.cs" Line="1" Column="1" />
-      <File FileName="Notificare.Android/obj/Release/generated/src/Notificare.Android.Beacon.BeaconClient.cs" Line="1" Column="1" />
-      <File FileName="Notificare.Android/obj/Release/generated/src/Notificare.Android.Billing.BillingManager.cs" Line="1" Column="1" />
-      <File FileName="Notificare.Android.Sample/obj/Release/android/src/mono/re/notifica/billing/BillingManager_OnConsumeFinishedListenerImplementor.java" Line="1" Column="1" />
-      <File FileName="Notificare.Android/obj/Release/generated/src/Com.Android.Vending.Billing.IInAppBillingService.cs" Line="1" Column="1" />
       <File FileName="Notificare.Android.Sample/Assets/notificareconfig.properties" Line="1" Column="1" />
-      <File FileName="Notificare.Android.Sample/Properties/AndroidManifest.xml" Line="12" Column="12" />
+      <File FileName="Notificare.Android.Sample/Properties/AndroidManifest.xml" Line="1" Column="1" />
       <File FileName="Notificare.Android.Sample/Properties/AssemblyInfo.cs" Line="1" Column="1" />
       <File FileName="Notificare.Android.Sample/Assets/AboutAssets.txt" Line="1" Column="1" />
-      <File FileName="Notificare.Android.Sample/Assets/notificareconfig.properties.template" Line="29" Column="29" />
+      <File FileName="Notificare.Android.Sample/Assets/notificareconfig.properties.template" Line="1" Column="1" />
+      <File FileName="Notificare.Android.Sample/Resources/values-v14/styles.xml" Line="1" Column="1" />
+      <File FileName="Notificare.Android.Sample/Resources/values-v11/styles.xml" Line="1" Column="1" />
+      <File FileName="Notificare.Android.Sample/Resources/values/styles.xml" Line="1" Column="1" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True" selected="True">
+          <Node name="Notificare.Sample.Android" expanded="True">
+            <Node name="References" expanded="True" />
+            <Node name="ComponentReferenceFolder" expanded="True" />
+            <Node name="Assets" expanded="True" />
+            <Node name="Properties" expanded="True" />
+            <Node name="Resources" expanded="True">
+              <Node name="values" expanded="True" />
+              <Node name="values-v11" expanded="True" />
+              <Node name="values-v14" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

@@ -60,6 +60,11 @@ namespace Notificare.Sample.Android
 			base.OnNotificationOpened (alert, notificationId, extras);
 		}
 
+		public override void OnReady ()
+		{
+			Console.WriteLine ("notificare ready");
+			Notificare.Android.Notificare.Shared ().EnableNotifications ();
+		}
 	}
 }
 

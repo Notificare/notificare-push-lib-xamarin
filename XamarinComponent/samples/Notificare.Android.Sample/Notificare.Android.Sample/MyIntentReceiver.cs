@@ -48,6 +48,12 @@ namespace Notificare.Android.Sample
 	[BroadcastReceiver]
 	public class MyIntentReceiver : DefaultIntentReceiver
 	{
+		public override void OnReady ()
+		{
+			Console.WriteLine ("Notificare ready, enable notifications");
+			Notificare.Shared ().EnableNotifications ();
+		}
+
 		public override void OnRegistrationFinished(String deviceId) 
 		{
 			Console.WriteLine ("application registered with GCM");

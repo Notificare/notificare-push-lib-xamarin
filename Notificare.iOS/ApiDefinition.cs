@@ -878,7 +878,7 @@ namespace Notificare.iOS
 		/// <param name="label">Label.</param>
 		/// <param name="data">Data.</param>
 		[Export("reply:withLabel:andData:")]
-		void ReplyWithLabelAndData (NSString notification, NSString label, NSDictionary data);
+		void ReplyWithLabelAndData (NSString notification, NSString label, [NullAllowed] NSDictionary data);
 
 		/*
 		 * - (void)handleAction:(NSString *)action forNotification:(NSDictionary *)notification withData:(NSDictionary *)data completionHandler:(SuccessBlock)info errorHandler:(ErrorBlock)errorBlock;
@@ -893,7 +893,7 @@ namespace Notificare.iOS
 		/// <param name="completionHandler">Completion handler.</param>
 		/// <param name="errorHandler">Error handler.</param>
 		[Export ("handleAction:forNotification:withData:completionHandler:errorHandler:")]
-		void HandleActionForNotificationWithData (NSString action, NSDictionary notification, NSDictionary data, SuccessCallback completionHandler, ErrorCallback errorHandler);
+		void HandleActionForNotificationWithData (NSString action, NSDictionary notification, [NullAllowed] NSDictionary data, SuccessCallback completionHandler, ErrorCallback errorHandler);
 
 
 		/*
@@ -908,7 +908,7 @@ namespace Notificare.iOS
 		/// <param name="completionHandler">Completion handler.</param>
 		/// <param name="errorHandler">Error handler.</param>
 		[Export ("logCustomEvent:withData:completionHandler:errorHandler:")]
-		void LogCustomEventWithData (NSString name, NSDictionary data, SuccessCallback completionHandler, ErrorCallback errorHandler);
+		void LogCustomEventWithData (NSString name, [NullAllowed] NSDictionary data, SuccessCallback completionHandler, ErrorCallback errorHandler);
 
 
 		/*
