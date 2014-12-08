@@ -99,6 +99,7 @@
   <ItemGroup>
     <None Include="Info.plist" />
     <None Include="Entitlements.plist" />
+    <None Include="Notificare.plist.template" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />

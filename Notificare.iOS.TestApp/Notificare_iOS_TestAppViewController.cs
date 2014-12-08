@@ -1,7 +1,12 @@
 using System;
 using System.Drawing;
+#if __UNIFIED__
+using Foundation;
+using UIKit;
+#else
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
+#endif
 
 namespace Notificare.iOS.TestApp
 {

@@ -1,18 +1,910 @@
-using System;
-using System.Drawing;
+﻿using System;
 
 using MonoTouch.ObjCRuntime;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 using MonoTouch.CoreLocation;
+using MonoTouch.StoreKit;
+
 
 namespace Notificare.iOS
 {
-	#region NotificarePushLib
+	[BaseType (typeof (NSObject))]
+	interface NotificareAction
+	{
+
+		/*
+		 * @property (strong, nonatomic) NSString * actionType;
+		 */
+
+		/// <summary>
+		/// Gets the type of the action.
+		/// </summary>
+		/// <value>The type of the action.</value>
+		[Export("actionType")]
+		NSString ActionType { get; }
+
+		/*
+		 * @property (strong, nonatomic) NSString * actionLabel;
+		 */
+
+		/// <summary>
+		/// Gets the action label.
+		/// </summary>
+		/// <value>The action label.</value>
+		[Export("actionLabel")]
+		NSString ActionLabel { get; }
+
+
+		/*
+		 * @property (strong, nonatomic) NSString * actionTarget;
+		 */
+
+		/// <summary>
+		/// Gets the action target.
+		/// </summary>
+		/// <value>The action target.</value>
+		[Export("actionTarget")]
+		NSString ActionTarget { get; }
+
+
+		/*
+		 * @property (nonatomic, assign) BOOL actionKeyboard;
+		 */
+
+		/// <summary>
+		/// Gets a value indicating whether this <see cref="Notificare.iOS.NotificareAction"/> needs keyboard.
+		/// </summary>
+		/// <value><c>true</c> if action keyboard; otherwise, <c>false</c>.</value>
+		[Export("actionKeyboard")]
+		bool ActionKeyboard { get; }
+
+
+		/*
+		 * @property (nonatomic, assign) BOOL actionCamera;
+		 */
+
+		/// <summary>
+		/// Gets a value indicating whether this <see cref="Notificare.iOS.NotificareAction"/> needs camera.
+		/// </summary>
+		/// <value><c>true</c> if action camera; otherwise, <c>false</c>.</value>
+		[Export("actionCamera")]
+		bool ActionCamera { get; }
+
+	}
+
+	[BaseType (typeof (NSObject))]
+	interface NotificareAttachment
+	{
+
+		/*
+		 * @property (strong, nonatomic) NSString * attachmentURI;
+		 */
+
+		/// <summary>
+		/// Gets the attachment URI.
+		/// </summary>
+		/// <value>The attachment URI.</value>
+		[Export("attachmentURI")]
+		NSString AttachmentURI { get; }
+
+		/*
+		 * @property (strong, nonatomic) NSString * attachmentMimeType;
+		 */
+
+		/// <summary>
+		/// Gets the MIME type of the attachment.
+		/// </summary>
+		/// <value>The MIME type of the attachment.</value>
+		[Export("attachmentMimeType")]
+		NSString AttachmentMimeType { get; }
+	}
+
+	[BaseType (typeof (NSObject))]
+	interface NotificareBeacon
+	{
+		/*
+		 * @property (strong, nonatomic) NSString * name;
+		 */
+
+		/// <summary>
+		/// Gets the name.
+		/// </summary>
+		/// <value>The name.</value>
+		[Export("name")]
+		NSString Name { get; }
+
+
+		/*
+		 * @property (strong, nonatomic) NSString * region;
+		 */
+
+		/// <summary>
+		/// Gets the region.
+		/// </summary>
+		/// <value>The region.</value>
+		[Export("region")]
+		NSString Region { get; }
+
+
+		/*
+		 * @property (strong, nonatomic) NSUUID * beaconUUID;
+		 */
+
+		/// <summary>
+		/// Gets the beacon UUI.
+		/// </summary>
+		/// <value>The beacon UUI.</value>
+		[Export("beaconUUID")]
+		NSUuid BeaconUUID { get; }
+
+
+		/*
+		 * @property (strong, nonatomic) NSString * major;
+		 */
+
+		/// <summary>
+		/// Gets the major.
+		/// </summary>
+		/// <value>The major.</value>
+		[Export("major")]
+		NSString Major { get; }
+
+
+		/*
+		 * @property (strong, nonatomic) NSString * minor;
+		 */
+
+		/// <summary>
+		/// Gets the minor.
+		/// </summary>
+		/// <value>The minor.</value>
+		[Export("minor")]
+		NSString Minor { get; }
+
+
+		/*
+		 * @property (strong, nonatomic) NSString * proximity;
+		 */
+
+		/// <summary>
+		/// Gets the proximity.
+		/// </summary>
+		/// <value>The proximity.</value>
+		[Export("proximity")]
+		NSString Proximity { get; }
+
+
+		/*
+		 * @property (strong, nonatomic) NSDictionary * proximityNotifications;
+		 */
+
+		/// <summary>
+		/// Gets the proximity notifications.
+		/// </summary>
+		/// <value>The proximity notifications.</value>
+		[Export("proximityNotifications")]
+		NSDictionary ProximityNotifications { get; }
+
+
+		/*
+		 * @property (strong, nonatomic) NSString * application;
+		 */
+
+		/// <summary>
+		/// Gets the application.
+		/// </summary>
+		/// <value>The application.</value>
+		[Export("application")]
+		NSString Application { get; }
+
+
+		/*
+		 * @property (strong, nonatomic) NSDictionary * notification;
+		 */
+
+		/// <summary>
+		/// Gets the notification.
+		/// </summary>
+		/// <value>The notification.</value>
+		[Export("notification")]
+		NSDictionary Notification { get; }
+
+
+		/*
+		 * @property (strong, nonatomic) NSString * latitude;
+		 */
+
+		/// <summary>
+		/// Gets the latitude.
+		/// </summary>
+		/// <value>The latitude.</value>
+		[Export("latitude")]
+		NSString Latitude { get; }
+
+
+		/*
+		 * @property (strong, nonatomic) NSString * longitude;
+		 */
+
+		/// <summary>
+		/// Gets the longitude.
+		/// </summary>
+		/// <value>The longitude.</value>
+		[Export("longitude")]
+		NSString Longitude { get; }
+
+
+		/*
+		 * @property (strong, nonatomic) NSString * batteryLevel;
+		 */
+
+		/// <summary>
+		/// Gets the battery level.
+		/// </summary>
+		/// <value>The battery level.</value>
+		[Export("batteryLevel")]
+		NSString BatteryLevel { get; }
+
+
+		/*
+		 * @property (strong, nonatomic) NSString * purpose;
+		 */
+
+		/// <summary>
+		/// Gets the purpose.
+		/// </summary>
+		/// <value>The purpose.</value>
+		[Export("purpose")]
+		NSString Purpose { get; }
+
+
+		/*
+		 * @property (strong, nonatomic) CLBeacon * beacon;
+		 */
+
+		/// <summary>
+		/// Gets the beacon.
+		/// </summary>
+		/// <value>The beacon.</value>
+		[Export("beacon")]
+		CLBeacon Beacon { get; }
+
+
+		/*
+		 * @property (strong, nonatomic) NSString * timezone;
+		 */
+
+		/// <summary>
+		/// Gets the timezone.
+		/// </summary>
+		/// <value>The timezone.</value>
+		[Export("timezone")]
+		NSString Timezone { get; }
+
+
+		/*
+		 * @property (assign, nonatomic) BOOL triggers;	
+		 */
+
+		/// <summary>
+		/// Gets the triggers.
+		/// </summary>
+		/// <value>The triggers.</value>
+		[Export("triggers")]
+		bool Triggers { get; }
+
+	}
+
+
+	[BaseType (typeof (NSObject))]
+	interface NotificareContent
+	{
+
+		/*
+		 * @property (strong, nonatomic) NSString * type;
+		 */
+
+		/// <summary>
+		/// Gets the type.
+		/// </summary>
+		/// <value>The type.</value>
+		[Export("type")]
+		NSString Type { get; }
+
+		/*
+		 * @property (strong, nonatomic) NSString * data;
+		 */
+
+		/// <summary>
+		/// Gets the data.
+		/// </summary>
+		/// <value>The data.</value>
+		[Export("data")]
+		NSString Data { get; }
+
+
+		/*
+		 * @property (strong, nonatomic) NSDictionary * dataDictionary;
+		 */
+
+		/// <summary>
+		/// Gets the data dictionary.
+		/// </summary>
+		/// <value>The data dictionary.</value>
+		[Export("dataDictionary")]
+		NSDictionary DataDictionary { get; }
+	}
 
 	[BaseType (typeof (NSObject))]
 	interface NotificareNotification
 	{
+		/*
+		 * @property (strong, nonatomic) NSString * notificationID;
+		 */
+
+		/// <summary>
+		/// Gets the notification ID.
+		/// </summary>
+		/// <value>The notification ID.</value>
+		[Export("notificationID")]
+		NSString NotificationID { get; }
+
+		/*
+		 * @property (strong, nonatomic) NSDictionary * application;
+		 */
+
+		/// <summary>
+		/// Gets the application.
+		/// </summary>
+		/// <value>The application.</value>
+		[Export("application")]
+		NSDictionary Application { get; }
+
+
+		/*
+		 * @property (strong, nonatomic) NSString * notificationType;
+		 */
+
+		/// <summary>
+		/// Gets the type of the notification.
+		/// </summary>
+		/// <value>The type of the notification.</value>
+		[Export("notificationType")]
+		NSString NotificationType { get; }
+
+
+		/*
+		 * @property (strong, nonatomic) NSString * notificationTime;
+		 */
+
+		/// <summary>
+		/// Gets the notification time.
+		/// </summary>
+		/// <value>The notification time.</value>
+		[Export("notificationTime")]
+		NSString NotificationTime { get; }
+
+
+		/*
+		 * @property (strong, nonatomic) NSString * notificationMessage;
+		 */
+
+		/// <summary>
+		/// Gets the notification message.
+		/// </summary>
+		/// <value>The notification message.</value>
+		[Export("notificationMessage")]
+		NSString NotificationMessage { get; }
+
+
+		/*
+		 * @property (strong, nonatomic) NSString * notificationLatitude;
+		 */
+
+		/// <summary>
+		/// Gets the notification latitude.
+		/// </summary>
+		/// <value>The notification latitude.</value>
+		[Export("notificationLatitude")]
+		NSString NotificationLatitude { get; }
+
+
+		/*
+		 * @property (strong, nonatomic) NSString * notificationLongitude;
+		 */
+
+		/// <summary>
+		/// Gets the notification latitude.
+		/// </summary>
+		/// <value>The notification latitude.</value>
+		[Export("notificationLongitude")]
+		NSString NotificationLongitude { get; }
+
+
+		/*
+		 * @property (strong, nonatomic) NSString * notificationDistance;
+		 */
+
+		/// <summary>
+		/// Gets the notification distance.
+		/// </summary>
+		/// <value>The notification distance.</value>
+		[Export("notificationDistance")]
+		NSString NotificationDistance { get; }
+
+
+		/*
+		 * @property (strong, nonatomic) NSArray * notificationContent;
+		 */
+
+		/// <summary>
+		/// Gets the content of the notification.
+		/// </summary>
+		/// <value>The content of the notification.</value>
+		[Export("notificationContent")]
+		NSArray NotificationContent { get; }
+
+
+		/*
+		 * @property (strong, nonatomic) NSArray * notificationActions;
+		 */
+
+		/// <summary>
+		/// Gets the notification actions.
+		/// </summary>
+		/// <value>The notification actions.</value>
+		[Export("notificationActions")]
+		NSArray NotificationActions { get; }
+
+
+		/*
+		 * @property (strong, nonatomic) NSArray * notificationAttachments;
+		 */
+
+		/// <summary>
+		/// Gets the notification attachments.
+		/// </summary>
+		/// <value>The notification attachments.</value>
+		[Export("notificationAttachments")]
+		NSArray NotificationAttachments { get; }
+
+
+		/*
+		 * @property (strong, nonatomic) NSArray * notificationTags;
+		 */
+
+		/// <summary>
+		/// Gets the notification tags.
+		/// </summary>
+		/// <value>The notification tags.</value>
+		[Export("notificationTags")]
+		NSArray NotificationTags { get; }
+
+
+		/*
+		 * @property (strong, nonatomic) NSArray * notificationSegments;
+		 */
+
+		/// <summary>
+		/// Gets the notification segments.
+		/// </summary>
+		/// <value>The notification segments.</value>
+		[Export("notificationSegments")]
+		NSArray NotificationSegments { get; }
+
+
+		/*
+		 * @property (strong, nonatomic) NSDictionary * notificationExtra;
+		 */
+
+		/// <summary>
+		/// Gets the notification extra.
+		/// </summary>
+		/// <value>The notification extra.</value>
+		[Export("notificationExtra")]
+		NSDictionary NotificationExtra { get; }
+
+
+		/*
+		 * @property (strong, nonatomic) NSDictionary * notificationInfo;
+		 */
+
+		/// <summary>
+		/// Gets the notification info.
+		/// </summary>
+		/// <value>The notification info.</value>
+		[Export("notificationInfo")]
+		NSDictionary NotificationInfo { get; }
+
+
+		/*
+		 * @property (strong, nonatomic) NSNumber * displayMessage;
+		 */
+
+		/// <summary>
+		/// Gets the display message.
+		/// </summary>
+		/// <value>The display message.</value>
+		[Export("displayMessage")]
+		NSNumber DisplayMessage { get; }
+
+	}
+
+	[BaseType (typeof (NSObject))]
+	interface NotificareProduct
+	{
+
+		/*
+		 * @property (strong, nonatomic) NSString * productName;
+		 */
+
+		/// <summary>
+		/// Gets the name of the product.
+		/// </summary>
+		/// <value>The name of the product.</value>
+		[Export("productName")]
+		NSString ProductName { get; }
+
+
+		/*
+		 * @property (strong, nonatomic) NSString * productDescription;
+		 */
+
+		/// <summary>
+		/// Gets the product description.
+		/// </summary>
+		/// <value>The product description.</value>
+		[Export("productDescription")]
+		NSString ProductDescription { get; }
+
+
+		/*
+		 * @property (strong, nonatomic) NSString * type;
+		 */
+
+		/// <summary>
+		/// Gets the type.
+		/// </summary>
+		/// <value>The type.</value>
+		[Export("type")]
+		NSString Type { get; }
+
+
+		/*
+		 * @property (strong, nonatomic) SKProduct * product;
+		 */
+
+		/// <summary>
+		/// Gets the product.
+		/// </summary>
+		/// <value>The product.</value>
+		[Export("product")]
+		SKProduct Product { get; }
+
+
+		/*
+		 * @property (strong, nonatomic) NSString * application;
+		 */
+
+		/// <summary>
+		/// Gets the application.
+		/// </summary>
+		/// <value>The application.</value>
+		[Export("application")]
+		NSString Application { get; }
+
+
+		/*
+		 * @property (strong, nonatomic) NSString * identifier;
+		 */
+
+		/// <summary>
+		/// Gets the identifier.
+		/// </summary>
+		/// <value>The identifier.</value>
+		[Export("identifier")]
+		NSString Identifier { get; }
+
+
+		/*
+		 * @property (strong, nonatomic) NSArray * stores;
+		 */
+
+		/// <summary>
+		/// Gets the stores.
+		/// </summary>
+		/// <value>The stores.</value>
+		[Export("stores")]
+		NSArray Stores { get; }
+
+
+		/*
+		 * @property (strong, nonatomic) NSArray * downloads;
+		 */
+
+		/// <summary>
+		/// Gets the downloads.
+		/// </summary>
+		/// <value>The downloads.</value>
+		[Export("downloads")]
+		NSArray Downloads { get; }
+
+
+		/*
+		 * @property (strong, nonatomic) NSString * date;
+		 */
+
+		/// <summary>
+		/// Gets the date.
+		/// </summary>
+		/// <value>The date.</value>
+		[Export("date")]
+		NSString Date { get; }
+
+
+		/*
+		 * @property (strong, nonatomic) NSString * priceLocale;
+		 */
+
+		/// <summary>
+		/// Gets the price locale.
+		/// </summary>
+		/// <value>The price locale.</value>
+		[Export("priceLocale")]
+		NSString PriceLocale { get; }
+
+
+		/*
+		 * @property (strong, nonatomic) NSString * price;
+		 */
+
+		/// <summary>
+		/// Gets the price.
+		/// </summary>
+		/// <value>The price.</value>
+		[Export("price")]
+		NSString Price { get; }
+
+
+		/*
+		 * @property (strong, nonatomic) NSString * currency;
+		 */
+
+		/// <summary>
+		/// Gets the currency.
+		/// </summary>
+		/// <value>The currency.</value>
+		[Export("currency")]
+		NSString Currency { get; }
+
+
+		/*
+		 * @property (assign, nonatomic) BOOL active;
+		 */
+
+		/// <summary>
+		/// Gets a value indicating whether this <see cref="Notificare.iOS.NotificareProduct"/> is active.
+		/// </summary>
+		/// <value><c>true</c> if active; otherwise, <c>false</c>.</value>
+		[Export("active")]
+		bool Active { get; }
+
+
+		/*
+		 * @property (assign, nonatomic) BOOL purchased;
+		 */
+
+		/// <summary>
+		/// Gets a value indicating whether this <see cref="Notificare.iOS.NotificareProduct"/> is purchased.
+		/// </summary>
+		/// <value><c>true</c> if purchased; otherwise, <c>false</c>.</value>
+		[Export("purchased")]
+		bool Purchased { get; }
+
+	}
+
+	[BaseType (typeof (NSObject))]
+	interface NotificareSegment
+	{
+
+		/*
+		 * @property (strong, nonatomic) NSString * segmentLabel;
+		 */
+
+		/// <summary>
+		/// Gets the segment label.
+		/// </summary>
+		/// <value>The segment label.</value>
+		[Export("segmentLabel")]
+		NSString SegmentLabel { get; }
+
+
+		/*
+		 * @property (strong, nonatomic) NSString * segmentId;
+		 */
+
+		/// <summary>
+		/// Gets the segment identifier.
+		/// </summary>
+		/// <value>The segment identifier.</value>
+		[Export("segmentId")]
+		NSString SegmentId { get; }
+
+
+		/*
+		 * @property (assign, nonatomic) BOOL selected;
+		 */
+
+		/// <summary>
+		/// Gets a value indicating whether this <see cref="Notificare.iOS.NotificareSegment"/> is selected.
+		/// </summary>
+		/// <value><c>true</c> if selected; otherwise, <c>false</c>.</value>
+		[Export("selected")]
+		bool Selected { get; }
+	}
+
+	[BaseType (typeof (NSObject))]
+	interface NotificareUser
+	{
+
+		/*
+		 * @property (strong, nonatomic) NSString * accessToken;
+		 */
+
+		/// <summary>
+		/// Gets the access token.
+		/// </summary>
+		/// <value>The access token.</value>
+		[Export("accessToken")]
+		NSString AccessToken { get; }
+
+		/*
+		 * @property (strong, nonatomic) NSString * account;
+		 */
+
+		/// <summary>
+		/// Gets the account.
+		/// </summary>
+		/// <value>The account.</value>
+		[Export("account")]
+		NSString Account { get; }
+
+
+		/*
+		 * @property (nonatomic, assign) BOOL active;
+		 */
+
+		/// <summary>
+		/// Gets a value indicating whether this <see cref="Notificare.iOS.NotificareUser"/> is active.
+		/// </summary>
+		/// <value><c>true</c> if active; otherwise, <c>false</c>.</value>
+		[Export("active")]
+		bool Active { get; }
+
+
+		/*
+		 * @property (strong, nonatomic) NSString * application;
+		 */
+
+		/// <summary>
+		/// Gets the application.
+		/// </summary>
+		/// <value>The application.</value>
+		[Export("application")]
+		NSString Application { get; }
+
+
+		/*
+		 * @property (nonatomic, assign) BOOL autoGenerated;
+		 */
+
+		/// <summary>
+		/// Gets a value indicating whether this <see cref="Notificare.iOS.NotificareUser"/> auto generated.
+		/// </summary>
+		/// <value><c>true</c> if auto generated; otherwise, <c>false</c>.</value>
+		[Export("autoGenerated")]
+		bool AutoGenerated { get; }
+
+
+		/*
+		 * @property (strong, nonatomic) NSMutableArray * segments;
+		 */
+
+		/// <summary>
+		/// Gets the segments.
+		/// </summary>
+		/// <value>The segments.</value>
+		[Export("segments")]
+		NSMutableArray Segments { get; }
+
+
+		/*
+		 * @property (strong, nonatomic) NSString * userID;
+		 */
+
+		/// <summary>
+		/// Gets the user ID.
+		/// </summary>
+		/// <value>The user ID.</value>
+		[Export("userID")]
+		NSString UserID { get; }
+
+
+		/*
+		 * @property (strong, nonatomic) NSString * userName;
+		 */
+
+		/// <summary>
+		/// Gets the name of the user.
+		/// </summary>
+		/// <value>The name of the user.</value>
+		[Export("userName")]
+		NSString UserName { get; }
+
+
+		/*
+		 * @property (nonatomic, assign) BOOL validated;
+		 */
+
+		/// <summary>
+		/// Gets a value indicating whether this <see cref="Notificare.iOS.NotificareUser"/> is validated.
+		/// </summary>
+		/// <value><c>true</c> if validated; otherwise, <c>false</c>.</value>
+		[Export("validated")]
+		bool validated { get; }
+	}
+
+	[BaseType (typeof (NSObject))]
+	interface NotificareUserPreference
+	{
+
+		/*
+		 * @property (strong, nonatomic) NSString * preferenceLabel;
+		 */
+
+		/// <summary>
+		/// Gets the preference label.
+		/// </summary>
+		/// <value>The preference label.</value>
+		[Export("preferenceLabel")]
+		NSString PreferenceLabel { get; }
+
+
+		/*
+		 * @property (strong, nonatomic) NSString * preferenceId;
+		 */
+
+		/// <summary>
+		/// Gets the preference identifier.
+		/// </summary>
+		/// <value>The preference identifier.</value>
+		[Export("preferenceId")]
+		NSString PreferenceId { get; }
+
+
+		/*
+		 * @property (strong, nonatomic) NSString * preferenceType;
+		 */
+
+		/// <summary>
+		/// Gets the type of the preference.
+		/// </summary>
+		/// <value>The type of the preference.</value>
+		[Export("preferenceType")]
+		NSString PreferenceType { get; }
+
+
+		/*
+		 * @property (strong, nonatomic) NSArray * preferenceOptions;
+		 */
+
+		/// <summary>
+		/// Gets the preference options.
+		/// </summary>
+		/// <value>The preference options.</value>
+		[Export("preferenceOptions")]
+		NSArray PreferenceOptions { get; }
 
 	}
 
@@ -396,7 +1288,6 @@ namespace Notificare.iOS
 
 	}
 
-	interface INotificarePushLibDelegate {}
 
 	public delegate void SuccessCallback( NSDictionary info );
 	public delegate void ErrorCallback( NSError error );
@@ -486,7 +1377,7 @@ namespace Notificare.iOS
 		/// <param name="completionHandler">Completion handler.</param>
 		/// <param name="errorHandler">Error handler.</param>
 		[Export("registerDevice:completionHandler:errorHandler:")]
-		void RegisterDevice( NSData token, SuccessCallback completionHandler, ErrorCallback errorHandler );
+		void RegisterDevice( NSData token, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler );
 
 
 		/*
@@ -522,7 +1413,7 @@ namespace Notificare.iOS
 		/// <param name="completionHandler">Completion handler.</param>
 		/// <param name="errorHandler">Error handler.</param>
 		[Export("registerDevice:withUserID:completionHandler:errorHandler:")]
-		void RegisterDeviceWithUserID( NSData token, NSString userID, SuccessCallback completionHandler, ErrorCallback errorHandler );
+		void RegisterDeviceWithUserID( NSData token, NSString userID, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler );
 
 		/*
 		 * - (void)registerDevice:(NSData *)token withUserID:(NSString *)userID withUsername:(NSString *)username;
@@ -559,7 +1450,7 @@ namespace Notificare.iOS
 		/// <param name="completionHandler">Completion handler.</param>
 		/// <param name="errorHandler">Error handler.</param>
 		[Export("registerDevice:withUserID:withUsername:completionHandler:errorHandler:")]
-		void RegisterDeviceWithUserIDWithUsername( NSData token, NSString userID, NSString username, SuccessCallback completionHandler, ErrorCallback errorHandler );
+		void RegisterDeviceWithUserIDWithUsername( NSData token, NSString userID, NSString username, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler );
 
 		/*
 		 * - (void)registerForWebsockets;
@@ -592,7 +1483,7 @@ namespace Notificare.iOS
 		/// <param name="completionHandler">Completion handler.</param>
 		/// <param name="errorHandler">Error handler.</param>
 		[Export("registerDeviceForWebsockets:completionHandler:errorHandler:")]
-		void RegisterDeviceForWebsockets( NSString token, SuccessCallback completionHandler, ErrorCallback errorHandler );
+		void RegisterDeviceForWebsockets( NSString token, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler );
 
 		/*
 		 * - (void)registerDeviceForWebsockets:(NSString *)token withUserID:(NSString *)userID completionHandler:(SuccessBlock)info errorHandler:(ErrorBlock)error;
@@ -610,7 +1501,7 @@ namespace Notificare.iOS
 		/// <param name="completionHandler">Completion handler.</param>
 		/// <param name="errorHandler">Error handler.</param>
 		[Export("registerDeviceForWebsockets:withUserID:completionHandler:errorHandler:")]
-		void RegisterDeviceForWebsocketsWithUserID( NSString token, NSString userID, SuccessCallback completionHandler, ErrorCallback errorHandler );
+		void RegisterDeviceForWebsocketsWithUserID( NSString token, NSString userID, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler );
 
 		/*
 		 * - (void)registerDeviceForWebsockets:(NSString *)token withUserID:(NSString *)userID withUsername:(NSString *)username completionHandler:(SuccessBlock)info errorHandler:(ErrorBlock)error;
@@ -628,7 +1519,7 @@ namespace Notificare.iOS
 		/// <param name="completionHandler">Completion handler.</param>
 		/// <param name="errorHandler">Error handler.</param>
 		[Export("registerDeviceForWebsockets:withUserID:withUsername:completionHandler:errorHandler:")]
-		void RegisterDeviceForWebsocketsWithUserIDWithUsername( NSString token, NSString userID, NSString username, SuccessCallback completionHandler, ErrorCallback errorHandler );
+		void RegisterDeviceForWebsocketsWithUserIDWithUsername( NSString token, NSString userID, NSString username, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler );
 
 
 		/*
@@ -675,7 +1566,7 @@ namespace Notificare.iOS
 		/// <param name="completionHandler">Completion handler.</param>
 		/// <param name="errorHandler">Error handler.</param>
 		[Export("getNotification:completionHandler:errorHandler:")]
-		void GetNotification( NSString notificationID, SuccessCallback completionHandler, ErrorCallback errorHandler );
+		void GetNotification( NSString notificationID, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler );
 
 		/*
 		 * - (void)clearNotification:(NSString *)notification;
@@ -737,7 +1628,7 @@ namespace Notificare.iOS
 		/// <param name="completionHandler">Completion handler.</param>
 		/// <param name="errorHandler">Error handler.</param>
 		[Export ("getTags:errorHandler:")]
-		void GetTags (SuccessCallback completionHandler, ErrorCallback errorHandler);
+		void GetTags ([BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
 
 		/*
 		 * - (void)addTags:(NSArray *)tags;
@@ -760,7 +1651,7 @@ namespace Notificare.iOS
 		/// <param name="completionHandler">Completion handler.</param>
 		/// <param name="errorHandler">Error handler.</param>
 		[Export("addTags:completionHandler:errorHandler:")]
-		void AddTags( NSArray tags, SuccessCallback completionHandler, ErrorCallback errorHandler);
+		void AddTags( NSArray tags, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
 
 		/* 
 		 * - (void)removeTag:(NSString *)tag;
@@ -784,7 +1675,7 @@ namespace Notificare.iOS
 		/// <param name="completionHandler">Completion handler.</param>
 		/// <param name="errorHandler">Error handler.</param>
 		[Export("removeTag:completionHandler:errorHandler:")]
-		void RemoveTag(NSString tag, SuccessCallback completionHandler, ErrorCallback errorHandler);
+		void RemoveTag(NSString tag, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
 
 		/*
 		 * - (void)clearTags:(SuccessBlock)info errorHandler:(ErrorBlock)error;
@@ -797,7 +1688,7 @@ namespace Notificare.iOS
 		/// <param name="completionHandler">Completion handler.</param>
 		/// <param name="errorHandler">Error handler.</param>
 		[Export("clearTags:errorHandler:")]
-		void ClearTags( SuccessCallback completionHandler, ErrorCallback errorHandler);
+		void ClearTags( [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
 
 		/*
 		 * - (void)startMonitoringBeaconRegion:(NSUUID *)uuid;
@@ -894,7 +1785,7 @@ namespace Notificare.iOS
 		/// <param name="completionHandler">Completion handler.</param>
 		/// <param name="errorHandler">Error handler.</param>
 		[Export ("handleAction:forNotification:withData:completionHandler:errorHandler:")]
-		void HandleActionForNotificationWithData (NSString action, NSDictionary notification, [NullAllowed] NSDictionary data, SuccessCallback completionHandler, ErrorCallback errorHandler);
+		void HandleActionForNotificationWithData (NSString action, NSDictionary notification, [NullAllowed] NSDictionary data, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
 
 
 		/*
@@ -909,7 +1800,7 @@ namespace Notificare.iOS
 		/// <param name="completionHandler">Completion handler.</param>
 		/// <param name="errorHandler">Error handler.</param>
 		[Export ("logCustomEvent:withData:completionHandler:errorHandler:")]
-		void LogCustomEventWithData (NSString name, [NullAllowed] NSDictionary data, SuccessCallback completionHandler, ErrorCallback errorHandler);
+		void LogCustomEventWithData (NSString name, [NullAllowed] NSDictionary data, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
 
 
 		/*
@@ -924,7 +1815,7 @@ namespace Notificare.iOS
 		/// <param name="completionHandler">Completion handler.</param>
 		/// <param name="errorHandler">Error handler.</param>
 		[Export ("saveToInbox:forApplication:completionHandler:errorHandler:")]
-		void SaveToInboxForApplication (NSDictionary notification, UIApplication application, SuccessCallback completionHandler, ErrorCallback errorHandler);
+		void SaveToInboxForApplication (NSDictionary notification, UIApplication application, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
 
 
 		/*
@@ -985,7 +1876,7 @@ namespace Notificare.iOS
 		/// <param name="completionHandler">Completion handler.</param>
 		/// <param name="errorHandler">Error handler.</param>
 		[Export("createAccount:completionHandler:errorHandler:")]
-		void CreateAccount(NSDictionary parameters, SuccessCallback completionHandler, ErrorCallback errorHandler);
+		void CreateAccount(NSDictionary parameters, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
 
 		/*
 		 * - (void)resetPassword:(NSDictionary *)params withToken:(NSString *)token completionHandler:(SuccessBlock)result errorHandler:(ErrorBlock)errorBlock;
@@ -998,7 +1889,7 @@ namespace Notificare.iOS
 		/// <param name="completionHandler">Completion handler.</param>
 		/// <param name="errorHandler">Error handler.</param>
 		[Export("resetPassword:completionHandler:errorHandler:")]
-		void ResetPassword(NSDictionary parameters, SuccessCallback completionHandler, ErrorCallback errorHandler);
+		void ResetPassword(NSDictionary parameters, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
 
 		/*
 		 * - (void)validateAccount:(NSString *)token completionHandler:(SuccessBlock)result errorHandler:(ErrorBlock)errorBlock;
@@ -1011,7 +1902,7 @@ namespace Notificare.iOS
 		/// <param name="completionHandler">Completion handler.</param>
 		/// <param name="errorHandler">Error handler.</param>
 		[Export("validateAccount:completionHandler:errorHandler:")]
-		void ValidateAccount(NSString token, SuccessCallback completionHandler, ErrorCallback errorHandler);
+		void ValidateAccount(NSString token, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
 
 		/*
 		 * - (void)sendPassword:(NSDictionary *)params completionHandler:(SuccessBlock)result errorHandler:(ErrorBlock)errorBlock;
@@ -1024,7 +1915,7 @@ namespace Notificare.iOS
 		/// <param name="completionHandler">Completion handler.</param>
 		/// <param name="errorHandler">Error handler.</param>
 		[Export("sendPassword:completionHandler:errorHandler:")]
-		void SendPassword(NSDictionary parameters, SuccessCallback completionHandler, ErrorCallback errorHandler);
+		void SendPassword(NSDictionary parameters, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
 
 		/*
 		 * - (void)loginWithUsername:(NSString *)username andPassword:(NSString *)password completionHandler:(SuccessBlock)info errorHandler:(ErrorBlock)error;
@@ -1038,7 +1929,7 @@ namespace Notificare.iOS
 		/// <param name="completionHandler">Completion handler.</param>
 		/// <param name="errorHandler">Error handler.</param>
 		[Export("loginWithUsername:andPassword:completionHandler:errorHandler:")]
-		void LoginWithUsernameAndPassword(NSString username, NSString password, SuccessCallback completionHandler, ErrorCallback errorHandler);
+		void LoginWithUsernameAndPassword(NSString username, NSString password, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
 
 		/*
 		 * - (void)fetchAccountDetails:(SuccessBlock)info errorHandler:(ErrorBlock)error;
@@ -1050,7 +1941,7 @@ namespace Notificare.iOS
 		/// <param name="completionHandler">Completion handler.</param>
 		/// <param name="errorHandler">Error handler.</param>
 		[Export("fetchAccountDetails:errorHandler:")]
-		void FetchAccountDetails(SuccessCallback completionHandler, ErrorCallback errorHandler);
+		void FetchAccountDetails([BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
 
 		/*
 		 * - (void)generateAccessToken:(SuccessBlock)info errorHandler:(ErrorBlock)error;
@@ -1062,7 +1953,7 @@ namespace Notificare.iOS
 		/// <param name="completionHandler">Completion handler.</param>
 		/// <param name="errorHandler">Error handler.</param>
 		[Export("generateAccessToken:errorHandler:")]
-		void GenerateAccessToken(SuccessCallback completionHandler, ErrorCallback errorHandler);
+		void GenerateAccessToken([BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
 
 		/*
 		 * - (void)changePassword:(NSDictionary *)params completionHandler:(SuccessBlock)info errorHandler:(ErrorBlock)error;
@@ -1075,7 +1966,7 @@ namespace Notificare.iOS
 		/// <param name="completionHandler">Completion handler.</param>
 		/// <param name="errorHandler">Error handler.</param>
 		[Export("changePassword:completionHandler:errorHandler:")]
-		void ChangePassword(NSDictionary parameters, SuccessCallback completionHandler, ErrorCallback errorHandler);
+		void ChangePassword(NSDictionary parameters, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
 
 		/*
 		 * - (void)checkAccount:(NSString *)user completionHandler:(SuccessBlock)info errorHandler:(ErrorBlock)error;
@@ -1088,7 +1979,7 @@ namespace Notificare.iOS
 		/// <param name="completionHandler">Completion handler.</param>
 		/// <param name="errorHandler">Error handler.</param>
 		[Export("checkAccount:completionHandler:errorHandler:")]
-		void CheckAccount(NSString user, SuccessCallback completionHandler, ErrorCallback errorHandler);
+		void CheckAccount(NSString user, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
 
 		/*
 		 * - (void)handleOpenURL:(NSURL *)url;
@@ -1134,7 +2025,7 @@ namespace Notificare.iOS
 		/// </summary>
 		/// <value>The delegate.</value>
 		[Export ("delegate", ArgumentSemantic.Assign)][NullAllowed]
-		INotificarePushLibDelegate Delegate { get; set; }
+		NotificarePushLibDelegate Delegate { get; set; }
 
 		/*
 		 * @property (strong, nonatomic) NSString * deviceToken;
@@ -1397,6 +2288,8 @@ namespace Notificare.iOS
 
 	}
 
-	#endregion
+
+
+
 }
 

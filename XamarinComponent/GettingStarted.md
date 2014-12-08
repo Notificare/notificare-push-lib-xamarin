@@ -11,6 +11,7 @@ The official Notificare Xamarin SDK. Rich and interactive push notifications for
 * Download the APNS certificate and export it as a .p12 file from your keychain. Upload to [Notificare dashboard](https://dashboard.notifica.re/) under Settings - Services
 * In Xamarin Studio or Visual Studio, create a new iOS project with the Bundle ID you created the App with in Apple Developer Portal.
 * Using Xamarin Studio's built-in Component Store, add the free Notificare component to your project.
+* Copy Notificare.plist.template to Notificare.plist
 * Find your Application Key and Application Secret in the [Notificare dashboard](https://dashboard.notifica.re/) under Settings - App Keys. Use these to fill Notifcare.plist
 
 ### Setup Android

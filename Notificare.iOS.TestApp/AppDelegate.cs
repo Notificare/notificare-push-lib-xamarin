@@ -1,14 +1,21 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using MonoTouch.Foundation;
-using MonoTouch.UIKit;
-using Notificare.iOS;
-using MonoTouch.CoreLocation;
-using MonoTouch.Security;
 using System.Threading.Tasks;
 using System.Net;
 using System.Text;
+#if __UNIFIED__
+using Foundation;
+using UIKit;
+using CoreLocation;
+using Security;
+#else
+using MonoTouch.Foundation;
+using MonoTouch.UIKit;
+using MonoTouch.CoreLocation;
+using MonoTouch.Security;
+#endif
+using Notificare.iOS;
 
 namespace Notificare.iOS.TestApp
 {
@@ -37,11 +44,9 @@ namespace Notificare.iOS.TestApp
 			window.RootViewController = viewController;
 			window.MakeKeyAndVisible ();
 
-
 			NotificarePushLib.Shared().Launch ();
 			_pushLibDelegate = new MyPushLibDelegate ();
 			NotificarePushLib.Shared ().Delegate = _pushLibDelegate;
-
 
 			// Start notifications
 			if (options != null && options.ContainsKey( UIApplication.LaunchOptionsRemoteNotificationKey ) ) 
@@ -121,7 +126,6 @@ namespace Notificare.iOS.TestApp
 		}
 
 		class MyPushLibDelegate : NotificarePushLibDelegate {
-
 			public override void OnReady (NotificarePushLib library, NSDictionary info)
 			{
 				library.RegisterForNotifications ();
