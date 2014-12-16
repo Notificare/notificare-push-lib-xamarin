@@ -2,5 +2,5 @@ developmentApplicationKey = APPLICATION_KEY
 developmentApplicationSecret = APPLICATION_SECRET
 productionApplicationKey = APPLICATION_KEY
 productionApplicationSecret = APPLICATION_SECRET
-gcmSender = 286856668622
+gcmSender = SENDER_ID
 production = false
