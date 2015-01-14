@@ -8,11 +8,12 @@ using Android.Widget;
 using Android.OS;
 
 using Notificare.Android.Push.GCM;
+using Notificare.Android.Model;
 
 namespace Notificare.Android.Sample
 {
 	[Activity (Label = "Notificare.Android.Sample", MainLauncher = true, Icon = "@drawable/icon")]
-	public class MainActivity : BaseActivity
+	public class MainActivity : BaseActivity, Notificare.IOnNotificareReadyListener
 	{
 		protected override void OnCreate (Bundle bundle)
 		{
@@ -28,7 +29,15 @@ namespace Notificare.Android.Sample
 			button.Click += delegate {
 				Notificare.Shared().StartUserPreferencesActivity(this);
 			};
+
 		}
+
+		void Notificare.IOnNotificareReadyListener.OnNotificareReady(NotificareApplicationInfo info) 
+		{
+			Console.WriteLine ("Notificare ready");
+		}
+
+
 	}
 }
 

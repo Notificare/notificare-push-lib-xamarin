@@ -103,6 +103,12 @@ namespace Notificare.Sample.Android
 	[BroadcastReceiver]
 	public class MyIntentReceiver : DefaultIntentReceiver
 	{
+		public override void OnReady ()
+		{
+			Console.WriteLine ("Notificare ready, enable notifications");
+			Notificare.Shared ().EnableNotifications ();
+		}
+
 		public override void OnRegistrationFinished(String deviceId) 
 		{
 			Notificare.Android.Notificare.Shared ().RegisterDevice (deviceId, new RegisterDeviceCallback ());
@@ -149,7 +155,6 @@ namespace Notificare.Sample.Android
 			Notificare.Android.Notificare.Shared ().IntentReceiver = Java.Lang.Class.FromType(typeof(MyIntentReceiver));
 			Notificare.Android.Notificare.Shared ().AutoCancel = Java.Lang.Boolean.False;
 
-			Notificare.Android.Notificare.Shared ().EnableNotifications ();
 		}
 	}
 }

@@ -10,6 +10,7 @@ using Android.Views;
 using Android.Widget;
 
 using Notificare.Android.Push.GCM;
+using Notificare.Android.Model;
 using Notificare.Android;
 
 namespace Notificare.Sample.Android
@@ -35,6 +36,8 @@ namespace Notificare.Sample.Android
 			Console.WriteLine ("successfully registered device");
 			// Now, enable location updates
 			Notificare.Android.Notificare.Shared ().EnableLocationUpdates ();
+			Notificare.Android.Notificare.Shared ().EnableBeacons ();
+			Notificare.Android.Notificare.Shared ().EnableBilling ();
 			Notificare.Android.Notificare.Shared ().AddDeviceTags (new List<String> (){ "xamarin" }, new AddDeviceTagsCallback ());
 		}
 
@@ -64,6 +67,12 @@ namespace Notificare.Sample.Android
 		{
 			Console.WriteLine ("notificare ready");
 			Notificare.Android.Notificare.Shared ().EnableNotifications ();
+		}
+
+		public override void OnRangingBeacons(IList<NotificareBeacon> Beacons) {
+			foreach (NotificareBeacon Beacon in Beacons) {
+				Console.WriteLine (Beacon.CurrentDistance);
+			}
 		}
 	}
 }

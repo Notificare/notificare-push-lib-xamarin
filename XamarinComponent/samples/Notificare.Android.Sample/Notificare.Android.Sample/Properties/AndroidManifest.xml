@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="10103" android:versionName="1.1.3" package="notificare.android.sample">
-	<uses-sdk android:minSdkVersion="16" android:targetSdkVersion="21" />
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="10300" android:versionName="1.3.0" package="notificare.android.sample">
+	<uses-sdk android:minSdkVersion="10" android:targetSdkVersion="21" />
 	<!-- PERMISSIONS -->
 	<uses-permission android:name="android.permission.GET_ACCOUNTS" />
 	<uses-permission android:name="android.permission.WAKE_LOCK" />
@@ -16,8 +16,11 @@
 		PERMISSIONS REQUIRED for Google Cloud Messaging  
 		Please replace "com.example.pushtest" with your own package name
 	-->
-	<permission android:name=".permission.C2D_MESSAGE" android:protectionLevel="signature" />
-	<uses-permission android:name=".permission.C2D_MESSAGE" />
+	<permission android:name="notificare.android.sample.permission.C2D_MESSAGE" android:protectionLevel="signature" />
+	<uses-permission android:name="notificare.android.sample.permission.C2D_MESSAGE" />
+	<uses-permission android:name="android.permission.BLUETOOTH" />
+	<uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 	<application android:label="Notificare.Android.Sample" android:icon="@drawable/icon">
 		<!--
 	      BroadcastReceiver that will receive intents from GCM
@@ -36,6 +39,17 @@
 				<category android:name="notificare.android.sample" />
 			</intent-filter>
 		</receiver>
+		<receiver android:name="org.altbeacon.beacon.startup.StartupBroadcastReceiver">
+			<intent-filter>
+				<action android:name="android.intent.action.BOOT_COMPLETED" />
+				<action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+				<action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+			</intent-filter>
+		</receiver>
+		<service android:name="org.altbeacon.beacon.service.BeaconService" android:enabled="true" android:exported="true" android:isolatedProcess="false" android:label="beacon">
+		</service>
+		<service android:name="org.altbeacon.beacon.BeaconIntentProcessor" android:enabled="true">
+		</service>
 		<!--
 	    	Service running in the background that receives your Push Notifications 
 	     -->

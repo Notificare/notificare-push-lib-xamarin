@@ -35,6 +35,7 @@ namespace Notificare.Android.Sample
 			Console.WriteLine ("successfully registered device");
 			// Now, enable location updates
 			Notificare.Shared ().EnableLocationUpdates ();
+			Notificare.Shared ().EnableBeacons ();
 			// Let the user set user preferences from the UserPereferencesActivity, other tags can be added like this
 			//Notificare.Shared ().AddDeviceTags (new List<String> (){ "xamarin" }, new AddDeviceTagsCallback ());
 		}

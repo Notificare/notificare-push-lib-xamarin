@@ -57,17 +57,6 @@ namespace Notificare.iOS.TestApp
 			return true;
 		}
 
-		private NSString DeviceTokenConverter( NSData token )
-		{
-			var stringBuilder = new StringBuilder ("");
-
-			foreach (var tokenByte in token) {
-				stringBuilder.Append ( tokenByte.ToString ("x2") );
-			}
-
-			return new NSString ( stringBuilder.ToString () );
-		}
-
 		private void AddTags(NSArray tags) {
 			NotificarePushLib.Shared ().AddTags (
 				tags,

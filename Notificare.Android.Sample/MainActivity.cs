@@ -6,13 +6,15 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 
-using Notificare.Android;
 using Notificare.Android.Push.GCM;
+using Notificare.Android.Billing;
+using Notificare.Android.Model;
+using Notificare.Android;
 
 namespace Notificare.Sample.Android
 {
 	[Activity (Label = "Notificare.Sample", MainLauncher = true)]
-	public class MainActivity : BaseActivity
+	public class MainActivity : BaseActivity, Notificare.Android.Notificare.IOnBillingReadyListener, BillingManager.IOnRefreshFinishedListener
 	{
 
 		protected override void OnCreate (Bundle bundle)
@@ -28,8 +30,34 @@ namespace Notificare.Sample.Android
 			button.Click += delegate {
 				Notificare.Android.Notificare.Shared().StartUserPreferencesActivity(this);
 			};
+
+			Notificare.Android.Notificare.Shared ().AddBillingReadyListener (this);
 		}
+
+		void Notificare.Android.Notificare.IOnBillingReadyListener.OnBillingReady ()
+		{
+			Console.WriteLine ("billing ready");
+
+			Notificare.Android.Notificare.Shared ().BillingManager.Refresh (this);
+		}
+
+		void BillingManager.IOnRefreshFinishedListener.OnRefreshFinished() 
+		{
+			Console.WriteLine ("billing refreshed");
+			foreach (NotificareProduct product in Notificare.Android.Notificare.Shared().Products) {
+				Console.WriteLine (product.Name);
+			}
+
+		}
+
+		void BillingManager.IOnRefreshFinishedListener.OnRefreshFailed(NotificareError error) 
+		{
+			Console.WriteLine ("billing refresh failed: " + error.Message);
+
+		}
+
 	}
+
 }
 
 

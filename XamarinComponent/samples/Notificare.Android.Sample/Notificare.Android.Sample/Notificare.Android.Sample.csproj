@@ -44,21 +44,31 @@
     <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
-    <Reference Include="Mono.Android" />
     <Reference Include="Notificare.Android">
       <HintPath>..\..\..\bin\Notificare.Android.dll</HintPath>
     </Reference>
-    <Reference Include="Xamarin.Android.Support.v13">
-      <HintPath>..\Components\xamandroidsupportv13-18-19.1.0\lib\android\Xamarin.Android.Support.v13.dll</HintPath>
+    <Reference Include="AndroidAltBeaconLibrary">
+      <HintPath>..\Components\android-altbeacon-library-2.0\lib\android\AndroidAltBeaconLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.v4">
+      <HintPath>..\packages\Xamarin.Android.Support.v4.21.0.3.0\lib\MonoAndroid10\Xamarin.Android.Support.v4.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.v7.AppCompat">
+      <HintPath>..\packages\Xamarin.Android.Support.v7.AppCompat.21.0.3.0\lib\MonoAndroid403\Xamarin.Android.Support.v7.AppCompat.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.v7.MediaRouter">
+      <HintPath>..\packages\Xamarin.Android.Support.v7.MediaRouter.21.0.3.0\lib\MonoAndroid403\Xamarin.Android.Support.v7.MediaRouter.dll</HintPath>
     </Reference>
     <Reference Include="GooglePlayServicesLib">
-      <HintPath>..\Components\googleplayserviceskitkat-16.0\lib\android\GooglePlayServicesLib.dll</HintPath>
+      <HintPath>..\packages\Xamarin.GooglePlayServices.22.0.0.0\lib\MonoAndroid41\GooglePlayServicesLib.dll</HintPath>
     </Reference>
+    <Reference Include="Mono.Android" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>
@@ -87,12 +97,8 @@
     <AndroidAsset Include="Assets\notificareconfig.properties" />
   </ItemGroup>
   <ItemGroup>
-    <XamarinComponentReference Include="xamandroidsupportv13-18">
-      <Version>19.1.0</Version>
-      <Visible>False</Visible>
-    </XamarinComponentReference>
-    <XamarinComponentReference Include="googleplayserviceskitkat">
-      <Version>16.0</Version>
+    <XamarinComponentReference Include="android-altbeacon-library">
+      <Version>2.0</Version>
       <Visible>False</Visible>
     </XamarinComponentReference>
   </ItemGroup>

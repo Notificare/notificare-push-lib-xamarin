@@ -10,7 +10,7 @@ using StoreKit;
 namespace Notificare.iOS
 {
 	[BaseType (typeof (NSObject))]
-	interface NotificareAction
+	public interface NotificareAction
 	{
 
 		/*
@@ -74,7 +74,7 @@ namespace Notificare.iOS
 	}
 
 	[BaseType (typeof (NSObject))]
-	interface NotificareAttachment
+	public interface NotificareAttachment
 	{
 
 		/*
@@ -101,7 +101,7 @@ namespace Notificare.iOS
 	}
 
 	[BaseType (typeof (NSObject))]
-	interface NotificareBeacon
+	public interface NotificareBeacon
 	{
 		/*
 		 * @property (strong, nonatomic) NSString * name;
@@ -298,7 +298,7 @@ namespace Notificare.iOS
 
 
 	[BaseType (typeof (NSObject))]
-	interface NotificareContent
+	public interface NotificareContent
 	{
 
 		/*
@@ -337,7 +337,7 @@ namespace Notificare.iOS
 	}
 
 	[BaseType (typeof (NSObject))]
-	interface NotificareNotification
+	public interface NotificareNotification
 	{
 		/*
 		 * @property (strong, nonatomic) NSString * notificationID;
@@ -532,7 +532,7 @@ namespace Notificare.iOS
 	}
 
 	[BaseType (typeof (NSObject))]
-	interface NotificareProduct
+	public interface NotificareProduct
 	{
 
 		/*
@@ -705,7 +705,7 @@ namespace Notificare.iOS
 	}
 
 	[BaseType (typeof (NSObject))]
-	interface NotificareSegment
+	public interface NotificareSegment
 	{
 
 		/*
@@ -745,7 +745,7 @@ namespace Notificare.iOS
 	}
 
 	[BaseType (typeof (NSObject))]
-	interface NotificareUser
+	public interface NotificareUser
 	{
 
 		/*
@@ -856,7 +856,7 @@ namespace Notificare.iOS
 	}
 
 	[BaseType (typeof (NSObject))]
-	interface NotificareUserPreference
+	public interface NotificareUserPreference
 	{
 
 		/*
@@ -1286,9 +1286,145 @@ namespace Notificare.iOS
 		[Export ("notificarePushLib:didReceiveResetPasswordToken:")]
 		void DidReceiveResetPasswordToken (NotificarePushLib library, NSString token);
 
+		/*
+		 * - (void)notificarePushLib:(NotificarePushLib *)library didLoadStore:(NSArray *)products;
+		 */
+
+		/// <summary>
+		/// Optional. This delegate method will be triggered soon the product's store is loaded. Use it to update UI.
+		/// </summary>
+		/// <param name="library">Library.</param>
+		/// <param name="products">Products.</param>
+		[Export ("notificarePushLib:didLoadStore:")]
+		void DidLoadStore (NotificarePushLib library, NSArray products);
+
+		/*
+		 * - (void)notificarePushLib:(NotificarePushLib *)library didFailToLoadStore:(NSError *)error;
+		 */
+
+		/// <summary>
+		/// Optional. This delegate method will be triggered every time the store fails to load. We will automatically retry to load the store.
+		/// </summary>
+		/// <param name="library">Library.</param>
+		/// <param name="error">Error.</param>
+		[Export ("notificarePushLib:didFailToLoadStore:")]
+		void DidFailToLoadStore (NotificarePushLib library, NSError error);
+
+		/*
+		 * - (void)notificarePushLib:(NotificarePushLib *)library didCompleteProductTransaction:(SKPaymentTransaction *)transaction;
+		 */
+
+		/// <summary>
+		/// Optional. This delegate method will be triggered when a transaction is completed.
+		/// </summary>
+		/// <param name="library">Library.</param>
+		/// <param name="transaction">Transaction.</param>
+		[Export ("notificarePushLib:didCompleteProductTransaction:")]
+		void DidCompleteProductTransaction (NotificarePushLib library, SKPaymentTransaction transaction);
+
+
+		/*
+		 * - (void)notificarePushLib:(NotificarePushLib *)library didRestoreProductTransaction:(SKPaymentTransaction *)transaction;
+		 */
+
+		/// <summary>
+		/// Optional. This delegate method will be triggered when a transaction is restored.
+		/// </summary>
+		/// <param name="library">Library.</param>
+		/// <param name="transaction">Transaction.</param>
+		[Export ("notificarePushLib:didRestoreProductTransaction:")]
+		void DidRestoreProductTransaction (NotificarePushLib library, SKPaymentTransaction transaction);
+
+
+		/*
+		 * - (void)notificarePushLib:(NotificarePushLib *)library didFailProductTransaction:(SKPaymentTransaction *)transaction withError:(NSError *)error;
+		 */
+
+		/// <summary>
+		/// Optional. This delegate method will be triggered when a transaction fails.
+		/// </summary>
+		/// <param name="library">Library.</param>
+		/// <param name="transaction">Transaction.</param>
+		/// <param name="error">Error.</param>
+		[Export ("notificarePushLib:didFailProductTransaction:withError:")]
+		void DidFailProductTransaction (NotificarePushLib library, SKPaymentTransaction transaction, NSError error);
+
+		/*
+		 * - (void)notificarePushLib:(NotificarePushLib *)library didStartDownloadContent:(SKPaymentTransaction *)transaction;
+		 */
+
+		/// <summary>
+		/// Optional. This delegate method will be triggered when a transaction's content starts downloading.
+		/// </summary>
+		/// <param name="library">Library.</param>
+		/// <param name="transaction">Transaction.</param>
+		[Export ("notificarePushLib:didStartDownloadContent:")]
+		void DidStartDownloadContent (NotificarePushLib library, SKPaymentTransaction transaction);
+
+		/*
+		 * - (void)notificarePushLib:(NotificarePushLib *)library didPauseDownloadContent:(SKDownload *)download;
+		 */
+
+		/// <summary>
+		/// Optional. This delegate method will be triggered when a download is paused.
+		/// </summary>
+		/// <param name="library">Library.</param>
+		/// <param name="download">Download.</param>
+		[Export ("notificarePushLib:didPauseDownloadContent:")]
+		void DidPauseDownloadContent (NotificarePushLib library, SKDownload download);
+
+		/*
+		 * - (void)notificarePushLib:(NotificarePushLib *)library didCancelDownloadContent:(SKDownload *)download;
+		 */
+
+		/// <summary>
+		/// Optional. This delegate method will be triggered when a download is cancelled.
+		/// </summary>
+		/// <param name="library">Library.</param>
+		/// <param name="download">Download.</param>
+		[Export ("notificarePushLib:didCancelDownloadContent:")]
+		void DidCancelDownloadContent (NotificarePushLib library, SKDownload download);
+
+		/*
+		 * - (void)notificarePushLib:(NotificarePushLib *)library didReceiveProgressDownloadContent:(SKDownload *)download;
+		 */
+
+		/// <summary>
+		/// Optional. This delegate method will be triggered whenever a download progress is updated.
+		/// </summary>
+		/// <param name="library">Library.</param>
+		/// <param name="download">Download.</param>
+		[Export ("notificarePushLib:didReceiveProgressDownloadContent:")]
+		void DidReceiveProgressDownloadContent (NotificarePushLib library, SKDownload download);
+
+		/*
+		 * - (void)notificarePushLib:(NotificarePushLib *)library didFailDownloadContent:(SKDownload *)download;
+		 */
+
+		/// <summary>
+		/// Optional. This delegate method will be triggered whenever a download fails.
+		/// </summary>
+		/// <param name="library">Library.</param>
+		/// <param name="download">Download.</param>
+		[Export ("notificarePushLib:didFailDownloadContent:")]
+		void DidFailDownloadContent (NotificarePushLib library, SKDownload download);
+
+		/*
+		 * - (void)notificarePushLib:(NotificarePushLib *)library didFinishDownloadContent:(SKDownload *)download;
+		 */
+
+		/// <summary>
+		/// Optional. This delegate method will be triggered whenever a download progress is finished.
+		/// </summary>
+		/// <param name="library">Library.</param>
+		/// <param name="download">Download.</param>
+		[Export ("notificarePushLib:didFinishDownloadContent:")]
+		void DidFinishDownloadContent (NotificarePushLib library, SKDownload download);
 	}
 
 
+	public delegate void SuccessProductCallback( NotificareProduct product );
+	public delegate void SuccessArrayCallback( NSArray info );
 	public delegate void SuccessCallback( NSDictionary info );
 	public delegate void ErrorCallback( NSError error );
 
@@ -1736,7 +1872,21 @@ namespace Notificare.iOS
 		/// </summary>
 		/// <param name="beacon">Beacon.</param>
 		[Export("openBeacon:")]
+		[Obsolete ("use OpenNotificareBeacon instead.")]
 		void OpenBeacon (NSDictionary beacon);
+
+		/*
+		 * - (void)openNotificareBeacon:(NotificareBeacon *)beacon;
+		 */
+
+		/// <summary>
+		/// Displays the beacon's content. A NotificareBeacon object can be retrieved from the NSArray containing a list of beacons in the delegate didRangeBeacons:inRegion:.
+		/// </summary>
+		/// <param name="beacon">Beacon.</param>
+		[Export("openNotificareBeacon:")]
+		void OpenNotificareBeacon (NotificareBeacon beacon);
+
+
 
 		/*
 		 * - (void)openBeacons;
@@ -1876,7 +2026,24 @@ namespace Notificare.iOS
 		/// <param name="completionHandler">Completion handler.</param>
 		/// <param name="errorHandler">Error handler.</param>
 		[Export("createAccount:completionHandler:errorHandler:")]
+		[Obsolete ("use CreateAccountWithNameAndPassword instead.")]
 		void CreateAccount(NSDictionary parameters, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
+
+		/*
+		 * - (void)createAccount:(NSString *)email withName:(NSString *)name andPassword:(NSString *)password completionHandler:(SuccessBlock)result errorHandler:(ErrorBlock)errorBlock;
+		 */
+
+		/// <summary>
+		/// Creates the account with name and password.
+		/// </summary>
+		/// <param name="email">Email.</param>
+		/// <param name="name">Name.</param>
+		/// <param name="password">Password.</param>
+		/// <param name="completionHandler">Completion handler.</param>
+		/// <param name="errorHandler">Error handler.</param>
+		[Export("createAccount:withName:andPassword:completionHandler:errorHandler:")]
+		void CreateAccountWithNameAndPassword(NSString email, NSString name, NSString password, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
+
 
 		/*
 		 * - (void)resetPassword:(NSDictionary *)params withToken:(NSString *)token completionHandler:(SuccessBlock)result errorHandler:(ErrorBlock)errorBlock;
@@ -1932,6 +2099,27 @@ namespace Notificare.iOS
 		void LoginWithUsernameAndPassword(NSString username, NSString password, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
 
 		/*
+		 * - (void)logoutAccount;
+		 */
+
+		/// <summary>
+		/// Use this method should be log out any authenticated user. This method should also be used to allow the user to forget a device.
+		/// </summary>
+		[Export("logoutAccount")]
+		void LogoutAccount();
+
+		/*
+		 * - (BOOL)isLoggedIn;
+		 */
+
+		/// <summary>
+		/// Use this helper method to check if the user is logged in or not. This is meant to help the app's UI display any user related method without having to request the full User Object.
+		/// </summary>
+		/// <returns><c>true</c> if this instance is logged in; otherwise, <c>false</c>.</returns>
+		[Export("isLoggedIn")]
+		bool IsLoggedIn();
+
+		/*
 		 * - (void)fetchAccountDetails:(SuccessBlock)info errorHandler:(ErrorBlock)error;
 		 */
 
@@ -1969,6 +2157,46 @@ namespace Notificare.iOS
 		void ChangePassword(NSDictionary parameters, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
 
 		/*
+		 * - (void)fetchUserPreferences:(SuccessArrayBlock)info errorHandler:(ErrorBlock)error;
+		 */
+
+		/// <summary>
+		/// List of all NotificareUserPreference objects. These objects will contain information about user selectable segments. Should be used to show the user's selectable segments defined for this application.
+		/// </summary>
+		/// <param name="completionHandler">Completion handler.</param>
+		/// <param name="errorHandler">Error handler.</param>
+		[Export("fetchUserPreferences:errorHandler:")]
+		void FetchUserPreferences([BlockCallback] SuccessArrayCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
+
+		/*
+		 * - (void)addSegment:(NotificareSegment *)segment toPreference:(NotificareUserPreference *)preference completionHandler:(SuccessBlock)info errorHandler:(ErrorBlock)errorBlock;
+		 */
+
+		/// <summary>
+		/// Use this method to allow an authenticated user to add himself/herself to a segment previously created and added to the user preferences. These are retrievable by the method described below.
+		/// </summary>
+		/// <param name="segment">Segment.</param>
+		/// <param name="preference">Preference.</param>
+		/// <param name="completionHandler">Completion handler.</param>
+		/// <param name="errorHandler">Error handler.</param>
+		[Export("addSegment:toPreference:completionHandler:errorHandler:")]
+		void AddSegmentToPreference(NotificareSegment segment, NotificareUserPreference preference, [BlockCallback] SuccessArrayCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
+
+		/*
+		 * - (void)removeSegment:(NotificareSegment *)segment fromPreference:(NotificareUserPreference *)preference completionHandler:(SuccessBlock)info errorHandler:(ErrorBlock)errorBlock;
+		 */
+
+		/// <summary>
+		/// Use this method to allow an authenticated user to remove himself/herself from a segment previously created and added to the user preferences. These are retrievable by the method described below.
+		/// </summary>
+		/// <param name="segment">Segment.</param>
+		/// <param name="preference">Preference.</param>
+		/// <param name="completionHandler">Completion handler.</param>
+		/// <param name="errorHandler">Error handler.</param>
+		[Export("removeSegment:fromPreference:completionHandler:errorHandler:")]
+		void RemoveSegmentFromPreference(NotificareSegment segment, NotificareUserPreference preference, [BlockCallback] SuccessArrayCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
+
+		/*
 		 * - (void)checkAccount:(NSString *)user completionHandler:(SuccessBlock)info errorHandler:(ErrorBlock)error;
 		 */
 
@@ -1993,26 +2221,115 @@ namespace Notificare.iOS
 		void HandleOpenURL(NSUrl url);
 
 		/*
-		 * - (void)logoutAccount;
+		 * - (void)fetchProducts:(SuccessArrayBlock)info errorHandler:(ErrorBlock)error;
 		 */
 
 		/// <summary>
-		/// Logs out the account.
+		/// Use this method to get a list of all the NotificareProduct objects that you created in both iTunes Connect and Notificare dashboard.
 		/// </summary>
-		[Export("logoutAccount")]
-		void LogoutAccount();
+		/// <param name="completionHandler">Completion handler.</param>
+		/// <param name="erorHandler">Eror handler.</param>
+		[Export("fetchProducts:errorHandler:")]
+		void FetchProducts([BlockCallback] SuccessArrayCallback completionHandler, [BlockCallback] ErrorCallback erorHandler);
 
 		/*
-		 * - (BOOL)isLoggedIn;
+		 * - (void)fetchPurchasedProducts:(SuccessArrayBlock)info errorHandler:(ErrorBlock)error;
 		 */
 
 		/// <summary>
-		/// Is the user logged in?
+		/// Use this method to get a list of all the non-consumable product identifiers that this AppleID has purchased.
 		/// </summary>
-		/// <returns><c>true</c>, if logged in was ised, <c>false</c> otherwise.</returns>
-		[Export("isLoggedIn")]
-		bool isLoggedIn();
+		/// <param name="completionHandler">Completion handler.</param>
+		/// <param name="erorHandler">Eror handler.</param>
+		[Export("fetchPurchasedProducts:errorHandler:")]
+		void FetchPurchasedProducts([BlockCallback] SuccessArrayCallback completionHandler, [BlockCallback] ErrorCallback erorHandler);
 
+
+		/*
+		 * - (void)fetchProduct:(NSString *)productIdentifier completionHandler:(SuccessProductBlock)info errorHandler:(ErrorBlock)error;
+		 */
+
+		/// <summary>
+		/// Use this method to get specific NotificareProduct object by providing a product identifier (SKU).
+		/// </summary>
+		/// <param name="productIdentifier">Product identifier.</param>
+		/// <param name="completionHandler">Completion handler.</param>
+		/// <param name="erorHandler">Eror handler.</param>
+		[Export("fetchProduct:completionHandler:errorHandler:")]
+		void FetchProduct(NSString productIdentifier, [BlockCallback] SuccessProductCallback completionHandler, [BlockCallback] ErrorCallback erorHandler);
+
+
+		/*
+		 * - (void)buyProduct:(NotificareProduct *)product;
+		 */
+
+		/// <summary>
+		/// Use this method to allow the user to buy a product. Use the NotificareProduct object retreived by the methods above to buy a product.
+		/// </summary>
+		/// <param name="product">Product.</param>
+		[Export("buyProduct:")]
+		void BuyProduct(NotificareProduct product);
+
+
+		/*
+		 * - (void)pauseDownloads:(NSArray *)downloads;
+		 */
+
+		/// <summary>
+		/// Use this method to pause any active downloads.
+		/// </summary>
+		/// <param name="downloads">Downloads.</param>
+		[Export("pauseDownloads:")]
+		void PauseDownloads(NSArray downloads);
+
+
+		/*
+		 * - (void)cancelDownloads:(NSArray *)downloads;
+		 */
+
+		/// <summary>
+		/// Use this method to cancel one or more active downloads.
+		/// </summary>
+		/// <param name="downloads">Downloads.</param>
+		[Export("cancelDownloads:")]
+		void CancelDownloads(NSArray downloads);
+
+
+		/*
+		 * - (void)resumeDownloads:(NSArray *)downloads;
+		 */
+
+		/// <summary>
+		/// Use this method to resume one or more paused downloads.
+		/// </summary>
+		/// <param name="downloads">Downloads.</param>
+		[Export("resumeDownloads:")]
+		void ResumeDownloads(NSArray downloads);
+
+
+		/*
+		 * - (NSString *)contentPathForProduct:(NSString *)productIdentifier;
+		 */
+
+		/// <summary>
+		/// Retrieve the path for the download content of a product using its SKU.
+		/// </summary>
+		/// <returns>The path for product.</returns>
+		/// <param name="productIdentifier">Product identifier.</param>
+		[Export("contentPathForProduct:")]
+		NSString ContentPathForProduct(NSString productIdentifier);
+
+
+		/*
+		 * - (NSString *)sdkVersion;
+		 */
+
+		/// <summary>
+		/// Retrieve the SDK version. Used by other frameworks to identify the native version.
+		/// </summary>
+		/// <value>The sdk version.</value>
+		[Export("sdkVersion")]
+		NSString SdkVersion { get; }
 
 		// Properties
 
@@ -2051,6 +2368,7 @@ namespace Notificare.iOS
 		/*
 		 * @property (strong, nonatomic) NSString * userID;
 		 */
+
 		/// <summary>
 		/// Gets the user ID.
 		/// </summary>
@@ -2172,15 +2490,15 @@ namespace Notificare.iOS
 		NSMutableArray LastLocations { get; }
 
 		/*
-		 * @property (strong, nonatomic) NSMutableArray * regionSession;
+		 * @property (strong, nonatomic) NSMutableArray * regionSessions;
 		 */
 
 		/// <summary>
-		/// A mutable dictionary that holds hold the enter/exit time and location updates
+		/// A mutable array that holds hold the enter/exit time and location updates
 		/// </summary>
 		/// <value>The region session.</value>
-		[Export("regionSession")]
-		NSMutableArray RegionSession { get; }
+		[Export("regionSessions")]
+		NSMutableArray RegionSessions { get; }
 
 		/*
 		 * @property (strong, nonatomic) NSMutableArray * beaconSession;
@@ -2191,7 +2509,7 @@ namespace Notificare.iOS
 		/// </summary>
 		/// <value>The beacon session.</value>
 		[Export("beaconSession")]
-		NSMutableArray BeaconSession { get; }
+		NSMutableDictionary BeaconSession { get; }
 
 		/*
 		 * @property (strong, nonatomic) CLBeaconRegion *beaconRegion;
@@ -2228,6 +2546,30 @@ namespace Notificare.iOS
 
 
 		/*
+		 * @property (strong, nonatomic) NSMutableArray * beacons;
+		 */
+
+		/// <summary>
+		/// Returns Beacons being monitored
+		/// </summary>
+		/// <value>The beacons.</value>
+		[Export("beacons")]
+		NSMutableArray Beacons { get; }
+
+
+		/*
+		 * @property (strong, nonatomic) NSMutableArray * stateBeacons;
+		 */
+
+		/// <summary>
+		/// Returns an array of beacons that were triggered by entry
+		/// </summary>
+		/// <value>The state beacons.</value>
+		[Export("stateBeacons")]
+		NSMutableArray StateBeacons { get; }
+
+
+		/*
 		 * @property (strong, nonatomic) NSDictionary * applicationInfo;
 		 */
 
@@ -2252,18 +2594,6 @@ namespace Notificare.iOS
 
 
 		/*
-		 * @property (strong, nonatomic) NSMutableArray * beacons;
-		 */
-
-		/// <summary>
-		/// Returns Beacons being monitored
-		/// </summary>
-		/// <value>The beacons.</value>
-		[Export("beacons")]
-		NSMutableArray Beacons { get; }
-
-
-		/*
 		 * @property (strong, nonatomic) NSMutableArray * stateEntries;
 		 */
 
@@ -2274,17 +2604,42 @@ namespace Notificare.iOS
 		[Export("stateEntries")]
 		NSMutableArray StateEntries { get; }
 
-
 		/*
-		 * @property (strong, nonatomic) NSMutableArray * stateBeacons;
+		 * @property (strong, nonatomic) NSMutableSet * productIdentifiers;
 		 */
 
-		/// <summary>
-		/// Returns an array of beacons that were triggered by entry
-		/// </summary>
-		/// <value>The state beacons.</value>
-		[Export("stateBeacons")]
-		NSMutableArray StateBeacons { get; }
+		[Export("productIdentifiers")]
+		NSMutableSet ProductIdentifiers { get; }
+
+
+		/*
+		 * @property (strong, nonatomic) NSMutableArray * products;
+		 */
+
+		[Export("products")]
+		NSMutableArray Products { get; }
+
+		/*
+		 * @property (strong, nonatomic) NSMutableArray * pendingTransactions;
+		 */
+
+		[Export("pendingTransactions")]
+		NSMutableArray PendingTransactions { get; }
+
+
+		/*
+		 * @property (strong, nonatomic) NSMutableSet * purchasedProducts;
+		 */
+
+		[Export("purchasedProducts")]
+		NSMutableSet PurchasedProducts { get; }
+
+		/*
+		 * @property (strong, nonatomic) SKProductsRequest * storeRequest;
+		 */
+
+		[Export("storeRequest")]
+		SKProductsRequest StoreRequest { get; }
 
 	}
 
