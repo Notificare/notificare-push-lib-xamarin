@@ -15,7 +15,6 @@ Global
 		{391E7BB9-129B-4BD7-8195-A9F1E64D59D9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = Notificare.Android.Sample\Notificare.Android.Sample.csproj
-		version = 1.1.3
+		version = 1.3.2
 	EndGlobalSection
 EndGlobal

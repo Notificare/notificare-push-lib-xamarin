@@ -1692,6 +1692,17 @@ namespace Notificare.iOS
 		void OpenNotification( NSDictionary notification );
 
 		/*
+		 * - (void)logOpenNotification:(NSDictionary *)notification;
+		 */
+
+		/// <summary>
+		/// Logs the open notification manually. This should be used when you don't use the openNotification.
+		/// </summary>
+		/// <param name="notification">A NSDictionary object usually the result of getNotification: or Apple's userInfo dictionary provided in didReceiveRemoteNotification:.</param>
+		[Export("logOpenNotification:")]
+		void LogOpenNotification( NSDictionary notification );
+
+		/*
 		 * - (void)getNotification:(NSString *)notificationID completionHandler:(SuccessBlock)info errorHandler:(ErrorBlock)error;
 		 */
 
@@ -2052,11 +2063,12 @@ namespace Notificare.iOS
 		/// <summary>
 		/// Resets the password.
 		/// </summary>
-		/// <param name="parameters">Parameters.</param>
+		/// <param name="password">Password.</param>
+		/// <param name="token">Token.</param>
 		/// <param name="completionHandler">Completion handler.</param>
 		/// <param name="errorHandler">Error handler.</param>
-		[Export("resetPassword:completionHandler:errorHandler:")]
-		void ResetPassword(NSDictionary parameters, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
+		[Export("resetPassword:withToken:completionHandler:errorHandler:")]
+		void ResetPassword(NSString password, NSString token, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
 
 		/*
 		 * - (void)validateAccount:(NSString *)token completionHandler:(SuccessBlock)result errorHandler:(ErrorBlock)errorBlock;
@@ -2078,11 +2090,11 @@ namespace Notificare.iOS
 		/// <summary>
 		/// Sends the password.
 		/// </summary>
-		/// <param name="parameters">Parameters.</param>
+		/// <param name="email">Email.</param>
 		/// <param name="completionHandler">Completion handler.</param>
 		/// <param name="errorHandler">Error handler.</param>
 		[Export("sendPassword:completionHandler:errorHandler:")]
-		void SendPassword(NSDictionary parameters, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
+		void SendPassword(NSString email, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
 
 		/*
 		 * - (void)loginWithUsername:(NSString *)username andPassword:(NSString *)password completionHandler:(SuccessBlock)info errorHandler:(ErrorBlock)error;
@@ -2150,11 +2162,11 @@ namespace Notificare.iOS
 		/// <summary>
 		/// Changes the password.
 		/// </summary>
-		/// <param name="parameters">Parameters.</param>
+		/// <param name="password">Password.</param>
 		/// <param name="completionHandler">Completion handler.</param>
 		/// <param name="errorHandler">Error handler.</param>
 		[Export("changePassword:completionHandler:errorHandler:")]
-		void ChangePassword(NSDictionary parameters, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
+		void ChangePassword(NSString password, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
 
 		/*
 		 * - (void)fetchUserPreferences:(SuccessArrayBlock)info errorHandler:(ErrorBlock)error;
@@ -2647,4 +2659,3 @@ namespace Notificare.iOS
 
 
 }
-

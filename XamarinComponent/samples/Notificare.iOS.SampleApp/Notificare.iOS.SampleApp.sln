@@ -27,7 +27,6 @@ Global
 		{B75602C1-2DBB-4479-ACF9-D3A14C3C5F37}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = Notificare.iOS.SampleApp\Notificare.iOS.SampleApp.csproj
-		version = 1.1.3
+		version = 1.3.2
 	EndGlobalSection
 EndGlobal

@@ -1,6 +1,10 @@
 ﻿<Properties StartupItem="Notificare.iOS-Unified.SampleApp/Notificare.iOS-Unified.SampleApp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.Kabouter Wesley" />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Notificare.iOS-Unified.SampleApp/Notificare.plist">
+    <Files>
+      <File FileName="Notificare.iOS-Unified.SampleApp/Notificare.plist" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
