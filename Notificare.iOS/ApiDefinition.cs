@@ -337,6 +337,159 @@ namespace Notificare.iOS
 	}
 
 	[BaseType (typeof (NSObject))]
+	public interface NotificareDevice
+	{
+		/*
+
+
+		@property (strong, nonatomic) NSString * username;
+		@property (strong, nonatomic) NSNumber * timezone;
+		@property (strong, nonatomic) NSString * osVersion;
+		@property (strong, nonatomic) NSString * sdkVersion;
+		@property (strong, nonatomic) NSString * appVersion;
+		@property (strong, nonatomic) NSString * device;
+		@property (nonatomic) float latitude;
+		@property (nonatomic) float longitude;
+		@property (assign, nonatomic) BOOL canReceiveNotifications;
+		@property (assign, nonatomic) BOOL allowedLocationServices;
+		*/
+
+		/*
+		 * @property (strong, nonatomic) NSString * deviceID;
+		 */
+
+		/// <summary>
+		/// Gets the device ID
+		/// </summary>
+		/// <value>The device I.</value>
+		[Export("deviceID")]
+		NSString DeviceID { get; }
+
+		/*
+		 * @property (strong, nonatomic) NSString * userID;
+		 */
+
+		/// <summary>
+		/// Gets the user ID
+		/// </summary>
+		/// <value>The user ID.</value>
+		[Export("userID")]
+		NSString UserID { get; }
+
+		/*
+		 * @property (strong, nonatomic) NSString * username;
+		 */
+
+		/// <summary>
+		/// Gets the username.
+		/// </summary>
+		/// <value>The username.</value>
+		[Export("username")]
+		NSString Username { get; }
+
+		/*
+		 * @property (strong, nonatomic) NSNumber * timezone;
+		 */
+
+		/// <summary>
+		/// Gets the timezone.
+		/// </summary>
+		/// <value>The timezone.</value>
+		[Export("timezone")]
+		NSNumber Timezone { get; }
+
+		/*
+		 * @property (strong, nonatomic) NSString * osVersion;
+		 */
+
+		/// <summary>
+		/// Gets the os version.
+		/// </summary>
+		/// <value>The os version.</value>
+		[Export("osVersion")]
+		NSString OsVersion { get; }
+
+		/*
+		 * @property (strong, nonatomic) NSString * sdkVersion;
+		 */
+
+		/// <summary>
+		/// Gets the sdk version.
+		/// </summary>
+		/// <value>The sdk version.</value>
+		[Export("sdkVersion")]
+		NSString SdkVersion { get; }
+
+		/*
+		 * @property (strong, nonatomic) NSString * appVersion;
+		 */
+
+		/// <summary>
+		/// Gets the app version.
+		/// </summary>
+		/// <value>The app version.</value>
+		[Export("appVersion")]
+		NSString AppVersion { get; }
+
+		/*
+		 * @property (strong, nonatomic) NSString * device;
+		 */
+
+		/// <summary>
+		/// Gets the device string.
+		/// </summary>
+		/// <value>The device.</value>
+		[Export("device")]
+		NSString Device { get; }
+
+		/*
+		 * @property (nonatomic) float deviceID;
+		 */
+
+		/// <summary>
+		/// Gets the latitude.
+		/// </summary>
+		/// <value>The latitude.</value>
+		[Export("latitude")]
+		float Latitude { get; }
+
+		/*
+		 * @property (nonatomic) float deviceID;
+		 */
+
+		/// <summary>
+		/// Gets the longitude.
+		/// </summary>
+		/// <value>The longitude.</value>
+		[Export("longitude")]
+		float Longitude { get; }
+
+		/*
+		 * @property (assign, nonatomic) BOOL canReceiveNotifications;
+		 */
+
+		/// <summary>
+		/// Gets a value indicating whether this <see cref="Notificare.iOS.NotificareDevice"/> can receive notifications.
+		/// </summary>
+		/// <value><c>true</c> if this instance can receive notifications; otherwise, <c>false</c>.</value>
+		[Export("canReceiveNotifications")]
+		bool CanReceiveNotifications { get; }
+
+		/*
+		 * @property (assign, nonatomic) BOOL allowedLocationServices;
+		 */
+
+		/// <summary>
+		/// Gets a value indicating whether this <see cref="Notificare.iOS.NotificareDevice"/> allowed location services.
+		/// </summary>
+		/// <value><c>true</c> if allowed location services; otherwise, <c>false</c>.</value>
+		[Export("allowedLocationServices")]
+		bool AllowedLocationServices { get; }
+
+
+	}
+
+	[BaseType (typeof (NSObject))]
 	public interface NotificareNotification
 	{
 		/*
@@ -1476,6 +1629,16 @@ namespace Notificare.iOS
 		[Export("registerForNotifications")]
 		void RegisterForNotifications ();
 
+		/* 
+		 * -(BOOL)checkRemoteNotifications;
+		 */
+
+		/// <summary>
+		/// Use this method to quickly identify if the device has been registered with APNS
+		/// </summary>
+		/// <returns><c>true</c>, if device is registered with APNS, <c>false</c> otherwise.</returns>
+		[Export("checkRemoteNotifications")]
+		bool CheckRemoteNotifications ();
 
 		/*
 		 * - (void)handleOptions:(NSDictionary *)options;
@@ -2357,7 +2520,18 @@ namespace Notificare.iOS
 		NotificarePushLibDelegate Delegate { get; set; }
 
 		/*
-		 * @property (strong, nonatomic) NSString * deviceToken;
+		 * @property (strong, nonatomic) NotificareDevice * myDevice;
+		 */
+
+		/// <summary>
+		/// A NotificareDevice object containing all information about the device properties like the device token, language, location, etc.
+		/// </summary>
+		/// <value>My device.</value>
+		[Export("myDevice")]
+		NotificareDevice MyDevice { get; }
+
+		/*
+		 * @property (strong, nonatomic) NSString * deviceToken __attribute__((deprecated("use myDevice instead.")));
 		 */
 
 		/// <summary>
@@ -2365,20 +2539,22 @@ namespace Notificare.iOS
 		/// </summary>
 		/// <value>The device token.</value>
 		[Export("deviceToken")]
+		[Obsolete ("use MyDevice instead.")]
 		NSString DeviceToken { get; }
 
 		/*
-		 * @property (strong, nonatomic) NSString * device;
+		 * @property (strong, nonatomic) NSString * device __attribute__((deprecated("use myDevice instead.")));
 		 */
 		/// <summary>
 		/// Gets the device.
 		/// </summary>
 		/// <value>The device.</value>
 		[Export("device")]
+		[Obsolete ("use MyDevice instead.")]
 		NSString Device { get; }
 
 		/*
-		 * @property (strong, nonatomic) NSString * userID;
+		 * @property (strong, nonatomic) NSString * userID __attribute__((deprecated("use myDevice or user instead.")));
 		 */
 
 		/// <summary>
@@ -2386,10 +2562,22 @@ namespace Notificare.iOS
 		/// </summary>
 		/// <value>The user I.</value>
 		[Export("userID")]
+		[Obsolete ("use MyDevice or User instead.")]
 		NSString UserID { get; }
 
 		/*
-		 * @property (strong, nonatomic) NSString * username;
+		 * @property (strong, nonatomic) NotificareUser * user;
+		 */
+
+		/// <summary>
+		/// A NotificareUser object representing the current user
+		/// </summary>
+		/// <value>The user.</value>
+		[Export("user")]
+		NotificareUser User { get; }
+
+		/*
+		 * @property (strong, nonatomic) NSString * username __attribute__((deprecated("use myDevice or user instead.")));
 		 */
 
 		/// <summary>
@@ -2397,7 +2585,9 @@ namespace Notificare.iOS
 		/// </summary>
 		/// <value>The name of the user.</value>
 		[Export("username")]
+		[Obsolete ("use MyDevice or User instead.")]
 		NSString Username { get; }
+
 
 		/*
 		 * @property (nonatomic, assign) UIRemoteNotificationType notificationTypes;
@@ -2445,7 +2635,7 @@ namespace Notificare.iOS
 		bool DisplayMessage { get; set; }
 
 		/*
-		 * @property (strong, nonatomic) CLRegion * currentFence;
+		 * @property (strong, nonatomic) CLRegion * currentFence __attribute__((deprecated("use currentRegions instead.")));
 		 */
 
 		/// <summary>
@@ -2453,7 +2643,30 @@ namespace Notificare.iOS
 		/// </summary>
 		/// <value>The current fence.</value>
 		[Export("currentFence")]
+		[Obsolete ("use CurrentRegions instead.")]
 		CLRegion CurrentFence { get; }
+
+		/*
+		 * @property (strong, nonatomic) NSMutableArray * currentRegions;
+		 */
+
+		/// <summary>
+		/// NSMutableArray containing the CLRegion objects the user is currently inside
+		/// </summary>
+		/// <value>The current regions.</value>
+		[Export("currentRegions")]
+		NSMutableArray CurrentRegions { get; }
+
+		/*
+		 * @property (strong, nonatomic) NSMutableArray * currentBeacons;
+		 */
+
+		/// <summary>
+		/// NSMutableArray containing the CLBeaconRegion objects the user is currently in range
+		/// </summary>
+		/// <value>The current beacons.</value>
+		[Export("currentBeacons")]
+		NSMutableArray CurrentBeacons { get; }
 
 		/*
 		 * @property (strong, nonatomic) NSMutableArray * notificationQueue;
