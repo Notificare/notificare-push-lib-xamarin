@@ -17,7 +17,7 @@
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
     <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
-    <ReleaseVersion>1.3.2</ReleaseVersion>
+    <ReleaseVersion>1.4.0</ReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -44,9 +44,6 @@
     <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
-    <Reference Include="Notificare.Android">
-      <HintPath>..\..\..\bin\Notificare.Android.dll</HintPath>
-    </Reference>
     <Reference Include="AndroidAltBeaconLibrary">
       <HintPath>..\Components\android-altbeacon-library-2.0\lib\android\AndroidAltBeaconLibrary.dll</HintPath>
     </Reference>
@@ -63,6 +60,9 @@
       <HintPath>..\packages\Xamarin.GooglePlayServices.22.0.0.0\lib\MonoAndroid41\GooglePlayServicesLib.dll</HintPath>
     </Reference>
     <Reference Include="Mono.Android" />
+    <Reference Include="Notificare.Android">
+      <HintPath>..\..\..\bin\Notificare.Android.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml" />

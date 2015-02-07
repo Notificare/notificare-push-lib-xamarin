@@ -11,7 +11,7 @@
     <RootNamespace>Notificare.iOS</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AssemblyName>Notificare.iOS-Unified</AssemblyName>
-    <ReleaseVersion>1.3.1</ReleaseVersion>
+    <ReleaseVersion>1.4.0</ReleaseVersion>
     <TargetFrameworkIdentifier>Xamarin.iOS</TargetFrameworkIdentifier>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">

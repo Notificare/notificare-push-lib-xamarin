@@ -9,7 +9,7 @@
     <RootNamespace>Notificare.iOS.SampleApp</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AssemblyName>NotificareiOSSampleApp</AssemblyName>
-    <ReleaseVersion>1.3.2</ReleaseVersion>
+    <ReleaseVersion>1.4.0</ReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
     <DebugSymbols>true</DebugSymbols>

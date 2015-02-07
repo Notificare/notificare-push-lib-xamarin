@@ -4,7 +4,7 @@
     <Files>
       <File FileName="Notificare.iOS.SampleApp/Notificare.plist" />
       <File FileName="Notificare.iOS.SampleApp/NotificareTags.plist" />
-      <File FileName="Notificare.iOS.SampleApp/AppDelegate.cs" Line="3" Column="3" />
+      <File FileName="Notificare.iOS.SampleApp/AppDelegate.cs" Line="1" Column="1" />
       <File FileName="Notificare.iOS.SampleApp/Info.plist" />
       <File FileName="Notificare.iOS.SampleApp/Main.cs" Line="1" Column="1" />
     </Files>
