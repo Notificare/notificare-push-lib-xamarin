@@ -1,6 +1,6 @@
 ﻿<Properties StartupItem="Notificare.iOS.SampleApp/Notificare.iOS.SampleApp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.Kabouter Wesley" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Notificare.iOS.SampleApp/Notificare.plist">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Notificare.iOS.SampleApp/Info.plist">
     <Files>
       <File FileName="Notificare.iOS.SampleApp/Notificare.plist" />
       <File FileName="Notificare.iOS.SampleApp/NotificareTags.plist" />
