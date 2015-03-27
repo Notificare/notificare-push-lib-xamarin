@@ -1657,6 +1657,9 @@ namespace Notificare.Android.Sample
 			// aapt resource value: 0x7f0d005d
 			public const int notificare_callback_message = 2131558493;
 			
+			// aapt resource value: 0x7f0d005f
+			public const int notificare_notification_fragment_layout = 2131558495;
+			
 			// aapt resource value: 0x7f0d005c
 			public const int notificare_send_button = 2131558492;
 			

@@ -1,13 +1,35 @@
 ﻿<Properties StartupItem="Notificare.Android.Sample/Notificare.Android.Sample.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" PreferredExecutionTarget="Android.068f9ebe2115a907" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Notificare.Android.Sample/Assets/notificareconfig.properties">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Notificare.Android.Sample/Resources/values-v21/styles.xml">
     <Files>
-      <File FileName="Notificare.Android.Sample/MyIntentReceiver.cs" Line="1" Column="1" />
+      <File FileName="Notificare.Android.Sample/MyIntentReceiver.cs" Line="4" Column="4" />
       <File FileName="Notificare.Android.Sample/MainApplication.cs" Line="1" Column="1" />
-      <File FileName="Notificare.Android.Sample/Properties/AndroidManifest.xml" Line="1" Column="1" />
-      <File FileName="Notificare.Android.Sample/Assets/notificareconfig.properties" Line="1" Column="1" />
-      <File FileName="Notificare.Android.Sample/Properties/AssemblyInfo.cs" Line="1" Column="1" />
+      <File FileName="Notificare.Android.Sample/Properties/AndroidManifest.xml" Line="80" Column="12" />
+      <File FileName="Notificare.Android.Sample/Assets/notificareconfig.properties" Line="1" Column="93" />
+      <File FileName="Notificare.Android.Sample/Properties/AssemblyInfo.cs" Line="21" Column="35" />
+      <File FileName="Notificare.Android.Sample/Assets/AboutAssets.txt" Line="1" Column="1" />
+      <File FileName="Notificare.Android.Sample/MainActivity.cs" Line="1" Column="1" />
+      <File FileName="Notificare.Android.Sample/Resources/values-v14/styles.xml" Line="1" Column="1" />
+      <File FileName="Notificare.Android.Sample/Resources/values-v21/styles.xml" Line="8" Column="61" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="Notificare.Android.Sample" expanded="True">
+            <Node name="ComponentReferenceFolder" expanded="True" />
+            <Node name="Packages" expanded="True" />
+            <Node name="Assets" expanded="True" />
+            <Node name="Properties" expanded="True" />
+            <Node name="Resources" expanded="True">
+              <Node name="values-v14" expanded="True" />
+              <Node name="values-v21" expanded="True">
+                <Node name="styles.xml" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
