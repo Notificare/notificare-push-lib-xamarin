@@ -27,7 +27,7 @@ namespace Notificare.Android.Sample
 			// Use our preferences from XML
 			Notificare.Shared ().UserPreferencesResource = Resource.Xml.preferences;
 			// Keep notifications in the drawer, remove this line or set to true if you want them to clear automatically when opened
-			Notificare.Shared ().AutoCancel = Java.Lang.Boolean.False;
+			//Notificare.Shared ().AutoCancel = Java.Lang.Boolean.False;
 
 
 		}
