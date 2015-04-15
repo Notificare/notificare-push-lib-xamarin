@@ -11,7 +11,7 @@ using Android.Widget;
 
 namespace Notificare.Android.Sample
 {
-	[Application (Debuggable=true, AllowClearUserData=true, Icon="@drawable/icon", Theme="@style/AppTheme" )]
+	[Application (Debuggable=true, AllowClearUserData=true, Icon="@drawable/icon", Theme="@style/Theme.AppCompat.Light.DarkActionBar" )]
 	public class MainApplication : Application
 	{
 		public MainApplication(IntPtr javaReference, JniHandleOwnership transfer) : base(javaReference, transfer) { }
@@ -28,7 +28,7 @@ namespace Notificare.Android.Sample
 			Notificare.Shared ().UserPreferencesResource = Resource.Xml.preferences;
 			// Keep notifications in the drawer, remove this line or set to true if you want them to clear automatically when opened
 			//Notificare.Shared ().AutoCancel = Java.Lang.Boolean.False;
-
+			Notificare.Shared().DefaultLightsColor = "#ff0000";
 
 		}
 	}

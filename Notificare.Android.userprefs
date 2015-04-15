@@ -1,13 +1,9 @@
 ﻿<Properties StartupItem="Notificare.Android.Sample/Notificare.Sample.Android.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" PreferredExecutionTarget="Android.Android_TV_720p_API_21" />
-  <MonoDevelop.Ide.Workbench>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State expanded="True">
-          <Node name="Notificare.Android" selected="True" />
-        </State>
-      </Pad>
-    </Pads>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Notificare.Android/Transforms/Metadata.xml">
+    <Files>
+      <File FileName="Notificare.Android/Transforms/Metadata.xml" Line="12" Column="59" />
+    </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
