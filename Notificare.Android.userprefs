@@ -1,8 +1,14 @@
 ﻿<Properties StartupItem="Notificare.Android.Sample/Notificare.Sample.Android.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" PreferredExecutionTarget="Android.Android_TV_720p_API_21" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Notificare.Android/Transforms/Metadata.xml">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" PreferredExecutionTarget="Android.068f9ebe2115a907" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Notificare.Android/Properties/AssemblyInfo.cs">
     <Files>
-      <File FileName="Notificare.Android/Transforms/Metadata.xml" Line="12" Column="59" />
+      <File FileName="Notificare.Android/obj/Release/generated/src/Notificare.Android.Beacon.BeaconClient.cs" Line="1" Column="1" />
+      <File FileName="Notificare.Android/obj/Release/generated/src/Notificare.Android.Beacon.IBeaconRangingListener.cs" Line="1" Column="1" />
+      <File FileName="Notificare.Android/obj/Release/generated/src/Notificare.Android.Billing.BillingManager.cs" Line="1" Column="1" />
+      <File FileName="Notificare.Android/obj/Release/generated/src/Notificare.Android.Notificare.cs" Line="1" Column="1" />
+      <File FileName="Notificare.Android/obj/Release/generated/src/Notificare.Android.Push.GCM.BaseIntentReceiver.cs" Line="1" Column="1" />
+      <File FileName="Notificare.Android.Sample/Assets/notificareconfig.properties" Line="1" Column="1" />
+      <File FileName="Notificare.Android/Properties/AssemblyInfo.cs" Line="18" Column="35" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
