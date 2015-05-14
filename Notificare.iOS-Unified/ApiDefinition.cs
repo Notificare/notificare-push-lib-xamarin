@@ -2506,6 +2506,17 @@ namespace Notificare.iOS
 		[Export("sdkVersion")]
 		NSString SdkVersion { get; }
 
+		/*
+		 * -(NSArray *)myPasses;
+		 */
+
+		/// <summary>
+		/// Retrieve a list of passes added to the Passbook app that this app can access
+		/// </summary>
+		/// <value>A NSArray containing PKPasses objects</value>
+		[Export("myPasses")]
+		NSArray MyPasses { get; }
+
 		// Properties
 
 		/*
