@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="10406" package="notificare.android.sample" android:versionName="1.4.6">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="10500" package="notificare.android.sample" android:versionName="1.5.0">
 	<uses-sdk android:minSdkVersion="10" android:targetSdkVersion="21" />
 	<!-- PERMISSIONS -->
 	<uses-permission android:name="android.permission.GET_ACCOUNTS" />

@@ -37,12 +37,7 @@ namespace Notificare.iOS.SampleApp
 			NotificarePushLib.Shared().Launch ();
 			_pushLibDelegate = new MyPushLibDelegate ();
 			NotificarePushLib.Shared ().Delegate = _pushLibDelegate;
-
-
-			if (options != null && options.ContainsKey( UIApplication.LaunchOptionsRemoteNotificationKey ) ) 
-			{
-				NotificarePushLib.Shared().HandleOptions (options [UIApplication.LaunchOptionsRemoteNotificationKey] as NSDictionary);
-			}
+			NotificarePushLib.Shared().HandleOptions (options);
 
 			return true;
 		}

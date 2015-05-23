@@ -1,11 +1,10 @@
 ﻿<Properties StartupItem="Notificare.iOS.TestApp/Notificare.iOS.TestApp.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release|iPhone" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.Kabouter Wesley" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Notificare.iOS-Unified/NotificarePushLib.linkwith.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.Kabouter Wesley" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Notificare.iOS.TestApp/Notificare.plist">
     <Files>
-      <File FileName="Notificare.iOS.TestApp/Info.plist" />
-      <File FileName="Notificare.iOS/NotificarePushLib.linkwith.cs" Line="1" Column="1" />
-      <File FileName="Notificare.iOS/StructsAndEnums.cs" Line="1" Column="1" />
-      <File FileName="Notificare.iOS-Unified/NotificarePushLib.linkwith.cs" Line="1" Column="1" />
+      <File FileName="Notificare.iOS-Unified.TestApp/Info.plist" />
+      <File FileName="Notificare.iOS.TestApp/AppDelegate.cs" Line="105" Column="53" />
+      <File FileName="Notificare.iOS.TestApp/Notificare.plist" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
