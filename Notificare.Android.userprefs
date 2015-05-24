@@ -1,6 +1,10 @@
 ﻿<Properties StartupItem="Notificare.Android.Sample/Notificare.Sample.Android.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" PreferredExecutionTarget="Android.068f9ebe2115a907" />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" PreferredExecutionTarget="Android.MonoForAndroid_API_10" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Notificare.Android.Sample/Properties/AndroidManifest.xml">
+    <Files>
+      <File FileName="Notificare.Android.Sample/Properties/AndroidManifest.xml" Line="78" Column="12" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

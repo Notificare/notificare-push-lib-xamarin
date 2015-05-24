@@ -1625,9 +1625,18 @@ namespace Notificare.iOS
 		/// <summary>
 		/// Registers for APNS
 		/// </summary>
-		/// <param name="types">Types.</param>
 		[Export("registerForNotifications")]
 		void RegisterForNotifications ();
+
+		/*
+		 * - (void)registerUserNotifications;
+		 */
+
+		/// <summary>
+		/// Register for User Notifications
+		/// </summary>
+		[Export("registerUserNotifications")]
+		void RegisterUserNotifications ();
 
 		/* 
 		 * -(BOOL)checkRemoteNotifications;
