@@ -10,12 +10,13 @@ using Android.OS;
 using Android.Support.V7.App;
 
 using Notificare.Android.Push.GCM;
+using Notificare.Android.Support.V7.App;
 using Notificare.Android.Model;
 
 namespace Notificare.Android.Sample
 {
-	[Activity (Label = "Notificare.Android.Sample", MainLauncher = true, Icon = "@drawable/icon", Theme="@style/Theme.AppCompat.Light.DarkActionBar" )]
-	public class MainActivity : ActionBarActivity, Notificare.IOnNotificareReadyListener
+	[Activity (Label = "Notificare.Android.Sample", Name = "notificare.android.sample.MainActivity", MainLauncher = true, Icon = "@drawable/icon", Theme="@style/Theme.AppCompat.Light.DarkActionBar" )]
+	public class MainActivity : ActionBarBaseActivity, Notificare.IOnNotificareReadyListener
 	{
 		protected override void OnCreate (Bundle bundle)
 		{

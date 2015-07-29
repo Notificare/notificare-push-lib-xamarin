@@ -4,8 +4,6 @@
 <dict>
 	<key>CFBundleDisplayName</key>
 	<string>Notificare.iOS.SampleApp</string>
-	<key>CFBundleShortVersionString</key>
-	<string>1.4.3</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>MinimumOSVersion</key>
@@ -34,5 +32,7 @@
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.5.1</string>
 </dict>
 </plist>

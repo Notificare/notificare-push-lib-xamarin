@@ -16,4 +16,6 @@
   	<remove-node path="/api/package[@name='re.notifica.api']/class[@name='RequestAsyncTask']/method[@name='doInBackground']" />
   	<remove-node path="/api/package[@name='re.notifica.oauth2']/class[@name='OAuth2RequestAsyncTask']/method[@name='doInBackground']" />
 	<remove-node path="/api/package[starts-with(@name, 're.notifica.repackaged')]" />
+	<remove-node path="/api/package[@name='re.notifica']/class[@name='Notificare.OnAddGeofencesResultCallback']" />
+	<remove-node path="/api/package[@name='re.notifica']/class[@name='Notificare.OnRemoveGeofencesByPendingIntentResultCallback']" />
 </metadata>

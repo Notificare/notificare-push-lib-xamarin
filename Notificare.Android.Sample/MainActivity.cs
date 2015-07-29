@@ -7,14 +7,15 @@ using Android.Widget;
 using Android.OS;
 
 using Notificare.Android.Push.GCM;
+using Notificare.Android.Support.V7.App;
 using Notificare.Android.Billing;
 using Notificare.Android.Model;
 using Notificare.Android;
 
 namespace Notificare.Sample.Android
 {
-	[Activity (Label = "Notificare.Sample", MainLauncher = true)]
-	public class MainActivity : BaseActivity, Notificare.Android.Notificare.IOnBillingReadyListener, BillingManager.IOnRefreshFinishedListener
+	[Activity (Label = "Notificare.Sample", Name= "notificare.sample.android.MainActivity", MainLauncher = true)]
+	public class MainActivity : ActionBarBaseActivity, Notificare.Android.Notificare.IOnBillingReadyListener, BillingManager.IOnRefreshFinishedListener
 	{
 
 		protected override void OnCreate (Bundle bundle)
