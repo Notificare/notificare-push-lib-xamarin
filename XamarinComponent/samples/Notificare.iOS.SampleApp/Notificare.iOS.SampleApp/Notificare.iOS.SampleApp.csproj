@@ -93,7 +93,7 @@
     <Reference Include="System.Core" />
     <Reference Include="monotouch" />
     <Reference Include="Notificare.iOS">
-      <HintPath>..\..\..\bin\Notificare.iOS.dll</HintPath>
+      <HintPath>..\..\..\..\Notificare.iOS\bin\Release\Notificare.iOS.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

@@ -100,7 +100,7 @@
     <Reference Include="System.Core" />
     <Reference Include="Xamarin.iOS" />
     <Reference Include="Notificare.iOS-Unified">
-      <HintPath>..\..\..\bin\Notificare.iOS-Unified.dll</HintPath>
+      <HintPath>..\..\..\..\Notificare.iOS-Unified\bin\Release\Notificare.iOS-Unified.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

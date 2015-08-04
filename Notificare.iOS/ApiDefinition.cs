@@ -1658,7 +1658,7 @@ namespace Notificare.iOS
 		/// </summary>
 		/// <param name="options">Options.</param>
 		[Export("handleOptions:")]
-		void HandleOptions( NSDictionary options );
+		void HandleOptions( [NullAllowed] NSDictionary options );
 
 		/*
 		 * - (void)registerDevice:(NSData *)token;
