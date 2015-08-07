@@ -22,6 +22,7 @@ namespace Notificare.Sample.Android
 
 			// Launch Notificare system
 			Notificare.Android.Notificare.Shared ().Launch (this);
+			Notificare.Android.Notificare.Shared ().SetDebugLogging (Java.Lang.Boolean.True);
 			// Use our custom intent receiver
 			Notificare.Android.Notificare.Shared ().IntentReceiver = Java.Lang.Class.FromType(typeof(MyIntentReceiver));
 			// Keep notifications in the drawer, remove this line or set to true if you want them to clear automatically when opened

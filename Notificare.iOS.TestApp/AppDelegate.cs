@@ -142,7 +142,7 @@ namespace Notificare.iOS.TestApp
 
 			public override void WillExecuteAction(NotificarePushLib library, NotificareNotification notification)
 			{
-				Console.WriteLine ("Will exexcute action");
+				Console.WriteLine ("Will execute action");
 			}
 
 			public override void DidExecuteAction(NotificarePushLib library, NSDictionary info)
@@ -150,9 +150,9 @@ namespace Notificare.iOS.TestApp
 				Console.WriteLine ("Did execute action");
 			}
 
-			public override void ShouldPerformSelector(NotificarePushLib library, NSString selector)
+			public override void ShouldPerformSelectorWithURL(NotificarePushLib library, NSUrl url)
 			{
-				Console.WriteLine ("Should perform selector");
+				Console.WriteLine ("Should perform selector: " + url.ToString());
 			}
 
 			public override void DidNotExecuteAction(NotificarePushLib library, NSDictionary info)

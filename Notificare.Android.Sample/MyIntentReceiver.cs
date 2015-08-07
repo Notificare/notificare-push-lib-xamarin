@@ -52,7 +52,7 @@ namespace Notificare.Sample.Android
 	{
 		public override void OnRegistrationFinished(String deviceId) 
 		{
-			Console.WriteLine ("application registered with GCM");
+			Console.WriteLine ("application registered with GCM as " + deviceId);
 			// register this device
 			Notificare.Android.Notificare.Shared ().RegisterDevice (deviceId, new RegisterDeviceCallback ());
 		}

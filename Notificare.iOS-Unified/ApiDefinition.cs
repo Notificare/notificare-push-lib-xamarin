@@ -1238,7 +1238,20 @@ namespace Notificare.iOS
 		/// <param name="library">Library.</param>
 		/// <param name="selector">Selector.</param>
 		[Export ("notificarePushLib:shouldPerformSelector:")]
+		[Obsolete("ShouldPerformSelector is deprecated, please use ShouldPerformSelectorWithURL instead.", true)]
 		void ShouldPerformSelector (NotificarePushLib library, NSString selector);
+
+		/*
+		 * - (void)notificarePushLib:(NotificarePushLib *)library shouldPerformSelectorWithURL:(NSURL *)url;
+		 */
+
+		/// <summary>
+		/// Should perform selector with URL
+		/// </summary>
+		/// <param name="library">Library.</param>
+		/// <param name="url">URL.</param>
+		[Export ("notificarePushLib:shouldPerformSelectorWithURL:")]
+		void ShouldPerformSelectorWithURL (NotificarePushLib library, NSUrl url);
 
 		/*
 		 * - (void)notificarePushLib:(NotificarePushLib *)library didNotExecuteAction:(NSDictionary *)info;

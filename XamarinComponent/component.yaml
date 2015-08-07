@@ -15,9 +15,8 @@ libraries:
 summary: Rich and interactive push notifications for iOS, Android and Web. Enhance your apps with location based messages that really work.
 details: Details.md
 getting-started: GettingStarted.md
-version: 1.5.1
+version: 1.5.2
 no_build: true
-is_shell: true
 packages:
   android:
     - AndroidAltBeaconLibrary, Version=2.1.4

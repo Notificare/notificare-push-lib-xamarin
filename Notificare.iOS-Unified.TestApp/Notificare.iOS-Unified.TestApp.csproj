@@ -11,7 +11,7 @@
     <RootNamespace>Notificare.iOS.TestApp</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AssemblyName>NotificareiOSUnifiedTestApp</AssemblyName>
-    <ReleaseVersion>1.5.1</ReleaseVersion>
+    <ReleaseVersion>1.5.2</ReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
     <DebugSymbols>true</DebugSymbols>
@@ -59,6 +59,8 @@
     <MtouchI18n>
     </MtouchI18n>
     <CodesignProvision>8195ea10-2e04-495d-bbfb-de755702ccf8</CodesignProvision>
+    <IpaPackageName>
+    </IpaPackageName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <Optimize>true</Optimize>
