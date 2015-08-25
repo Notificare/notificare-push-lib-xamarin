@@ -67,6 +67,7 @@ namespace Notificare.Sample.Android
 		{
 			Console.WriteLine ("notificare ready");
 			Notificare.Android.Notificare.Shared ().EnableNotifications ();
+			Notificare.Android.Notificare.Shared ().EnableBeacons ();
 		}
 
 		public override void OnRangingBeacons(IList<NotificareBeacon> Beacons) {

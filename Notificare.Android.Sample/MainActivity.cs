@@ -9,13 +9,14 @@ using Android.OS;
 using Notificare.Android.Push.GCM;
 using Notificare.Android.Support.V7.App;
 using Notificare.Android.Billing;
+using Notificare.Android.Beacon;
 using Notificare.Android.Model;
 using Notificare.Android;
 
 namespace Notificare.Sample.Android
 {
 	[Activity (Label = "Notificare.Sample", Name= "notificare.sample.android.MainActivity", MainLauncher = true)]
-	public class MainActivity : ActionBarBaseActivity, Notificare.Android.Notificare.IOnBillingReadyListener, BillingManager.IOnRefreshFinishedListener
+	public class MainActivity : ActionBarBaseActivity, Notificare.Android.Notificare.IOnBillingReadyListener, BillingManager.IOnRefreshFinishedListener, IBeaconRangingListener
 	{
 
 		protected override void OnCreate (Bundle bundle)
@@ -56,6 +57,11 @@ namespace Notificare.Sample.Android
 			Console.WriteLine ("billing refresh failed: " + error.Message);
 
 		}
+
+		void Notificare.Android.Beacon.IBeaconReadyListener.OnRangingBeacons(System.Collections.Generic.IList<NotificareBeacon> beacons) {
+
+		}
+
 
 	}
 
