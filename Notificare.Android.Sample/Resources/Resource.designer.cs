@@ -2269,8 +2269,8 @@ namespace Notificare.Sample.Android
 			// aapt resource value: 0x7f06003c
 			public const int abc_toolbar_collapse_description = 2131099708;
 			
-			// aapt resource value: 0x7f060054
-			public const int app_name = 2131099732;
+			// aapt resource value: 0x7f060055
+			public const int app_name = 2131099733;
 			
 			// aapt resource value: 0x7f060001
 			public const int auth_google_play_services_client_facebook_display_name = 2131099649;
@@ -2374,8 +2374,8 @@ namespace Notificare.Sample.Android
 			// aapt resource value: 0x7f06001d
 			public const int common_signin_button_text_long = 2131099677;
 			
-			// aapt resource value: 0x7f060052
-			public const int hello = 2131099730;
+			// aapt resource value: 0x7f060053
+			public const int hello = 2131099731;
 			
 			// aapt resource value: 0x7f060022
 			public const int mr_media_route_button_content_description = 2131099682;
@@ -2406,6 +2406,9 @@ namespace Notificare.Sample.Android
 			
 			// aapt resource value: 0x7f060027
 			public const int mr_user_route_category_name = 2131099687;
+			
+			// aapt resource value: 0x7f06004f
+			public const int notificare_action_camera_failed = 2131099727;
 			
 			// aapt resource value: 0x7f060047
 			public const int notificare_action_error_no_dialer = 2131099719;
@@ -2458,17 +2461,17 @@ namespace Notificare.Sample.Android
 			// aapt resource value: 0x7f06004b
 			public const int notificare_text_send = 2131099723;
 			
-			// aapt resource value: 0x7f060053
-			public const int open_user_preferences = 2131099731;
-			
-			// aapt resource value: 0x7f06004f
-			public const int pref_location_services_title = 2131099727;
+			// aapt resource value: 0x7f060054
+			public const int open_user_preferences = 2131099732;
 			
 			// aapt resource value: 0x7f060050
-			public const int pref_summary_location_updates = 2131099728;
+			public const int pref_location_services_title = 2131099728;
 			
 			// aapt resource value: 0x7f060051
-			public const int pref_title_location_updates = 2131099729;
+			public const int pref_summary_location_updates = 2131099729;
+			
+			// aapt resource value: 0x7f060052
+			public const int pref_title_location_updates = 2131099730;
 			
 			// aapt resource value: 0x7f06003d
 			public const int status_bar_notification_info_overflow = 2131099709;

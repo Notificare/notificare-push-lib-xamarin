@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="1.5.3" android:versionCode="10503" package="notificare.sample.android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="1.5.4" android:versionCode="10503" package="notificare.sample.android">
 	<uses-sdk android:minSdkVersion="10" android:targetSdkVersion="21" />
 	<!-- PERMISSIONS -->
 	<uses-permission android:name="android.permission.GET_ACCOUNTS" />
@@ -72,7 +72,11 @@
         	activity if you want to handle all user interaction yourself. 
 
         	re.notifica.ui.NotificationActivity
-         --><activity android:name="re.notifica.ui.NotificationActivity" android:parentActivityName=".MainActivity"><meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".MainActivity" /></activity><activity android:name="re.notifica.ui.UserPreferencesActivity" /><!-- API key for Google Maps --><!--		<meta-data
+         -->
+         <activity android:name="re.notifica.ui.NotificationActivity" android:parentActivityName=".MainActivity">
+         	<meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".MainActivity" />
+         </activity>
+         <activity android:name="re.notifica.ui.UserPreferencesActivity" /><!-- API key for Google Maps --><!--		<meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />--><meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="" /></application>
 </manifest>

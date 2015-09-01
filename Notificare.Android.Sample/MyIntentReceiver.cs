@@ -36,8 +36,6 @@ namespace Notificare.Sample.Android
 			Console.WriteLine ("successfully registered device");
 			// Now, enable location updates
 			Notificare.Android.Notificare.Shared ().EnableLocationUpdates ();
-			Notificare.Android.Notificare.Shared ().EnableBeacons ();
-			Notificare.Android.Notificare.Shared ().EnableBilling ();
 			Notificare.Android.Notificare.Shared ().AddDeviceTags (new List<String> (){ "xamarin" }, new AddDeviceTagsCallback ());
 		}
 

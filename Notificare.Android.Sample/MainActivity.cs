@@ -16,12 +16,18 @@ using Notificare.Android;
 namespace Notificare.Sample.Android
 {
 	[Activity (Label = "Notificare.Sample", Name= "notificare.sample.android.MainActivity", MainLauncher = true)]
-	public class MainActivity : ActionBarBaseActivity, Notificare.Android.Notificare.IOnBillingReadyListener, BillingManager.IOnRefreshFinishedListener, IBeaconRangingListener
+	[IntentFilter (new[]{Notificare.Android.Notificare.IntentActionNotificationOpened}, Categories=new[]{Intent.CategoryDefault})]
+	public class MainActivity : ActionBarBaseActivity, Notificare.Android.Notificare.IOnBillingReadyListener, BillingManager.IOnRefreshFinishedListener
 	{
+
+		protected override void OnNewIntent(Intent intent) {
+			HandleNotificationOpenedIntent (intent);
+		}
 
 		protected override void OnCreate (Bundle bundle)
 		{
 			base.OnCreate (bundle);
+			HandleNotificationOpenedIntent (Intent);
 			// Set our view from the "main" layout resource
 			SetContentView (Resource.Layout.Main);
 
@@ -57,11 +63,6 @@ namespace Notificare.Sample.Android
 			Console.WriteLine ("billing refresh failed: " + error.Message);
 
 		}
-
-		void Notificare.Android.Beacon.IBeaconReadyListener.OnRangingBeacons(System.Collections.Generic.IList<NotificareBeacon> beacons) {
-
-		}
-
 
 	}
 
