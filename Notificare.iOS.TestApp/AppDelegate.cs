@@ -94,21 +94,34 @@ namespace Notificare.iOS.TestApp
 			Console.WriteLine ("Failed to register for notifications: {0}", error );
 		}
 
+		public override void DidReceiveRemoteNotification (UIApplication application, NSDictionary userInfo, Action<UIBackgroundFetchResult> completionHandler) {
+			NotificarePushLib.Shared().SaveToInboxForApplication(userInfo, application, (NSDictionary info) => {
+				Console.WriteLine ("DidReceiveRemoteNotification info: {0}", info);
+				completionHandler (UIBackgroundFetchResult.NewData);	
+			}, (NSError error) => {
+				Console.WriteLine ("DidReceiveRemoteNotification error: {0}", error);
+				completionHandler (UIBackgroundFetchResult.Failed);
+			});
+		}
+
 		public override void ReceivedRemoteNotification (UIApplication application, NSDictionary userInfo)
 		{
 			// Open Notification Directly
 			NotificarePushLib.Shared ().OpenNotification (userInfo);
 		}
-			
-		public override void HandleAction (UIApplication application, string actionIdentifier, NSDictionary remoteNotificationInfo, Action completionHandler)
+
+		public override void HandleAction (UIApplication application, string actionIdentifier, NSDictionary remoteNotificationInfo, NSDictionary responseInfo, Action completionHandler)
 		{
+			Console.WriteLine ("Response: {0}", responseInfo.ObjectForKey((NSString)"UIUserNotificationActionResponseTypedTextKey"));
 			NotificarePushLib.Shared ().HandleActionForNotificationWithData ((NSString)actionIdentifier, 
 				remoteNotificationInfo, 
-				null, 
+				responseInfo, 
 				(NSDictionary info) => {
+					Console.WriteLine ("HandleAction info: {0}", info);
 					completionHandler();
 				},
 				(NSError error) => {
+					Console.WriteLine ("HandleAction error: {0}", error);
 					completionHandler();
 				}
 			);

@@ -59,6 +59,22 @@ namespace Notificare.Sample.Android
 		{
 			Console.WriteLine ("notification opened");
 			base.OnNotificationOpened (alert, notificationId, extras);
+			Intent notificationIntent = new Intent()
+				.SetAction(Notificare.Android.Notificare.IntentActionNotificationOpened)
+				.PutExtras(extras)
+				.PutExtra(Notificare.Android.Notificare.IntentExtraDisplayMessage, Notificare.Android.Notificare.Shared().DisplayMessage)
+				.AddFlags(ActivityFlags.NewTask | ActivityFlags.ClearTop)
+				.SetPackage(Notificare.Android.Notificare.Shared().ApplicationContext.PackageName);		
+			if (notificationIntent.ResolveActivity(Notificare.Android.Notificare.Shared().ApplicationContext.PackageManager) != null) {
+				// Notification handled by custom activity in package
+				Notificare.Android.Notificare.Shared().ApplicationContext.StartActivity(notificationIntent);
+			} else {
+				// Start a task stack with NotificationActivity on top
+				notificationIntent.SetClass(Notificare.Android.Notificare.Shared().ApplicationContext, Notificare.Android.Notificare.Shared().NotificationActivity);
+				TaskStackBuilder stackBuilder = TaskStackBuilder.Create(Notificare.Android.Notificare.Shared().ApplicationContext);
+				BuildTaskStack(stackBuilder, notificationIntent, notification);
+				stackBuilder.StartActivities();
+			}
 		}
 
 		public override void OnReady ()

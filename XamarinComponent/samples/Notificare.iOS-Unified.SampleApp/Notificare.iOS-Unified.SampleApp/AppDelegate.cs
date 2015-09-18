@@ -88,6 +88,15 @@ namespace Notificare.iOS.SampleApp
 			Console.WriteLine ("Failed to register for notifications: {0}", error );
 		}
 
+		public override void DidReceiveRemoteNotification(UIApplication application, NSDictionary userInfo, Action<UIBackgroundFetchResult> completionHandler)
+		{
+			NotificarePushLib.Shared().SaveToInboxForApplication(userInfo, application, (NSDictionary info) => {
+				completionHandler(UIBackgroundFetchResult.NewData);				
+			}, (NSError error) => {
+				completionHandler(UIBackgroundFetchResult.Failed);
+			});
+		}
+
 		public override void ReceivedRemoteNotification (UIApplication application, NSDictionary userInfo)
 		{
 			// Open Notification Directly
@@ -133,9 +142,9 @@ namespace Notificare.iOS.SampleApp
 				Console.WriteLine ("Did execute action");
 			}
 
-			public override void ShouldPerformSelector(NotificarePushLib library, NSString selector)
+			public override void ShouldPerformSelectorWithURL (NotificarePushLib library, NSUrl url)
 			{
-				Console.WriteLine ("Should perform selector");
+				Console.WriteLine ("Should perform selector with URL {0}", url);
 			}
 
 			public override void DidNotExecuteAction(NotificarePushLib library, NSDictionary info)
