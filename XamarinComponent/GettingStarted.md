@@ -164,12 +164,10 @@ namespace Notificare.Sample.Android
 Finally, you should add the following lines to your AndroidManifest.xml
 
 ```xml
-  <uses-permission android:name="android.permission.GET_ACCOUNTS" />
   <uses-permission android:name="android.permission.WAKE_LOCK" />
   <uses-permission android:name="android.permission.INTERNET" />
   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-  <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
   <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
   <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
   <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
@@ -190,7 +188,19 @@ add the following inside the AndroidManifest application element
       </intent-filter>
     </receiver>
 
-    <service android:name="re.notifica.push.gcm.PushService" android:label="Notificare Push Service" />
+    <service android:name="re.notifica.push.gcm.PushService" android:label="Notificare Push Service">
+      <intent-filter>
+        <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+      </intent-filter>
+    </service>
+
+    <service android:name="re.notifica.push.gcm.InstanceIDService" android:exported="false">
+      <intent-filter>
+        <action android:name="com.google.android.gms.iid.InstanceID" />
+      </intent-filter>
+    </service>
+    <service android:name="re.notifica.push.gcm.RegistrationService" android:exported="false" />
+
     <activity android:name="re.notifica.ui.NotificationActivity" />
     <activity android:name="re.notifica.ui.UserPreferencesActivity" />
 ```
@@ -224,8 +234,8 @@ If you want to log app activity events to Notificare, like app opens and session
 
 ### Documentation
 
-[Developer Documentation](https://notificare.atlassian.net/wiki/display/notificare/Getting+started+with+Xamarin)
-[Dashboard Documentation](https://notificare.atlassian.net/wiki/display/notificare/Web+Dashboard+Interface+Guide)
+[Developer Documentation](https://docs.notifica.re/sdk)
+[Dashboard Documentation](https://docs.notifica.re/guides)
 [Terms & Conditions](http://notifica.re/terms/)
 
 ### Contact

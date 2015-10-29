@@ -15,4 +15,8 @@
   - To change the type of the return value, use "return" as the parameter name.
   - The parameter names will be p0, p1, ... unless you provide JavaDoc file in the project.
   -->
+	<mapping jni-class="re/notifica/Notificare">
+		<method jni-name="checkRequestLocationPermissionResult" parameter="p1" clr-enum-type="Android.Content.PM.Permission[]" />
+	</mapping>
+
 </enum-method-mappings>

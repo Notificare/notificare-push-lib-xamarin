@@ -5,6 +5,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using Android.Content.PM;
 
 using Notificare.Android.Push.GCM;
 using Notificare.Android.Support.V7.App;
@@ -17,8 +18,10 @@ namespace Notificare.Sample.Android
 {
 	[Activity (Label = "Notificare.Sample", Name= "notificare.sample.android.MainActivity", MainLauncher = true)]
 	[IntentFilter (new[]{Notificare.Android.Notificare.IntentActionNotificationOpened}, Categories=new[]{Intent.CategoryDefault})]
-	public class MainActivity : ActionBarBaseActivity, Notificare.Android.Notificare.IOnBillingReadyListener, BillingManager.IOnRefreshFinishedListener
+	public class MainActivity : ActionBarBaseActivity, Notificare.Android.Notificare.IOnNotificareReadyListener, Notificare.Android.Notificare.IOnBillingReadyListener, BillingManager.IOnRefreshFinishedListener
 	{
+
+		private const int LocationPermissionRequestCode = 1;
 
 		protected override void OnNewIntent(Intent intent) {
 			HandleNotificationOpenedIntent (intent);
@@ -28,7 +31,6 @@ namespace Notificare.Sample.Android
 		{
 			base.OnCreate (bundle);
 			HandleNotificationOpenedIntent (Intent);
-			Intent.GetParcelableExtra
 			// Set our view from the "main" layout resource
 			SetContentView (Resource.Layout.Main);
 
@@ -40,7 +42,48 @@ namespace Notificare.Sample.Android
 				Notificare.Android.Notificare.Shared().StartUserPreferencesActivity(this);
 			};
 
+			Notificare.Android.Notificare.Shared ().AddNotificareReadyListener (this);
 			Notificare.Android.Notificare.Shared ().AddBillingReadyListener (this);
+		}
+
+		protected override void OnDestroy() {
+			base.OnDestroy ();
+			Notificare.Android.Notificare.Shared ().RemoveBillingReadyListener (this);
+			Notificare.Android.Notificare.Shared ().RemoveNotificareReadyListener (this);
+		}
+
+		void Notificare.Android.Notificare.IOnNotificareReadyListener.OnNotificareReady(NotificareApplicationInfo info) 
+		{
+			Console.WriteLine ("notificare ready");
+			if (!Notificare.Android.Notificare.Shared ().HasLocationPermissionGranted) {
+				if (Notificare.Android.Notificare.Shared ().DidRequestLocationPermission ()) {
+					if (Notificare.Android.Notificare.Shared ().ShouldShowRequestPermissionRationale (this)) {
+						new AlertDialog.Builder (this)
+							.SetMessage (Resource.String.alert_location_permission_rationale)
+							.SetTitle (Resource.String.app_name)
+							.SetCancelable (false)
+							.SetPositiveButton (Resource.String.button_location_permission_rationale_ok, delegate {
+								Notificare.Android.Notificare.Shared().RequestLocationPermission(this, LocationPermissionRequestCode);
+							})
+							.Create ()
+							.Show ();
+					}
+				} else {
+					Notificare.Android.Notificare.Shared ().RequestLocationPermission (this, LocationPermissionRequestCode);
+				}
+			}
+		}
+			
+		public override void OnRequestPermissionsResult (int requestCode, string[] permissions, Permission[] grantResults)
+		{
+			switch (requestCode) {
+			case LocationPermissionRequestCode: 
+				if (Notificare.Android.Notificare.Shared ().CheckRequestLocationPermissionResult(permissions, grantResults)) {
+					Notificare.Android.Notificare.Shared ().EnableLocationUpdates ();
+					Notificare.Android.Notificare.Shared ().EnableBeacons ();
+				}
+				break;
+			}
 		}
 
 		void Notificare.Android.Notificare.IOnBillingReadyListener.OnBillingReady ()

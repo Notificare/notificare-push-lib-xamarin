@@ -9,6 +9,6 @@ The SDK takes care of:
 * Registering app opens, closes, session statistics, notification activity, timezone, language
 * Registering and displaying tags
 
-See our full [documentation](http://developers.notifica.re/)
+See our full [documentation](http://docs.notifica.re/)
 
 For more info about Notificare [visit our website](http://notifica.re/).

@@ -11,8 +11,7 @@
   <attr path="/api/package[@name='re.notifica.receiver']" name="managedName">Notificare.Android.Receiver</attr>
   <attr path="/api/package[@name='re.notifica.support.v7.app']" name="managedName">Notificare.Android.Support.V7.App</attr>
   <attr path="/api/package[@name='re.notifica.ui']" name="managedName">Notificare.Android.UI</attr>
-  <attr path="/api/package[@name='re.notifica.urlimageviewhelper']" name="managedName">Notificare.Android.UrlImageviewHelper</attr>
-  	<remove-node path="/api/package[@name='com.google.android.gcm']" />
+  <attr path="/api/package[@name='re.notifica.util']" name="managedName">Notificare.Android.Util</attr>
   	<remove-node path="/api/package[@name='re.notifica.api']/class[@name='RequestAsyncTask']/method[@name='doInBackground']" />
   	<remove-node path="/api/package[@name='re.notifica.oauth2']/class[@name='OAuth2RequestAsyncTask']/method[@name='doInBackground']" />
 	<remove-node path="/api/package[starts-with(@name, 're.notifica.repackaged')]" />

@@ -1229,19 +1229,6 @@ namespace Notificare.iOS
 		void DidExecuteAction (NotificarePushLib library, NSDictionary info);
 
 		/*
-		 * - (void)notificarePushLib:(NotificarePushLib *)library shouldPerformSelector:(NSString *)selector;
-		 */
-
-		/// <summary>
-		/// Should perform a selector
-		/// </summary>
-		/// <param name="library">Library.</param>
-		/// <param name="selector">Selector.</param>
-		[Export ("notificarePushLib:shouldPerformSelector:")]
-		[Obsolete("ShouldPerformSelector is deprecated, please use ShouldPerformSelectorWithURL instead.", true)]
-		void ShouldPerformSelector (NotificarePushLib library, NSString selector);
-
-		/*
 		 * - (void)notificarePushLib:(NotificarePushLib *)library shouldPerformSelectorWithURL:(NSURL *)url;
 		 */
 
@@ -1619,19 +1606,6 @@ namespace Notificare.iOS
 		void Launch();
 
 		/*
-		 * - (void)registerForRemoteNotificationsTypes:(UIRemoteNotificationType)types;
-		 */
-
-		/// <summary>
-		/// Registers for APNS
-		/// </summary>
-		/// <param name="types">Types.</param>
-		[Export("registerForRemoteNotificationsTypes:")]
-		[Obsolete("RegisterForRemoteNotifications is deprecated, please use RegisterForNotifications instead.", true)]
-		void RegisterForRemoteNotifications (UIRemoteNotificationType types);
-
-
-		/*
 		 * - (void)registerForNotifications;
 		 */
 
@@ -1886,6 +1860,17 @@ namespace Notificare.iOS
 		/// <param name="notification">A NSDictionary object usually the result of getNotification: or Apple's userInfo dictionary provided in didReceiveRemoteNotification:.</param>
 		[Export("logOpenNotification:")]
 		void LogOpenNotification( NSDictionary notification );
+
+		/*
+		 * - (void)logInfluencedOpenNotification:(NSDictionary *)notification;
+		 */
+
+		/// <summary>
+		/// Logs the influenced open notification manually. This should be used when you don't use the handleOptions.
+		/// </summary>
+		/// <param name="notification">A NSDictionary object usually the result of getNotification: or Apple's userInfo dictionary provided in handleOptions:.</param>
+		[Export("logInfluencedOpenNotification:")]
+		void LogInfluencedOpenNotification( NSDictionary notification );
 
 		/*
 		 * - (void)getNotification:(NSString *)notificationID completionHandler:(SuccessBlock)info errorHandler:(ErrorBlock)error;
@@ -2175,6 +2160,14 @@ namespace Notificare.iOS
 		[Export ("removeFromInbox:")]
 		void RemoveFromInbox (NSDictionary notification);
 
+		/*
+		 * - (void)clearInbox;
+		 */
+		/// <summary>
+		/// Remove all notifications from the Inbox
+		/// </summary>
+		[Export ("clearInbox")]
+		void ClearInbox ();
 
 		/*
 		 * -(void)openInbox;
@@ -2209,21 +2202,6 @@ namespace Notificare.iOS
 		/// <returns>The badge.</returns>
 		[Export ("myBadge")]
 		int MyBadge ();
-
-
-		/*
-		 * - (void)createAccount:(NSDictionary *)params completionHandler:(SuccessBlock)result errorHandler:(ErrorBlock)errorBlock;
-		 */
-
-		/// <summary>
-		/// Creates the account.
-		/// </summary>
-		/// <param name="parameters">Parameters.</param>
-		/// <param name="completionHandler">Completion handler.</param>
-		/// <param name="errorHandler">Error handler.</param>
-		[Export("createAccount:completionHandler:errorHandler:")]
-		[Obsolete ("use CreateAccountWithNameAndPassword instead.")]
-		void CreateAccount(NSDictionary parameters, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
 
 		/*
 		 * - (void)createAccount:(NSString *)email withName:(NSString *)name andPassword:(NSString *)password completionHandler:(SuccessBlock)result errorHandler:(ErrorBlock)errorBlock;
@@ -2622,19 +2600,6 @@ namespace Notificare.iOS
 		[Obsolete ("use MyDevice or User instead.")]
 		NSString Username { get; }
 
-
-		/*
-		 * @property (nonatomic, assign) UIRemoteNotificationType notificationTypes;
-		 */
-
-		/// <summary>
-		/// Gets the notification types.
-		/// </summary>
-		/// <value>The notification types.</value>
-		[Export("notificationTypes")]
-		UIRemoteNotificationType NotificationTypes { get; }
-
-
 		/*
 		 * @property (assign) BOOL isOpen;
 		 */
@@ -2685,7 +2650,7 @@ namespace Notificare.iOS
 		 */
 
 		/// <summary>
-		/// NSMutableArray containing the CLRegion objects the user is currently inside
+		/// NSMutableArray containing the regionIDs as NSString the user is currently inside
 		/// </summary>
 		/// <value>The current regions.</value>
 		[Export("currentRegions")]
@@ -2696,7 +2661,7 @@ namespace Notificare.iOS
 		 */
 
 		/// <summary>
-		/// NSMutableArray containing the CLBeaconRegion objects the user is currently in range
+		/// NSMutableArray containing the NSString regionsIDs the user is currently in range
 		/// </summary>
 		/// <value>The current beacons.</value>
 		[Export("currentBeacons")]

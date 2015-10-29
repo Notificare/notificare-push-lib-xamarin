@@ -1,13 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="10501" package="notificare.android.sample" android:versionName="1.5.1">
-	<uses-sdk android:minSdkVersion="10" android:targetSdkVersion="21" />
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="10601" package="notificare.android.sample" android:versionName="1.6.1">
+	<uses-sdk android:minSdkVersion="10" android:targetSdkVersion="23" />
 	<!-- PERMISSIONS -->
-	<uses-permission android:name="android.permission.GET_ACCOUNTS" />
 	<uses-permission android:name="android.permission.WAKE_LOCK" />
 	<uses-permission android:name="android.permission.INTERNET" />
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-	<uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="22"/>
+	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:maxSdkVersion="22"/>
 	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 	<!-- This app has permission to register and receive message -->
@@ -53,20 +52,17 @@
 		<!--
 	    	Service running in the background that receives your Push Notifications 
 	     -->
-		<service android:name="re.notifica.push.gcm.PushService" android:label="Notificare Push Service" />
-		<!--
-	    	Receiver to dispatch GCM registration, push notifications and custom push actions.
-	    	By default, it will register the device as an anonymous user, launch the default 
-	    	Notification activity declared below when receiving notifications, and will 
-	    	launch your main activity with a "custom action" intent when a user selected 
-	    	a custom push action.
-	    	 
-	    	Most likely you will need customized registration and dispatching; please override 
-	    	this class or the BaseIntentReceiver parent class.
-
-	    	SecondActivity
-	    	re.notifica.push.gcm.DefaultIntentReceiver
-	     -->
+		<service android:name="re.notifica.push.gcm.PushService" android:label="Notificare Push Service">
+			<intent-filter>
+				<action android:name="com.google.android.c2dm.intent.RECEIVE" />
+			</intent-filter>
+		</service>
+		<service android:name="re.notifica.push.gcm.InstanceIDService" android:exported="false">
+			<intent-filter>
+				<action android:name="com.google.android.gms.iid.InstanceID" />
+			</intent-filter>
+		</service>
+		<service android:name="re.notifica.push.gcm.RegistrationService" android:exported="false" />
 		<!--
         	Notificare activity that will take care of displaying and handling notifications
         	The default activity will take care of everything, please implement your own

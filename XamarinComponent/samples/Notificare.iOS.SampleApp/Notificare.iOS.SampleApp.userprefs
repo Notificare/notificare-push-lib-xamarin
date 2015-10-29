@@ -1,10 +1,10 @@
 ﻿<Properties StartupItem="Notificare.iOS.SampleApp/Notificare.iOS.SampleApp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Release|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone6s.9.0" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Notificare.iOS.SampleApp/AppDelegate.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Notificare.iOS.SampleApp/Info.plist">
     <Files>
       <File FileName="Notificare.iOS.SampleApp/Notificare.plist" />
       <File FileName="Notificare.iOS.SampleApp/NotificareTags.plist" />
-      <File FileName="Notificare.iOS.SampleApp/AppDelegate.cs" Line="142" Column="5" />
+      <File FileName="Notificare.iOS.SampleApp/AppDelegate.cs" Line="139" Column="53" />
       <File FileName="Notificare.iOS.SampleApp/Info.plist" />
       <File FileName="Notificare.iOS.SampleApp/Main.cs" Line="1" Column="1" />
     </Files>

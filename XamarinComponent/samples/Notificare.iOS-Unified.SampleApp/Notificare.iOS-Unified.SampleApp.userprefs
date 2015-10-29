@@ -1,5 +1,5 @@
 ﻿<Properties StartupItem="Notificare.iOS-Unified.SampleApp/Notificare.iOS-Unified.SampleApp.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.Kabouter Wesley" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone6s.9.0" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Notificare.iOS-Unified.SampleApp/AppDelegate.cs">
     <Files>
       <File FileName="Notificare.iOS-Unified.SampleApp/AppDelegate.cs" Line="98" Column="4" />

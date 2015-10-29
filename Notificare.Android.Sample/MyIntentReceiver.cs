@@ -35,7 +35,10 @@ namespace Notificare.Sample.Android
 		{
 			Console.WriteLine ("successfully registered device");
 			// Now, enable location updates
-			Notificare.Android.Notificare.Shared ().EnableLocationUpdates ();
+			if (Notificare.Android.Notificare.Shared ().IsLocationUpdatesEnabled().BooleanValue()) {
+				Notificare.Android.Notificare.Shared ().EnableLocationUpdates ();
+				Notificare.Android.Notificare.Shared ().EnableBeacons ();
+			}
 			Notificare.Android.Notificare.Shared ().AddDeviceTags (new List<String> (){ "xamarin" }, new AddDeviceTagsCallback ());
 		}
 
@@ -54,34 +57,11 @@ namespace Notificare.Sample.Android
 			// register this device
 			Notificare.Android.Notificare.Shared ().RegisterDevice (deviceId, new RegisterDeviceCallback ());
 		}
-
-		public override void OnNotificationOpened(String alert, String notificationId, Bundle extras)
-		{
-			Console.WriteLine ("notification opened");
-			base.OnNotificationOpened (alert, notificationId, extras);
-			Intent notificationIntent = new Intent()
-				.SetAction(Notificare.Android.Notificare.IntentActionNotificationOpened)
-				.PutExtras(extras)
-				.PutExtra(Notificare.Android.Notificare.IntentExtraDisplayMessage, Notificare.Android.Notificare.Shared().DisplayMessage)
-				.AddFlags(ActivityFlags.NewTask | ActivityFlags.ClearTop)
-				.SetPackage(Notificare.Android.Notificare.Shared().ApplicationContext.PackageName);		
-			if (notificationIntent.ResolveActivity(Notificare.Android.Notificare.Shared().ApplicationContext.PackageManager) != null) {
-				// Notification handled by custom activity in package
-				Notificare.Android.Notificare.Shared().ApplicationContext.StartActivity(notificationIntent);
-			} else {
-				// Start a task stack with NotificationActivity on top
-				notificationIntent.SetClass(Notificare.Android.Notificare.Shared().ApplicationContext, Notificare.Android.Notificare.Shared().NotificationActivity);
-				TaskStackBuilder stackBuilder = TaskStackBuilder.Create(Notificare.Android.Notificare.Shared().ApplicationContext);
-				BuildTaskStack(stackBuilder, notificationIntent, notification);
-				stackBuilder.StartActivities();
-			}
-		}
-
+			
 		public override void OnReady ()
 		{
 			Console.WriteLine ("notificare ready");
 			Notificare.Android.Notificare.Shared ().EnableNotifications ();
-			Notificare.Android.Notificare.Shared ().EnableBeacons ();
 		}
 
 		public override void OnRangingBeacons(IList<NotificareBeacon> Beacons) {

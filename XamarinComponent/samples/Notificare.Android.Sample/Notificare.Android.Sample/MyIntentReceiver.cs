@@ -10,6 +10,7 @@ using Android.Views;
 using Android.Widget;
 
 using Notificare.Android.Push.GCM;
+using Notificare.Android.Model;
 using Notificare.Android;
 
 namespace Notificare.Android.Sample
@@ -34,8 +35,11 @@ namespace Notificare.Android.Sample
 		{
 			Console.WriteLine ("successfully registered device");
 			// Now, enable location updates
-			Notificare.Shared ().EnableLocationUpdates ();
-			Notificare.Shared ().EnableBeacons ();
+			// Now, enable location updates
+			if (Notificare.Shared ().IsLocationUpdatesEnabled().BooleanValue()) {
+				Notificare.Shared ().EnableLocationUpdates ();
+				Notificare.Shared ().EnableBeacons ();
+			}
 			// Let the user set user preferences from the UserPereferencesActivity, other tags can be added like this
 			//Notificare.Shared ().AddDeviceTags (new List<String> (){ "xamarin" }, new AddDeviceTagsCallback ());
 		}
@@ -62,10 +66,10 @@ namespace Notificare.Android.Sample
 			Notificare.Shared ().RegisterDevice (deviceId, new RegisterDeviceCallback ());
 		}
 
-		public override void OnNotificationOpened(String alert, String notificationId, Bundle extras)
-		{
-			Console.WriteLine ("notification opened");
-			base.OnNotificationOpened (alert, notificationId, extras);
+		public override void OnRangingBeacons(IList<NotificareBeacon> Beacons) {
+			foreach (NotificareBeacon Beacon in Beacons) {
+				Console.WriteLine (Beacon.CurrentDistance);
+			}
 		}
 
 	}
