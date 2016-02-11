@@ -90,7 +90,7 @@ namespace Notificare.iOS.SampleApp
 
 		public override void DidReceiveRemoteNotification(UIApplication application, NSDictionary userInfo, Action<UIBackgroundFetchResult> completionHandler)
 		{
-			NotificarePushLib.Shared().SaveToInboxForApplication(userInfo, application, (NSDictionary info) => {
+			NotificarePushLib.Shared().HandleNotificationForApplication(userInfo, application, (NSDictionary info) => {
 				completionHandler(UIBackgroundFetchResult.NewData);				
 			}, (NSError error) => {
 				completionHandler(UIBackgroundFetchResult.Failed);

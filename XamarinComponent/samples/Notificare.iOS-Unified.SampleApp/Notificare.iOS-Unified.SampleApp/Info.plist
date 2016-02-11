@@ -5,7 +5,7 @@
 	<key>CFBundleDisplayName</key>
 	<string>Notificare.iOS.SampleApp</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.5.1</string>
+	<string>1.7.0</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>MinimumOSVersion</key>

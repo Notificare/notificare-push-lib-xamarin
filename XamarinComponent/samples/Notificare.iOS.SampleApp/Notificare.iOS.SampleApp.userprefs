@@ -1,13 +1,26 @@
 ﻿<Properties StartupItem="Notificare.iOS.SampleApp/Notificare.iOS.SampleApp.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone6s.9.0" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Notificare.iOS.SampleApp/Info.plist">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.Kabouter Wesley" />
+  <MonoDevelop.Ide.Workbench>
     <Files>
       <File FileName="Notificare.iOS.SampleApp/Notificare.plist" />
       <File FileName="Notificare.iOS.SampleApp/NotificareTags.plist" />
-      <File FileName="Notificare.iOS.SampleApp/AppDelegate.cs" Line="139" Column="53" />
+      <File FileName="Notificare.iOS.SampleApp/AppDelegate.cs" Line="89" Column="27" />
       <File FileName="Notificare.iOS.SampleApp/Info.plist" />
       <File FileName="Notificare.iOS.SampleApp/Main.cs" Line="1" Column="1" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Notificare.iOS.SampleApp" expanded="True">
+            <Node name="Notificare.iOS.SampleApp" expanded="True">
+              <Node name="References" expanded="True">
+                <Node name="Notificare.iOS" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
