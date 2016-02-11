@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="10601" package="notificare.sample.android" android:versionName="1.6.1">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="10700" package="notificare.sample.android" android:versionName="1.7.0">
 	<uses-sdk android:minSdkVersion="10" android:targetSdkVersion="23" />
 	<!-- PERMISSIONS -->
 	<uses-permission android:name="android.permission.WAKE_LOCK" />
@@ -45,10 +45,8 @@
 				<action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
 			</intent-filter>
 		</receiver>
-		<service android:name="org.altbeacon.beacon.service.BeaconService" android:enabled="true" android:exported="true" android:isolatedProcess="false" android:label="beacon">
-		</service>
-		<service android:name="org.altbeacon.beacon.BeaconIntentProcessor" android:enabled="true">
-		</service>
+		<service android:name="org.altbeacon.beacon.service.BeaconService" android:enabled="true" android:exported="true" android:isolatedProcess="false" android:label="beacon"></service>
+		<service android:name="org.altbeacon.beacon.BeaconIntentProcessor" android:enabled="true"></service>
 		<!--
 	    	Service running in the background that receives your Push Notifications 
 	     -->

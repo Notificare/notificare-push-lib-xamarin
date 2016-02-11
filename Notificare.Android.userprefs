@@ -1,16 +1,9 @@
 ﻿<Properties StartupItem="Notificare.Android.Sample/Notificare.Sample.Android.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" PreferredExecutionTarget="Android.068f9ebe2115a907" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.TA39100ER9" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Notificare.Android.Sample/MainActivity.cs">
     <Files>
-      <File FileName="Notificare.Android.Sample/Properties/AssemblyInfo.cs" Line="1" Column="1" />
-      <File FileName="Notificare.Android/Additions/RequestAsyncTask.cs" Line="1" Column="1" />
-      <File FileName="Notificare.Android/Properties/AssemblyInfo.cs" Line="1" Column="1" />
-      <File FileName="Notificare.Android/Transforms/EnumFields.xml" Line="1" Column="1" />
-      <File FileName="Notificare.Android/Transforms/EnumMethods.xml" Line="1" Column="1" />
-      <File FileName="Notificare.Android/Transforms/Metadata.xml" Line="14" Column="104" />
-      <File FileName="Notificare.Android.Sample/Properties/AndroidManifest.xml" Line="1" Column="1" />
-      <File FileName="Notificare.Android.Sample/MainActivity.cs" Line="40" Column="4" />
-      <File FileName="Notificare.Android/packages.config" Line="1" Column="1" />
+      <File FileName="Notificare.Android.Sample/Assets/notificareconfig.properties" Line="1" Column="1" />
+      <File FileName="Notificare.Android.Sample/MainActivity.cs" Line="62" Column="6" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

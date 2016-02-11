@@ -340,21 +340,6 @@ namespace Notificare.iOS
 	public interface NotificareDevice
 	{
 		/*
-
-
-		@property (strong, nonatomic) NSString * username;
-		@property (strong, nonatomic) NSNumber * timezone;
-		@property (strong, nonatomic) NSString * osVersion;
-		@property (strong, nonatomic) NSString * sdkVersion;
-		@property (strong, nonatomic) NSString * appVersion;
-		@property (strong, nonatomic) NSString * device;
-		@property (nonatomic) float latitude;
-		@property (nonatomic) float longitude;
-		@property (assign, nonatomic) BOOL canReceiveNotifications;
-		@property (assign, nonatomic) BOOL allowedLocationServices;
-		*/
-
-		/*
 		 * @property (strong, nonatomic) NSString * deviceID;
 		 */
 
@@ -443,6 +428,17 @@ namespace Notificare.iOS
 		NSString Device { get; }
 
 		/*
+		 * @property (strong, nonatomic) NSString * country;
+		 */
+
+		/// <summary>
+		/// Gets the country.
+		/// </summary>
+		/// <value>The country.</value>
+		[Export("country")]
+		NSString Country { get; }
+
+		/*
 		 * @property (nonatomic) float deviceID;
 		 */
 
@@ -486,6 +482,110 @@ namespace Notificare.iOS
 		[Export("allowedLocationServices")]
 		bool AllowedLocationServices { get; }
 
+
+	}
+
+	[BaseType (typeof (NSObject))]
+	public interface NotificareDeviceInbox
+	{
+		/*
+		 * @property (strong, nonatomic) NSString * inboxId;
+		 */
+
+		/// <summary>
+		/// Gets the inbox Id.
+		/// </summary>
+		/// <value>The inbox Id.</value>
+		[Export("inboxId")]
+		NSString InboxId { get; }
+
+		/*
+		 * @property (strong, nonatomic) NSString * applicationId;
+		 */
+
+		/// <summary>
+		/// Gets the application identifier.
+		/// </summary>
+		/// <value>The application identifier.</value>
+		[Export("applicationId")]
+		NSString ApplicationId { get; }
+
+		/*
+		 * @property (strong, nonatomic) NSString * deviceID;
+		 */
+
+		/// <summary>
+		/// Gets the device ID.
+		/// </summary>
+		/// <value>The device ID.</value>
+		[Export("deviceID")]
+		NSString DeviceID { get; }
+
+		/*
+		 * @property (strong, nonatomic) NSDictionary * data;
+		 */
+
+		/// <summary>
+		/// Gets the data.
+		/// </summary>
+		/// <value>The data.</value>
+		[Export("data")]
+		NSDictionary Data { get; }
+
+		/*
+		 * @property (strong, nonatomic) NSString * message;
+		 */
+
+		/// <summary>
+		/// Gets the inbox Id.
+		/// </summary>
+		/// <value>The inbox Id.</value>
+		[Export("message")]
+		NSString Message { get; }
+
+		/*
+		 * @property (strong, nonatomic) NSString * notification;
+		 */
+
+		/// <summary>
+		/// Gets the notification.
+		/// </summary>
+		/// <value>The notification.</value>
+		[Export("notification")]
+		NSString Notification { get; }
+
+		/*
+		 * @property (strong, nonatomic) NSString * time;
+		 */
+
+		/// <summary>
+		/// Gets the time.
+		/// </summary>
+		/// <value>The time.</value>
+		[Export("time")]
+		NSString Time { get; }
+
+		/*
+		 * @property (strong, nonatomic) NSString * userID;
+		 */
+
+		/// <summary>
+		/// Gets the user ID.
+		/// </summary>
+		/// <value>The user ID.</value>
+		[Export("userID")]
+		NSString UserID { get; }
+
+		/*
+		 * @property (assign, nonatomic) BOOL opened;
+		 */
+
+		/// <summary>
+		/// Gets a value indicating whether this <see cref="Notificare.iOS.NotificareDeviceInbox"/> is opened.
+		/// </summary>
+		/// <value><c>true</c> if opened; otherwise, <c>false</c>.</value>
+		[Export("opened")]
+		bool Opened { get; }
 
 	}
 
@@ -1575,7 +1675,8 @@ namespace Notificare.iOS
 		void DidFinishDownloadContent (NotificarePushLib library, SKDownload download);
 	}
 
-
+	public delegate void SuccessDeviceInboxCallback (NotificareDeviceInbox inbox);
+	public delegate void SuccessNotificationCallback (NotificareNotification notification);
 	public delegate void SuccessProductCallback( NotificareProduct product );
 	public delegate void SuccessArrayCallback( NSArray info );
 	public delegate void SuccessCallback( NSDictionary info );
@@ -1616,6 +1717,16 @@ namespace Notificare.iOS
 		void RegisterForNotifications ();
 
 		/*
+		 * - (void)unregisterForNotifications;
+		 */
+
+		/// <summary>
+		/// Unregisters for notifications.
+		/// </summary>
+		[Export("unregisterForNotifications")]
+		void UnregisterForNotifications ();
+
+		/*
 		 * - (void)registerUserNotifications;
 		 */
 
@@ -1624,6 +1735,16 @@ namespace Notificare.iOS
 		/// </summary>
 		[Export("registerUserNotifications")]
 		void RegisterUserNotifications ();
+
+		/*
+		 * - (void)unregisterUserNotifications;
+		 */
+
+		/// <summary>
+		/// Unregister for User Notifications
+		/// </summary>
+		[Export("unregisterUserNotifications")]
+		void UnregisterUserNotifications ();
 
 		/* 
 		 * -(BOOL)checkRemoteNotifications;
@@ -2146,8 +2267,48 @@ namespace Notificare.iOS
 		/// <param name="completionHandler">Completion handler.</param>
 		/// <param name="errorHandler">Error handler.</param>
 		[Export ("saveToInbox:forApplication:completionHandler:errorHandler:")]
+		[Obsolete ("use HandleNotificationForApplication instead.")]
 		void SaveToInboxForApplication (NSDictionary notification, UIApplication application, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
 
+		/*
+		 * - (void)handleNotification:(NSDictionary *)notification forApplication:(UIApplication *)application completionHandler:(SuccessBlock)result errorHandler:(ErrorBlock)errorBlock;
+		 */
+
+		/// <summary>
+		/// Handles the notification for application.
+		/// </summary>
+		/// <param name="notification">Notification.</param>
+		/// <param name="application">Application.</param>
+		/// <param name="completionHandler">Completion handler.</param>
+		/// <param name="errorHandler">Error handler.</param>
+		[Export ("handleNotification:forApplication:completionHandler:errorHandler:")]
+		void HandleNotificationForApplication (NSDictionary notification, UIApplication application, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
+
+		/*
+		 * - (void)fetchInbox:(NSDate *)sinceDate skip:(NSNumber *)skip limit:(NSNumber *)limit completionHandler:(SuccessBlock)info errorHandler:(ErrorBlock)error
+		 */
+
+		/// <summary>
+		/// Fetchs the inbox.
+		/// </summary>
+		/// <param name="sinceDate">Since date.</param>
+		/// <param name="skip">Skip.</param>
+		/// <param name="limit">Limit.</param>
+		/// <param name="completionHandler">Completion handler.</param>
+		/// <param name="errorHandler">Error handler.</param>
+		[Export ("fetchInbox:skip:limit:completionHandler:errorHandler:")]
+		void FetchInbox (NSDate sinceDate, NSNumber skip, NSNumber limit, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
+
+		/*
+		 * - (void)openInboxItem:(NotificareDeviceInbox *)inboxItem;
+		 */
+
+		/// <summary>
+		/// Opens the inbox item.
+		/// </summary>
+		/// <param name="inboxItem">Inbox item.</param>
+		[Export ("openInboxItem:")]
+		void OpenInboxItem (NotificareDeviceInbox inboxItem);
 
 		/*
 		 * - (void)removeFromInbox:(NSDictionary *)notification;
@@ -2158,16 +2319,55 @@ namespace Notificare.iOS
 		/// </summary>
 		/// <param name="notification">Notification.</param>
 		[Export ("removeFromInbox:")]
+		[Obsolete ("use RemoveFromInbox with callbacks instead.")]
 		void RemoveFromInbox (NSDictionary notification);
+
+		/*
+		 * - (void)removeFromInbox:(NotificareDeviceInbox *)inboxItem completionHandler:(SuccessBlock)result errorHandler:(ErrorBlock)errorBlock;
+		 */
+
+		/// <summary>
+		/// Removes from inbox.
+		/// </summary>
+		/// <param name="inboxItem">Inbox item.</param>
+		/// <param name="completionHandler">Completion handler.</param>
+		/// <param name="errorHandler">Error handler.</param>
+		[Export ("removeFromInbox:completionHandler:errorHandler:")]
+		void RemoveFromInbox (NotificareDeviceInbox inboxItem, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
+
+		/*
+		 * - (void)markAsRead:(NotificareDeviceInbox *)inboxItem completionHandler:(SuccessBlock)result errorHandler:(ErrorBlock)errorBlock;
+		 */
+
+		/// <summary>
+		/// Marks as read.
+		/// </summary>
+		/// <param name="inboxItem">Inbox item.</param>
+		/// <param name="completionHandler">Completion handler.</param>
+		/// <param name="errorHandler">Error handler.</param>
+		[Export ("markAsRead:completionHandler:errorHandler:")]
+		void MarkAsRead (NotificareDeviceInbox inboxItem, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
 
 		/*
 		 * - (void)clearInbox;
 		 */
+
 		/// <summary>
 		/// Remove all notifications from the Inbox
 		/// </summary>
 		[Export ("clearInbox")]
+		[Obsolete ("use ClearInbox with callbacks instead.")]
 		void ClearInbox ();
+
+		/*
+		 * - (void)clearInbox:(SuccessBlock)result errorHandler:(ErrorBlock)errorBlock;
+		 */
+
+		/// <summary>
+		/// Remove all notifications from the Inbox
+		/// </summary>
+		[Export ("clearInbox:errorHander:")]
+		void ClearInbox ([BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
 
 		/*
 		 * -(void)openInbox;
@@ -2177,6 +2377,7 @@ namespace Notificare.iOS
 		/// Opens the inbox.
 		/// </summary>
 		[Export ("openInbox")]
+		[Obsolete ("use Inbox methods instead.")]
 		void OpenInbox ();
 
 
@@ -2189,8 +2390,8 @@ namespace Notificare.iOS
 		/// </summary>
 		/// <returns>The inbox.</returns>
 		[Export ("myInbox")]
+		[Obsolete ("use FetchMyInbox with callbacks instead.")]
 		NSArray MyInbox ();
-
 
 		/*
 		 * -(int)myBadge;
@@ -2530,6 +2731,28 @@ namespace Notificare.iOS
 		/// <value>The delegate.</value>
 		[Export ("delegate", ArgumentSemantic.Assign)][NullAllowed]
 		NotificarePushLibDelegate Delegate { get; set; }
+
+		/*
+		 * @property (strong, nonatomic) NSString * apiID;
+		 */
+
+		/// <summary>
+		/// Gets the API ID.
+		/// </summary>
+		/// <value>The API ID.</value>
+		[Export("apiID")]
+		NSString ApiID { get; }
+
+		/*
+		 * @property (strong, nonatomic) NSString * apiSecret;
+		 */
+
+		/// <summary>
+		/// Gets the API secret.
+		/// </summary>
+		/// <value>The API secret.</value>
+		[Export("apiSecret")]
+		NSString ApiSecret { get; }
 
 		/*
 		 * @property (strong, nonatomic) NotificareDevice * myDevice;
