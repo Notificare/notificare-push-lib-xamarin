@@ -95,7 +95,7 @@ namespace Notificare.iOS.TestApp
 		}
 
 		public override void DidReceiveRemoteNotification (UIApplication application, NSDictionary userInfo, Action<UIBackgroundFetchResult> completionHandler) {
-			NotificarePushLib.Shared().SaveToInboxForApplication(userInfo, application, (NSDictionary info) => {
+			NotificarePushLib.Shared().HandleNotificationForApplication(userInfo, application, (NSDictionary info) => {
 				Console.WriteLine ("DidReceiveRemoteNotification info: {0}", info);
 				completionHandler (UIBackgroundFetchResult.NewData);	
 			}, (NSError error) => {
