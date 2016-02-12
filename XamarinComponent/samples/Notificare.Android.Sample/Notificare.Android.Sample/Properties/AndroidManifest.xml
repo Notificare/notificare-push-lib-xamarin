@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="10601" package="notificare.android.sample" android:versionName="1.6.1">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="10700" package="notificare.android.sample" android:versionName="1.7.0">
 	<uses-sdk android:minSdkVersion="10" android:targetSdkVersion="23" />
 	<!-- PERMISSIONS -->
 	<uses-permission android:name="android.permission.WAKE_LOCK" />
 	<uses-permission android:name="android.permission.INTERNET" />
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="22"/>
-	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:maxSdkVersion="22"/>
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="22" />
+	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:maxSdkVersion="22" />
 	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 	<!-- This app has permission to register and receive message -->
@@ -45,10 +45,8 @@
 				<action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
 			</intent-filter>
 		</receiver>
-		<service android:name="org.altbeacon.beacon.service.BeaconService" android:enabled="true" android:exported="true" android:isolatedProcess="false" android:label="beacon">
-		</service>
-		<service android:name="org.altbeacon.beacon.BeaconIntentProcessor" android:enabled="true">
-		</service>
+		<service android:name="org.altbeacon.beacon.service.BeaconService" android:enabled="true" android:exported="true" android:isolatedProcess="false" android:label="beacon"></service>
+		<service android:name="org.altbeacon.beacon.BeaconIntentProcessor" android:enabled="true"></service>
 		<!--
 	    	Service running in the background that receives your Push Notifications 
 	     -->

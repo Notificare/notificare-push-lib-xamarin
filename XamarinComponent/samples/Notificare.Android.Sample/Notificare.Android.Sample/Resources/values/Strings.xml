@@ -10,4 +10,5 @@
     <string name="pref_title_tag_updates">Updates</string>
     <string name="alert_location_permission_rationale">We need your location to offer you the best experience</string>
 	<string name="button_location_permission_rationale_ok">got it</string>
+	<string name="title_empty_inbox">No messages found</string>
 </resources>

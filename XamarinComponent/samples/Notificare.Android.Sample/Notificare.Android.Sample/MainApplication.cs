@@ -21,6 +21,7 @@ namespace Notificare.Android.Sample
 			base.OnCreate ();
 
 			// Launch Notificare system
+			Notificare.Shared().SetDebugLogging(Java.Lang.Boolean.True);
 			Notificare.Shared ().Launch (this);
 			// Use our custom intent receiver
 			Notificare.Shared ().IntentReceiver = Java.Lang.Class.FromType(typeof(MyIntentReceiver));

@@ -95,6 +95,11 @@
     <AndroidResource Include="Resources\values\dimens.xml" />
     <AndroidResource Include="Resources\values\Strings.xml" />
     <AndroidResource Include="Resources\xml\preferences.xml" />
+    <AndroidResource Include="Resources\layout\InboxListCell.axml" />
+    <AndroidResource Include="Resources\drawable\cell_border_bottom.xml" />
+    <AndroidResource Include="Resources\drawable\cell_border_top.xml" />
+    <AndroidResource Include="Resources\drawable\delete_icon.png" />
+    <AndroidResource Include="Resources\values\Color.xml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\xml\" />
