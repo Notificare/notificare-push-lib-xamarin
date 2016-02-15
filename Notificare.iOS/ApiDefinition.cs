@@ -2297,7 +2297,7 @@ namespace Notificare.iOS
 		/// <param name="completionHandler">Completion handler.</param>
 		/// <param name="errorHandler">Error handler.</param>
 		[Export ("fetchInbox:skip:limit:completionHandler:errorHandler:")]
-		void FetchInbox (NSDate sinceDate, NSNumber skip, NSNumber limit, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
+		void FetchInbox ([NullAllowed] NSDate sinceDate, [NullAllowed] NSNumber skip, [NullAllowed] NSNumber limit, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
 
 		/*
 		 * - (void)openInboxItem:(NotificareDeviceInbox *)inboxItem;

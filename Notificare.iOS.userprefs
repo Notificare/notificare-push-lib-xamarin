@@ -1,20 +1,10 @@
 ﻿<Properties StartupItem="Notificare.iOS.TestApp/Notificare.iOS.TestApp.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.Kabouter Wesley" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Notificare.iOS/ApiDefinition.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release|iPhone" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.Kabouter Wesley" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Notificare.iOS-Unified/ApiDefinition.cs">
     <Files>
-      <File FileName="Notificare.iOS/ApiDefinition.cs" Line="3096" Column="2" />
+      <File FileName="Notificare.iOS/ApiDefinition.cs" Line="1" Column="1" />
+      <File FileName="Notificare.iOS-Unified/ApiDefinition.cs" Line="2280" Column="3" />
     </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State name="__root__">
-          <Node name="Notificare.iOS" expanded="True">
-            <Node name="Notificare.iOS" expanded="True">
-              <Node name="ApiDefinition.cs" selected="True" />
-            </Node>
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

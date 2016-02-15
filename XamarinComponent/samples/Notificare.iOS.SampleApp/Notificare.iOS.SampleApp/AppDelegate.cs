@@ -63,7 +63,6 @@ namespace Notificare.iOS.SampleApp
 				deviceToken,
 				(NSDictionary info) => {
 					Console.WriteLine("Device registered: {0}", info);
-					viewController.ShowPushEnabled();
 					// Add tags for this device. Normally, you would leave this up to the user to set from a preferences view or other conditions in the app.
 					// Uncomment the line below to make sure the two tags are enabled at startup, so you can send to these tags from the dashboard
 					// If you leave this line out, you will first have to set the tags on the preferences view

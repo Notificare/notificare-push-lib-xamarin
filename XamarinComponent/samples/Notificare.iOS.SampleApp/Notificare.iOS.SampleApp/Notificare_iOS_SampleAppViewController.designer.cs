@@ -13,24 +13,13 @@ namespace Notificare.iOS.SampleApp
 	partial class Notificare_iOS_SampleAppViewController
 	{
 		[Outlet]
-		MonoTouch.UIKit.UIButton preferenceButton { get; set; }
-
-		[Outlet]
-		MonoTouch.UIKit.UILabel pushEnabledLabel { get; set; }
-
-		[Action ("openPreferences:")]
-		partial void openPreferences (MonoTouch.Foundation.NSObject sender);
+		MonoTouch.UIKit.UITableView tableView { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
-			if (pushEnabledLabel != null) {
-				pushEnabledLabel.Dispose ();
-				pushEnabledLabel = null;
-			}
-
-			if (preferenceButton != null) {
-				preferenceButton.Dispose ();
-				preferenceButton = null;
+			if (tableView != null) {
+				tableView.Dispose ();
+				tableView = null;
 			}
 		}
 	}

@@ -1,36 +1,26 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notificare.iOS-Unified.SampleApp", "Notificare.iOS-Unified.SampleApp\Notificare.iOS-Unified.SampleApp.csproj", "{5ACFEAAA-67E6-48A3-8630-256235608487}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notificare.iOS-Unified.SampleApp", "Notificare.iOS-Unified.SampleApp\Notificare.iOS-Unified.SampleApp.csproj", "{DA3BEC82-66B3-4596-B7A1-8EC89170E29A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|iPhoneSimulator = Debug|iPhoneSimulator
+		Release|iPhone = Release|iPhone
 		Release|iPhoneSimulator = Release|iPhoneSimulator
 		Debug|iPhone = Debug|iPhone
-		Release|iPhone = Release|iPhone
-		Ad-Hoc|iPhone = Ad-Hoc|iPhone
-		AppStore|iPhone = AppStore|iPhone
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{5ACFEAAA-67E6-48A3-8630-256235608487}.Ad-Hoc|iPhone.ActiveCfg = Ad-Hoc|iPhone
-		{5ACFEAAA-67E6-48A3-8630-256235608487}.Ad-Hoc|iPhone.Build.0 = Ad-Hoc|iPhone
-		{5ACFEAAA-67E6-48A3-8630-256235608487}.AppStore|iPhone.ActiveCfg = AppStore|iPhone
-		{5ACFEAAA-67E6-48A3-8630-256235608487}.AppStore|iPhone.Build.0 = AppStore|iPhone
-		{5ACFEAAA-67E6-48A3-8630-256235608487}.Debug|iPhone.ActiveCfg = Debug|iPhone
-		{5ACFEAAA-67E6-48A3-8630-256235608487}.Debug|iPhone.Build.0 = Debug|iPhone
-		{5ACFEAAA-67E6-48A3-8630-256235608487}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
-		{5ACFEAAA-67E6-48A3-8630-256235608487}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
-		{5ACFEAAA-67E6-48A3-8630-256235608487}.Release|iPhone.ActiveCfg = Release|iPhone
-		{5ACFEAAA-67E6-48A3-8630-256235608487}.Release|iPhone.Build.0 = Release|iPhone
-		{5ACFEAAA-67E6-48A3-8630-256235608487}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
-		{5ACFEAAA-67E6-48A3-8630-256235608487}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
+		{DA3BEC82-66B3-4596-B7A1-8EC89170E29A}.Debug|iPhone.ActiveCfg = Debug|iPhone
+		{DA3BEC82-66B3-4596-B7A1-8EC89170E29A}.Debug|iPhone.Build.0 = Debug|iPhone
+		{DA3BEC82-66B3-4596-B7A1-8EC89170E29A}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
+		{DA3BEC82-66B3-4596-B7A1-8EC89170E29A}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
+		{DA3BEC82-66B3-4596-B7A1-8EC89170E29A}.Release|iPhone.ActiveCfg = Release|iPhone
+		{DA3BEC82-66B3-4596-B7A1-8EC89170E29A}.Release|iPhone.Build.0 = Release|iPhone
+		{DA3BEC82-66B3-4596-B7A1-8EC89170E29A}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
+		{DA3BEC82-66B3-4596-B7A1-8EC89170E29A}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		Policies = $0
-		$0.DotNetNamingPolicy = $1
-		$1.DirectoryNamespaceAssociation = None
-		$1.ResourceNamePolicy = FileFormatDefault
 		version = 1.7.0
 	EndGlobalSection
 EndGlobal

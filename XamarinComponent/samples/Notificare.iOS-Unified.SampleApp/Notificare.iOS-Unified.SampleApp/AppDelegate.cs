@@ -13,11 +13,10 @@ namespace Notificare.iOS.SampleApp
 	// User Interface of the application, as well as listening (and optionally responding) to
 	// application events from iOS.
 	[Register ("AppDelegate")]
-	public partial class AppDelegate : UIApplicationDelegate
+	public class AppDelegate : UIApplicationDelegate
 	{
 		// class-level declarations
-		UIWindow window;
-		Notificare_iOS_SampleAppViewController viewController;
+		public override UIWindow Window { get; set; }
 		NotificarePushLibDelegate _pushLibDelegate;
 		//
 		// This method is invoked when the application has loaded and is ready to run. In this
@@ -28,13 +27,6 @@ namespace Notificare.iOS.SampleApp
 		//
 		public override bool FinishedLaunching (UIApplication app, NSDictionary options)
 		{
-			window = new UIWindow (UIScreen.MainScreen.Bounds);
-
-			viewController = new Notificare_iOS_SampleAppViewController ();
-			window.RootViewController = viewController;
-			window.MakeKeyAndVisible ();
-
-
 			NotificarePushLib.Shared().Launch ();
 			_pushLibDelegate = new MyPushLibDelegate ();
 			NotificarePushLib.Shared ().Delegate = _pushLibDelegate;
@@ -69,7 +61,6 @@ namespace Notificare.iOS.SampleApp
 				deviceToken,
 				(NSDictionary info) => {
 					Console.WriteLine("Device registered: {0}", info);
-					viewController.ShowPushEnabled();
 					// Add tags for this device. Normally, you would leave this up to the user to set from a preferences view or other conditions in the app.
 					// Uncomment the line below to make sure the two tags are enabled at startup, so you can send to these tags from the dashboard
 					// If you leave this line out, you will first have to set the tags on the preferences view
