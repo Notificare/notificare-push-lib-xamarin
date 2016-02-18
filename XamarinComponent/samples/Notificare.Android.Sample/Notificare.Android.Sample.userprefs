@@ -1,36 +1,6 @@
 ﻿<Properties StartupItem="Notificare.Android.Sample/Notificare.Android.Sample.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.MonoForAndroid_API_10" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Notificare.Android.Sample/MainActivity.cs">
-    <Files>
-      <File FileName="Notificare.Android.Sample/Resources/values/dimens.xml" Line="6" Column="50" />
-      <File FileName="Notificare.Android.Sample/Resources/values/Strings.xml" Line="1" Column="39" />
-      <File FileName="Notificare.Android.Sample/Resources/values/Color.xml" Line="11" Column="10" />
-      <File FileName="Notificare.Android.Sample/MainActivity.cs" Line="61" Column="1" />
-      <File FileName="Notificare.Android.Sample/Assets/notificareconfig.properties" Line="6" Column="14" />
-      <File FileName="Notificare.Android.Sample/MainApplication.cs" Line="24" Column="62" />
-      <File FileName="Notificare.Android.Sample/MyIntentReceiver.cs" Line="45" Column="4" />
-      <File FileName="Notificare.Android.Sample/Properties/AndroidManifest.xml" Line="74" Column="12" />
-      <File FileName="Notificare.Android.Sample/Properties/AssemblyInfo.cs" Line="21" Column="35" />
-    </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State name="__root__">
-          <Node name="Notificare.Android.Sample" expanded="True">
-            <Node name="Notificare.Android.Sample" expanded="True">
-              <Node name="Assets" expanded="True" />
-              <Node name="Properties" expanded="True" />
-              <Node name="Resources" expanded="True">
-                <Node name="drawable" expanded="True" />
-                <Node name="layout" expanded="True" />
-                <Node name="values" expanded="True" />
-              </Node>
-              <Node name="MainActivity.cs" selected="True" />
-            </Node>
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
