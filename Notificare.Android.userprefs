@@ -1,6 +1,6 @@
 ﻿<Properties StartupItem="Notificare.Android.Sample/Notificare.Sample.Android.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.TA39100ER9" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Notificare.Android/Properties/AssemblyInfo.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.068f9ebe2115a907" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Notificare.Android.Sample/Assets/notificareconfig.properties">
     <Files>
       <File FileName="Notificare.Android.Sample/Assets/notificareconfig.properties" Line="1" Column="1" />
       <File FileName="Notificare.Android.Sample/MainActivity.cs" Line="62" Column="6" />

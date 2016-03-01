@@ -1736,16 +1736,6 @@ namespace Notificare.iOS
 		[Export("registerUserNotifications")]
 		void RegisterUserNotifications ();
 
-		/*
-		 * - (void)unregisterUserNotifications;
-		 */
-
-		/// <summary>
-		/// Unregister for User Notifications
-		/// </summary>
-		[Export("unregisterUserNotifications")]
-		void UnregisterUserNotifications ();
-
 		/* 
 		 * -(BOOL)checkRemoteNotifications;
 		 */
