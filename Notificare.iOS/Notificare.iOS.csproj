@@ -11,7 +11,7 @@
     <RootNamespace>Notificare.iOS</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AssemblyName>Notificare.iOS</AssemblyName>
-    <ReleaseVersion>1.7.3</ReleaseVersion>
+    <ReleaseVersion>1.8.0</ReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>

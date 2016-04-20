@@ -74,6 +74,65 @@ namespace Notificare.iOS
 	}
 
 	[BaseType (typeof (NSObject))]
+	public interface NotificareAsset
+	{
+		/*
+		 * @property (strong, nonatomic) NSString * assetTitle;
+		 */
+
+		/// <summary>
+		/// Gets the asset title.
+		/// </summary>
+		/// <value>The asset title.</value>
+		[Export("assetTitle")]
+		NSString AssetTitle { get; }
+
+		/*
+		 * @property (strong, nonatomic) NSString * assetDescription;
+		 */
+
+		/// <summary>
+		/// Gets the asset description.
+		/// </summary>
+		/// <value>The asset description.</value>
+		[Export("assetDescription")]
+		NSString AssetDescription { get; }
+
+		/*
+		 * @property (strong, nonatomic) NSString * assetUrl;
+		 */
+
+		/// <summary>
+		/// Gets the asset URL.
+		/// </summary>
+		/// <value>The asset URL.</value>
+		[Export("assetUrl")]
+		NSString AssetUrl { get; }
+
+		/*
+		 * @property (strong, nonatomic) NSDictionary * assetButton;
+		 */
+
+		/// <summary>
+		/// Gets the asset button.
+		/// </summary>
+		/// <value>The asset button.</value>
+		[Export("assetButton")]
+		NSDictionary AssetButton { get; }
+
+		/*
+		 * @property (strong, nonatomic) NSDictionary * assetMetaData;
+		 */
+
+		/// <summary>
+		/// Gets the asset meta data.
+		/// </summary>
+		/// <value>The asset meta data.</value>
+		[Export("assetMetaData")]
+		NSDictionary AssetMetaData { get; }
+	}
+
+	[BaseType (typeof (NSObject))]
 	public interface NotificareAttachment
 	{
 
@@ -782,6 +841,109 @@ namespace Notificare.iOS
 		[Export("displayMessage")]
 		NSNumber DisplayMessage { get; }
 
+	}
+
+	[BaseType (typeof (NSObject))]
+	public interface NotificarePass
+	{
+		/*
+		 * @property (strong, nonatomic) NSString * passbook;
+		 */
+
+		/// <summary>
+		/// Gets the passbook.
+		/// </summary>
+		/// <value>The passbook.</value>
+		[Export("passbook")]
+		NSString Passbook { get; }
+
+		/*
+		 * @property (strong, nonatomic) NSString * serial;
+		 */
+
+		/// <summary>
+		/// Gets the serial.
+		/// </summary>
+		/// <value>The serial.</value>
+		[Export("serial")]
+		NSString Serial { get; }
+
+		/*
+		 * @property (strong, nonatomic) NSString * redeem;
+		 */
+
+		/// <summary>
+		/// Gets the redeem.
+		/// </summary>
+		/// <value>The redeem.</value>
+		[Export("redeem")]
+		NSString Redeem { get; }
+
+		/*
+		 * @property (strong, nonatomic) NSString * token;
+		 */
+
+		/// <summary>
+		/// Gets the token.
+		/// </summary>
+		/// <value>The token.</value>
+		[Export("token")]
+		NSString Token { get; }
+
+		/*
+		 * @property (strong, nonatomic) NSDate * date;
+		 */
+
+		/// <summary>
+		/// Gets the date.
+		/// </summary>
+		/// <value>The date.</value>
+		[Export("date")]
+		NSDate Date { get; }
+
+		/*
+		 * @property (strong, nonatomic) NSDictionary * data;
+		 */
+
+		/// <summary>
+		/// Gets the data.
+		/// </summary>
+		/// <value>The data.</value>
+		[Export("data")]
+		NSDictionary Data { get; }
+
+		/*
+		 * @property (strong, nonatomic) NSNumber * limit;
+		 */
+
+		/// <summary>
+		/// Gets the limit.
+		/// </summary>
+		/// <value>The limit.</value>
+		[Export("limit")]
+		NSNumber Limit { get; }
+
+		/*
+		 * @property (strong, nonatomic) NSArray * redeemHistory;
+		 */
+
+		/// <summary>
+		/// Gets the redeem history.
+		/// </summary>
+		/// <value>The redeem history.</value>
+		[Export("redeemHistory")]
+		NSArray RedeemHistory { get; }
+
+		/*
+		 * @property (assign, nonatomic) BOOL active;
+		 */
+
+		/// <summary>
+		/// Gets a value indicating whether this <see cref="Notificare.iOS.NotificarePass"/> is active.
+		/// </summary>
+		/// <value><c>true</c> if active; otherwise, <c>false</c>.</value>
+		[Export("active")]
+		bool Active { get; }
 	}
 
 	[BaseType (typeof (NSObject))]
@@ -1641,7 +1803,7 @@ namespace Notificare.iOS
 		/*
 		 * - (void)notificarePushLib:(NotificarePushLib *)library didReceiveProgressDownloadContent:(SKDownload *)download;
 		 */
-	
+
 		/// <summary>
 		/// Optional. This delegate method will be triggered whenever a download progress is updated.
 		/// </summary>
@@ -1677,6 +1839,7 @@ namespace Notificare.iOS
 
 	public delegate void SuccessDeviceInboxCallback (NotificareDeviceInbox inbox);
 	public delegate void SuccessNotificationCallback (NotificareNotification notification);
+	public delegate void SuccessPassCallback( NotificarePass pass );
 	public delegate void SuccessProductCallback( NotificareProduct product );
 	public delegate void SuccessArrayCallback( NSArray info );
 	public delegate void SuccessCallback( NSDictionary info );
@@ -2708,6 +2871,32 @@ namespace Notificare.iOS
 		[Export("myPasses")]
 		NSArray MyPasses { get; }
 
+		/*
+		 * (void)fetchPass:(NSString *)serial completionHandler:(SuccessPassBlock)result errorHandler:(ErrorBlock)error;
+		 */
+
+		/// <summary>
+		/// Retrieves a Pass object
+		/// </summary>
+		/// <param name="serial">Serial.</param>
+		/// <param name="completionHandler">Completion handler.</param>
+		/// <param name="erorHandler">Eror handler.</param>
+		[Export("fetchPass:completionHandler:errorHandler:")]
+		void FetchPass(NSString serial, [BlockCallback] SuccessPassCallback completionHandler, [BlockCallback] ErrorCallback erorHandler);
+
+		/*
+		 * (void)fetchAssets:(NSString *)group completionHandler:(SuccessArrayBlock)result errorHandler:(ErrorBlock)error;
+		 */
+
+		/// <summary>
+		/// Retrieves a list of assets from a specific group
+		/// </summary>
+		/// <param name="group">Group.</param>
+		/// <param name="completionHandler">Completion handler.</param>
+		/// <param name="erorHandler">Eror handler.</param>
+		[Export("fetchAssets:completionHandler:errorHandler:")]
+		void FetchAssets(NSString group, [BlockCallback] SuccessArrayCallback completionHandler, [BlockCallback] ErrorCallback erorHandler);
+
 
 		// Properties
 
@@ -3084,4 +3273,3 @@ namespace Notificare.iOS
 
 
 }
-

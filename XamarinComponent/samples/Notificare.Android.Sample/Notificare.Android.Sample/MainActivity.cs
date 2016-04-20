@@ -28,6 +28,22 @@ namespace Notificare.Android.Sample
 		protected ArrayAdapter<NotificareInboxItem> inboxListAdapter;
 		private const String TAG = "InboxActivity";
 
+		public class FetchAssetsCallback : Java.Lang.Object, INotificareCallback
+		{
+			void INotificareCallback.OnSuccess(Java.Lang.Object assets)
+			{
+				JavaList assetsList = (JavaList)assets;
+				NotificareAsset asset = (NotificareAsset)assetsList.Get (0);
+				Console.WriteLine (asset.OriginalFileName);
+			}
+
+			void INotificareCallback.OnError(NotificareError error)
+			{
+				Console.WriteLine ("error fetching assets: " + error.Message);
+			}
+		}
+
+
 		protected override void OnCreate (Bundle bundle)
 		{
 			base.OnCreate (bundle);
@@ -35,8 +51,6 @@ namespace Notificare.Android.Sample
 			// Set our view from the "main" layout resource
 			SetContentView (Resource.Layout.Main);
 			listView = FindViewById<ListView>(Resource.Id.inboxList);
-
-			Notificare.Shared ().AddNotificareReadyListener (this);
 
 			inboxListAdapter = new InboxListAdapter(this, Resource.Layout.InboxListCell);
 			listView.Adapter = inboxListAdapter;
@@ -54,6 +68,7 @@ namespace Notificare.Android.Sample
 
 		protected override void OnResume() {
 			base.OnResume();
+			Notificare.Shared ().AddNotificareReadyListener (this);
 			inboxListAdapter.Clear();
 			if (Notificare.Shared().InboxManager != null) {
 				NotificareInboxManager manager = Notificare.Shared ().InboxManager;
@@ -66,8 +81,8 @@ namespace Notificare.Android.Sample
 		}
 
 
-		protected override void OnDestroy() {
-			base.OnDestroy ();
+		protected override void OnPause() {
+			base.OnPause ();
 			Notificare.Shared ().RemoveNotificareReadyListener (this);
 		}
 
@@ -91,13 +106,14 @@ namespace Notificare.Android.Sample
 					Notificare.Shared ().RequestLocationPermission (this, LocationPermissionRequestCode);
 				}
 			}
+			Notificare.Shared ().FetchAssets ("test", new FetchAssetsCallback());
 		}
 
 		public override void OnRequestPermissionsResult (int requestCode, string[] permissions, Permission[] grantResults)
 		{
 			switch (requestCode) {
 			case LocationPermissionRequestCode: 
-				if (Notificare.Shared ().CheckRequestLocationPermissionResult(permissions, grantResults)) {
+				if (Notificare.Shared ().CheckRequestLocationPermissionResult (permissions, grantResults)) {
 					Notificare.Shared ().EnableLocationUpdates ();
 					Notificare.Shared ().EnableBeacons ();
 				}

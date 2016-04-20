@@ -15,18 +15,18 @@ libraries:
 summary: Rich and interactive push notifications for iOS, Android and Web. Enhance your apps with location based messages that really work.
 details: Details.md
 getting-started: GettingStarted.md
-version: 1.7.3
+version: 1.8.0
 no_build: true
 packages:
   android:
     - AndroidAltBeaconLibrary, Version=2.7.0
-    - Xamarin.Android.Support.v4, Version=23.1.1.0
-    - Xamarin.Android.Support.v7.AppCompat, Version=23.1.1.0
-    - Xamarin.GooglePlayServices.Basement, Version=27.0.0.0
-    - Xamarin.GooglePlayServices.Base, Version=27.0.0.0
-    - Xamarin.GooglePlayServices.GCM, Version=27.0.0.0
-    - Xamarin.GooglePlayServices.Location, Version=27.0.0.0
-    - Xamarin.GooglePlayServices.Maps, Version=27.0.0.0
+    - Xamarin.Android.Support.v4, Version=23.3.0
+    - Xamarin.Android.Support.v7.AppCompat, Version=23.3.0
+    - Xamarin.GooglePlayServices.Basement, Version=29.0.0.1
+    - Xamarin.GooglePlayServices.Base, Version=29.0.0.1
+    - Xamarin.GooglePlayServices.GCM, Version=29.0.0.1
+    - Xamarin.GooglePlayServices.Location, Version=29.0.0.1
+    - Xamarin.GooglePlayServices.Maps, Version=29.0.0.1
 samples:
   - name: iOS Unified Sample. Demonstrates Notificare on iOS Unified.
     path: samples/Notificare.iOS-Unified.SampleApp/Notificare.iOS-Unified.SampleApp.sln

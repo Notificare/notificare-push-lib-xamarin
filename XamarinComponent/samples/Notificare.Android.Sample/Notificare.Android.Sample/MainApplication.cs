@@ -29,7 +29,9 @@ namespace Notificare.Android.Sample
 			Notificare.Shared ().UserPreferencesResource = Resource.Xml.preferences;
 			// Keep notifications in the drawer, remove this line or set to true if you want them to clear automatically when opened
 			//Notificare.Shared ().AutoCancel = Java.Lang.Boolean.False;
-			Notificare.Shared().DefaultLightsColor = "#ff0000";
+			Notificare.Shared ().DefaultLightsColor = "#ff0000";
+			Notificare.Shared ().AllowJavaScript = Java.Lang.Boolean.True;
+			Notificare.Shared ().AllowOrientationChange = Java.Lang.Boolean.True;
 
 		}
 	}

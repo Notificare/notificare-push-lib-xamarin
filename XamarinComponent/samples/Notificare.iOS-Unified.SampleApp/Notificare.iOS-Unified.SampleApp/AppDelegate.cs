@@ -66,6 +66,13 @@ namespace Notificare.iOS.SampleApp
 					// If you leave this line out, you will first have to set the tags on the preferences view
 					//AddTags(NSArray.FromStrings("tag_something", "tag_something2"));
 					NotificarePushLib.Shared ().StartLocationUpdates ();
+					NotificarePushLib.Shared().FetchAssets((NSString)"test", (NSArray assets) => {
+						if (assets.Count > 0) {
+							Console.WriteLine(assets.GetItem<NotificareAsset>(0).AssetUrl);
+						}
+					}, (NSError error) => {
+						Console.WriteLine("Error fetching assets: {0}", error);
+					});						
 				},
 				(NSError error) => {
 					Console.WriteLine("Error registering device: {0}", error);

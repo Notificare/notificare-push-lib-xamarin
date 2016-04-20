@@ -27,6 +27,8 @@ namespace Notificare.Sample.Android
 			Notificare.Android.Notificare.Shared ().IntentReceiver = Java.Lang.Class.FromType(typeof(MyIntentReceiver));
 			// Keep notifications in the drawer, remove this line or set to true if you want them to clear automatically when opened
 			Notificare.Android.Notificare.Shared ().AutoCancel = Java.Lang.Boolean.True;
+			Notificare.Android.Notificare.Shared ().AllowJavaScript = Java.Lang.Boolean.True;
+			Notificare.Android.Notificare.Shared ().AllowOrientationChange = Java.Lang.Boolean.True;
 		}
 	}
 }

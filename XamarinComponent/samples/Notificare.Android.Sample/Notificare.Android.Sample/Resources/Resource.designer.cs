@@ -2131,8 +2131,8 @@ namespace Notificare.Android.Sample
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f0d0080
-			public const int action0 = 2131558528;
+			// aapt resource value: 0x7f0d0082
+			public const int action0 = 2131558530;
 			
 			// aapt resource value: 0x7f0d004c
 			public const int action_bar = 2131558476;
@@ -2158,8 +2158,8 @@ namespace Notificare.Android.Sample
 			// aapt resource value: 0x7f0d004d
 			public const int action_context_bar = 2131558477;
 			
-			// aapt resource value: 0x7f0d0084
-			public const int action_divider = 2131558532;
+			// aapt resource value: 0x7f0d0086
+			public const int action_divider = 2131558534;
 			
 			// aapt resource value: 0x7f0d0002
 			public const int action_menu_divider = 2131558402;
@@ -2200,14 +2200,14 @@ namespace Notificare.Android.Sample
 			// aapt resource value: 0x7f0d0036
 			public const int buttonPanel = 2131558454;
 			
-			// aapt resource value: 0x7f0d0081
-			public const int cancel_action = 2131558529;
+			// aapt resource value: 0x7f0d0083
+			public const int cancel_action = 2131558531;
 			
 			// aapt resource value: 0x7f0d0044
 			public const int checkbox = 2131558468;
 			
-			// aapt resource value: 0x7f0d0087
-			public const int chronometer = 2131558535;
+			// aapt resource value: 0x7f0d0089
+			public const int chronometer = 2131558537;
 			
 			// aapt resource value: 0x7f0d0027
 			public const int collapseActionView = 2131558439;
@@ -2242,8 +2242,8 @@ namespace Notificare.Android.Sample
 			// aapt resource value: 0x7f0d0024
 			public const int end = 2131558436;
 			
-			// aapt resource value: 0x7f0d008c
-			public const int end_padder = 2131558540;
+			// aapt resource value: 0x7f0d008e
+			public const int end_padder = 2131558542;
 			
 			// aapt resource value: 0x7f0d0030
 			public const int expand_activities_button = 2131558448;
@@ -2284,17 +2284,17 @@ namespace Notificare.Android.Sample
 			// aapt resource value: 0x7f0d005d
 			public const int inbox_message = 2131558493;
 			
-			// aapt resource value: 0x7f0d008b
-			public const int info = 2131558539;
+			// aapt resource value: 0x7f0d008d
+			public const int info = 2131558541;
 			
 			// aapt resource value: 0x7f0d0013
 			public const int light = 2131558419;
 			
-			// aapt resource value: 0x7f0d0085
-			public const int line1 = 2131558533;
+			// aapt resource value: 0x7f0d0087
+			public const int line1 = 2131558535;
 			
-			// aapt resource value: 0x7f0d0089
-			public const int line3 = 2131558537;
+			// aapt resource value: 0x7f0d008b
+			public const int line3 = 2131558539;
 			
 			// aapt resource value: 0x7f0d0078
 			public const int list = 2131558520;
@@ -2305,8 +2305,11 @@ namespace Notificare.Android.Sample
 			// aapt resource value: 0x7f0d0033
 			public const int list_item = 2131558451;
 			
-			// aapt resource value: 0x7f0d0083
-			public const int media_actions = 2131558531;
+			// aapt resource value: 0x7f0d007c
+			public const int map_fragment = 2131558524;
+			
+			// aapt resource value: 0x7f0d0085
+			public const int media_actions = 2131558533;
 			
 			// aapt resource value: 0x7f0d0077
 			public const int message = 2131558519;
@@ -2402,43 +2405,46 @@ namespace Notificare.Android.Sample
 			public const int notificare_callback_message = 2131558523;
 			
 			// aapt resource value: 0x7f0d007d
-			public const int notificare_notification_fragment_layout = 2131558525;
+			public const int notificare_notification_container = 2131558525;
+			
+			// aapt resource value: 0x7f0d007f
+			public const int notificare_notification_fragment_layout = 2131558527;
 			
 			// aapt resource value: 0x7f0d007a
 			public const int notificare_send_button = 2131558522;
 			
-			// aapt resource value: 0x7f0d007c
-			public const int notification_fragment = 2131558524;
-			
 			// aapt resource value: 0x7f0d007e
-			public const int pager = 2131558526;
+			public const int notification_fragment = 2131558526;
+			
+			// aapt resource value: 0x7f0d0080
+			public const int pager = 2131558528;
 			
 			// aapt resource value: 0x7f0d0038
 			public const int parentPanel = 2131558456;
 			
-			// aapt resource value: 0x7f0d008f
-			public const int place_autocomplete_clear_button = 2131558543;
-			
 			// aapt resource value: 0x7f0d0091
-			public const int place_autocomplete_powered_by_google = 2131558545;
+			public const int place_autocomplete_clear_button = 2131558545;
 			
 			// aapt resource value: 0x7f0d0093
-			public const int place_autocomplete_prediction_primary_text = 2131558547;
+			public const int place_autocomplete_powered_by_google = 2131558547;
+			
+			// aapt resource value: 0x7f0d0095
+			public const int place_autocomplete_prediction_primary_text = 2131558549;
+			
+			// aapt resource value: 0x7f0d0096
+			public const int place_autocomplete_prediction_secondary_text = 2131558550;
 			
 			// aapt resource value: 0x7f0d0094
-			public const int place_autocomplete_prediction_secondary_text = 2131558548;
+			public const int place_autocomplete_progress = 2131558548;
 			
-			// aapt resource value: 0x7f0d0092
-			public const int place_autocomplete_progress = 2131558546;
-			
-			// aapt resource value: 0x7f0d008d
-			public const int place_autocomplete_search_button = 2131558541;
-			
-			// aapt resource value: 0x7f0d008e
-			public const int place_autocomplete_search_input = 2131558542;
+			// aapt resource value: 0x7f0d008f
+			public const int place_autocomplete_search_button = 2131558543;
 			
 			// aapt resource value: 0x7f0d0090
-			public const int place_autocomplete_separator = 2131558544;
+			public const int place_autocomplete_search_input = 2131558544;
+			
+			// aapt resource value: 0x7f0d0092
+			public const int place_autocomplete_separator = 2131558546;
 			
 			// aapt resource value: 0x7f0d0005
 			public const int progress_circular = 2131558405;
@@ -2527,8 +2533,8 @@ namespace Notificare.Android.Sample
 			// aapt resource value: 0x7f0d000f
 			public const int standard = 2131558415;
 			
-			// aapt resource value: 0x7f0d0082
-			public const int status_bar_latest_event_content = 2131558530;
+			// aapt resource value: 0x7f0d0084
+			public const int status_bar_latest_event_content = 2131558532;
 			
 			// aapt resource value: 0x7f0d0057
 			public const int submit_area = 2131558487;
@@ -2539,17 +2545,17 @@ namespace Notificare.Android.Sample
 			// aapt resource value: 0x7f0d000d
 			public const int terrain = 2131558413;
 			
-			// aapt resource value: 0x7f0d008a
-			public const int text = 2131558538;
+			// aapt resource value: 0x7f0d008c
+			public const int text = 2131558540;
 			
-			// aapt resource value: 0x7f0d0088
-			public const int text2 = 2131558536;
+			// aapt resource value: 0x7f0d008a
+			public const int text2 = 2131558538;
 			
 			// aapt resource value: 0x7f0d003f
 			public const int textSpacerNoButtons = 2131558463;
 			
-			// aapt resource value: 0x7f0d0086
-			public const int time = 2131558534;
+			// aapt resource value: 0x7f0d0088
+			public const int time = 2131558536;
 			
 			// aapt resource value: 0x7f0d0035
 			public const int title = 2131558453;
@@ -2566,8 +2572,8 @@ namespace Notificare.Android.Sample
 			// aapt resource value: 0x7f0d001d
 			public const int useLogo = 2131558429;
 			
-			// aapt resource value: 0x7f0d007f
-			public const int web_view = 2131558527;
+			// aapt resource value: 0x7f0d0081
+			public const int web_view = 2131558529;
 			
 			// aapt resource value: 0x7f0d0010
 			public const int wide = 2131558416;
@@ -2756,64 +2762,70 @@ namespace Notificare.Android.Sample
 			public const int notificare_callback_keyboard = 2130903076;
 			
 			// aapt resource value: 0x7f030025
-			public const int notificare_notification_container = 2130903077;
+			public const int notificare_map_fragment = 2130903077;
 			
 			// aapt resource value: 0x7f030026
-			public const int notificare_notification_fragment = 2130903078;
+			public const int notificare_notification_container = 2130903078;
 			
 			// aapt resource value: 0x7f030027
-			public const int notificare_notification_image = 2130903079;
+			public const int notificare_notification_fragment = 2130903079;
 			
 			// aapt resource value: 0x7f030028
-			public const int notificare_webview_fragment = 2130903080;
+			public const int notificare_notification_image = 2130903080;
 			
 			// aapt resource value: 0x7f030029
-			public const int notification_media_action = 2130903081;
+			public const int notificare_video_fragment = 2130903081;
 			
 			// aapt resource value: 0x7f03002a
-			public const int notification_media_cancel_action = 2130903082;
+			public const int notificare_webview_fragment = 2130903082;
 			
 			// aapt resource value: 0x7f03002b
-			public const int notification_template_big_media = 2130903083;
+			public const int notification_media_action = 2130903083;
 			
 			// aapt resource value: 0x7f03002c
-			public const int notification_template_big_media_narrow = 2130903084;
+			public const int notification_media_cancel_action = 2130903084;
 			
 			// aapt resource value: 0x7f03002d
-			public const int notification_template_lines = 2130903085;
+			public const int notification_template_big_media = 2130903085;
 			
 			// aapt resource value: 0x7f03002e
-			public const int notification_template_media = 2130903086;
+			public const int notification_template_big_media_narrow = 2130903086;
 			
 			// aapt resource value: 0x7f03002f
-			public const int notification_template_part_chronometer = 2130903087;
+			public const int notification_template_lines = 2130903087;
 			
 			// aapt resource value: 0x7f030030
-			public const int notification_template_part_time = 2130903088;
+			public const int notification_template_media = 2130903088;
 			
 			// aapt resource value: 0x7f030031
-			public const int place_autocomplete_fragment = 2130903089;
+			public const int notification_template_part_chronometer = 2130903089;
 			
 			// aapt resource value: 0x7f030032
-			public const int place_autocomplete_item_powered_by_google = 2130903090;
+			public const int notification_template_part_time = 2130903090;
 			
 			// aapt resource value: 0x7f030033
-			public const int place_autocomplete_item_prediction = 2130903091;
+			public const int place_autocomplete_fragment = 2130903091;
 			
 			// aapt resource value: 0x7f030034
-			public const int place_autocomplete_progress = 2130903092;
+			public const int place_autocomplete_item_powered_by_google = 2130903092;
 			
 			// aapt resource value: 0x7f030035
-			public const int select_dialog_item_material = 2130903093;
+			public const int place_autocomplete_item_prediction = 2130903093;
 			
 			// aapt resource value: 0x7f030036
-			public const int select_dialog_multichoice_material = 2130903094;
+			public const int place_autocomplete_progress = 2130903094;
 			
 			// aapt resource value: 0x7f030037
-			public const int select_dialog_singlechoice_material = 2130903095;
+			public const int select_dialog_item_material = 2130903095;
 			
 			// aapt resource value: 0x7f030038
-			public const int support_simple_spinner_dropdown_item = 2130903096;
+			public const int select_dialog_multichoice_material = 2130903096;
+			
+			// aapt resource value: 0x7f030039
+			public const int select_dialog_singlechoice_material = 2130903097;
+			
+			// aapt resource value: 0x7f03003a
+			public const int support_simple_spinner_dropdown_item = 2130903098;
 			
 			static Layout()
 			{

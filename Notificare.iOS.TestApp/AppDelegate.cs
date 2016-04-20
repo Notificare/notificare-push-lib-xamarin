@@ -81,6 +81,13 @@ namespace Notificare.iOS.TestApp
 					// Add tags for this device. Normally, you would leave this up to the user or other conditions in the app.
 					AddTags(NSArray.FromStrings("tag_something", "tag_something2"));
 					NotificarePushLib.Shared ().StartLocationUpdates ();
+					NotificarePushLib.Shared().FetchAssets((NSString)"test", (NSArray assets) => {
+						if (assets.Count > 0) {							
+							Console.WriteLine(assets.GetItem<NotificareAsset>(0).AssetUrl);
+						}
+					}, (NSError error) => {
+						Console.WriteLine("Error fetching assets: {0}", error);
+					});
 				},
 				(NSError error) => {
 					Console.WriteLine("Error registering device: {0}", error);
