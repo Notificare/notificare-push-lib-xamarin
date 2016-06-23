@@ -46,5 +46,7 @@
 	<true/>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string></string>
+	<key>CFBundleName</key>
+	<string>XamarinTest</string>
 </dict>
 </plist>

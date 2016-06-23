@@ -11,7 +11,7 @@
     <RootNamespace>Notificare.iOS.TestApp</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AssemblyName>NotificareiOSUnifiedTestApp</AssemblyName>
-    <ReleaseVersion>1.8.0</ReleaseVersion>
+    <ReleaseVersion>1.8.1</ReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
     <DebugSymbols>true</DebugSymbols>
@@ -52,13 +52,13 @@
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
     <MtouchArch>ARMv7, ARMv7s, ARM64</MtouchArch>
-    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
-    <CodesignKey>iPhone Developer: Joris Verbogt (QWNN2H6Y6W)</CodesignKey>
+    <CodesignEntitlements></CodesignEntitlements>
+    <CodesignKey>iPhone Developer: Joris Verbogt (TLZ9T5CPP8)</CodesignKey>
     <MtouchDebug>true</MtouchDebug>
     <MtouchUseRefCounting>true</MtouchUseRefCounting>
     <MtouchI18n>
     </MtouchI18n>
-    <CodesignProvision>8195ea10-2e04-495d-bbfb-de755702ccf8</CodesignProvision>
+    <CodesignProvision>299e911f-8796-4dad-9ce0-a5d2192c741e</CodesignProvision>
     <IpaPackageName>
     </IpaPackageName>
   </PropertyGroup>
@@ -70,9 +70,10 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchArch>ARMv7, ARM64</MtouchArch>
     <ConsolePause>false</ConsolePause>
-    <CodesignKey>iPhone Developer</CodesignKey>
+    <CodesignKey></CodesignKey>
     <MtouchI18n>
     </MtouchI18n>
+    <CodesignProvision></CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Ad-Hoc|iPhone' ">
     <DebugType>full</DebugType>
@@ -84,8 +85,8 @@
     <MtouchArch>ARMv7, ARM64</MtouchArch>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <BuildIpa>true</BuildIpa>
-    <CodesignProvision>e6cc6809-9e3d-4703-b177-3d754d331a23</CodesignProvision>
-    <CodesignKey>iPhone Distribution: Media Overview B.V. (HY7WGYR4J7)</CodesignKey>
+    <CodesignProvision></CodesignProvision>
+    <CodesignKey>iPhone Distribution: Notificare B.V. (E3J9DDFVP4)</CodesignKey>
     <IpaPackageName>
     </IpaPackageName>
     <MtouchI18n>
@@ -100,8 +101,8 @@
     <ConsolePause>false</ConsolePause>
     <MtouchArch>ARMv7, ARM64</MtouchArch>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
-    <CodesignProvision>Automatic:AppStore</CodesignProvision>
-    <CodesignKey>iPhone Distribution</CodesignKey>
+    <CodesignProvision></CodesignProvision>
+    <CodesignKey>iPhone Distribution: Notificare B.V. (E3J9DDFVP4)</CodesignKey>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />

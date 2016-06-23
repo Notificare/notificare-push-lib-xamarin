@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="10800" package="notificare.android.sample" android:versionName="1.8.0">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="10801" package="notificare.android.sample" android:versionName="1.8.1">
 	<uses-sdk android:minSdkVersion="10" android:targetSdkVersion="23" />
 	<!-- PERMISSIONS -->
 	<uses-permission android:name="android.permission.WAKE_LOCK" />
@@ -69,6 +69,7 @@
         	re.notifica.ui.NotificationActivity
          -->
 		<activity android:name="re.notifica.ui.NotificationActivity" />
+		<activity android:name="re.notifica.ui.PassbookActivity" />
 		<activity android:name="re.notifica.ui.UserPreferencesActivity" />
 	</application>
 </manifest>

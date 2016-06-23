@@ -1,17 +1,29 @@
 ﻿<Properties StartupItem="Notificare.Android.Sample/Notificare.Android.Sample.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.068f9ebe2115a907" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Notificare.Android.Sample/MainActivity.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Notificare.Android.Sample/Assets/notificareconfig.properties">
     <Files>
-      <File FileName="Notificare.Android.Sample/MainActivity.cs" Line="36" Column="46" />
-      <File FileName="Notificare.Android.Sample/MyIntentReceiver.cs" Line="37" Column="33" />
-      <File FileName="Notificare.Android.Sample/MainApplication.cs" Line="28" Column="35" />
-      <File FileName="Notificare.Android.Sample/Assets/notificareconfig.properties" Line="7" Column="1" />
+      <File FileName="Notificare.Android.Sample/Assets/notificareconfig.properties" Line="5" Column="13" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Notificare.Android.Sample" expanded="True">
+            <Node name="Notificare.Android.Sample" expanded="True">
+              <Node name="References" expanded="True" />
+              <Node name="Assets" expanded="True">
+                <Node name="notificareconfig.properties" selected="True" />
+              </Node>
+              <Node name="Properties" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.Notificare.Android.Sample AndroidDesignerPreferredDevice="Nexus 4" PreferredExecutionTarget="Android.068f9ebe2115a907" MonoForAntroid.PreferredDevice="3.7&quot; WVGA (Nexus One)" />
   <AuthorInfo Name="" Email="" Copyright="Notificare B.V." Company="" Trademark="" />
-  <MonoDevelop.Ide.ItemProperties.Notificare.Android.Sample MonoForAntroid.PreferredDevice="3.7&quot; WVGA (Nexus One)" AndroidDesignerPreferredDevice="Nexus 4" />
 </Properties>

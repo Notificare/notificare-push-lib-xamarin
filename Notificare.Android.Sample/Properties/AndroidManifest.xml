@@ -85,6 +85,7 @@
 		<activity android:name="re.notifica.ui.NotificationActivity" android:parentActivityName=".MainActivity">
 			<meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".MainActivity" />
 		</activity>
+		<activity android:name="re.notifica.ui.PassbookActivity" />
 		<activity android:name="re.notifica.ui.UserPreferencesActivity" />
 		<!-- API key for Google Maps -->
 		<!--		<meta-data
