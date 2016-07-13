@@ -70,7 +70,7 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchArch>ARMv7, ARM64</MtouchArch>
     <ConsolePause>false</ConsolePause>
-    <CodesignKey></CodesignKey>
+    <CodesignKey>iPhone Developer: Joris Verbogt (TLZ9T5CPP8)</CodesignKey>
     <MtouchI18n>
     </MtouchI18n>
     <CodesignProvision></CodesignProvision>

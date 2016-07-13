@@ -3114,11 +3114,11 @@ namespace Notificare.Sample.Android
 			// aapt resource value: 0x7f070021
 			public const int abc_toolbar_collapse_description = 2131165217;
 			
-			// aapt resource value: 0x7f070063
-			public const int alert_location_permission_rationale = 2131165283;
+			// aapt resource value: 0x7f070064
+			public const int alert_location_permission_rationale = 2131165284;
 			
-			// aapt resource value: 0x7f070062
-			public const int app_name = 2131165282;
+			// aapt resource value: 0x7f070063
+			public const int app_name = 2131165283;
 			
 			// aapt resource value: 0x7f070042
 			public const int auth_google_play_services_client_facebook_display_name = 2131165250;
@@ -3126,8 +3126,8 @@ namespace Notificare.Sample.Android
 			// aapt resource value: 0x7f070041
 			public const int auth_google_play_services_client_google_display_name = 2131165249;
 			
-			// aapt resource value: 0x7f070064
-			public const int button_location_permission_rationale_ok = 2131165284;
+			// aapt resource value: 0x7f070065
+			public const int button_location_permission_rationale_ok = 2131165285;
 			
 			// aapt resource value: 0x7f07003a
 			public const int common_google_play_services_api_unavailable_text = 2131165242;
@@ -3216,8 +3216,8 @@ namespace Notificare.Sample.Android
 			// aapt resource value: 0x7f070040
 			public const int common_signin_button_text_long = 2131165248;
 			
-			// aapt resource value: 0x7f070060
-			public const int hello = 2131165280;
+			// aapt resource value: 0x7f070061
+			public const int hello = 2131165281;
 			
 			// aapt resource value: 0x7f070000
 			public const int mr_button_content_description = 2131165184;
@@ -3264,32 +3264,35 @@ namespace Notificare.Sample.Android
 			// aapt resource value: 0x7f07000e
 			public const int mr_user_route_category_name = 2131165198;
 			
-			// aapt resource value: 0x7f070054
-			public const int notificare_action_camera_failed = 2131165268;
-			
-			// aapt resource value: 0x7f07004c
-			public const int notificare_action_error_no_dialer = 2131165260;
-			
-			// aapt resource value: 0x7f07004a
-			public const int notificare_action_error_no_email_clients = 2131165258;
-			
-			// aapt resource value: 0x7f07004b
-			public const int notificare_action_error_no_sms_clients = 2131165259;
-			
-			// aapt resource value: 0x7f07004f
-			public const int notificare_action_failed = 2131165263;
+			// aapt resource value: 0x7f070055
+			public const int notificare_action_camera_failed = 2131165269;
 			
 			// aapt resource value: 0x7f07004d
-			public const int notificare_action_progress = 2131165261;
+			public const int notificare_action_error_no_dialer = 2131165261;
+			
+			// aapt resource value: 0x7f07004b
+			public const int notificare_action_error_no_email_clients = 2131165259;
+			
+			// aapt resource value: 0x7f07004c
+			public const int notificare_action_error_no_sms_clients = 2131165260;
+			
+			// aapt resource value: 0x7f070050
+			public const int notificare_action_failed = 2131165264;
 			
 			// aapt resource value: 0x7f07004e
-			public const int notificare_action_success = 2131165262;
+			public const int notificare_action_progress = 2131165262;
+			
+			// aapt resource value: 0x7f07004f
+			public const int notificare_action_success = 2131165263;
 			
 			// aapt resource value: 0x7f070046
 			public const int notificare_action_title_intent_email = 2131165254;
 			
+			// aapt resource value: 0x7f07004a
+			public const int notificare_action_title_intent_more = 2131165258;
+			
 			// aapt resource value: 0x7f070049
-			public const int notificare_action_title_intent_more = 2131165257;
+			public const int notificare_action_title_intent_passbook = 2131165257;
 			
 			// aapt resource value: 0x7f070047
 			public const int notificare_action_title_intent_sms = 2131165255;
@@ -3303,44 +3306,44 @@ namespace Notificare.Sample.Android
 			// aapt resource value: 0x7f070044
 			public const int notificare_notification_has_action = 2131165252;
 			
-			// aapt resource value: 0x7f070059
-			public const int notificare_passbook_action_add_to_wallet = 2131165273;
-			
 			// aapt resource value: 0x7f07005a
-			public const int notificare_passbook_action_done = 2131165274;
+			public const int notificare_passbook_action_add_to_wallet = 2131165274;
 			
 			// aapt resource value: 0x7f07005b
-			public const int notificare_passbook_automatic_updates = 2131165275;
-			
-			// aapt resource value: 0x7f070056
-			public const int notificare_passbook_error_loading_barcode = 2131165270;
-			
-			// aapt resource value: 0x7f070057
-			public const int notificare_passbook_error_loading_pass = 2131165271;
-			
-			// aapt resource value: 0x7f070058
-			public const int notificare_passbook_error_saving_pass = 2131165272;
-			
-			// aapt resource value: 0x7f070055
-			public const int notificare_passbook_expired_pass = 2131165269;
+			public const int notificare_passbook_action_done = 2131165275;
 			
 			// aapt resource value: 0x7f07005c
-			public const int notificare_passbook_never_updated = 2131165276;
+			public const int notificare_passbook_automatic_updates = 2131165276;
 			
-			// aapt resource value: 0x7f070052
-			public const int notificare_text_back = 2131165266;
+			// aapt resource value: 0x7f070057
+			public const int notificare_passbook_error_loading_barcode = 2131165271;
 			
-			// aapt resource value: 0x7f070051
-			public const int notificare_text_cancel = 2131165265;
+			// aapt resource value: 0x7f070058
+			public const int notificare_passbook_error_loading_pass = 2131165272;
+			
+			// aapt resource value: 0x7f070059
+			public const int notificare_passbook_error_saving_pass = 2131165273;
+			
+			// aapt resource value: 0x7f070056
+			public const int notificare_passbook_expired_pass = 2131165270;
+			
+			// aapt resource value: 0x7f07005d
+			public const int notificare_passbook_never_updated = 2131165277;
 			
 			// aapt resource value: 0x7f070053
-			public const int notificare_text_message_hint = 2131165267;
+			public const int notificare_text_back = 2131165267;
 			
-			// aapt resource value: 0x7f070050
-			public const int notificare_text_send = 2131165264;
+			// aapt resource value: 0x7f070052
+			public const int notificare_text_cancel = 2131165266;
 			
-			// aapt resource value: 0x7f070061
-			public const int open_user_preferences = 2131165281;
+			// aapt resource value: 0x7f070054
+			public const int notificare_text_message_hint = 2131165268;
+			
+			// aapt resource value: 0x7f070051
+			public const int notificare_text_send = 2131165265;
+			
+			// aapt resource value: 0x7f070062
+			public const int open_user_preferences = 2131165282;
 			
 			// aapt resource value: 0x7f070024
 			public const int place_autocomplete_clear_button = 2131165220;
@@ -3348,14 +3351,14 @@ namespace Notificare.Sample.Android
 			// aapt resource value: 0x7f070023
 			public const int place_autocomplete_search_hint = 2131165219;
 			
-			// aapt resource value: 0x7f07005d
-			public const int pref_location_services_title = 2131165277;
-			
 			// aapt resource value: 0x7f07005e
-			public const int pref_summary_location_updates = 2131165278;
+			public const int pref_location_services_title = 2131165278;
 			
 			// aapt resource value: 0x7f07005f
-			public const int pref_title_location_updates = 2131165279;
+			public const int pref_summary_location_updates = 2131165279;
+			
+			// aapt resource value: 0x7f070060
+			public const int pref_title_location_updates = 2131165280;
 			
 			// aapt resource value: 0x7f070022
 			public const int status_bar_notification_info_overflow = 2131165218;
