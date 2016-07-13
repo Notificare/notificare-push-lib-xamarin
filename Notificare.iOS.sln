@@ -223,6 +223,6 @@ Global
 		$24.IncludeInstanceMembers = True
 		$24.IncludeStaticEntities = True
 		description = Xamarin bindings and sample code for iOS
-		version = 1.8.1
+		version = 1.8.2
 	EndGlobalSection
 EndGlobal

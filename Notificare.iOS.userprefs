@@ -1,8 +1,22 @@
 ﻿<Properties StartupItem="Notificare.iOS.TestApp/Notificare.iOS.TestApp.csproj">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Notificare.iOS.TestApp/Info.plist">
-    <Files>
-      <File FileName="Notificare.iOS.TestApp/Info.plist" />
-    </Files>
+  <MonoDevelop.Ide.Workbench>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Notificare.iOS" expanded="True">
+            <Node name="Notificare.iOS" expanded="True" />
+            <Node name="Notificare.iOS.TestApp" expanded="True" />
+            <Node name="Notificare.iOS-Unified" expanded="True">
+              <Node name="NotificarePushLib.a" expanded="True" />
+            </Node>
+            <Node name="Notificare.iOS-Unified.TestApp" expanded="True">
+              <Node name="References" expanded="True" />
+              <Node name="AppDelegate.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

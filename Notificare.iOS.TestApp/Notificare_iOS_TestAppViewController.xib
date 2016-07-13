@@ -15,6 +15,33 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <color key="backgroundColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <subviews/>
         </view>
     </objects>
+    <resources>
+        <image name="DefaultTheme.bundle/Images/actionsIcon.png" width="24" height="7"/>
+        <image name="DefaultTheme.bundle/Images/backButton.png" width="12" height="21"/>
+        <image name="DefaultTheme.bundle/Images/barButtonBackDisabled.png" width="20" height="30"/>
+        <image name="DefaultTheme.bundle/Images/barButtonBackPressed.png" width="20" height="30"/>
+        <image name="DefaultTheme.bundle/Images/barButtonDisabled.png" width="20" height="30"/>
+        <image name="DefaultTheme.bundle/Images/barButtonPressed.png" width="20" height="30"/>
+        <image name="DefaultTheme.bundle/Images/closeIcon.png" width="17" height="16"/>
+        <image name="DefaultTheme.bundle/Images/forwardButton.png" width="12" height="21"/>
+        <image name="DefaultTheme.bundle/Images/mapMarker.png" width="22" height="32"/>
+        <image name="DefaultTheme.bundle/Images/mapMarkerUserLocation.png" width="23" height="27"/>
+        <image name="DefaultTheme.bundle/Images/refreshButton.png" width="24" height="21"/>
+        <image name="DefaultTheme.bundle/Images/sendButton.png" width="12" height="21"/>
+        <image name="DefaultTheme.bundle/Images/signalFar.png" width="32" height="22"/>
+        <image name="DefaultTheme.bundle/Images/signalImmediate.png" width="32" height="22"/>
+        <image name="DefaultTheme.bundle/Images/signalNear.png" width="32" height="22"/>
+        <image name="DefaultTheme.bundle/Images/signalUnkown.png" width="32" height="32"/>
+        <image name="DefaultTheme.bundle/Images/toolbarButtonDisabled.png" width="16" height="24"/>
+        <image name="DefaultTheme.bundle/Images/toolbarButtonPressed.png" width="16" height="24"/>
+        <image name="Default-568h.png" width="320" height="568"/>
+        <image name="Default.png" width="320" height="480"/>
+        <image name="Icon-60.png" width="60" height="60"/>
+        <image name="Icon-Small-40.png" width="40" height="40"/>
+        <image name="Icon-Small.png" width="29" height="29"/>
+        <image name="Icon.png" width="57" height="57"/>
+    </resources>
 </document>

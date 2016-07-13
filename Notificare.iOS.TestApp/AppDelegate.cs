@@ -8,12 +8,14 @@ using System.Text;
 using Foundation;
 using UIKit;
 using CoreLocation;
+using CoreGraphics;
 using Security;
 #else
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 using MonoTouch.CoreLocation;
 using MonoTouch.Security;
+using MonoTouch.CoreGraphics;
 #endif
 using Notificare.iOS;
 
@@ -36,7 +38,8 @@ namespace Notificare.iOS.TestApp
 		//
 		// You have 17 seconds to return from this method, or iOS will terminate your application.
 		//
-		public override bool FinishedLaunching (UIApplication app, NSDictionary options)
+
+		public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
 		{
 			window = new UIWindow (UIScreen.MainScreen.Bounds);
 			
@@ -49,9 +52,9 @@ namespace Notificare.iOS.TestApp
 			NotificarePushLib.Shared ().Delegate = _pushLibDelegate;
 
 			// Start notifications
-			if (options != null && options.ContainsKey( UIApplication.LaunchOptionsRemoteNotificationKey ) ) 
+			if (launchOptions != null && launchOptions.ContainsKey( UIApplication.LaunchOptionsRemoteNotificationKey ) ) 
 			{
-				NotificarePushLib.Shared().HandleOptions (options [UIApplication.LaunchOptionsRemoteNotificationKey] as NSDictionary);
+				NotificarePushLib.Shared().HandleOptions (launchOptions [UIApplication.LaunchOptionsRemoteNotificationKey] as NSDictionary);
 			}
 
 			return true;
@@ -88,6 +91,21 @@ namespace Notificare.iOS.TestApp
 					}, (NSError error) => {
 						Console.WriteLine("Error fetching assets: {0}", error);
 					});
+
+					NotificarePushLib.Shared().FetchDoNotDisturb((NSDictionary dndInfo) => {
+						Console.WriteLine(dndInfo);
+						if (dndInfo.ObjectForKey((NSString)"start") == null) {
+								NSDate start = NSDate.Now;
+								NSDate end = start.AddSeconds(3600);
+								Console.WriteLine("Updating DND with Start {0}, End {1}", start, end);
+								NotificarePushLib.Shared().UpdateDoNotDisturb(start, end, Console.WriteLine, (NSError error) => {
+									Console.WriteLine("error updating DND: {0}", error.LocalizedDescription);
+								});
+							}
+						}, (NSError error) => {
+							Console.WriteLine("error fetching DND: {0}", error);
+						}
+					);
 				},
 				(NSError error) => {
 					Console.WriteLine("Error registering device: {0}", error);

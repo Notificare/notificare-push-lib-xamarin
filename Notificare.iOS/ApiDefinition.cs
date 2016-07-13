@@ -2759,7 +2759,7 @@ namespace Notificare.iOS
 		/// <param name="completionHandler">Completion handler.</param>
 		/// <param name="erorHandler">Eror handler.</param>
 		[Export("fetchProducts:errorHandler:")]
-		void FetchProducts([BlockCallback] SuccessArrayCallback completionHandler, [BlockCallback] ErrorCallback erorHandler);
+		void FetchProducts([BlockCallback] SuccessArrayCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
 
 		/*
 		 * - (void)fetchPurchasedProducts:(SuccessArrayBlock)info errorHandler:(ErrorBlock)error;
@@ -2771,7 +2771,7 @@ namespace Notificare.iOS
 		/// <param name="completionHandler">Completion handler.</param>
 		/// <param name="erorHandler">Eror handler.</param>
 		[Export("fetchPurchasedProducts:errorHandler:")]
-		void FetchPurchasedProducts([BlockCallback] SuccessArrayCallback completionHandler, [BlockCallback] ErrorCallback erorHandler);
+		void FetchPurchasedProducts([BlockCallback] SuccessArrayCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
 
 
 		/*
@@ -2785,7 +2785,7 @@ namespace Notificare.iOS
 		/// <param name="completionHandler">Completion handler.</param>
 		/// <param name="erorHandler">Eror handler.</param>
 		[Export("fetchProduct:completionHandler:errorHandler:")]
-		void FetchProduct(NSString productIdentifier, [BlockCallback] SuccessProductCallback completionHandler, [BlockCallback] ErrorCallback erorHandler);
+		void FetchProduct(NSString productIdentifier, [BlockCallback] SuccessProductCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
 
 
 		/*
@@ -2882,7 +2882,7 @@ namespace Notificare.iOS
 		/// <param name="completionHandler">Completion handler.</param>
 		/// <param name="erorHandler">Eror handler.</param>
 		[Export("fetchPass:completionHandler:errorHandler:")]
-		void FetchPass(NSString serial, [BlockCallback] SuccessPassCallback completionHandler, [BlockCallback] ErrorCallback erorHandler);
+		void FetchPass(NSString serial, [BlockCallback] SuccessPassCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
 
 		/*
 		 * (void)fetchAssets:(NSString *)group completionHandler:(SuccessArrayBlock)result errorHandler:(ErrorBlock)error;
@@ -2895,7 +2895,45 @@ namespace Notificare.iOS
 		/// <param name="completionHandler">Completion handler.</param>
 		/// <param name="erorHandler">Eror handler.</param>
 		[Export("fetchAssets:completionHandler:errorHandler:")]
-		void FetchAssets(NSString group, [BlockCallback] SuccessArrayCallback completionHandler, [BlockCallback] ErrorCallback erorHandler);
+		void FetchAssets(NSString group, [BlockCallback] SuccessArrayCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
+
+		/*
+		 * - (void)fetchDoNotDisturb:(SuccessBlock)result errorHandler:(ErrorBlock)error;
+		 */
+
+		/// <summary>
+		/// Retrieves an object with the do not disturb times for a device
+		/// </summary>
+		/// <returns>An NSDictionary containing the do not disturb times.</returns>
+		/// <param name="completionHandler">Completion handler.</param>
+		/// <param name="erorHandler">Error handler.</param>
+		[Export("fetchDoNotDisturb:errorHandler:")]
+		void FetchDoNotDisturb([BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
+
+		/*
+		 * - (void)updateDoNotDisturb:(NSDate*)start endTime:(NSDate*)end completionHandler:(SuccessBlock)result errorHandler:(ErrorBlock)error;
+		 */
+
+		/// <summary>
+		/// Updates the device do not disturb times
+		/// </summary>
+		/// <param name="start">Start.</param>
+		/// <param name="end">End.</param>
+		/// <param name="completionHandler">Completion handler.</param>
+		/// <param name="errorHandler">Error handler.</param>
+		[Export("updateDoNotDisturb:endTime:completionHandler:errorHandler:")]
+		void UpdateDoNotDisturb(NSDate start, NSDate end, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
+
+		/*
+		 * - (void)clearDoNotDisturb:(SuccessBlock)result errorHandler:(ErrorBlock)error;
+		 */
+		/// <summary>
+		/// Clears the device do not disturb times
+		/// </summary>
+		/// <param name="completionHandler">Completion handler.</param>
+		/// <param name="errorHandler">Error handler.</param>
+		[Export("clearDoNotDisturb:errorHandler:")]
+		void ClearDoNotDisturb([BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
 
 
 		// Properties

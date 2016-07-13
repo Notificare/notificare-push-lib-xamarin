@@ -12,6 +12,9 @@ namespace Notificare.iOS.TestApp
 {
 	public partial class Notificare_iOS_TestAppViewController : UIViewController
 	{
+		UIDatePicker StartPicker;
+		UIDatePicker EndPicker;
+
 		public Notificare_iOS_TestAppViewController () : base ("Notificare_iOS_TestAppViewController", null)
 		{
 		}
@@ -27,8 +30,12 @@ namespace Notificare.iOS.TestApp
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
-			
 			// Perform any additional setup after loading the view, typically from a nib.
+		}
+
+		public override void ViewWillAppear(bool animated)
+		{
+			base.ViewWillAppear(animated);
 		}
 	}
 }

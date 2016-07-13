@@ -11,7 +11,7 @@
     <RootNamespace>Notificare.iOS.TestApp</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AssemblyName>NotificareiOSUnifiedTestApp</AssemblyName>
-    <ReleaseVersion>1.8.1</ReleaseVersion>
+    <ReleaseVersion>1.8.2</ReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
     <DebugSymbols>true</DebugSymbols>
@@ -73,7 +73,7 @@
     <CodesignKey>iPhone Developer: Joris Verbogt (TLZ9T5CPP8)</CodesignKey>
     <MtouchI18n>
     </MtouchI18n>
-    <CodesignProvision></CodesignProvision>
+    <CodesignProvision>299e911f-8796-4dad-9ce0-a5d2192c741e</CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Ad-Hoc|iPhone' ">
     <DebugType>full</DebugType>
