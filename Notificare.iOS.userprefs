@@ -6,19 +6,19 @@
           <Node name="Notificare.iOS" expanded="True">
             <Node name="Notificare.iOS" expanded="True" />
             <Node name="Notificare.iOS.TestApp" expanded="True" />
-            <Node name="Notificare.iOS-Unified" expanded="True">
+            <Node name="Notificare.iOS-Unified" expanded="True" selected="True">
               <Node name="NotificarePushLib.a" expanded="True" />
             </Node>
             <Node name="Notificare.iOS-Unified.TestApp" expanded="True">
               <Node name="References" expanded="True" />
-              <Node name="AppDelegate.cs" selected="True" />
+              <Node name="Notificare_iOS_TestAppViewController.cs" expanded="True" />
             </Node>
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release|iPhone" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
