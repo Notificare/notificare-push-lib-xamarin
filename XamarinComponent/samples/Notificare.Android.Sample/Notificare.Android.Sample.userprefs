@@ -1,19 +1,16 @@
 ﻿<Properties StartupItem="Notificare.Android.Sample/Notificare.Android.Sample.csproj">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Notificare.Android.Sample/Properties/AssemblyInfo.cs">
-    <Files>
-      <File FileName="Notificare.Android.Sample/Assets/notificareconfig.properties" Line="5" Column="13" />
-      <File FileName="Notificare.Android.Sample/Properties/AndroidManifest.xml" Line="75" Column="12" />
-      <File FileName="Notificare.Android.Sample/Properties/AssemblyInfo.cs" Line="21" Column="35" />
-    </Files>
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Notificare.Android.Sample" expanded="True">
-            <Node name="Notificare.Android.Sample" expanded="True" selected="True">
+            <Node name="Notificare.Android.Sample" expanded="True">
               <Node name="References" expanded="True" />
               <Node name="Packages" expanded="True" />
               <Node name="Assets" expanded="True" />
-              <Node name="Properties" expanded="True" />
+              <Node name="Properties" expanded="True">
+                <Node name="AssemblyInfo.cs" selected="True" />
+              </Node>
             </Node>
           </Node>
         </State>
@@ -25,6 +22,6 @@
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.Notificare.Android.Sample AndroidDesignerPreferredDevice="Nexus 4" PreferredExecutionTarget="Android.MonoForAndroid_API_10" MonoForAntroid.PreferredDevice="3.7&quot; WVGA (Nexus One)" />
+  <MonoDevelop.Ide.ItemProperties.Notificare.Android.Sample AndroidDesignerPreferredDevice="Nexus 4" PreferredExecutionTarget="Android.TA39100ER9" MonoForAntroid.PreferredDevice="3.7&quot; WVGA (Nexus One)" />
   <AuthorInfo Name="" Email="" Copyright="Notificare B.V." Company="" Trademark="" />
 </Properties>

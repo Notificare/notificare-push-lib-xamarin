@@ -2,6 +2,9 @@
   <MonoDevelop.Ide.Workbench ActiveDocument="Notificare.Android.Sample/packages.config">
     <Files>
       <File FileName="Notificare.Android.Sample/packages.config" Line="1" Column="1" />
+      <File FileName="Notificare.Android/Properties/AssemblyInfo.cs" Line="18" Column="35" />
+      <File FileName="Notificare.Android.Sample/Properties/AssemblyInfo.cs" Line="18" Column="35" />
+      <File FileName="Notificare.Android.Sample/Properties/AndroidManifest.xml" Line="96" Column="12" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
@@ -9,5 +12,5 @@
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.Notificare.Sample.Android PreferredExecutionTarget="Android.MonoForAndroid_API_10" AndroidDeviceId-Debug="8e9372c7" AndroidDeviceId-Release="0123456789ABCDEF" MonoForAntroid.PreferredDevice="3.7&quot; WVGA (Nexus One)" />
+  <MonoDevelop.Ide.ItemProperties.Notificare.Sample.Android PreferredExecutionTarget="Android.TA39100ER9" AndroidDeviceId-Debug="8e9372c7" AndroidDeviceId-Release="0123456789ABCDEF" MonoForAntroid.PreferredDevice="3.7&quot; WVGA (Nexus One)" />
 </Properties>

@@ -1,23 +1,5 @@
 ﻿<Properties StartupItem="Notificare.iOS.TestApp/Notificare.iOS.TestApp.csproj">
-  <MonoDevelop.Ide.Workbench>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State name="__root__">
-          <Node name="Notificare.iOS" expanded="True">
-            <Node name="Notificare.iOS" expanded="True" />
-            <Node name="Notificare.iOS.TestApp" expanded="True" />
-            <Node name="Notificare.iOS-Unified" expanded="True" selected="True">
-              <Node name="NotificarePushLib.a" expanded="True" />
-            </Node>
-            <Node name="Notificare.iOS-Unified.TestApp" expanded="True">
-              <Node name="References" expanded="True" />
-              <Node name="Notificare_iOS_TestAppViewController.cs" expanded="True" />
-            </Node>
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Release|iPhone" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
@@ -26,5 +8,5 @@
   <MonoDevelop.Ide.ItemProperties.Notificare.iOS-Unified.TestApp>
     <IPhoneTestFlightSettings_27CAd-Hoc ApiToken="c435746e203539e04628fde01086edb1_MzM2Mjk" TeamToken="eda825d73a564d3604f398dd6ccb3984_ODk2NzEyMDEyLTA1LTEyIDEwOjMxOjQ0LjMxNTAxOQ" ReleaseNotes="Test for Xamarin Ad-Hoc" NotifyTeamMembers="False" ReplaceBinaries="False" DistributionLists="Team Notificare" UploadDSYMs="False" />
   </MonoDevelop.Ide.ItemProperties.Notificare.iOS-Unified.TestApp>
-  <MonoDevelop.Ide.ItemProperties.Notificare.iOS.TestApp PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.08d575c1a3eea656dca228d0aa485dfb2e789024" />
+  <MonoDevelop.Ide.ItemProperties.Notificare.iOS.TestApp PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget" />
 </Properties>
