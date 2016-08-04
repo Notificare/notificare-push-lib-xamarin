@@ -1,22 +1,5 @@
 ﻿<Properties StartupItem="Notificare.Android.Sample/Notificare.Android.Sample.csproj">
-  <MonoDevelop.Ide.Workbench>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State name="__root__">
-          <Node name="Notificare.Android.Sample" expanded="True">
-            <Node name="Notificare.Android.Sample" expanded="True">
-              <Node name="References" expanded="True" />
-              <Node name="Packages" expanded="True" />
-              <Node name="Assets" expanded="True" />
-              <Node name="Properties" expanded="True">
-                <Node name="AssemblyInfo.cs" selected="True" />
-              </Node>
-            </Node>
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
