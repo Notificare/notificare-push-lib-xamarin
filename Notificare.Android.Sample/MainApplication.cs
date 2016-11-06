@@ -8,6 +8,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Firebase;
 
 namespace Notificare.Sample.Android
 {
@@ -19,10 +20,9 @@ namespace Notificare.Sample.Android
 		public override void OnCreate()
 		{
 			base.OnCreate ();
-
 			// Launch Notificare system
+			Notificare.Android.Notificare.Shared().SetUseLegacyGCM();
 			Notificare.Android.Notificare.Shared ().Launch (this);
-			Notificare.Android.Notificare.Shared ().SetDebugLogging (Java.Lang.Boolean.True);
 			// Use our custom intent receiver
 			Notificare.Android.Notificare.Shared ().IntentReceiver = Java.Lang.Class.FromType(typeof(MyIntentReceiver));
 			// Keep notifications in the drawer, remove this line or set to true if you want them to clear automatically when opened

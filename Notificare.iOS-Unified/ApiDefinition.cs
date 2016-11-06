@@ -5,10 +5,19 @@ using Foundation;
 using UIKit;
 using CoreLocation;
 using StoreKit;
+using CoreData;
+using UserNotifications;
 
 
 namespace Notificare.iOS
 {
+
+	[BaseType(typeof(NSObject))]
+	public interface NotificareNetworkOperation
+	{
+		// Stub
+	}
+
 	[BaseType (typeof (NSObject))]
 	public interface NotificareAction
 	{
@@ -71,6 +80,16 @@ namespace Notificare.iOS
 		[Export("actionCamera")]
 		bool ActionCamera { get; }
 
+		/*
+		 * - (void)setValuesWithActionJSON:(NSDictionary* _Nonnull)actionJSON;
+		 */
+
+		/// <summary>
+		/// Sets the values with action json.
+		/// </summary>
+		/// <param name="actionJSON">Action json.</param>
+		[Export("setValuesWithActionJSON:")]
+		void SetValuesWithActionJSON(NSDictionary actionJSON);
 	}
 
 	[BaseType (typeof (NSObject))]
@@ -130,6 +149,18 @@ namespace Notificare.iOS
 		/// <value>The asset meta data.</value>
 		[Export("assetMetaData")]
 		NSDictionary AssetMetaData { get; }
+
+		/*
+		 * - (void)setValuesWithAssetJSON:(NSDictionary* _Nonnull)assetJSON andWithFetchAssetURLString:(NSString* _Nonnull)fetchAssetURLString;
+		 */
+
+		/// <summary>
+		/// Sets the values with asset JSON and with fetch asset URL String.
+		/// </summary>
+		/// <param name="AssetJSON">Asset json.</param>
+		/// <param name="FetchAssetURLString">Fetch asset URLS tring.</param>
+		[Export("setValuesWithAssetJSON:andWithFetchAssetURLString:")]
+		void SetValuesWithAssetJSONAndWithFetchAssetURLString(NSDictionary assetJSON, NSString fetchAssetURLString);
 	}
 
 	[BaseType (typeof (NSObject))]
@@ -157,6 +188,17 @@ namespace Notificare.iOS
 		/// <value>The MIME type of the attachment.</value>
 		[Export("attachmentMimeType")]
 		NSString AttachmentMimeType { get; }
+
+		/*
+		 * - (void)setValuesWithAttachmentJSON:(NSDictionary* _Nonnull)attachmentJSON;
+		 */
+
+		/// <summary>
+		/// Sets the values with attachment json.
+		/// </summary>
+		/// <param name="attachmentJson">Attachment json.</param>
+		[Export("setValuesWithAttachmentJSON:")]
+		void SetValuesWithAttachmentJSON(NSDictionary attachmentJson);
 	}
 
 	[BaseType (typeof (NSObject))]
@@ -353,6 +395,17 @@ namespace Notificare.iOS
 		[Export("triggers")]
 		bool Triggers { get; }
 
+		/*
+		 * - (void)setValuesWithBeaconJSON:(NSDictionary* _Nonnull)beaconJSON;
+		 */
+
+		/// <summary>
+		/// Sets the values with beacon json.
+		/// </summary>
+		/// <param name="beaconJSON">Beacon json.</param>
+		[Export("setValuesWithBeaconJSON:")]
+		void SetValuesWithBeaconJSON(NSDictionary beaconJSON);
+
 	}
 
 
@@ -393,6 +446,17 @@ namespace Notificare.iOS
 		/// <value>The data dictionary.</value>
 		[Export("dataDictionary")]
 		NSDictionary DataDictionary { get; }
+
+		/*
+		 * - (void)setValuesWithContentJSON:(NSDictionary* _Nonnull)contentJSON;
+		 */
+
+		/// <summary>
+		/// Sets the values with content json.
+		/// </summary>
+		/// <param name="contentJSON">Content json.</param>
+		[Export("setValuesWithContentJSON:")]
+		void SetValuesWithContentJSON(NSDictionary contentJSON);
 	}
 
 	[BaseType (typeof (NSObject))]
@@ -498,7 +562,29 @@ namespace Notificare.iOS
 		NSString Country { get; }
 
 		/*
-		 * @property (nonatomic) float deviceID;
+		 * @property(strong, nonatomic, nullable) NSDictionary* dnd;
+		 */
+
+		/// <summary>
+		/// Gets the dnd.
+		/// </summary>
+		/// <value>The dnd.</value>
+		[Export("dnd")]
+		NSDictionary Dnd { get; }
+
+		/*
+		 * @property(strong, nonatomic, nullable) NSDictionary* userData;
+		 */
+
+		/// <summary>
+		/// Gets the user data.
+		/// </summary>
+		/// <value>The user data.</value>
+		[Export("userData")]
+		NSDictionary UserData { get; }
+
+		/*
+		 * @property (nonatomic) float latitude;
 		 */
 
 		/// <summary>
@@ -509,7 +595,7 @@ namespace Notificare.iOS
 		float Latitude { get; }
 
 		/*
-		 * @property (nonatomic) float deviceID;
+		 * @property (nonatomic) float longitude;
 		 */
 
 		/// <summary>
@@ -541,6 +627,17 @@ namespace Notificare.iOS
 		[Export("allowedLocationServices")]
 		bool AllowedLocationServices { get; }
 
+
+		/*
+		 * @property(assign, nonatomic) BOOL allowedUI;
+		 */
+
+		/// <summary>
+		/// Gets a value indicating whether this <see cref="T:Notificare.iOS.NotificareDevice"/> allowed user interface.
+		/// </summary>
+		/// <value><c>true</c> if allowed user interface; otherwise, <c>false</c>.</value>
+		[Export("allowedUI")]
+		bool AllowedUI { get; }
 
 	}
 
@@ -646,6 +743,146 @@ namespace Notificare.iOS
 		[Export("opened")]
 		bool Opened { get; }
 
+		/*
+		 * - (void)setValuesWithDeviceInboxJSON:(NSDictionary* _Nonnull)deviceInboxJSON;
+		 */
+
+		/// <summary>
+		/// Sets the values with device inbox json.
+		/// </summary>
+		/// <param name="deviceInboxJSON">Device inbox json.</param>
+		[Export("setValuesWithDeviceInboxJSON:")]
+		void SetValuesWithDeviceInboxJSON(NSDictionary deviceInboxJSON);
+	}
+
+	[BaseType (typeof (NSManagedObject))]
+	public interface NotificareManagedDeviceInbox
+	{
+		/*
+		 * @property(strong, nonatomic, nonnull) NSString* inboxId;
+		 */
+
+		/// <summary>
+		/// Gets the inbox identifier.
+		/// </summary>
+		/// <value>The inbox identifier.</value>
+		[Export("inboxId")]
+		NSString InboxId { get; }
+
+		/*
+		 * @property(strong, nonatomic, nonnull) NSString* applicationId;
+		 */
+
+		/// <summary>
+		/// Gets the application identifier.
+		/// </summary>
+		/// <value>The application identifier.</value>
+		[Export("applicationId")]
+		NSString ApplicationId { get; }
+
+		/*
+		 * @property(strong, nonatomic, nonnull) NSString* deviceID;
+		 */
+
+		/// <summary>
+		/// Gets the device identifier.
+		/// </summary>
+		/// <value>The device identifier.</value>
+		[Export("deviceId")]
+		NSString DeviceId { get; }
+
+
+		/*
+		 * @property(strong, nonatomic, nullable) NSDictionary* data;
+		 */
+
+		/// <summary>
+		/// Gets the data.
+		/// </summary>
+		/// <value>The data.</value>
+		[Export("data")]
+		NSDictionary Data { get; }
+
+
+		/*
+		 * @property(strong, nonatomic, nonnull) NSString* message;
+		 */
+
+		/// <summary>
+		/// Gets the message.
+		/// </summary>
+		/// <value>The message.</value>
+		[Export("message")]
+		NSString Message { get; }
+
+		/*
+		 * @property(strong, nonatomic, nonnull) NSString* notification;
+		 */
+
+		/// <summary>
+		/// Gets the notification.
+		/// </summary>
+		/// <value>The notification.</value>
+		[Export("notification")]
+		NSString Notification { get; }
+
+		/*
+		 * @property(strong, nonatomic, nonnull) NSDate* time;
+		 */
+
+		/// <summary>
+		/// Gets the time.
+		/// </summary>
+		/// <value>The time.</value>
+		[Export("time")]
+		NSDate Time { get; }
+
+		/*
+		 * @property(strong, nonatomic, nullable) NSString* userID;
+		 */
+
+		/// <summary>
+		/// Gets the user identifier.
+		/// </summary>
+		/// <value>The user identifier.</value>
+		[Export("userID")]
+		NSString UserID { get; }
+
+
+		/*
+		 * @property(assign, nonatomic) BOOL opened;
+		 */
+
+		/// <summary>
+		/// Gets a value indicating whether this <see cref="T:Notificare.iOS.NotificareManagedDeviceInbox"/> is opened.
+		/// </summary>
+		/// <value><c>true</c> if opened; otherwise, <c>false</c>.</value>
+		[Export("opened")]
+		bool Opened { get; }
+
+		/*
+		 * + (NotificareManagedDeviceInbox* _Nullable)ManagedDeviceInbox:(NotificareDeviceInbox* _Nonnull)nonManaged inContext:(NSManagedObjectContext* _Nonnull)managedObjectContext;
+		 */
+
+		/// <summary>
+		/// Manageds the device inbox in context.
+		/// </summary>
+		/// <returns>The device inbox in context.</returns>
+		/// <param name="nonManaged">Non managed.</param>
+		/// <param name="managedObjectContext">Managed object context.</param>
+		[Static][Export("ManagedDeviceInbox:inContext:")]
+		NotificareManagedDeviceInbox ManagedDeviceInboxInContext(NotificareDeviceInbox nonManaged, NSManagedObjectContext managedObjectContext);
+
+		/*
+		 * - (NotificareDeviceInbox* _Nullable)toNonManaged;
+		 */
+
+		/// <summary>
+		/// To the non managed.
+		/// </summary>
+		/// <returns>The non managed.</returns>
+		[Export("toNonManaged")]
+		NotificareDeviceInbox ToNonManaged();
 	}
 
 	[BaseType (typeof (NSObject))]
@@ -659,7 +896,7 @@ namespace Notificare.iOS
 		/// Gets the notification ID.
 		/// </summary>
 		/// <value>The notification ID.</value>
-		[Export("notificationID")]
+		[NullAllowed][Export("notificationID")]
 		NSString NotificationID { get; }
 
 		/*
@@ -841,6 +1078,17 @@ namespace Notificare.iOS
 		[Export("displayMessage")]
 		NSNumber DisplayMessage { get; }
 
+		/*
+		 * - (void)setValuesWithNotificationJSON:(NSDictionary* _Nonnull)notificationJSON;
+		 */
+
+		/// <summary>
+		/// Sets the values with notification json.
+		/// </summary>
+		/// <param name="notificationJSON">Notification json.</param>
+		[Export("setValuesWithNotificationJSON:")]
+		void SetValuesWithNotificationJSON(NSDictionary notificationJSON);
+
 	}
 
 	[BaseType (typeof (NSObject))]
@@ -944,6 +1192,17 @@ namespace Notificare.iOS
 		/// <value><c>true</c> if active; otherwise, <c>false</c>.</value>
 		[Export("active")]
 		bool Active { get; }
+
+		/*
+		 * - (void)setValuesWithPassJSON:(NSDictionary* _Nonnull)passJSON;
+		 */
+
+		/// <summary>
+		/// Sets the values with pass json.
+		/// </summary>
+		/// <param name="passJSON">Pass json.</param>
+		[Export("setValuesWithPassJSON:")]
+		void SetValuesWithPassJSON(NSDictionary passJSON);
 	}
 
 	[BaseType (typeof (NSObject))]
@@ -1117,6 +1376,27 @@ namespace Notificare.iOS
 		[Export("purchased")]
 		bool Purchased { get; }
 
+		/*
+		 * - (void)setValuesWithProductJSON:(NSDictionary* _Nonnull)productJSON;
+		 */
+
+		/// <summary>
+		/// Sets the values with product json.
+		/// </summary>
+		/// <param name="productJSON">Product json.</param>
+		[Export("setValuesWithProductJSON:")]
+		void SetValuesWithProductJSON(NSDictionary productJSON);
+
+		/*
+		 * - (void)setValuesWithSKProduct:(SKProduct* _Nonnull)skProduct;
+		 */
+
+		/// <summary>
+		/// Sets the values with SKP roduct.
+		/// </summary>
+		/// <param name="skProduct">Sk product.</param>
+		[Export("setValuesWithSKProduct:")]
+		void SetValuesWithSKProduct(SKProduct skProduct);
 	}
 
 	[BaseType (typeof (NSObject))]
@@ -1157,6 +1437,28 @@ namespace Notificare.iOS
 		/// <value><c>true</c> if selected; otherwise, <c>false</c>.</value>
 		[Export("selected")]
 		bool Selected { get; }
+
+		/*
+		 * - (void)setValuesWithSegmentJSON:(NSDictionary* _Nonnull)segmentJSON;
+		 */
+
+		/// <summary>
+		/// Sets the values with segment json.
+		/// </summary>
+		/// <param name="segmentJSON">Segment json.</param>
+		[Export("setValuesWithSegmentJSON:")]
+		void SetValuesWithSegmentJSON(NSDictionary segmentJSON);
+
+		/*
+		 * - (void)setValuesWithPreferenceOptionJSON:(NSDictionary* _Nonnull)preferenceOptionJSON;
+		 */
+
+		/// <summary>
+		/// Sets the values with preference option json.
+		/// </summary>
+		/// <param name="preferenceOptionJSON">Preference option json.</param>
+		[Export("setValuesWithPreferenceOptionJSON:")]
+		void SetValuesWithPreferenceOptionJSON(NSDictionary preferenceOptionJSON);
 	}
 
 	[BaseType (typeof (NSObject))]
@@ -1257,6 +1559,17 @@ namespace Notificare.iOS
 		[Export("userName")]
 		NSString UserName { get; }
 
+		/*
+		 * @property(strong, nonatomic, nullable) NSDictionary* userData;
+		 */
+
+		/// <summary>
+		/// Gets the user data.
+		/// </summary>
+		/// <value>The user data.</value>
+		[Export("userData")]
+		NSDictionary UserData { get; }
+
 
 		/*
 		 * @property (nonatomic, assign) BOOL validated;
@@ -1268,6 +1581,17 @@ namespace Notificare.iOS
 		/// <value><c>true</c> if validated; otherwise, <c>false</c>.</value>
 		[Export("validated")]
 		bool validated { get; }
+
+		/*
+		 * - (void)setValuesWithUserJSON:(NSDictionary* _Nonnull)userJSON;
+		 */
+
+		/// <summary>
+		/// Sets the values with user json.
+		/// </summary>
+		/// <param name="userJSON">User json.</param>
+		[Export("setValuesWithUserJSON:")]
+		void SetValuesWithUserJSON(NSDictionary userJSON);
 	}
 
 	[BaseType (typeof (NSObject))]
@@ -1320,6 +1644,298 @@ namespace Notificare.iOS
 		/// <value>The preference options.</value>
 		[Export("preferenceOptions")]
 		NSArray PreferenceOptions { get; }
+
+		/*
+		 * - (void)setValuesWithUserPreferenceJSON:(NSDictionary* _Nonnull)userPreferenceJSON;
+		 */
+
+		/// <summary>
+		/// Sets the values with user preference json.
+		/// </summary>
+		/// <param name="userPreferenceJSON">User preference json.</param>
+		[Export("setValuesWithUserPreferenceJSON:")]
+		void SetValuesWithUserPreferenceJSON(NSDictionary userPreferenceJSON);
+	}
+
+	[BaseType(typeof(NSObject))]
+	[Model, Protocol]
+	interface NotificareInboxManagerDelegate
+	{
+		/*
+		 * - (void)didUpdateInbox:(NotificareInboxManager*)notificareInboxManager;
+		 */
+
+		/// <summary>
+		/// Dids the update inbox.
+		/// </summary>
+		/// <param name="notificareInboxManager">Notificare inbox manager.</param>
+		[Export("didUpdateInbox:")]
+		void DidUpdateInbox(NotificareInboxManager notificareInboxManager);
+
+		/*
+		 * - (void)didReloadInbox:(NotificareInboxManager*)notificareInboxManager;
+		 */
+
+		/// <summary>
+		/// Dids the reload inbox.
+		/// </summary>
+		/// <param name="notificareInboxManager">Notificare inbox manager.</param>
+		[Export("didReloadInbox:")]
+		void DidReloadInbox(NotificareInboxManager notificareInboxManager);
+
+
+		/*
+		 * - (void)notificareInboxManager:(NotificareInboxManager *)notificareInboxManager didOpenInboxItem:(NotificareManagedDeviceInbox *)managedInboxItem;
+		 */
+
+		/// <summary>
+		/// Dids the open inbox item.
+		/// </summary>
+		/// <param name="notificareInboxManager">Notificare inbox manager.</param>
+		/// <param name="managedInboxItem">Managed inbox item.</param>
+		[Export("notificareInboxManager:didOpenInboxItem:")]
+		void DidOpenInboxItem(NotificareInboxManager notificareInboxManager, NotificareManagedDeviceInbox managedInboxItem);
+
+		/*
+		 * - (void)notificareInboxManager:(NotificareInboxManager *)notificareInboxManager didRemoveFromInbox:(NotificareManagedDeviceInbox *)managedInboxItem;
+		 */
+
+		/// <summary>
+		/// Dids the remove from inbox.
+		/// </summary>
+		/// <param name="notificareInboxManager">Notificare inbox manager.</param>
+		/// <param name="managedInboxItem">Managed inbox item.</param>
+		[Export("notificareInboxManager:didRemoveFromInbox:")]
+		void DidRemoveFromInbox(NotificareInboxManager notificareInboxManager, NotificareManagedDeviceInbox managedInboxItem);
+
+		/*
+		 * - (void)notificareInboxManager:(NotificareInboxManager *)notificareInboxManager didRemoveFromInbox:(NotificareManagedDeviceInbox *)managedInboxItem forIndexPath:(NSIndexPath *)indexPath;
+		 */
+
+		/// <summary>
+		/// Dids the remove from inbox.
+		/// </summary>
+		/// <param name="notificareInboxManager">Notificare inbox manager.</param>
+		/// <param name="managedInboxItem">Managed inbox item.</param>
+		/// <param name="indexPath">Index path.</param>
+		[Export("notificareInboxManager:didRemoveFromInbox:forIndexPath:")]
+		void DidRemoveFromInbox(NotificareInboxManager notificareInboxManager, NotificareManagedDeviceInbox managedInboxItem, NSIndexPath indexPath);
+
+
+		/*
+		 * - (void)didClearInbox:(NotificareInboxManager*)notificareInboxManager;
+		 */
+
+		/// <summary>
+		/// Dids the clear inbox.
+		/// </summary>
+		/// <param name="notificareInboxManager">Notificare inbox manager.</param>
+		[Export("didClearInbox:")]
+		void DidClearInbox(NotificareInboxManager notificareInboxManager);
+
+	}
+
+	[BaseType(typeof(NSObject))]
+	interface NotificareInboxManager
+	{
+		/*
+		 * @property(nonatomic) BOOL enabled;
+		 */
+
+		/// <summary>
+		/// Gets a value indicating whether this <see cref="T:Notificare.iOS.NotificareInboxManager"/> is enabled.
+		/// </summary>
+		/// <value><c>true</c> if enabled; otherwise, <c>false</c>.</value>
+		[Export("enabled")]
+		bool Enabled { get; }
+
+
+		/*
+		 * @property(nonatomic, copy, readonly) NSArray<NotificareManagedDeviceInbox*>* managedInboxItems;
+		 */
+
+		/// <summary>
+		/// Gets the managed inbox items.
+		/// </summary>
+		/// <value>The managed inbox items.</value>
+		[Export("managedInboxItems")]
+		NSArray ManagedInboxItems { get; }
+
+		/*
+		 * + (instancetype)sharedManager;
+		 */
+
+		/// <summary>
+		/// Shareds the manager.
+		/// </summary>
+		/// <returns>The manager.</returns>
+		[Static][Export("sharedManager")]
+		NotificareInboxManager SharedManager();
+
+		/*
+		 * - (void)addDelegate:(id<NotificareInboxManagerDelegate>)delegate;
+		 */
+
+		/// <summary>
+		/// Adds the delegate.
+		/// </summary>
+		/// <param name="">.</param>
+		[Export("addDelegate:")]
+		void AddDelegate(NotificareInboxManagerDelegate inboxManagerDelegate);
+
+		/*
+		 * - (void)removeDelegate:(id<NotificareInboxManagerDelegate>)delegate;
+		 */
+
+		/// <summary>
+		/// Removes the delegate.
+		/// </summary>
+		/// <param name="Delegate">Delegate.</param>
+		[Export("removeDelegate:")]
+		void RemoveDelegate(NotificareInboxManagerDelegate inboxManagerDelegate);
+
+		/*
+		 * - (void)updateInbox;
+		 */
+
+		/// <summary>
+		/// Updates the inbox.
+		/// </summary>
+		[Export("updateInbox")]
+		void UpdateInbox();
+
+		/*
+		 * - (void)reloadInbox;
+		 */
+
+		/// <summary>
+		/// Reloads the inbox.
+		/// </summary>
+		[Export("reloadInbox")]
+		void ReloadInbox();
+
+
+		/*
+		 * - (void)openInboxItem:(NotificareManagedDeviceInbox*)managedInboxItem;
+		 */
+
+		/// <summary>
+		/// Opens the inbox item.
+		/// </summary>
+		/// <param name="managedInboxItem">Managed inbox item.</param>
+		[Export("openInboxItem:")]
+		void OpenInboxItem(NotificareManagedDeviceInbox managedInboxItem);
+
+		/*
+		 * - (void)removeFromInbox:(NotificareManagedDeviceInbox*)managedInboxItem;
+		 */
+
+		/// <summary>
+		/// Removes from inbox.
+		/// </summary>
+		/// <param name="managedInboxItem">Managed inbox item.</param>
+		[Export("removeFromInbox:")]
+		void RemoveFromInbox(NotificareManagedDeviceInbox managedInboxItem);
+
+		/*
+		 * - (void)removeFromInbox:(NotificareManagedDeviceInbox*)managedInboxItem forIndexPath:(NSIndexPath *)indexPath;
+		 */
+
+		/// <summary>
+		/// Removes from inbox.
+		/// </summary>
+		/// <param name="managedInboxItem">Managed inbox item.</param>
+		/// <param name="indexPath">Index path.</param>
+		[Export("removeFromInbox:forIndexPath:")]
+		void RemoveFromInbox(NotificareManagedDeviceInbox managedInboxItem, NSIndexPath indexPath);
+
+		/*
+		 * - (void)clearInbox;
+		 */
+
+		/// <summary>
+		/// Clears the inbox.
+		/// </summary>
+		[Export("clearInbox")]
+		void ClearInbox();
+
+		/*
+		 * - (void)clearLocalInbox;
+		 */
+
+		/// <summary>
+		/// Clears the local inbox.
+		/// </summary>
+		[Export("clearLocalInbox")]
+		void ClearLocalInbox();
+
+	}
+
+	[BaseType(typeof(UIViewController))]
+	interface NotificareBaseInboxViewController
+	{
+		/*
+		 * @property(strong, nonatomic, readonly) NotificareInboxManager* notificareInboxManager;
+		 */
+
+		/// <summary>
+		/// Gets the notificare inbox manager.
+		/// </summary>
+		/// <value>The notificare inbox manager.</value>
+		[Export("notificareInboxManager")]	
+		NotificareInboxManager NotificareInboxManager { get; }
+
+		/*
+		 * @property(strong, nonatomic) IBOutlet UITableView *tableView;
+		 */
+		/// <summary>
+		/// Gets or sets the table view.
+		/// </summary>
+		/// <value>The table view.</value>
+		[Export("tableView")]
+		[Outlet]
+		UITableView TableView { get; set; }
+
+
+		/*
+		 * @property(strong, nonatomic) UIFont* cellMessageLabelFont;
+		 */
+		/// <summary>
+		/// Gets or sets the cell message label font.
+		/// </summary>
+		/// <value>The cell message label font.</value>
+		[Export("cellMessageLabelFont")]
+		UIFont CellMessageLabelFont { get; set; }
+
+		/*
+		 * @property(strong, nonatomic) UIFont* cellTimeAgoLabelFont;
+		 */
+		/// <summary>
+		/// Gets or sets the cell time ago label font.
+		/// </summary>
+		/// <value>The cell time ago label font.</value>
+		[Export("cellTimeAgoLabelFont")]
+		UIFont CellTimeAgoLabelFont { get; set; }
+
+		/*
+		 * @property(strong, nonatomic) UIColor* cellUnopenedTextColor;
+		 */
+		/// <summary>
+		/// Gets or sets the color of the cell unopened text.
+		/// </summary>
+		/// <value>The color of the cell unopened text.</value>
+		[Export("cellUnopenedTextColor")]
+		UIColor CellUnopenedTextColor { get; set;}
+
+		/*
+		 * @property(strong, nonatomic) UIColor* cellOpenedTextColor;
+		 */
+		/// <summary>
+		/// Gets or sets the color of the cell opened text.
+		/// </summary>
+		/// <value>The color of the cell opened text.</value>
+		[Export("cellOpenedTextColor")]
+		UIColor CellOpenedTextColor { get; set; }
 
 	}
 
@@ -1389,6 +2005,30 @@ namespace Notificare.iOS
 		/// <param name="reason">Reason.</param>
 		[Export ("notificarePushLib:didCloseWebsocketConnection:")]
 		void DidCloseWebsocketConnection (NotificarePushLib library, NSString reason);
+
+		/*
+		 * - (void)notificarePushLib:(NotificarePushLib*)library willHandleNotification:(UNNotification*)notification;
+		 */
+
+		/// <summary>
+		/// Wills the handle notification.
+		/// </summary>
+		/// <param name="library">Library.</param>
+		/// <param name="notification">Notification.</param>
+		[Export("notificarePushLib:willHandleNotification:")]
+		void WillHandleNotification(NotificarePushLib library, UNNotification notification);
+
+
+		/*
+		 * - (void)notificarePushLib:(NotificarePushLib*)library didReceiveSystemPush:(NSDictionary*)info;
+		 */
+
+		/// <summary>
+		/// Dids the receive system push.
+		/// </summary>
+		/// <param name="info">Info.</param>
+		[Export("notificarePushLib:didReceiveSystemPush:")]
+		void DidReceiveSystemPush(NotificarePushLib library, NSDictionary info);
 
 
 		/*
@@ -1675,7 +2315,7 @@ namespace Notificare.iOS
 		/// <param name="library">Library.</param>
 		/// <param name="error">Error.</param>
 		[Export ("notificarePushLib:didFailToRequestAccessNotification:")]
-		void DidFailToRequestAccessNotification (NotificarePushLib library, NSError error);
+		void DidFailToRequestAccessNotification (NotificarePushLib library, [NullAllowed] NSError error);
 
 		/*
 		 * - (void)notificarePushLib:(NotificarePushLib *)library didReceiveActivationToken:(NSString *)token;
@@ -1837,6 +2477,8 @@ namespace Notificare.iOS
 		void DidFinishDownloadContent (NotificarePushLib library, SKDownload download);
 	}
 
+	interface INotificarePushLibDelegate { }
+
 	public delegate void SuccessDeviceInboxCallback (NotificareDeviceInbox inbox);
 	public delegate void SuccessNotificationCallback (NotificareNotification notification);
 	public delegate void SuccessPassCallback( NotificarePass pass );
@@ -1844,8 +2486,10 @@ namespace Notificare.iOS
 	public delegate void SuccessArrayCallback( NSArray info );
 	public delegate void SuccessCallback( NSDictionary info );
 	public delegate void ErrorCallback( NSError error );
+	//public delegate void OperationErrorCallback(NotificareNetworkOperation operation, NSError error);
 
-	// @interface NotificarePushLib : NSObject <NotificareSRWebSocketDelegate,NotificareDelegate,NotificareActionsDelegate,CLLocationManagerDelegate>
+	// @interface NotificarePushLib : NSObject <NotificareSRWebSocketDelegate,NotificareDelegate,NotificareActionsDelegate,CLLocationManagerDelegate, SKProductsRequestDelegate, SKPaymentTransactionObserver, UNUserNotificationCenterDelegate>
+
 	[BaseType (typeof (NSObject))]
 	interface NotificarePushLib 
 	{
@@ -2423,6 +3067,20 @@ namespace Notificare.iOS
 		[Obsolete ("use HandleNotificationForApplication instead.")]
 		void SaveToInboxForApplication (NSDictionary notification, UIApplication application, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
 
+
+		/*
+		 * - (void)handleNotification:(UNNotification*)notification completionHandler:(SuccessBlock)result errorHandler:(ErrorBlock)errorBlock;
+		 */
+
+		/// <summary>
+		/// Handles the notification.
+		/// </summary>
+		/// <param name="notification">Notification.</param>
+		/// <param name="completionHandler">Completion handler.</param>
+		/// <param name="errorHandler">Error handler.</param>
+		[Export("handleNotification:completionHandler:errorHandler:")]
+		void HandleNotification(UNNotification notification, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
+
 		/*
 		 * - (void)handleNotification:(NSDictionary *)notification forApplication:(UIApplication *)application completionHandler:(SuccessBlock)result errorHandler:(ErrorBlock)errorBlock;
 		 */
@@ -2935,6 +3593,68 @@ namespace Notificare.iOS
 		[Export("clearDoNotDisturb:errorHandler:")]
 		void ClearDoNotDisturb([BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
 
+
+		/*
+		 * - (NotificareNetworkOperation*)doPushHostOperation:(NSString*)HTTPMethod path:(NSString*)path URLParams:(NSDictionary<NSString*, NSString*>* _Nullable)URLParams bodyJSON:(id _Nullable)bodyJSON successHandler:(SuccessBlock)successHandler errorHandler:(OperationErrorBlock)errorHandler;
+		 */
+
+		/// <summary>
+		/// Dos the push host operation.
+		/// </summary>
+		/// <returns>The push host operation.</returns>
+		/// <param name="HTTPMethod">HTTPM ethod.</param>
+		/// <param name="path">Path.</param>
+		/// <param name="URLParams">URLP arams.</param>
+		/// <param name="bodyJSON">Body json.</param>
+		/// <param name="completionHandler">Completion handler.</param>
+		/// <param name="errorHandler">Error handler.</param>
+		[Export("doPushHostOperation:path:URLParams:bodyJSON:successhandler:errorHandler:")]
+		NotificareNetworkOperation DoPushHostOperation(NSString HTTPMethod, NSString path, [NullAllowed] NSDictionary URLParams, [NullAllowed] NSDictionary bodyJSON, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
+
+		/*
+		 * - (NotificareNetworkOperation*)doCloudHostOperation:(NSString*)HTTPMethod path:(NSString*)path URLParams:(NSDictionary<NSString*, NSString*>* _Nullable)URLParams bodyJSON:(id _Nullable)bodyJSON successHandler:(SuccessBlock)successHandler errorHandler:(OperationErrorBlock)errorHandler;
+		 */
+
+		/// <summary>
+		/// Dos the cloud host operation.
+		/// </summary>
+		/// <returns>The cloud host operation.</returns>
+		/// <param name="HTTPMethod">HTTPM ethod.</param>
+		/// <param name="path">Path.</param>
+		/// <param name="URLParams">URLP arams.</param>
+		/// <param name="bodyJSON">Body json.</param>
+		/// <param name="completionHandler">Completion handler.</param>
+		/// <param name="errorHandler">Error handler.</param>
+		[Export("doCloudHostOperation:path:URLParams:bodyJSON:successhandler:errorHandler:")]
+		NotificareNetworkOperation DoCloudHostOperation(NSString HTTPMethod, NSString path, [NullAllowed] NSDictionary URLParams, [NullAllowed] NSDictionary bodyJSON, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
+
+		/*
+		 * - (void)fetchAttachment:(NSDictionary*)notification completionHandler:(SuccessArrayBlock)result errorHandler:(ErrorBlock)error;
+		 */
+
+		/// <summary>
+		/// Fetchs the attachment.
+		/// </summary>
+		/// <param name="notification">Notification.</param>
+		/// <param name="completionHandler">Completion handler.</param>
+		/// <param name="errorHandler">Error handler.</param>
+		[Export("fetchAttachment:completionHandler:errorHandler:")]
+		void FetchAttachment(NSDictionary notification, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
+
+		/*
+		 * - (void)updateUserData:(NSDictionary*)data completionHandler:(SuccessBlock)info errorHandler:(ErrorBlock)errorBlock;
+		 */
+
+		/// <summary>
+		/// Updates the user data.
+		/// </summary>
+		/// <param name="data">Data.</param>
+		/// <param name="completionHandler">Completion handler.</param>
+		/// <param name="errorHandler">Error handler.</param>
+		[Export("updateUserData:completionHandler:errorHandler:")]
+		void UpdateUserData(NSDictionary data, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
+
+
 		// Properties
 
 		/*
@@ -2945,8 +3665,46 @@ namespace Notificare.iOS
 		/// Public delegate to handle Notificare events
 		/// </summary>
 		/// <value>The delegate.</value>
-		[Export ("delegate", ArgumentSemantic.Assign)][NullAllowed]
+
+		[Wrap("WeakDelegate")]
 		NotificarePushLibDelegate Delegate { get; set; }
+		[Export ("delegate", ArgumentSemantic.Assign)][NullAllowed]
+		NSObject WeakDelegate { get; set; }
+
+
+
+		/*
+		 * @property(strong, nonatomic) UNUserNotificationCenter* notificationCenter;
+		 */
+
+		/// <summary>
+		/// Gets the notification center.
+		/// </summary>
+		/// <value>The notification center.</value>
+		[Export("notificationCenter")]
+		UNUserNotificationCenter NotificationCenter { get; }
+
+		/*
+		 * @property(nonatomic, assign) UNNotificationCategoryOptions notificationCategoryOptions;
+		 */
+
+		/// <summary>
+		/// Gets the notification category options.
+		/// </summary>
+		/// <value>The notification category options.</value>
+		[Export("notificationCategoryOptions")]
+		UNNotificationCategoryOptions NotificationCategoryOptions { get; }
+
+		/*
+		 * @property(nonatomic, assign) UNNotificationPresentationOptions notificationPresentationOptions;
+		 */
+
+		/// <summary>
+		/// Gets the notification presentation options.
+		/// </summary>
+		/// <value>The notification presentation options.</value>
+		[Export("notificationPresentationOptions")]
+		UNNotificationPresentationOptions NotificationPresentationOptions { get; }
 
 		/*
 		 * @property (strong, nonatomic) NSString * apiID;
@@ -3305,8 +4063,6 @@ namespace Notificare.iOS
 		SKProductsRequest StoreRequest { get; }
 
 	}
-
-
 
 
 }

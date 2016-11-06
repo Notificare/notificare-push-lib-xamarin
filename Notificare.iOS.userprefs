@@ -1,12 +1,20 @@
-﻿<Properties StartupItem="Notificare.iOS.TestApp/Notificare.iOS.TestApp.csproj">
-  <MonoDevelop.Ide.Workbench />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release|iPhone" />
+﻿<Properties StartupConfiguration="{F5112666-2963-4E0F-9619-8330269994DD}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Notificare.iOS.TestApp/AppDelegate.cs">
+    <Files>
+      <File FileName="Notificare.iOS-Unified/NotificarePushLib.linkwith.cs" Line="1" Column="1" />
+      <File FileName="Notificare.iOS-Unified/ApiDefinition.cs" Line="4065" Column="1" />
+      <File FileName="Notificare.iOS-Unified.TestApp/Info.plist" />
+      <File FileName="Notificare.iOS.TestApp/Info.plist" />
+      <File FileName="Notificare.iOS.TestApp/AppDelegate.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.Notificare.iOS-Unified.TestApp>
+  <MonoDevelop.Ide.ItemProperties.Notificare.iOS-Unified.TestApp PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.926F68BC-B392-42EC-8CFA-F26880D772C0">
     <IPhoneTestFlightSettings_27CAd-Hoc ApiToken="c435746e203539e04628fde01086edb1_MzM2Mjk" TeamToken="eda825d73a564d3604f398dd6ccb3984_ODk2NzEyMDEyLTA1LTEyIDEwOjMxOjQ0LjMxNTAxOQ" ReleaseNotes="Test for Xamarin Ad-Hoc" NotifyTeamMembers="False" ReplaceBinaries="False" DistributionLists="Team Notificare" UploadDSYMs="False" />
   </MonoDevelop.Ide.ItemProperties.Notificare.iOS-Unified.TestApp>
-  <MonoDevelop.Ide.ItemProperties.Notificare.iOS.TestApp PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget" />
+  <MonoDevelop.Ide.ItemProperties.Notificare.iOS.TestApp PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.926F68BC-B392-42EC-8CFA-F26880D772C0" />
 </Properties>

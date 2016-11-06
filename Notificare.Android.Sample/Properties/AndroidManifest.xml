@@ -61,20 +61,13 @@
 			</intent-filter>
 		</service>
 		<service android:name="re.notifica.push.gcm.RegistrationService" android:exported="false" />
-		<!--
-	    	Receiver to dispatch GCM registration, push notifications and custom push actions.
-	    	By default, it will register the device as an anonymous user, launch the default 
-	    	Notification activity declared below when receiving notifications, and will 
-	    	launch your main activity with a "custom action" intent when a user selected 
-	    	a custom push action.
-	    	 
-	    	Most likely you will need customized registration and dispatching; please override 
-	    	this class or the BaseIntentReceiver parent class.
-
-	    	SecondActivity
-	    	re.notifica.push.gcm.DefaultIntentReceiver
-	     -->
-		<!--		<receiver android:name="notificare.sample.android.MyIntentReceiver" />-->
+		<service android:name="re.notifica.push.gcm.TaskService"
+            android:permission="com.google.android.gms.permission.BIND_NETWORK_TASK_SERVICE"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.android.gms.gcm.ACTION_TASK_READY"/>
+            </intent-filter>
+        </service>
 		<!--
         	Notificare activity that will take care of displaying and handling notifications
         	The default activity will take care of everything, please implement your own
@@ -85,7 +78,19 @@
 		<activity android:name="re.notifica.ui.NotificationActivity" android:parentActivityName=".MainActivity">
 			<meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".MainActivity" />
 		</activity>
-		<activity android:name="re.notifica.ui.PassbookActivity" />
+
+		<activity android:name="re.notifica.ui.PassbookActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data
+                    android:host="push.notifica.re"
+                    android:pathPrefix="/pass/forapplication/536b4a8a08889c02291cbb20"
+                    android:scheme="https" />
+            </intent-filter>
+		</activity>
+
 		<activity android:name="re.notifica.ui.UserPreferencesActivity" />
 		<!-- API key for Google Maps -->
 		<!--		<meta-data

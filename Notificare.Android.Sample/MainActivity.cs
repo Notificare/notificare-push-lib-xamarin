@@ -30,7 +30,10 @@ namespace Notificare.Sample.Android
 		protected override void OnCreate (Bundle bundle)
 		{
 			base.OnCreate (bundle);
-			HandleNotificationOpenedIntent (Intent);
+			if (Intent != null && Intent.Action != null)
+			{
+				HandleNotificationOpenedIntent(Intent);
+			}
 			// Set our view from the "main" layout resource
 			SetContentView (Resource.Layout.Main);
 

@@ -5,11 +5,20 @@ using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 using MonoTouch.CoreLocation;
 using MonoTouch.StoreKit;
+using MonoTouch.CoreData;
+using MonoTouch.UserNotifications;
 
 
 namespace Notificare.iOS
 {
-	[BaseType (typeof (NSObject))]
+
+	[BaseType(typeof(NSObject))]
+	public interface NotificareNetworkOperation
+	{
+		// Stub
+	}
+
+	[BaseType(typeof(NSObject))]
 	public interface NotificareAction
 	{
 
@@ -71,9 +80,19 @@ namespace Notificare.iOS
 		[Export("actionCamera")]
 		bool ActionCamera { get; }
 
+		/*
+		 * - (void)setValuesWithActionJSON:(NSDictionary* _Nonnull)actionJSON;
+		 */
+
+		/// <summary>
+		/// Sets the values with action json.
+		/// </summary>
+		/// <param name="actionJSON">Action json.</param>
+		[Export("setValuesWithActionJSON:")]
+		void SetValuesWithActionJSON(NSDictionary actionJSON);
 	}
 
-	[BaseType (typeof (NSObject))]
+	[BaseType(typeof(NSObject))]
 	public interface NotificareAsset
 	{
 		/*
@@ -130,9 +149,21 @@ namespace Notificare.iOS
 		/// <value>The asset meta data.</value>
 		[Export("assetMetaData")]
 		NSDictionary AssetMetaData { get; }
+
+		/*
+		 * - (void)setValuesWithAssetJSON:(NSDictionary* _Nonnull)assetJSON andWithFetchAssetURLString:(NSString* _Nonnull)fetchAssetURLString;
+		 */
+
+		/// <summary>
+		/// Sets the values with asset JSON and with fetch asset URL String.
+		/// </summary>
+		/// <param name="AssetJSON">Asset json.</param>
+		/// <param name="FetchAssetURLString">Fetch asset URLS tring.</param>
+		[Export("setValuesWithAssetJSON:andWithFetchAssetURLString:")]
+		void SetValuesWithAssetJSONAndWithFetchAssetURLString(NSDictionary assetJSON, NSString fetchAssetURLString);
 	}
 
-	[BaseType (typeof (NSObject))]
+	[BaseType(typeof(NSObject))]
 	public interface NotificareAttachment
 	{
 
@@ -157,9 +188,20 @@ namespace Notificare.iOS
 		/// <value>The MIME type of the attachment.</value>
 		[Export("attachmentMimeType")]
 		NSString AttachmentMimeType { get; }
+
+		/*
+		 * - (void)setValuesWithAttachmentJSON:(NSDictionary* _Nonnull)attachmentJSON;
+		 */
+
+		/// <summary>
+		/// Sets the values with attachment json.
+		/// </summary>
+		/// <param name="attachmentJson">Attachment json.</param>
+		[Export("setValuesWithAttachmentJSON:")]
+		void SetValuesWithAttachmentJSON(NSDictionary attachmentJson);
 	}
 
-	[BaseType (typeof (NSObject))]
+	[BaseType(typeof(NSObject))]
 	public interface NotificareBeacon
 	{
 		/*
@@ -353,10 +395,21 @@ namespace Notificare.iOS
 		[Export("triggers")]
 		bool Triggers { get; }
 
+		/*
+		 * - (void)setValuesWithBeaconJSON:(NSDictionary* _Nonnull)beaconJSON;
+		 */
+
+		/// <summary>
+		/// Sets the values with beacon json.
+		/// </summary>
+		/// <param name="beaconJSON">Beacon json.</param>
+		[Export("setValuesWithBeaconJSON:")]
+		void SetValuesWithBeaconJSON(NSDictionary beaconJSON);
+
 	}
 
 
-	[BaseType (typeof (NSObject))]
+	[BaseType(typeof(NSObject))]
 	public interface NotificareContent
 	{
 
@@ -393,9 +446,20 @@ namespace Notificare.iOS
 		/// <value>The data dictionary.</value>
 		[Export("dataDictionary")]
 		NSDictionary DataDictionary { get; }
+
+		/*
+		 * - (void)setValuesWithContentJSON:(NSDictionary* _Nonnull)contentJSON;
+		 */
+
+		/// <summary>
+		/// Sets the values with content json.
+		/// </summary>
+		/// <param name="contentJSON">Content json.</param>
+		[Export("setValuesWithContentJSON:")]
+		void SetValuesWithContentJSON(NSDictionary contentJSON);
 	}
 
-	[BaseType (typeof (NSObject))]
+	[BaseType(typeof(NSObject))]
 	public interface NotificareDevice
 	{
 		/*
@@ -498,7 +562,29 @@ namespace Notificare.iOS
 		NSString Country { get; }
 
 		/*
-		 * @property (nonatomic) float deviceID;
+		 * @property(strong, nonatomic, nullable) NSDictionary* dnd;
+		 */
+
+		/// <summary>
+		/// Gets the dnd.
+		/// </summary>
+		/// <value>The dnd.</value>
+		[Export("dnd")]
+		NSDictionary Dnd { get; }
+
+		/*
+		 * @property(strong, nonatomic, nullable) NSDictionary* userData;
+		 */
+
+		/// <summary>
+		/// Gets the user data.
+		/// </summary>
+		/// <value>The user data.</value>
+		[Export("userData")]
+		NSDictionary UserData { get; }
+
+		/*
+		 * @property (nonatomic) float latitude;
 		 */
 
 		/// <summary>
@@ -509,7 +595,7 @@ namespace Notificare.iOS
 		float Latitude { get; }
 
 		/*
-		 * @property (nonatomic) float deviceID;
+		 * @property (nonatomic) float longitude;
 		 */
 
 		/// <summary>
@@ -542,9 +628,20 @@ namespace Notificare.iOS
 		bool AllowedLocationServices { get; }
 
 
+		/*
+		 * @property(assign, nonatomic) BOOL allowedUI;
+		 */
+
+		/// <summary>
+		/// Gets a value indicating whether this <see cref="T:Notificare.iOS.NotificareDevice"/> allowed user interface.
+		/// </summary>
+		/// <value><c>true</c> if allowed user interface; otherwise, <c>false</c>.</value>
+		[Export("allowedUI")]
+		bool AllowedUI { get; }
+
 	}
 
-	[BaseType (typeof (NSObject))]
+	[BaseType(typeof(NSObject))]
 	public interface NotificareDeviceInbox
 	{
 		/*
@@ -646,9 +743,150 @@ namespace Notificare.iOS
 		[Export("opened")]
 		bool Opened { get; }
 
+		/*
+		 * - (void)setValuesWithDeviceInboxJSON:(NSDictionary* _Nonnull)deviceInboxJSON;
+		 */
+
+		/// <summary>
+		/// Sets the values with device inbox json.
+		/// </summary>
+		/// <param name="deviceInboxJSON">Device inbox json.</param>
+		[Export("setValuesWithDeviceInboxJSON:")]
+		void SetValuesWithDeviceInboxJSON(NSDictionary deviceInboxJSON);
 	}
 
-	[BaseType (typeof (NSObject))]
+	[BaseType(typeof(NSManagedObject))]
+	public interface NotificareManagedDeviceInbox
+	{
+		/*
+		 * @property(strong, nonatomic, nonnull) NSString* inboxId;
+		 */
+
+		/// <summary>
+		/// Gets the inbox identifier.
+		/// </summary>
+		/// <value>The inbox identifier.</value>
+		[Export("inboxId")]
+		NSString InboxId { get; }
+
+		/*
+		 * @property(strong, nonatomic, nonnull) NSString* applicationId;
+		 */
+
+		/// <summary>
+		/// Gets the application identifier.
+		/// </summary>
+		/// <value>The application identifier.</value>
+		[Export("applicationId")]
+		NSString ApplicationId { get; }
+
+		/*
+		 * @property(strong, nonatomic, nonnull) NSString* deviceID;
+		 */
+
+		/// <summary>
+		/// Gets the device identifier.
+		/// </summary>
+		/// <value>The device identifier.</value>
+		[Export("deviceId")]
+		NSString DeviceId { get; }
+
+
+		/*
+		 * @property(strong, nonatomic, nullable) NSDictionary* data;
+		 */
+
+		/// <summary>
+		/// Gets the data.
+		/// </summary>
+		/// <value>The data.</value>
+		[Export("data")]
+		NSDictionary Data { get; }
+
+
+		/*
+		 * @property(strong, nonatomic, nonnull) NSString* message;
+		 */
+
+		/// <summary>
+		/// Gets the message.
+		/// </summary>
+		/// <value>The message.</value>
+		[Export("message")]
+		NSString Message { get; }
+
+		/*
+		 * @property(strong, nonatomic, nonnull) NSString* notification;
+		 */
+
+		/// <summary>
+		/// Gets the notification.
+		/// </summary>
+		/// <value>The notification.</value>
+		[Export("notification")]
+		NSString Notification { get; }
+
+		/*
+		 * @property(strong, nonatomic, nonnull) NSDate* time;
+		 */
+
+		/// <summary>
+		/// Gets the time.
+		/// </summary>
+		/// <value>The time.</value>
+		[Export("time")]
+		NSDate Time { get; }
+
+		/*
+		 * @property(strong, nonatomic, nullable) NSString* userID;
+		 */
+
+		/// <summary>
+		/// Gets the user identifier.
+		/// </summary>
+		/// <value>The user identifier.</value>
+		[Export("userID")]
+		NSString UserID { get; }
+
+
+		/*
+		 * @property(assign, nonatomic) BOOL opened;
+		 */
+
+		/// <summary>
+		/// Gets a value indicating whether this <see cref="T:Notificare.iOS.NotificareManagedDeviceInbox"/> is opened.
+		/// </summary>
+		/// <value><c>true</c> if opened; otherwise, <c>false</c>.</value>
+		[Export("opened")]
+		bool Opened { get; }
+
+		/*
+		 * + (NotificareManagedDeviceInbox* _Nullable)ManagedDeviceInbox:(NotificareDeviceInbox* _Nonnull)nonManaged inContext:(NSManagedObjectContext* _Nonnull)managedObjectContext;
+		 */
+
+		/// <summary>
+		/// Manageds the device inbox in context.
+		/// </summary>
+		/// <returns>The device inbox in context.</returns>
+		/// <param name="nonManaged">Non managed.</param>
+		/// <param name="managedObjectContext">Managed object context.</param>
+		[Static]
+		[Export("ManagedDeviceInbox:inContext:")]
+		NotificareManagedDeviceInbox ManagedDeviceInboxInContext(NotificareDeviceInbox nonManaged, NSManagedObjectContext managedObjectContext);
+
+		/*
+		 * - (NotificareDeviceInbox* _Nullable)toNonManaged;
+		 */
+
+		/// <summary>
+		/// To the non managed.
+		/// </summary>
+		/// <returns>The non managed.</returns>
+		[Export("toNonManaged")]
+		NotificareDeviceInbox ToNonManaged();
+	}
+
+	[BaseType(typeof(NSObject))]
 	public interface NotificareNotification
 	{
 		/*
@@ -659,6 +897,7 @@ namespace Notificare.iOS
 		/// Gets the notification ID.
 		/// </summary>
 		/// <value>The notification ID.</value>
+		[NullAllowed]
 		[Export("notificationID")]
 		NSString NotificationID { get; }
 
@@ -841,9 +1080,20 @@ namespace Notificare.iOS
 		[Export("displayMessage")]
 		NSNumber DisplayMessage { get; }
 
+		/*
+		 * - (void)setValuesWithNotificationJSON:(NSDictionary* _Nonnull)notificationJSON;
+		 */
+
+		/// <summary>
+		/// Sets the values with notification json.
+		/// </summary>
+		/// <param name="notificationJSON">Notification json.</param>
+		[Export("setValuesWithNotificationJSON:")]
+		void SetValuesWithNotificationJSON(NSDictionary notificationJSON);
+
 	}
 
-	[BaseType (typeof (NSObject))]
+	[BaseType(typeof(NSObject))]
 	public interface NotificarePass
 	{
 		/*
@@ -944,9 +1194,20 @@ namespace Notificare.iOS
 		/// <value><c>true</c> if active; otherwise, <c>false</c>.</value>
 		[Export("active")]
 		bool Active { get; }
+
+		/*
+		 * - (void)setValuesWithPassJSON:(NSDictionary* _Nonnull)passJSON;
+		 */
+
+		/// <summary>
+		/// Sets the values with pass json.
+		/// </summary>
+		/// <param name="passJSON">Pass json.</param>
+		[Export("setValuesWithPassJSON:")]
+		void SetValuesWithPassJSON(NSDictionary passJSON);
 	}
 
-	[BaseType (typeof (NSObject))]
+	[BaseType(typeof(NSObject))]
 	public interface NotificareProduct
 	{
 
@@ -1117,9 +1378,30 @@ namespace Notificare.iOS
 		[Export("purchased")]
 		bool Purchased { get; }
 
+		/*
+		 * - (void)setValuesWithProductJSON:(NSDictionary* _Nonnull)productJSON;
+		 */
+
+		/// <summary>
+		/// Sets the values with product json.
+		/// </summary>
+		/// <param name="productJSON">Product json.</param>
+		[Export("setValuesWithProductJSON:")]
+		void SetValuesWithProductJSON(NSDictionary productJSON);
+
+		/*
+		 * - (void)setValuesWithSKProduct:(SKProduct* _Nonnull)skProduct;
+		 */
+
+		/// <summary>
+		/// Sets the values with SKP roduct.
+		/// </summary>
+		/// <param name="skProduct">Sk product.</param>
+		[Export("setValuesWithSKProduct:")]
+		void SetValuesWithSKProduct(SKProduct skProduct);
 	}
 
-	[BaseType (typeof (NSObject))]
+	[BaseType(typeof(NSObject))]
 	public interface NotificareSegment
 	{
 
@@ -1157,9 +1439,31 @@ namespace Notificare.iOS
 		/// <value><c>true</c> if selected; otherwise, <c>false</c>.</value>
 		[Export("selected")]
 		bool Selected { get; }
+
+		/*
+		 * - (void)setValuesWithSegmentJSON:(NSDictionary* _Nonnull)segmentJSON;
+		 */
+
+		/// <summary>
+		/// Sets the values with segment json.
+		/// </summary>
+		/// <param name="segmentJSON">Segment json.</param>
+		[Export("setValuesWithSegmentJSON:")]
+		void SetValuesWithSegmentJSON(NSDictionary segmentJSON);
+
+		/*
+		 * - (void)setValuesWithPreferenceOptionJSON:(NSDictionary* _Nonnull)preferenceOptionJSON;
+		 */
+
+		/// <summary>
+		/// Sets the values with preference option json.
+		/// </summary>
+		/// <param name="preferenceOptionJSON">Preference option json.</param>
+		[Export("setValuesWithPreferenceOptionJSON:")]
+		void SetValuesWithPreferenceOptionJSON(NSDictionary preferenceOptionJSON);
 	}
 
-	[BaseType (typeof (NSObject))]
+	[BaseType(typeof(NSObject))]
 	public interface NotificareUser
 	{
 
@@ -1257,6 +1561,17 @@ namespace Notificare.iOS
 		[Export("userName")]
 		NSString UserName { get; }
 
+		/*
+		 * @property(strong, nonatomic, nullable) NSDictionary* userData;
+		 */
+
+		/// <summary>
+		/// Gets the user data.
+		/// </summary>
+		/// <value>The user data.</value>
+		[Export("userData")]
+		NSDictionary UserData { get; }
+
 
 		/*
 		 * @property (nonatomic, assign) BOOL validated;
@@ -1268,9 +1583,20 @@ namespace Notificare.iOS
 		/// <value><c>true</c> if validated; otherwise, <c>false</c>.</value>
 		[Export("validated")]
 		bool validated { get; }
+
+		/*
+		 * - (void)setValuesWithUserJSON:(NSDictionary* _Nonnull)userJSON;
+		 */
+
+		/// <summary>
+		/// Sets the values with user json.
+		/// </summary>
+		/// <param name="userJSON">User json.</param>
+		[Export("setValuesWithUserJSON:")]
+		void SetValuesWithUserJSON(NSDictionary userJSON);
 	}
 
-	[BaseType (typeof (NSObject))]
+	[BaseType(typeof(NSObject))]
 	public interface NotificareUserPreference
 	{
 
@@ -1321,11 +1647,305 @@ namespace Notificare.iOS
 		[Export("preferenceOptions")]
 		NSArray PreferenceOptions { get; }
 
+		/*
+		 * - (void)setValuesWithUserPreferenceJSON:(NSDictionary* _Nonnull)userPreferenceJSON;
+		 */
+
+		/// <summary>
+		/// Sets the values with user preference json.
+		/// </summary>
+		/// <param name="userPreferenceJSON">User preference json.</param>
+		[Export("setValuesWithUserPreferenceJSON:")]
+		void SetValuesWithUserPreferenceJSON(NSDictionary userPreferenceJSON);
 	}
 
-	[BaseType (typeof (NSObject))]
+	[BaseType(typeof(NSObject))]
 	[Model, Protocol]
-	interface NotificarePushLibDelegate {
+	interface NotificareInboxManagerDelegate
+	{
+		/*
+		 * - (void)didUpdateInbox:(NotificareInboxManager*)notificareInboxManager;
+		 */
+
+		/// <summary>
+		/// Dids the update inbox.
+		/// </summary>
+		/// <param name="notificareInboxManager">Notificare inbox manager.</param>
+		[Export("didUpdateInbox:")]
+		void DidUpdateInbox(NotificareInboxManager notificareInboxManager);
+
+		/*
+		 * - (void)didReloadInbox:(NotificareInboxManager*)notificareInboxManager;
+		 */
+
+		/// <summary>
+		/// Dids the reload inbox.
+		/// </summary>
+		/// <param name="notificareInboxManager">Notificare inbox manager.</param>
+		[Export("didReloadInbox:")]
+		void DidReloadInbox(NotificareInboxManager notificareInboxManager);
+
+
+		/*
+		 * - (void)notificareInboxManager:(NotificareInboxManager *)notificareInboxManager didOpenInboxItem:(NotificareManagedDeviceInbox *)managedInboxItem;
+		 */
+
+		/// <summary>
+		/// Dids the open inbox item.
+		/// </summary>
+		/// <param name="notificareInboxManager">Notificare inbox manager.</param>
+		/// <param name="managedInboxItem">Managed inbox item.</param>
+		[Export("notificareInboxManager:didOpenInboxItem:")]
+		void DidOpenInboxItem(NotificareInboxManager notificareInboxManager, NotificareManagedDeviceInbox managedInboxItem);
+
+		/*
+		 * - (void)notificareInboxManager:(NotificareInboxManager *)notificareInboxManager didRemoveFromInbox:(NotificareManagedDeviceInbox *)managedInboxItem;
+		 */
+
+		/// <summary>
+		/// Dids the remove from inbox.
+		/// </summary>
+		/// <param name="notificareInboxManager">Notificare inbox manager.</param>
+		/// <param name="managedInboxItem">Managed inbox item.</param>
+		[Export("notificareInboxManager:didRemoveFromInbox:")]
+		void DidRemoveFromInbox(NotificareInboxManager notificareInboxManager, NotificareManagedDeviceInbox managedInboxItem);
+
+		/*
+		 * - (void)notificareInboxManager:(NotificareInboxManager *)notificareInboxManager didRemoveFromInbox:(NotificareManagedDeviceInbox *)managedInboxItem forIndexPath:(NSIndexPath *)indexPath;
+		 */
+
+		/// <summary>
+		/// Dids the remove from inbox.
+		/// </summary>
+		/// <param name="notificareInboxManager">Notificare inbox manager.</param>
+		/// <param name="managedInboxItem">Managed inbox item.</param>
+		/// <param name="indexPath">Index path.</param>
+		[Export("notificareInboxManager:didRemoveFromInbox:forIndexPath:")]
+		void DidRemoveFromInbox(NotificareInboxManager notificareInboxManager, NotificareManagedDeviceInbox managedInboxItem, NSIndexPath indexPath);
+
+
+		/*
+		 * - (void)didClearInbox:(NotificareInboxManager*)notificareInboxManager;
+		 */
+
+		/// <summary>
+		/// Dids the clear inbox.
+		/// </summary>
+		/// <param name="notificareInboxManager">Notificare inbox manager.</param>
+		[Export("didClearInbox:")]
+		void DidClearInbox(NotificareInboxManager notificareInboxManager);
+
+	}
+
+	[BaseType(typeof(NSObject))]
+	interface NotificareInboxManager
+	{
+		/*
+		 * @property(nonatomic) BOOL enabled;
+		 */
+
+		/// <summary>
+		/// Gets a value indicating whether this <see cref="T:Notificare.iOS.NotificareInboxManager"/> is enabled.
+		/// </summary>
+		/// <value><c>true</c> if enabled; otherwise, <c>false</c>.</value>
+		[Export("enabled")]
+		bool Enabled { get; }
+
+
+		/*
+		 * @property(nonatomic, copy, readonly) NSArray<NotificareManagedDeviceInbox*>* managedInboxItems;
+		 */
+
+		/// <summary>
+		/// Gets the managed inbox items.
+		/// </summary>
+		/// <value>The managed inbox items.</value>
+		[Export("managedInboxItems")]
+		NSArray ManagedInboxItems { get; }
+
+		/*
+		 * + (instancetype)sharedManager;
+		 */
+
+		/// <summary>
+		/// Shareds the manager.
+		/// </summary>
+		/// <returns>The manager.</returns>
+		[Static]
+		[Export("sharedManager")]
+		NotificareInboxManager SharedManager();
+
+		/*
+		 * - (void)addDelegate:(id<NotificareInboxManagerDelegate>)delegate;
+		 */
+
+		/// <summary>
+		/// Adds the delegate.
+		/// </summary>
+		/// <param name="">.</param>
+		[Export("addDelegate:")]
+		void AddDelegate(NotificareInboxManagerDelegate inboxManagerDelegate);
+
+		/*
+		 * - (void)removeDelegate:(id<NotificareInboxManagerDelegate>)delegate;
+		 */
+
+		/// <summary>
+		/// Removes the delegate.
+		/// </summary>
+		/// <param name="Delegate">Delegate.</param>
+		[Export("removeDelegate:")]
+		void RemoveDelegate(NotificareInboxManagerDelegate inboxManagerDelegate);
+
+		/*
+		 * - (void)updateInbox;
+		 */
+
+		/// <summary>
+		/// Updates the inbox.
+		/// </summary>
+		[Export("updateInbox")]
+		void UpdateInbox();
+
+		/*
+		 * - (void)reloadInbox;
+		 */
+
+		/// <summary>
+		/// Reloads the inbox.
+		/// </summary>
+		[Export("reloadInbox")]
+		void ReloadInbox();
+
+
+		/*
+		 * - (void)openInboxItem:(NotificareManagedDeviceInbox*)managedInboxItem;
+		 */
+
+		/// <summary>
+		/// Opens the inbox item.
+		/// </summary>
+		/// <param name="managedInboxItem">Managed inbox item.</param>
+		[Export("openInboxItem:")]
+		void OpenInboxItem(NotificareManagedDeviceInbox managedInboxItem);
+
+		/*
+		 * - (void)removeFromInbox:(NotificareManagedDeviceInbox*)managedInboxItem;
+		 */
+
+		/// <summary>
+		/// Removes from inbox.
+		/// </summary>
+		/// <param name="managedInboxItem">Managed inbox item.</param>
+		[Export("removeFromInbox:")]
+		void RemoveFromInbox(NotificareManagedDeviceInbox managedInboxItem);
+
+		/*
+		 * - (void)removeFromInbox:(NotificareManagedDeviceInbox*)managedInboxItem forIndexPath:(NSIndexPath *)indexPath;
+		 */
+
+		/// <summary>
+		/// Removes from inbox.
+		/// </summary>
+		/// <param name="managedInboxItem">Managed inbox item.</param>
+		/// <param name="indexPath">Index path.</param>
+		[Export("removeFromInbox:forIndexPath:")]
+		void RemoveFromInbox(NotificareManagedDeviceInbox managedInboxItem, NSIndexPath indexPath);
+
+		/*
+		 * - (void)clearInbox;
+		 */
+
+		/// <summary>
+		/// Clears the inbox.
+		/// </summary>
+		[Export("clearInbox")]
+		void ClearInbox();
+
+		/*
+		 * - (void)clearLocalInbox;
+		 */
+
+		/// <summary>
+		/// Clears the local inbox.
+		/// </summary>
+		[Export("clearLocalInbox")]
+		void ClearLocalInbox();
+
+	}
+
+	[BaseType(typeof(UIViewController))]
+	interface NotificareBaseInboxViewController
+	{
+		/*
+		 * @property(strong, nonatomic, readonly) NotificareInboxManager* notificareInboxManager;
+		 */
+
+		/// <summary>
+		/// Gets the notificare inbox manager.
+		/// </summary>
+		/// <value>The notificare inbox manager.</value>
+		[Export("notificareInboxManager")]
+		NotificareInboxManager NotificareInboxManager { get; }
+
+		/*
+		 * @property(strong, nonatomic) IBOutlet UITableView *tableView;
+		 */
+		/// <summary>
+		/// Gets or sets the table view.
+		/// </summary>
+		/// <value>The table view.</value>
+		[Export("tableView")]
+		[Outlet]
+		UITableView TableView { get; set; }
+
+
+		/*
+		 * @property(strong, nonatomic) UIFont* cellMessageLabelFont;
+		 */
+		/// <summary>
+		/// Gets or sets the cell message label font.
+		/// </summary>
+		/// <value>The cell message label font.</value>
+		[Export("cellMessageLabelFont")]
+		UIFont CellMessageLabelFont { get; set; }
+
+		/*
+		 * @property(strong, nonatomic) UIFont* cellTimeAgoLabelFont;
+		 */
+		/// <summary>
+		/// Gets or sets the cell time ago label font.
+		/// </summary>
+		/// <value>The cell time ago label font.</value>
+		[Export("cellTimeAgoLabelFont")]
+		UIFont CellTimeAgoLabelFont { get; set; }
+
+		/*
+		 * @property(strong, nonatomic) UIColor* cellUnopenedTextColor;
+		 */
+		/// <summary>
+		/// Gets or sets the color of the cell unopened text.
+		/// </summary>
+		/// <value>The color of the cell unopened text.</value>
+		[Export("cellUnopenedTextColor")]
+		UIColor CellUnopenedTextColor { get; set; }
+
+		/*
+		 * @property(strong, nonatomic) UIColor* cellOpenedTextColor;
+		 */
+		/// <summary>
+		/// Gets or sets the color of the cell opened text.
+		/// </summary>
+		/// <value>The color of the cell opened text.</value>
+		[Export("cellOpenedTextColor")]
+		UIColor CellOpenedTextColor { get; set; }
+
+	}
+
+	[BaseType(typeof(NSObject))]
+	[Model, Protocol]
+	interface NotificarePushLibDelegate
+	{
 
 		/*
 		 * - (void)notificarePushLib:(NotificarePushLib *)library onReady:(NSDictionary *)info;
@@ -1336,8 +1956,8 @@ namespace Notificare.iOS
 		/// </summary>
 		/// <param name="library">Library.</param>
 		/// <param name="info">Info.</param>
-		[Export ("notificarePushLib:onReady:")]
-		void OnReady (NotificarePushLib library, NSDictionary info);
+		[Export("notificarePushLib:onReady:")]
+		void OnReady(NotificarePushLib library, NSDictionary info);
 
 		/*
 		 * - (void)notificarePushLib:(NotificarePushLib *)library didRegisterForWebsocketsNotifications:(NSString *)token;
@@ -1348,8 +1968,8 @@ namespace Notificare.iOS
 		/// </summary>
 		/// <param name="library">Library.</param>
 		/// <param name="token">Token.</param>
-		[Export ("notificarePushLib:didRegisterForWebsocketsNotifications:")]
-		void DidRegisterForWebsocketsNotifications (NotificarePushLib library, NSString token);
+		[Export("notificarePushLib:didRegisterForWebsocketsNotifications:")]
+		void DidRegisterForWebsocketsNotifications(NotificarePushLib library, NSString token);
 
 
 		/*
@@ -1361,8 +1981,8 @@ namespace Notificare.iOS
 		/// </summary>
 		/// <param name="library">Library.</param>
 		/// <param name="info">Info.</param>
-		[Export ("notificarePushLib:didReceiveWebsocketNotification:")]
-		void DidReceiveWebsocketNotification (NotificarePushLib library, NSDictionary info);
+		[Export("notificarePushLib:didReceiveWebsocketNotification:")]
+		void DidReceiveWebsocketNotification(NotificarePushLib library, NSDictionary info);
 
 
 		/*
@@ -1374,8 +1994,8 @@ namespace Notificare.iOS
 		/// </summary>
 		/// <param name="library">Library.</param>
 		/// <param name="error">Error.</param>
-		[Export ("notificarePushLib:didFailToRegisterWebsocketNotifications:")]
-		void DidFailToRegisterWebsocketNotifications (NotificarePushLib library, NSError error);
+		[Export("notificarePushLib:didFailToRegisterWebsocketNotifications:")]
+		void DidFailToRegisterWebsocketNotifications(NotificarePushLib library, NSError error);
 
 
 		/*
@@ -1387,8 +2007,32 @@ namespace Notificare.iOS
 		/// </summary>
 		/// <param name="library">Library.</param>
 		/// <param name="reason">Reason.</param>
-		[Export ("notificarePushLib:didCloseWebsocketConnection:")]
-		void DidCloseWebsocketConnection (NotificarePushLib library, NSString reason);
+		[Export("notificarePushLib:didCloseWebsocketConnection:")]
+		void DidCloseWebsocketConnection(NotificarePushLib library, NSString reason);
+
+		/*
+		 * - (void)notificarePushLib:(NotificarePushLib*)library willHandleNotification:(UNNotification*)notification;
+		 */
+
+		/// <summary>
+		/// Wills the handle notification.
+		/// </summary>
+		/// <param name="library">Library.</param>
+		/// <param name="notification">Notification.</param>
+		[Export("notificarePushLib:willHandleNotification:")]
+		void WillHandleNotification(NotificarePushLib library, UNNotification notification);
+
+
+		/*
+		 * - (void)notificarePushLib:(NotificarePushLib*)library didReceiveSystemPush:(NSDictionary*)info;
+		 */
+
+		/// <summary>
+		/// Dids the receive system push.
+		/// </summary>
+		/// <param name="info">Info.</param>
+		[Export("notificarePushLib:didReceiveSystemPush:")]
+		void DidReceiveSystemPush(NotificarePushLib library, NSDictionary info);
 
 
 		/*
@@ -1401,8 +2045,8 @@ namespace Notificare.iOS
 		/// <returns><c>true</c>, if we should handle notification, <c>false</c> otherwise.</returns>
 		/// <param name="library">The NotifcarePushLib instance.</param>
 		/// <param name="info">The notification.</param>
-		[Export ("notificarePushLib:shouldHandleNotification:"), DefaultValue ("true")]
-		bool ShouldHandleNotification (NotificarePushLib library, NSDictionary info);
+		[Export("notificarePushLib:shouldHandleNotification:"), DefaultValue("true")]
+		bool ShouldHandleNotification(NotificarePushLib library, NSDictionary info);
 
 
 		/*
@@ -1414,8 +2058,8 @@ namespace Notificare.iOS
 		/// </summary>
 		/// <param name="library">Library.</param>
 		/// <param name="badge">Badge.</param>
-		[Export ("notificarePushLib:didUpdatebadge:")]
-		void DidUpdateBadge (NotificarePushLib library, int badge);
+		[Export("notificarePushLib:didUpdatebadge:")]
+		void DidUpdateBadge(NotificarePushLib library, int badge);
 
 
 		/*
@@ -1427,8 +2071,8 @@ namespace Notificare.iOS
 		/// </summary>
 		/// <param name="library">Library.</param>
 		/// <param name="notification">Notification.</param>
-		[Export ("notificarePushLib:willOpenNotification:")]
-		void WillOpenNotification (NotificarePushLib library, NotificareNotification notification);
+		[Export("notificarePushLib:willOpenNotification:")]
+		void WillOpenNotification(NotificarePushLib library, NotificareNotification notification);
 
 		/*
 		 * - (void)notificarePushLib:(NotificarePushLib *)library didOpenNotification:(Notification *)notification;
@@ -1439,8 +2083,8 @@ namespace Notificare.iOS
 		/// </summary>
 		/// <param name="library">Library.</param>
 		/// <param name="notification">Notification.</param>
-		[Export ("notificarePushLib:didOpenNotification:")]
-		void DidOpenNotification (NotificarePushLib library, NotificareNotification notification);
+		[Export("notificarePushLib:didOpenNotification:")]
+		void DidOpenNotification(NotificarePushLib library, NotificareNotification notification);
 
 		/*
 		 * - (void)notificarePushLib:(NotificarePushLib *)library didCloseNotification:(Notification *)notification;
@@ -1451,8 +2095,8 @@ namespace Notificare.iOS
 		/// </summary>
 		/// <param name="library">Library.</param>
 		/// <param name="notification">Notification.</param>
-		[Export ("notificarePushLib:didCloseNotification:")]
-		void DidCloseNotification (NotificarePushLib library, NotificareNotification notification);
+		[Export("notificarePushLib:didCloseNotification:")]
+		void DidCloseNotification(NotificarePushLib library, NotificareNotification notification);
 
 		/*
 		 * - (void)notificarePushLib:(NotificarePushLib *)library didFailToOpenNotification:(Notification *)notification;
@@ -1463,8 +2107,8 @@ namespace Notificare.iOS
 		/// </summary>
 		/// <param name="library">Library.</param>
 		/// <param name="notification">Notification.</param>
-		[Export ("notificarePushLib:didFailToOpenNotification:")]
-		void DidFailToOpenNotification (NotificarePushLib library, NotificareNotification notification);
+		[Export("notificarePushLib:didFailToOpenNotification:")]
+		void DidFailToOpenNotification(NotificarePushLib library, NotificareNotification notification);
 
 		/*
 		 * - (void)notificarePushLib:(NotificarePushLib *)library willExecuteAction:(Notification *)notification;
@@ -1475,8 +2119,8 @@ namespace Notificare.iOS
 		/// </summary>
 		/// <param name="library">Library.</param>
 		/// <param name="notification">Notification.</param>
-		[Export ("notificarePushLib:willExecuteAction:")]
-		void WillExecuteAction (NotificarePushLib library, NotificareNotification notification);
+		[Export("notificarePushLib:willExecuteAction:")]
+		void WillExecuteAction(NotificarePushLib library, NotificareNotification notification);
 
 		/*
 		 * - (void)notificarePushLib:(NotificarePushLib *)library didExecuteAction:(NSDictionary *)info;
@@ -1487,8 +2131,8 @@ namespace Notificare.iOS
 		/// </summary>
 		/// <param name="library">Library.</param>
 		/// <param name="info">Info.</param>
-		[Export ("notificarePushLib:didExecuteAction:")]
-		void DidExecuteAction (NotificarePushLib library, NSDictionary info);
+		[Export("notificarePushLib:didExecuteAction:")]
+		void DidExecuteAction(NotificarePushLib library, NSDictionary info);
 
 		/*
 		 * - (void)notificarePushLib:(NotificarePushLib *)library shouldPerformSelectorWithURL:(NSURL *)url;
@@ -1499,8 +2143,8 @@ namespace Notificare.iOS
 		/// </summary>
 		/// <param name="library">Library.</param>
 		/// <param name="url">URL.</param>
-		[Export ("notificarePushLib:shouldPerformSelectorWithURL:")]
-		void ShouldPerformSelectorWithURL (NotificarePushLib library, NSUrl url);
+		[Export("notificarePushLib:shouldPerformSelectorWithURL:")]
+		void ShouldPerformSelectorWithURL(NotificarePushLib library, NSUrl url);
 
 		/*
 		 * - (void)notificarePushLib:(NotificarePushLib *)library didNotExecuteAction:(NSDictionary *)info;
@@ -1511,8 +2155,8 @@ namespace Notificare.iOS
 		/// </summary>
 		/// <param name="library">Library.</param>
 		/// <param name="info">Info.</param>
-		[Export ("notificarePushLib:didNotExecuteAction:")]
-		void DidNotExecuteAction (NotificarePushLib library, NSDictionary info);
+		[Export("notificarePushLib:didNotExecuteAction:")]
+		void DidNotExecuteAction(NotificarePushLib library, NSDictionary info);
 
 		/*
 		 * - (void)notificarePushLib:(NotificarePushLib *)library didFailToExecuteAction:(NSError *)error;
@@ -1523,8 +2167,8 @@ namespace Notificare.iOS
 		/// </summary>
 		/// <param name="library">Library.</param>
 		/// <param name="info">Info.</param>
-		[Export ("notificarePushLib:didFailToExecuteAction:")]
-		void DidFailToExecuteAction (NotificarePushLib library, NSDictionary info);
+		[Export("notificarePushLib:didFailToExecuteAction:")]
+		void DidFailToExecuteAction(NotificarePushLib library, NSDictionary info);
 
 		/*
 		 * - (void)notificarePushLib:(NotificarePushLib *)library didReceiveLocationServiceAuthorizationStatus:(NSDictionary *)status;
@@ -1535,8 +2179,8 @@ namespace Notificare.iOS
 		/// </summary>
 		/// <param name="library">Library.</param>
 		/// <param name="status">Status.</param>
-		[Export ("notificarePushLib:didReceiveLocationServiceAuthorizationStatus:")]
-		void DidReceiveLocationServiceAuthorizationStatus (NotificarePushLib library, NSDictionary status);
+		[Export("notificarePushLib:didReceiveLocationServiceAuthorizationStatus:")]
+		void DidReceiveLocationServiceAuthorizationStatus(NotificarePushLib library, NSDictionary status);
 
 		/*
 		 * - (void)notificarePushLib:(NotificarePushLib *)library didFailToStartLocationServiceWithError:(NSError *)error;
@@ -1547,8 +2191,8 @@ namespace Notificare.iOS
 		/// </summary>
 		/// <param name="library">Library.</param>
 		/// <param name="error">Error.</param>
-		[Export ("notificarePushLib:didFailToStartLocationServiceWithError:")]
-		void DidFailToStartLocationServiceWithError (NotificarePushLib library, NSError error);
+		[Export("notificarePushLib:didFailToStartLocationServiceWithError:")]
+		void DidFailToStartLocationServiceWithError(NotificarePushLib library, NSError error);
 
 		/*
 		 * - (void)notificarePushLib:(NotificarePushLib *)library didUpdateLocations:(NSArray *)locations;
@@ -1559,8 +2203,8 @@ namespace Notificare.iOS
 		/// </summary>
 		/// <param name="library">Library.</param>
 		/// <param name="locations">Locations.</param>
-		[Export ("notificarePushLib:didUpdateLocations:")]
-		void DidUpdateLocations (NotificarePushLib library, NSArray locations);
+		[Export("notificarePushLib:didUpdateLocations:")]
+		void DidUpdateLocations(NotificarePushLib library, NSArray locations);
 
 
 		/* 
@@ -1573,8 +2217,8 @@ namespace Notificare.iOS
 		/// <param name="library">Library.</param>
 		/// <param name="region">Region.</param>
 		/// <param name="error">Error.</param>
-		[Export ("notificarePushLib:monitoringDidFailForRegion:withError:")]
-		void MonitoringDidFailForRegionWithError (NotificarePushLib library, CLRegion region, NSError error);
+		[Export("notificarePushLib:monitoringDidFailForRegion:withError:")]
+		void MonitoringDidFailForRegionWithError(NotificarePushLib library, CLRegion region, NSError error);
 
 
 		/*
@@ -1586,8 +2230,8 @@ namespace Notificare.iOS
 		/// </summary>
 		/// <param name="library">Library.</param>
 		/// <param name="region">Region.</param>
-		[Export ("notificarePushLib:didStartMonitoringForRegion:")]
-		void DidStartMonitoringForRegion (NotificarePushLib library, CLRegion region);
+		[Export("notificarePushLib:didStartMonitoringForRegion:")]
+		void DidStartMonitoringForRegion(NotificarePushLib library, CLRegion region);
 
 
 		/*
@@ -1600,8 +2244,8 @@ namespace Notificare.iOS
 		/// <param name="library">Library.</param>
 		/// <param name="state">State.</param>
 		/// <param name="region">Region.</param>
-		[Export ("notificarePushLib:didDetermineState:forRegion:")]
-		void DidDetermineStateForRegion (NotificarePushLib library, CLRegionState state, CLRegion region);
+		[Export("notificarePushLib:didDetermineState:forRegion:")]
+		void DidDetermineStateForRegion(NotificarePushLib library, CLRegionState state, CLRegion region);
 
 		/*
 		 * - (void)notificarePushLib:(NotificarePushLib *)library didEnterRegion:(CLRegion *)region;
@@ -1612,8 +2256,8 @@ namespace Notificare.iOS
 		/// </summary>
 		/// <param name="library">Library.</param>
 		/// <param name="region">Region.</param>
-		[Export ("notificarePushLib:didEnterRegion:")]
-		void DidEnterRegion (NotificarePushLib library, CLRegion region);
+		[Export("notificarePushLib:didEnterRegion:")]
+		void DidEnterRegion(NotificarePushLib library, CLRegion region);
 
 		/*
 		 * - (void)notificarePushLib:(NotificarePushLib *)library didExitRegion:(CLRegion *)region;
@@ -1624,8 +2268,8 @@ namespace Notificare.iOS
 		/// </summary>
 		/// <param name="library">Library.</param>
 		/// <param name="region">Region.</param>
-		[Export ("notificarePushLib:didExitRegion:")]
-		void DidExitRegion (NotificarePushLib library, CLRegion region);
+		[Export("notificarePushLib:didExitRegion:")]
+		void DidExitRegion(NotificarePushLib library, CLRegion region);
 
 		/*
 		 * - (void)notificarePushLib:(NotificarePushLib *)library rangingBeaconsDidFailForRegion:(CLBeaconRegion *)region withError:(NSError *)error;
@@ -1637,8 +2281,8 @@ namespace Notificare.iOS
 		/// <param name="library">Library.</param>
 		/// <param name="region">Region.</param>
 		/// <param name="error">Error.</param>
-		[Export ("notificarePushLib:rangingBeaconsDidFailForRegion:withError:")]
-		void RangingBeaconsDidFailForRegionWithError (NotificarePushLib library, CLRegion region, NSError error);
+		[Export("notificarePushLib:rangingBeaconsDidFailForRegion:withError:")]
+		void RangingBeaconsDidFailForRegionWithError(NotificarePushLib library, CLRegion region, NSError error);
 
 		/* 
 		 * - (void)notificarePushLib:(NotificarePushLib *)library didRangeBeacons:(NSArray *)beacons inRegion:(CLBeaconRegion *)region;
@@ -1650,8 +2294,8 @@ namespace Notificare.iOS
 		/// <param name="library">Library.</param>
 		/// <param name="beacons">Beacons.</param>
 		/// <param name="region">Region.</param>
-		[Export ("notificarePushLib:didRangeBeacons:inRegion:")]
-		void DidRangeBeaconsInRegion (NotificarePushLib library, NSArray beacons, CLRegion region);
+		[Export("notificarePushLib:didRangeBeacons:inRegion:")]
+		void DidRangeBeaconsInRegion(NotificarePushLib library, NSArray beacons, CLRegion region);
 
 		/*
 		 * - (void)notificarePushLib:(NotificarePushLib *)library didChangeAccountNotification:(NSDictionary *)info;
@@ -1662,8 +2306,8 @@ namespace Notificare.iOS
 		/// </summary>
 		/// <param name="library">Library.</param>
 		/// <param name="info">Info.</param>
-		[Export ("notificarePushLib:didChangeAccountNotification:")]
-		void DidChangeAccountNotification (NotificarePushLib library, NSDictionary info);
+		[Export("notificarePushLib:didChangeAccountNotification:")]
+		void DidChangeAccountNotification(NotificarePushLib library, NSDictionary info);
 
 		/*
 		 * - (void)notificarePushLib:(NotificarePushLib *)library didFailToRequestAccessNotification:(NSError *)error;
@@ -1674,8 +2318,8 @@ namespace Notificare.iOS
 		/// </summary>
 		/// <param name="library">Library.</param>
 		/// <param name="error">Error.</param>
-		[Export ("notificarePushLib:didFailToRequestAccessNotification:")]
-		void DidFailToRequestAccessNotification (NotificarePushLib library, NSError error);
+		[Export("notificarePushLib:didFailToRequestAccessNotification:")]
+		void DidFailToRequestAccessNotification(NotificarePushLib library, [NullAllowed] NSError error);
 
 		/*
 		 * - (void)notificarePushLib:(NotificarePushLib *)library didReceiveActivationToken:(NSString *)token;
@@ -1686,8 +2330,8 @@ namespace Notificare.iOS
 		/// </summary>
 		/// <param name="library">Library.</param>
 		/// <param name="token">Token.</param>
-		[Export ("notificarePushLib:didReceiveActivationToken:")]
-		void DidReceiveActivationToken (NotificarePushLib library, NSString token);
+		[Export("notificarePushLib:didReceiveActivationToken:")]
+		void DidReceiveActivationToken(NotificarePushLib library, NSString token);
 
 		/*
 		 * - (void)notificarePushLib:(NotificarePushLib *)library didReceiveResetPasswordToken:(NSString *)token;
@@ -1698,8 +2342,8 @@ namespace Notificare.iOS
 		/// </summary>
 		/// <param name="library">Library.</param>
 		/// <param name="token">Token.</param>
-		[Export ("notificarePushLib:didReceiveResetPasswordToken:")]
-		void DidReceiveResetPasswordToken (NotificarePushLib library, NSString token);
+		[Export("notificarePushLib:didReceiveResetPasswordToken:")]
+		void DidReceiveResetPasswordToken(NotificarePushLib library, NSString token);
 
 		/*
 		 * - (void)notificarePushLib:(NotificarePushLib *)library didLoadStore:(NSArray *)products;
@@ -1710,8 +2354,8 @@ namespace Notificare.iOS
 		/// </summary>
 		/// <param name="library">Library.</param>
 		/// <param name="products">Products.</param>
-		[Export ("notificarePushLib:didLoadStore:")]
-		void DidLoadStore (NotificarePushLib library, NSArray products);
+		[Export("notificarePushLib:didLoadStore:")]
+		void DidLoadStore(NotificarePushLib library, NSArray products);
 
 		/*
 		 * - (void)notificarePushLib:(NotificarePushLib *)library didFailToLoadStore:(NSError *)error;
@@ -1722,8 +2366,8 @@ namespace Notificare.iOS
 		/// </summary>
 		/// <param name="library">Library.</param>
 		/// <param name="error">Error.</param>
-		[Export ("notificarePushLib:didFailToLoadStore:")]
-		void DidFailToLoadStore (NotificarePushLib library, NSError error);
+		[Export("notificarePushLib:didFailToLoadStore:")]
+		void DidFailToLoadStore(NotificarePushLib library, NSError error);
 
 		/*
 		 * - (void)notificarePushLib:(NotificarePushLib *)library didCompleteProductTransaction:(SKPaymentTransaction *)transaction;
@@ -1734,8 +2378,8 @@ namespace Notificare.iOS
 		/// </summary>
 		/// <param name="library">Library.</param>
 		/// <param name="transaction">Transaction.</param>
-		[Export ("notificarePushLib:didCompleteProductTransaction:")]
-		void DidCompleteProductTransaction (NotificarePushLib library, SKPaymentTransaction transaction);
+		[Export("notificarePushLib:didCompleteProductTransaction:")]
+		void DidCompleteProductTransaction(NotificarePushLib library, SKPaymentTransaction transaction);
 
 
 		/*
@@ -1747,8 +2391,8 @@ namespace Notificare.iOS
 		/// </summary>
 		/// <param name="library">Library.</param>
 		/// <param name="transaction">Transaction.</param>
-		[Export ("notificarePushLib:didRestoreProductTransaction:")]
-		void DidRestoreProductTransaction (NotificarePushLib library, SKPaymentTransaction transaction);
+		[Export("notificarePushLib:didRestoreProductTransaction:")]
+		void DidRestoreProductTransaction(NotificarePushLib library, SKPaymentTransaction transaction);
 
 
 		/*
@@ -1761,8 +2405,8 @@ namespace Notificare.iOS
 		/// <param name="library">Library.</param>
 		/// <param name="transaction">Transaction.</param>
 		/// <param name="error">Error.</param>
-		[Export ("notificarePushLib:didFailProductTransaction:withError:")]
-		void DidFailProductTransaction (NotificarePushLib library, SKPaymentTransaction transaction, NSError error);
+		[Export("notificarePushLib:didFailProductTransaction:withError:")]
+		void DidFailProductTransaction(NotificarePushLib library, SKPaymentTransaction transaction, NSError error);
 
 		/*
 		 * - (void)notificarePushLib:(NotificarePushLib *)library didStartDownloadContent:(SKPaymentTransaction *)transaction;
@@ -1773,8 +2417,8 @@ namespace Notificare.iOS
 		/// </summary>
 		/// <param name="library">Library.</param>
 		/// <param name="transaction">Transaction.</param>
-		[Export ("notificarePushLib:didStartDownloadContent:")]
-		void DidStartDownloadContent (NotificarePushLib library, SKPaymentTransaction transaction);
+		[Export("notificarePushLib:didStartDownloadContent:")]
+		void DidStartDownloadContent(NotificarePushLib library, SKPaymentTransaction transaction);
 
 		/*
 		 * - (void)notificarePushLib:(NotificarePushLib *)library didPauseDownloadContent:(SKDownload *)download;
@@ -1785,8 +2429,8 @@ namespace Notificare.iOS
 		/// </summary>
 		/// <param name="library">Library.</param>
 		/// <param name="download">Download.</param>
-		[Export ("notificarePushLib:didPauseDownloadContent:")]
-		void DidPauseDownloadContent (NotificarePushLib library, SKDownload download);
+		[Export("notificarePushLib:didPauseDownloadContent:")]
+		void DidPauseDownloadContent(NotificarePushLib library, SKDownload download);
 
 		/*
 		 * - (void)notificarePushLib:(NotificarePushLib *)library didCancelDownloadContent:(SKDownload *)download;
@@ -1797,8 +2441,8 @@ namespace Notificare.iOS
 		/// </summary>
 		/// <param name="library">Library.</param>
 		/// <param name="download">Download.</param>
-		[Export ("notificarePushLib:didCancelDownloadContent:")]
-		void DidCancelDownloadContent (NotificarePushLib library, SKDownload download);
+		[Export("notificarePushLib:didCancelDownloadContent:")]
+		void DidCancelDownloadContent(NotificarePushLib library, SKDownload download);
 
 		/*
 		 * - (void)notificarePushLib:(NotificarePushLib *)library didReceiveProgressDownloadContent:(SKDownload *)download;
@@ -1809,8 +2453,8 @@ namespace Notificare.iOS
 		/// </summary>
 		/// <param name="library">Library.</param>
 		/// <param name="download">Download.</param>
-		[Export ("notificarePushLib:didReceiveProgressDownloadContent:")]
-		void DidReceiveProgressDownloadContent (NotificarePushLib library, SKDownload download);
+		[Export("notificarePushLib:didReceiveProgressDownloadContent:")]
+		void DidReceiveProgressDownloadContent(NotificarePushLib library, SKDownload download);
 
 		/*
 		 * - (void)notificarePushLib:(NotificarePushLib *)library didFailDownloadContent:(SKDownload *)download;
@@ -1821,8 +2465,8 @@ namespace Notificare.iOS
 		/// </summary>
 		/// <param name="library">Library.</param>
 		/// <param name="download">Download.</param>
-		[Export ("notificarePushLib:didFailDownloadContent:")]
-		void DidFailDownloadContent (NotificarePushLib library, SKDownload download);
+		[Export("notificarePushLib:didFailDownloadContent:")]
+		void DidFailDownloadContent(NotificarePushLib library, SKDownload download);
 
 		/*
 		 * - (void)notificarePushLib:(NotificarePushLib *)library didFinishDownloadContent:(SKDownload *)download;
@@ -1833,21 +2477,23 @@ namespace Notificare.iOS
 		/// </summary>
 		/// <param name="library">Library.</param>
 		/// <param name="download">Download.</param>
-		[Export ("notificarePushLib:didFinishDownloadContent:")]
-		void DidFinishDownloadContent (NotificarePushLib library, SKDownload download);
+		[Export("notificarePushLib:didFinishDownloadContent:")]
+		void DidFinishDownloadContent(NotificarePushLib library, SKDownload download);
 	}
 
-	public delegate void SuccessDeviceInboxCallback (NotificareDeviceInbox inbox);
-	public delegate void SuccessNotificationCallback (NotificareNotification notification);
-	public delegate void SuccessPassCallback( NotificarePass pass );
-	public delegate void SuccessProductCallback( NotificareProduct product );
-	public delegate void SuccessArrayCallback( NSArray info );
-	public delegate void SuccessCallback( NSDictionary info );
-	public delegate void ErrorCallback( NSError error );
+	public delegate void SuccessDeviceInboxCallback(NotificareDeviceInbox inbox);
+	public delegate void SuccessNotificationCallback(NotificareNotification notification);
+	public delegate void SuccessPassCallback(NotificarePass pass);
+	public delegate void SuccessProductCallback(NotificareProduct product);
+	public delegate void SuccessArrayCallback(NSArray info);
+	public delegate void SuccessCallback(NSDictionary info);
+	public delegate void ErrorCallback(NSError error);
+	//public delegate void OperationErrorCallback(NotificareNetworkOperation operation, NSError error);
 
-	// @interface NotificarePushLib : NSObject <NotificareSRWebSocketDelegate,NotificareDelegate,NotificareActionsDelegate,CLLocationManagerDelegate>
-	[BaseType (typeof (NSObject))]
-	interface NotificarePushLib 
+	// @interface NotificarePushLib : NSObject <NotificareSRWebSocketDelegate,NotificareDelegate,NotificareActionsDelegate,CLLocationManagerDelegate, SKProductsRequestDelegate, SKPaymentTransactionObserver, UNUserNotificationCenterDelegate>
+
+	[BaseType(typeof(NSObject))]
+	interface NotificarePushLib
 	{
 		/*
 		 * +(NotificarePushLib*)shared;
@@ -1856,7 +2502,8 @@ namespace Notificare.iOS
 		/// <summary>
 		/// The shared singleton implementation.
 		/// </summary>
-		[Static][Export("shared")]
+		[Static]
+		[Export("shared")]
 		NotificarePushLib Shared();
 
 		/*
@@ -1877,7 +2524,7 @@ namespace Notificare.iOS
 		/// Registers for APNS + User Notifications
 		/// </summary>
 		[Export("registerForNotifications")]
-		void RegisterForNotifications ();
+		void RegisterForNotifications();
 
 		/*
 		 * - (void)unregisterForNotifications;
@@ -1887,7 +2534,7 @@ namespace Notificare.iOS
 		/// Unregisters for notifications.
 		/// </summary>
 		[Export("unregisterForNotifications")]
-		void UnregisterForNotifications ();
+		void UnregisterForNotifications();
 
 		/*
 		 * - (void)registerUserNotifications;
@@ -1897,7 +2544,7 @@ namespace Notificare.iOS
 		/// Register for User Notifications
 		/// </summary>
 		[Export("registerUserNotifications")]
-		void RegisterUserNotifications ();
+		void RegisterUserNotifications();
 
 		/* 
 		 * -(BOOL)checkRemoteNotifications;
@@ -1908,7 +2555,7 @@ namespace Notificare.iOS
 		/// </summary>
 		/// <returns><c>true</c>, if device is registered with APNS, <c>false</c> otherwise.</returns>
 		[Export("checkRemoteNotifications")]
-		bool CheckRemoteNotifications ();
+		bool CheckRemoteNotifications();
 
 		/*
 		 * - (void)handleOptions:(NSDictionary *)options;
@@ -1919,7 +2566,7 @@ namespace Notificare.iOS
 		/// </summary>
 		/// <param name="options">Options.</param>
 		[Export("handleOptions:")]
-		void HandleOptions( [NullAllowed] NSDictionary options );
+		void HandleOptions([NullAllowed] NSDictionary options);
 
 		/*
 		 * - (void)registerDevice:(NSData *)token;
@@ -1932,8 +2579,8 @@ namespace Notificare.iOS
 		/// </summary>
 		/// <param name="token">Token.</param>
 		[Export("registerDevice:")]
-		[Obsolete ("RegisterDevice is deprecated, use RegisterDevice with callbacks")] 
-		void RegisterDevice( NSData token );
+		[Obsolete("RegisterDevice is deprecated, use RegisterDevice with callbacks")]
+		void RegisterDevice(NSData token);
 
 		/*
 		 * - (void)registerDevice:(NSData *)token completionHandler:(SuccessBlock)info errorHandler:(ErrorBlock)error;
@@ -1946,7 +2593,7 @@ namespace Notificare.iOS
 		/// <param name="completionHandler">Completion handler.</param>
 		/// <param name="errorHandler">Error handler.</param>
 		[Export("registerDevice:completionHandler:errorHandler:")]
-		void RegisterDevice( NSData token, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler );
+		void RegisterDevice(NSData token, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
 
 
 		/*
@@ -1963,8 +2610,8 @@ namespace Notificare.iOS
 		/// <param name="token">Token.</param>
 		/// <param name="userID">User identifier.</param>
 		[Export("registerDevice:withUserID:")]
-		[Obsolete ("RegisterDeviceWithUserID is deprecated, use RegisterDeviceWithUserID with callbacks")] 
-		void RegisterDeviceWithUserID( NSData token, NSString userID );
+		[Obsolete("RegisterDeviceWithUserID is deprecated, use RegisterDeviceWithUserID with callbacks")]
+		void RegisterDeviceWithUserID(NSData token, NSString userID);
 
 		/*
 		 * - (void)registerDevice:(NSData *)token withUserID:(NSString *)userID completionHandler:(SuccessBlock)info errorHandler:(ErrorBlock)error;
@@ -1982,7 +2629,7 @@ namespace Notificare.iOS
 		/// <param name="completionHandler">Completion handler.</param>
 		/// <param name="errorHandler">Error handler.</param>
 		[Export("registerDevice:withUserID:completionHandler:errorHandler:")]
-		void RegisterDeviceWithUserID( NSData token, NSString userID, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler );
+		void RegisterDeviceWithUserID(NSData token, NSString userID, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
 
 		/*
 		 * - (void)registerDevice:(NSData *)token withUserID:(NSString *)userID withUsername:(NSString *)username;
@@ -2000,8 +2647,8 @@ namespace Notificare.iOS
 		/// <param name="userID">User ID.</param>
 		/// <param name="username">Username.</param>
 		[Export("registerDevice:withUserID:withUsername:")]
-		[Obsolete ("RegisterDeviceWithUserIDWithUsername is deprecated, use RegisterDeviceWithUserIDWithUsername with callbacks")] 
-		void RegisterDeviceWithUserIDWithUsername( NSData token, NSString userID, NSString username );
+		[Obsolete("RegisterDeviceWithUserIDWithUsername is deprecated, use RegisterDeviceWithUserIDWithUsername with callbacks")]
+		void RegisterDeviceWithUserIDWithUsername(NSData token, NSString userID, NSString username);
 
 		/*
 		 * - (void)registerDevice:(NSData *)token withUserID:(NSString *)userID withUsername:(NSString *)username completionHandler:(SuccessBlock)info errorHandler:(ErrorBlock)error;
@@ -2019,7 +2666,7 @@ namespace Notificare.iOS
 		/// <param name="completionHandler">Completion handler.</param>
 		/// <param name="errorHandler">Error handler.</param>
 		[Export("registerDevice:withUserID:withUsername:completionHandler:errorHandler:")]
-		void RegisterDeviceWithUserIDWithUsername( NSData token, NSString userID, NSString username, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler );
+		void RegisterDeviceWithUserIDWithUsername(NSData token, NSString userID, NSString username, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
 
 		/*
 		 * - (void)registerForWebsockets;
@@ -2052,7 +2699,7 @@ namespace Notificare.iOS
 		/// <param name="completionHandler">Completion handler.</param>
 		/// <param name="errorHandler">Error handler.</param>
 		[Export("registerDeviceForWebsockets:completionHandler:errorHandler:")]
-		void RegisterDeviceForWebsockets( NSString token, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler );
+		void RegisterDeviceForWebsockets(NSString token, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
 
 		/*
 		 * - (void)registerDeviceForWebsockets:(NSString *)token withUserID:(NSString *)userID completionHandler:(SuccessBlock)info errorHandler:(ErrorBlock)error;
@@ -2070,7 +2717,7 @@ namespace Notificare.iOS
 		/// <param name="completionHandler">Completion handler.</param>
 		/// <param name="errorHandler">Error handler.</param>
 		[Export("registerDeviceForWebsockets:withUserID:completionHandler:errorHandler:")]
-		void RegisterDeviceForWebsocketsWithUserID( NSString token, NSString userID, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler );
+		void RegisterDeviceForWebsocketsWithUserID(NSString token, NSString userID, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
 
 		/*
 		 * - (void)registerDeviceForWebsockets:(NSString *)token withUserID:(NSString *)userID withUsername:(NSString *)username completionHandler:(SuccessBlock)info errorHandler:(ErrorBlock)error;
@@ -2088,7 +2735,7 @@ namespace Notificare.iOS
 		/// <param name="completionHandler">Completion handler.</param>
 		/// <param name="errorHandler">Error handler.</param>
 		[Export("registerDeviceForWebsockets:withUserID:withUsername:completionHandler:errorHandler:")]
-		void RegisterDeviceForWebsocketsWithUserIDWithUsername( NSString token, NSString userID, NSString username, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler );
+		void RegisterDeviceForWebsocketsWithUserIDWithUsername(NSString token, NSString userID, NSString username, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
 
 
 		/*
@@ -2111,7 +2758,7 @@ namespace Notificare.iOS
 		/// </summary>
 		/// <param name="badge">Badge.</param>
 		[Export("updateBadge:")]
-		void UpdateBadge (NSNumber badge);
+		void UpdateBadge(NSNumber badge);
 
 		/*
 		 * - (void)openNotification:(NSDictionary *)notification;
@@ -2122,7 +2769,7 @@ namespace Notificare.iOS
 		/// </summary>
 		/// <param name="notification">Notification.</param>
 		[Export("openNotification:")]
-		void OpenNotification( NSDictionary notification );
+		void OpenNotification(NSDictionary notification);
 
 		/*
 		 * - (void)logOpenNotification:(NSDictionary *)notification;
@@ -2133,7 +2780,7 @@ namespace Notificare.iOS
 		/// </summary>
 		/// <param name="notification">A NSDictionary object usually the result of getNotification: or Apple's userInfo dictionary provided in didReceiveRemoteNotification:.</param>
 		[Export("logOpenNotification:")]
-		void LogOpenNotification( NSDictionary notification );
+		void LogOpenNotification(NSDictionary notification);
 
 		/*
 		 * - (void)logInfluencedOpenNotification:(NSDictionary *)notification;
@@ -2144,7 +2791,7 @@ namespace Notificare.iOS
 		/// </summary>
 		/// <param name="notification">A NSDictionary object usually the result of getNotification: or Apple's userInfo dictionary provided in handleOptions:.</param>
 		[Export("logInfluencedOpenNotification:")]
-		void LogInfluencedOpenNotification( NSDictionary notification );
+		void LogInfluencedOpenNotification(NSDictionary notification);
 
 		/*
 		 * - (void)getNotification:(NSString *)notificationID completionHandler:(SuccessBlock)info errorHandler:(ErrorBlock)error;
@@ -2157,7 +2804,7 @@ namespace Notificare.iOS
 		/// <param name="completionHandler">Completion handler.</param>
 		/// <param name="errorHandler">Error handler.</param>
 		[Export("getNotification:completionHandler:errorHandler:")]
-		void GetNotification( NSString notificationID, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler );
+		void GetNotification(NSString notificationID, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
 
 		/*
 		 * - (void)clearNotification:(NSString *)notification;
@@ -2168,7 +2815,7 @@ namespace Notificare.iOS
 		/// </summary>
 		/// <param name="notificationID">Notification I.</param>
 		[Export("clearNotification:")]
-		void ClearNotification( NSString notificationID );
+		void ClearNotification(NSString notificationID);
 
 		/*
 		 * -(void)startLocationUpdates;
@@ -2177,15 +2824,15 @@ namespace Notificare.iOS
 		/// <summary>
 		/// Starts the location manager for geo-targeting, geo-fencing and beacons
 		/// </summary>
-		[Export ("startLocationUpdates")]
+		[Export("startLocationUpdates")]
 		void StartLocationUpdates();
 
 		/*
 		 * -(BOOL)checkLocationUpdates;
 		 */
 
-		[Export ("checkLocationUpdates")]
-		bool CheckLocationUpdates ();
+		[Export("checkLocationUpdates")]
+		bool CheckLocationUpdates();
 
 		/*
 		 * - (void)updateLocation:(NSString*)device withLatitude:(float)latitude andLongitude:(float)longitude;
@@ -2197,8 +2844,8 @@ namespace Notificare.iOS
 		/// <param name="device">Device.</param>
 		/// <param name="latitude">Latitude.</param>
 		/// <param name="longitude">Longitude.</param>
-		[Export ("updateLocation:withLatitude:andLongitude:")]
-		void UpdateLocation( NSString device, float latitude, float longitude );
+		[Export("updateLocation:withLatitude:andLongitude:")]
+		void UpdateLocation(NSString device, float latitude, float longitude);
 
 		/*
 		 * -(void)stopLocationUpdates;
@@ -2207,7 +2854,7 @@ namespace Notificare.iOS
 		/// <summary>
 		/// Stops the location manager from collecting location updates
 		/// </summary>
-		[Export ("stopLocationUpdates")]
+		[Export("stopLocationUpdates")]
 		void StopLocationUpdates();
 
 		/*
@@ -2218,8 +2865,8 @@ namespace Notificare.iOS
 		/// </summary>
 		/// <param name="completionHandler">Completion handler.</param>
 		/// <param name="errorHandler">Error handler.</param>
-		[Export ("getTags:errorHandler:")]
-		void GetTags ([BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
+		[Export("getTags:errorHandler:")]
+		void GetTags([BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
 
 		/*
 		 * - (void)addTags:(NSArray *)tags;
@@ -2230,7 +2877,7 @@ namespace Notificare.iOS
 		/// </summary>
 		/// <param name="tags">Tags.</param>
 		[Export("addTags:")]
-		void AddTags( NSArray tags );
+		void AddTags(NSArray tags);
 
 		/*
 		 * - (void)addTags:(NSArray *)tags completionHandler:(SuccessBlock)info errorHandler:(ErrorBlock)error;
@@ -2242,7 +2889,7 @@ namespace Notificare.iOS
 		/// <param name="completionHandler">Completion handler.</param>
 		/// <param name="errorHandler">Error handler.</param>
 		[Export("addTags:completionHandler:errorHandler:")]
-		void AddTags( NSArray tags, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
+		void AddTags(NSArray tags, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
 
 		/* 
 		 * - (void)removeTag:(NSString *)tag;
@@ -2253,7 +2900,7 @@ namespace Notificare.iOS
 		/// </summary>
 		/// <param name="tag">Tag.</param>
 		[Export("removeTag:")]
-		void RemoveTag (NSString tag);
+		void RemoveTag(NSString tag);
 
 		/* 
 		 * - (void)removeTag:(NSString *)tag completionHandler:(SuccessBlock)info errorHandler:(ErrorBlock)error;
@@ -2279,7 +2926,7 @@ namespace Notificare.iOS
 		/// <param name="completionHandler">Completion handler.</param>
 		/// <param name="errorHandler">Error handler.</param>
 		[Export("clearTags:errorHandler:")]
-		void ClearTags( [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
+		void ClearTags([BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
 
 		/*
 		 * - (void)startMonitoringBeaconRegion:(NSUUID *)uuid;
@@ -2290,7 +2937,7 @@ namespace Notificare.iOS
 		/// </summary>
 		/// <param name="uuid">UUID.</param>
 		[Export("startMonitoringBeaconRegion:")]
-		void StartMonitoringBeaconRegion (NSUuid uuid);
+		void StartMonitoringBeaconRegion(NSUuid uuid);
 
 		/*
 		 * - (void)startMonitoringBeaconRegion:(NSUUID *)uuid andMajor:(NSNumber *)major;
@@ -2302,7 +2949,7 @@ namespace Notificare.iOS
 		/// <param name="uuid">UUID.</param>
 		/// <param name="major">Major.</param>
 		[Export("startMonitoringBeaconRegion:andMajor:")]
-		void StartMonitoringBeaconRegion (NSUuid uuid, NSNumber major);
+		void StartMonitoringBeaconRegion(NSUuid uuid, NSNumber major);
 
 		/*
 		 * - (void)startMonitoringBeaconRegion:(NSUUID *)uuid andMajor:(NSNumber *)major andMinor:(NSNumber *)minor;
@@ -2315,7 +2962,7 @@ namespace Notificare.iOS
 		/// <param name="major">Major.</param>
 		/// <param name="minor">Minor.</param>
 		[Export("startMonitoringBeaconRegion:andMajor:andMinor:")]
-		void StartMonitoringBeaconRegion (NSUuid uuid, NSNumber major, NSNumber minor);
+		void StartMonitoringBeaconRegion(NSUuid uuid, NSNumber major, NSNumber minor);
 
 
 		/*
@@ -2327,8 +2974,8 @@ namespace Notificare.iOS
 		/// </summary>
 		/// <param name="beacon">Beacon.</param>
 		[Export("openBeacon:")]
-		[Obsolete ("use OpenNotificareBeacon instead.")]
-		void OpenBeacon (NSDictionary beacon);
+		[Obsolete("use OpenNotificareBeacon instead.")]
+		void OpenBeacon(NSDictionary beacon);
 
 		/*
 		 * - (void)openNotificareBeacon:(NotificareBeacon *)beacon;
@@ -2339,7 +2986,7 @@ namespace Notificare.iOS
 		/// </summary>
 		/// <param name="beacon">Beacon.</param>
 		[Export("openNotificareBeacon:")]
-		void OpenNotificareBeacon (NotificareBeacon beacon);
+		void OpenNotificareBeacon(NotificareBeacon beacon);
 
 
 
@@ -2351,7 +2998,7 @@ namespace Notificare.iOS
 		/// Displays text or rich content attached to ranged beacons. Usually used in the delegate didRangeBeacons
 		/// </summary>
 		[Export("openBeacons")]
-		void OpenBeacons ();
+		void OpenBeacons();
 
 		/*
 		 * - (void)openUserPreferences;
@@ -2375,7 +3022,7 @@ namespace Notificare.iOS
 		/// <param name="label">Label.</param>
 		/// <param name="data">Data.</param>
 		[Export("reply:withLabel:andData:")]
-		void ReplyWithLabelAndData (NSString notification, NSString label, [NullAllowed] NSDictionary data);
+		void ReplyWithLabelAndData(NSString notification, NSString label, [NullAllowed] NSDictionary data);
 
 		/*
 		 * - (void)handleAction:(NSString *)action forNotification:(NSDictionary *)notification withData:(NSDictionary *)data completionHandler:(SuccessBlock)info errorHandler:(ErrorBlock)errorBlock;
@@ -2389,8 +3036,8 @@ namespace Notificare.iOS
 		/// <param name="data">Data.</param>
 		/// <param name="completionHandler">Completion handler.</param>
 		/// <param name="errorHandler">Error handler.</param>
-		[Export ("handleAction:forNotification:withData:completionHandler:errorHandler:")]
-		void HandleActionForNotificationWithData (NSString action, NSDictionary notification, [NullAllowed] NSDictionary data, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
+		[Export("handleAction:forNotification:withData:completionHandler:errorHandler:")]
+		void HandleActionForNotificationWithData(NSString action, NSDictionary notification, [NullAllowed] NSDictionary data, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
 
 
 		/*
@@ -2404,8 +3051,8 @@ namespace Notificare.iOS
 		/// <param name="data">Data.</param>
 		/// <param name="completionHandler">Completion handler.</param>
 		/// <param name="errorHandler">Error handler.</param>
-		[Export ("logCustomEvent:withData:completionHandler:errorHandler:")]
-		void LogCustomEventWithData (NSString name, [NullAllowed] NSDictionary data, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
+		[Export("logCustomEvent:withData:completionHandler:errorHandler:")]
+		void LogCustomEventWithData(NSString name, [NullAllowed] NSDictionary data, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
 
 
 		/*
@@ -2419,9 +3066,23 @@ namespace Notificare.iOS
 		/// <param name="application">Application.</param>
 		/// <param name="completionHandler">Completion handler.</param>
 		/// <param name="errorHandler">Error handler.</param>
-		[Export ("saveToInbox:forApplication:completionHandler:errorHandler:")]
-		[Obsolete ("use HandleNotificationForApplication instead.")]
-		void SaveToInboxForApplication (NSDictionary notification, UIApplication application, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
+		[Export("saveToInbox:forApplication:completionHandler:errorHandler:")]
+		[Obsolete("use HandleNotificationForApplication instead.")]
+		void SaveToInboxForApplication(NSDictionary notification, UIApplication application, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
+
+
+		/*
+		 * - (void)handleNotification:(UNNotification*)notification completionHandler:(SuccessBlock)result errorHandler:(ErrorBlock)errorBlock;
+		 */
+
+		/// <summary>
+		/// Handles the notification.
+		/// </summary>
+		/// <param name="notification">Notification.</param>
+		/// <param name="completionHandler">Completion handler.</param>
+		/// <param name="errorHandler">Error handler.</param>
+		[Export("handleNotification:completionHandler:errorHandler:")]
+		void HandleNotification(UNNotification notification, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
 
 		/*
 		 * - (void)handleNotification:(NSDictionary *)notification forApplication:(UIApplication *)application completionHandler:(SuccessBlock)result errorHandler:(ErrorBlock)errorBlock;
@@ -2434,8 +3095,8 @@ namespace Notificare.iOS
 		/// <param name="application">Application.</param>
 		/// <param name="completionHandler">Completion handler.</param>
 		/// <param name="errorHandler">Error handler.</param>
-		[Export ("handleNotification:forApplication:completionHandler:errorHandler:")]
-		void HandleNotificationForApplication (NSDictionary notification, UIApplication application, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
+		[Export("handleNotification:forApplication:completionHandler:errorHandler:")]
+		void HandleNotificationForApplication(NSDictionary notification, UIApplication application, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
 
 		/*
 		 * - (void)fetchInbox:(NSDate *)sinceDate skip:(NSNumber *)skip limit:(NSNumber *)limit completionHandler:(SuccessBlock)info errorHandler:(ErrorBlock)error
@@ -2449,8 +3110,8 @@ namespace Notificare.iOS
 		/// <param name="limit">Limit.</param>
 		/// <param name="completionHandler">Completion handler.</param>
 		/// <param name="errorHandler">Error handler.</param>
-		[Export ("fetchInbox:skip:limit:completionHandler:errorHandler:")]
-		void FetchInbox ([NullAllowed] NSDate sinceDate, [NullAllowed] NSNumber skip, [NullAllowed] NSNumber limit, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
+		[Export("fetchInbox:skip:limit:completionHandler:errorHandler:")]
+		void FetchInbox([NullAllowed] NSDate sinceDate, [NullAllowed] NSNumber skip, [NullAllowed] NSNumber limit, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
 
 		/*
 		 * - (void)openInboxItem:(NotificareDeviceInbox *)inboxItem;
@@ -2460,8 +3121,8 @@ namespace Notificare.iOS
 		/// Opens the inbox item.
 		/// </summary>
 		/// <param name="inboxItem">Inbox item.</param>
-		[Export ("openInboxItem:")]
-		void OpenInboxItem (NotificareDeviceInbox inboxItem);
+		[Export("openInboxItem:")]
+		void OpenInboxItem(NotificareDeviceInbox inboxItem);
 
 		/*
 		 * - (void)removeFromInbox:(NSDictionary *)notification;
@@ -2471,9 +3132,9 @@ namespace Notificare.iOS
 		/// Removes from inbox.
 		/// </summary>
 		/// <param name="notification">Notification.</param>
-		[Export ("removeFromInbox:")]
-		[Obsolete ("use RemoveFromInbox with callbacks instead.")]
-		void RemoveFromInbox (NSDictionary notification);
+		[Export("removeFromInbox:")]
+		[Obsolete("use RemoveFromInbox with callbacks instead.")]
+		void RemoveFromInbox(NSDictionary notification);
 
 		/*
 		 * - (void)removeFromInbox:(NotificareDeviceInbox *)inboxItem completionHandler:(SuccessBlock)result errorHandler:(ErrorBlock)errorBlock;
@@ -2485,8 +3146,8 @@ namespace Notificare.iOS
 		/// <param name="inboxItem">Inbox item.</param>
 		/// <param name="completionHandler">Completion handler.</param>
 		/// <param name="errorHandler">Error handler.</param>
-		[Export ("removeFromInbox:completionHandler:errorHandler:")]
-		void RemoveFromInbox (NotificareDeviceInbox inboxItem, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
+		[Export("removeFromInbox:completionHandler:errorHandler:")]
+		void RemoveFromInbox(NotificareDeviceInbox inboxItem, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
 
 		/*
 		 * - (void)markAsRead:(NotificareDeviceInbox *)inboxItem completionHandler:(SuccessBlock)result errorHandler:(ErrorBlock)errorBlock;
@@ -2498,8 +3159,8 @@ namespace Notificare.iOS
 		/// <param name="inboxItem">Inbox item.</param>
 		/// <param name="completionHandler">Completion handler.</param>
 		/// <param name="errorHandler">Error handler.</param>
-		[Export ("markAsRead:completionHandler:errorHandler:")]
-		void MarkAsRead (NotificareDeviceInbox inboxItem, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
+		[Export("markAsRead:completionHandler:errorHandler:")]
+		void MarkAsRead(NotificareDeviceInbox inboxItem, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
 
 		/*
 		 * - (void)clearInbox;
@@ -2508,9 +3169,9 @@ namespace Notificare.iOS
 		/// <summary>
 		/// Remove all notifications from the Inbox
 		/// </summary>
-		[Export ("clearInbox")]
-		[Obsolete ("use ClearInbox with callbacks instead.")]
-		void ClearInbox ();
+		[Export("clearInbox")]
+		[Obsolete("use ClearInbox with callbacks instead.")]
+		void ClearInbox();
 
 		/*
 		 * - (void)clearInbox:(SuccessBlock)result errorHandler:(ErrorBlock)errorBlock;
@@ -2519,8 +3180,8 @@ namespace Notificare.iOS
 		/// <summary>
 		/// Remove all notifications from the Inbox
 		/// </summary>
-		[Export ("clearInbox:errorHander:")]
-		void ClearInbox ([BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
+		[Export("clearInbox:errorHander:")]
+		void ClearInbox([BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
 
 		/*
 		 * -(void)openInbox;
@@ -2529,9 +3190,9 @@ namespace Notificare.iOS
 		/// <summary>
 		/// Opens the inbox.
 		/// </summary>
-		[Export ("openInbox")]
-		[Obsolete ("use Inbox methods instead.")]
-		void OpenInbox ();
+		[Export("openInbox")]
+		[Obsolete("use Inbox methods instead.")]
+		void OpenInbox();
 
 
 		/*
@@ -2542,9 +3203,9 @@ namespace Notificare.iOS
 		/// The inbox.
 		/// </summary>
 		/// <returns>The inbox.</returns>
-		[Export ("myInbox")]
-		[Obsolete ("use FetchMyInbox with callbacks instead.")]
-		NSArray MyInbox ();
+		[Export("myInbox")]
+		[Obsolete("use FetchMyInbox with callbacks instead.")]
+		NSArray MyInbox();
 
 		/*
 		 * -(int)myBadge;
@@ -2554,8 +3215,8 @@ namespace Notificare.iOS
 		/// The badge.
 		/// </summary>
 		/// <returns>The badge.</returns>
-		[Export ("myBadge")]
-		int MyBadge ();
+		[Export("myBadge")]
+		int MyBadge();
 
 		/*
 		 * - (void)createAccount:(NSString *)email withName:(NSString *)name andPassword:(NSString *)password completionHandler:(SuccessBlock)result errorHandler:(ErrorBlock)errorBlock;
@@ -2759,7 +3420,7 @@ namespace Notificare.iOS
 		/// <param name="completionHandler">Completion handler.</param>
 		/// <param name="erorHandler">Eror handler.</param>
 		[Export("fetchProducts:errorHandler:")]
-		void FetchProducts([BlockCallback] SuccessArrayCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
+		void FetchProducts([BlockCallback] SuccessArrayCallback completionHandler, [BlockCallback] ErrorCallback erorHandler);
 
 		/*
 		 * - (void)fetchPurchasedProducts:(SuccessArrayBlock)info errorHandler:(ErrorBlock)error;
@@ -2771,7 +3432,7 @@ namespace Notificare.iOS
 		/// <param name="completionHandler">Completion handler.</param>
 		/// <param name="erorHandler">Eror handler.</param>
 		[Export("fetchPurchasedProducts:errorHandler:")]
-		void FetchPurchasedProducts([BlockCallback] SuccessArrayCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
+		void FetchPurchasedProducts([BlockCallback] SuccessArrayCallback completionHandler, [BlockCallback] ErrorCallback erorHandler);
 
 
 		/*
@@ -2785,7 +3446,7 @@ namespace Notificare.iOS
 		/// <param name="completionHandler">Completion handler.</param>
 		/// <param name="erorHandler">Eror handler.</param>
 		[Export("fetchProduct:completionHandler:errorHandler:")]
-		void FetchProduct(NSString productIdentifier, [BlockCallback] SuccessProductCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
+		void FetchProduct(NSString productIdentifier, [BlockCallback] SuccessProductCallback completionHandler, [BlockCallback] ErrorCallback erorHandler);
 
 
 		/*
@@ -2882,7 +3543,7 @@ namespace Notificare.iOS
 		/// <param name="completionHandler">Completion handler.</param>
 		/// <param name="erorHandler">Eror handler.</param>
 		[Export("fetchPass:completionHandler:errorHandler:")]
-		void FetchPass(NSString serial, [BlockCallback] SuccessPassCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
+		void FetchPass(NSString serial, [BlockCallback] SuccessPassCallback completionHandler, [BlockCallback] ErrorCallback erorHandler);
 
 		/*
 		 * (void)fetchAssets:(NSString *)group completionHandler:(SuccessArrayBlock)result errorHandler:(ErrorBlock)error;
@@ -2895,7 +3556,7 @@ namespace Notificare.iOS
 		/// <param name="completionHandler">Completion handler.</param>
 		/// <param name="erorHandler">Eror handler.</param>
 		[Export("fetchAssets:completionHandler:errorHandler:")]
-		void FetchAssets(NSString group, [BlockCallback] SuccessArrayCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
+		void FetchAssets(NSString group, [BlockCallback] SuccessArrayCallback completionHandler, [BlockCallback] ErrorCallback erorHandler);
 
 		/*
 		 * - (void)fetchDoNotDisturb:(SuccessBlock)result errorHandler:(ErrorBlock)error;
@@ -2936,6 +3597,67 @@ namespace Notificare.iOS
 		void ClearDoNotDisturb([BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
 
 
+		/*
+		 * - (NotificareNetworkOperation*)doPushHostOperation:(NSString*)HTTPMethod path:(NSString*)path URLParams:(NSDictionary<NSString*, NSString*>* _Nullable)URLParams bodyJSON:(id _Nullable)bodyJSON successHandler:(SuccessBlock)successHandler errorHandler:(OperationErrorBlock)errorHandler;
+		 */
+
+		/// <summary>
+		/// Dos the push host operation.
+		/// </summary>
+		/// <returns>The push host operation.</returns>
+		/// <param name="HTTPMethod">HTTPM ethod.</param>
+		/// <param name="path">Path.</param>
+		/// <param name="URLParams">URLP arams.</param>
+		/// <param name="bodyJSON">Body json.</param>
+		/// <param name="completionHandler">Completion handler.</param>
+		/// <param name="errorHandler">Error handler.</param>
+		[Export("doPushHostOperation:path:URLParams:bodyJSON:successhandler:errorHandler:")]
+		NotificareNetworkOperation DoPushHostOperation(NSString HTTPMethod, NSString path, [NullAllowed] NSDictionary URLParams, [NullAllowed] NSDictionary bodyJSON, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
+
+		/*
+		 * - (NotificareNetworkOperation*)doCloudHostOperation:(NSString*)HTTPMethod path:(NSString*)path URLParams:(NSDictionary<NSString*, NSString*>* _Nullable)URLParams bodyJSON:(id _Nullable)bodyJSON successHandler:(SuccessBlock)successHandler errorHandler:(OperationErrorBlock)errorHandler;
+		 */
+
+		/// <summary>
+		/// Dos the cloud host operation.
+		/// </summary>
+		/// <returns>The cloud host operation.</returns>
+		/// <param name="HTTPMethod">HTTPM ethod.</param>
+		/// <param name="path">Path.</param>
+		/// <param name="URLParams">URLP arams.</param>
+		/// <param name="bodyJSON">Body json.</param>
+		/// <param name="completionHandler">Completion handler.</param>
+		/// <param name="errorHandler">Error handler.</param>
+		[Export("doCloudHostOperation:path:URLParams:bodyJSON:successhandler:errorHandler:")]
+		NotificareNetworkOperation DoCloudHostOperation(NSString HTTPMethod, NSString path, [NullAllowed] NSDictionary URLParams, [NullAllowed] NSDictionary bodyJSON, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
+
+		/*
+		 * - (void)fetchAttachment:(NSDictionary*)notification completionHandler:(SuccessArrayBlock)result errorHandler:(ErrorBlock)error;
+		 */
+
+		/// <summary>
+		/// Fetchs the attachment.
+		/// </summary>
+		/// <param name="notification">Notification.</param>
+		/// <param name="completionHandler">Completion handler.</param>
+		/// <param name="errorHandler">Error handler.</param>
+		[Export("fetchAttachment:completionHandler:errorHandler:")]
+		void FetchAttachment(NSDictionary notification, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
+
+		/*
+		 * - (void)updateUserData:(NSDictionary*)data completionHandler:(SuccessBlock)info errorHandler:(ErrorBlock)errorBlock;
+		 */
+
+		/// <summary>
+		/// Updates the user data.
+		/// </summary>
+		/// <param name="data">Data.</param>
+		/// <param name="completionHandler">Completion handler.</param>
+		/// <param name="errorHandler">Error handler.</param>
+		[Export("updateUserData:completionHandler:errorHandler:")]
+		void UpdateUserData(NSDictionary data, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
+
+
 		// Properties
 
 		/*
@@ -2946,8 +3668,43 @@ namespace Notificare.iOS
 		/// Public delegate to handle Notificare events
 		/// </summary>
 		/// <value>The delegate.</value>
-		[Export ("delegate", ArgumentSemantic.Assign)][NullAllowed]
+		[Export("delegate", ArgumentSemantic.Assign)]
+		[NullAllowed]
 		NotificarePushLibDelegate Delegate { get; set; }
+
+
+		/*
+		 * @property(strong, nonatomic) UNUserNotificationCenter* notificationCenter;
+		 */
+
+		/// <summary>
+		/// Gets the notification center.
+		/// </summary>
+		/// <value>The notification center.</value>
+		[Export("notificationCenter")]
+		UNUserNotificationCenter NotificationCenter { get; }
+
+		/*
+		 * @property(nonatomic, assign) UNNotificationCategoryOptions notificationCategoryOptions;
+		 */
+
+		/// <summary>
+		/// Gets the notification category options.
+		/// </summary>
+		/// <value>The notification category options.</value>
+		[Export("notificationCategoryOptions")]
+		UNNotificationCategoryOptions NotificationCategoryOptions { get; }
+
+		/*
+		 * @property(nonatomic, assign) UNNotificationPresentationOptions notificationPresentationOptions;
+		 */
+
+		/// <summary>
+		/// Gets the notification presentation options.
+		/// </summary>
+		/// <value>The notification presentation options.</value>
+		[Export("notificationPresentationOptions")]
+		UNNotificationPresentationOptions NotificationPresentationOptions { get; }
 
 		/*
 		 * @property (strong, nonatomic) NSString * apiID;
@@ -2991,7 +3748,7 @@ namespace Notificare.iOS
 		/// </summary>
 		/// <value>The device token.</value>
 		[Export("deviceToken")]
-		[Obsolete ("use MyDevice instead.")]
+		[Obsolete("use MyDevice instead.")]
 		NSString DeviceToken { get; }
 
 		/*
@@ -3002,7 +3759,7 @@ namespace Notificare.iOS
 		/// </summary>
 		/// <value>The device.</value>
 		[Export("device")]
-		[Obsolete ("use MyDevice instead.")]
+		[Obsolete("use MyDevice instead.")]
 		NSString Device { get; }
 
 		/*
@@ -3014,7 +3771,7 @@ namespace Notificare.iOS
 		/// </summary>
 		/// <value>The user I.</value>
 		[Export("userID")]
-		[Obsolete ("use MyDevice or User instead.")]
+		[Obsolete("use MyDevice or User instead.")]
 		NSString UserID { get; }
 
 		/*
@@ -3037,7 +3794,7 @@ namespace Notificare.iOS
 		/// </summary>
 		/// <value>The name of the user.</value>
 		[Export("username")]
-		[Obsolete ("use MyDevice or User instead.")]
+		[Obsolete("use MyDevice or User instead.")]
 		NSString Username { get; }
 
 		/*
@@ -3049,7 +3806,7 @@ namespace Notificare.iOS
 		/// </summary>
 		/// <value><c>true</c> if this instance is open; otherwise, <c>false</c>.</value>
 		[Export("isOpen")]
-		bool IsOpen{ get; }
+		bool IsOpen { get; }
 
 		/*
 		 * @property (assign) BOOL isFixingGPS;
@@ -3060,7 +3817,7 @@ namespace Notificare.iOS
 		/// </summary>
 		/// <value><c>true</c> if position is being fixed; otherwise, <c>false</c>.</value>
 		[Export("isFixingGPS")]
-		bool IsFixingGPS{ get; }
+		bool IsFixingGPS { get; }
 
 		/*
 		 * @property (assign) BOOL displayMessage;
@@ -3082,7 +3839,7 @@ namespace Notificare.iOS
 		/// </summary>
 		/// <value>The current fence.</value>
 		[Export("currentFence")]
-		[Obsolete ("use CurrentRegions instead.")]
+		[Obsolete("use CurrentRegions instead.")]
 		CLRegion CurrentFence { get; }
 
 		/*
@@ -3138,7 +3895,7 @@ namespace Notificare.iOS
 		/// </summary>
 		/// <value>The location manager.</value>
 		[Export("locationManager")]
-		CLLocationManager LocationManager { get; set; } 
+		CLLocationManager LocationManager { get; set; }
 
 
 
@@ -3194,7 +3951,7 @@ namespace Notificare.iOS
 		/// Gets or sets a value indicating whether this <see cref="Notificare.iOS.NotificarePushLib"/> should always log beacons.
 		/// </summary>
 		/// <value><c>true</c> if should always log beacons; otherwise, <c>false</c>.</value>
-		[Export ("shouldAlwaysLogBeacons")]
+		[Export("shouldAlwaysLogBeacons")]
 		bool ShouldAlwaysLogBeacons { get; set; }
 
 		/*

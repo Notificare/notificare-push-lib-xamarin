@@ -1,9 +1,13 @@
-﻿<Properties StartupItem="Notificare.Android.Sample/Notificare.Sample.Android.csproj">
+﻿<Properties StartupConfiguration="{11FC6752-09A2-4776-8093-C1F4152B9FD4}|Default" NuGet.AddPackagesDialog.IncludePrerelease="True">
   <MonoDevelop.Ide.Workbench ActiveDocument="Notificare.Android.Sample/Properties/AndroidManifest.xml">
     <Files>
-      <File FileName="Notificare.Android/Properties/AssemblyInfo.cs" Line="18" Column="35" />
-      <File FileName="Notificare.Android.Sample/Properties/AssemblyInfo.cs" Line="18" Column="35" />
-      <File FileName="Notificare.Android.Sample/Properties/AndroidManifest.xml" Line="96" Column="12" />
+      <File FileName="Notificare.Android.Sample/Properties/AndroidManifest.xml" Line="82" Column="3" />
+      <File FileName="Notificare.Android.Sample/Assets/notificareconfig.properties" Line="1" Column="1" />
+      <File FileName="Notificare.Android.Sample/MainActivity.cs" Line="35" Column="14" />
+      <File FileName="Notificare.Android.Sample/MyIntentReceiver.cs" Line="1" Column="1" />
+      <File FileName="Notificare.Android.Sample/MainApplication.cs" Line="25" Column="1" />
+      <File FileName="Notificare.Android.Sample/Properties/AssemblyInfo.cs" Line="18" Column="37" />
+      <File FileName="Notificare.Android.Sample/google-services.json" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
@@ -11,5 +15,5 @@
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.Notificare.Sample.Android PreferredExecutionTarget="Android.Nexus_9_API_23" AndroidDeviceId-Debug="8e9372c7" AndroidDeviceId-Release="0123456789ABCDEF" MonoForAntroid.PreferredDevice="3.7&quot; WVGA (Nexus One)" />
+  <MonoDevelop.Ide.ItemProperties.Notificare.Sample.Android PreferredExecutionTarget="Android.TA39100ER9" AndroidDeviceId-Debug="8e9372c7" AndroidDeviceId-Release="0123456789ABCDEF" MonoForAntroid.PreferredDevice="3.7&quot; WVGA (Nexus One)" />
 </Properties>
