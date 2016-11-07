@@ -1,20 +1,34 @@
-﻿<Properties StartupConfiguration="{F5112666-2963-4E0F-9619-8330269994DD}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Notificare.iOS.TestApp/AppDelegate.cs">
+﻿<Properties StartupConfiguration="{08A88253-B3EB-4856-901E-6D359408F366}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Notificare.iOS.TestApp/Notificare_iOS_TestAppViewController.cs">
     <Files>
-      <File FileName="Notificare.iOS-Unified/NotificarePushLib.linkwith.cs" Line="1" Column="1" />
-      <File FileName="Notificare.iOS-Unified/ApiDefinition.cs" Line="4065" Column="1" />
-      <File FileName="Notificare.iOS-Unified.TestApp/Info.plist" />
-      <File FileName="Notificare.iOS.TestApp/Info.plist" />
-      <File FileName="Notificare.iOS.TestApp/AppDelegate.cs" Line="1" Column="1" />
+      <File FileName="Notification/NotificationService.cs" Line="23" Column="36" />
+      <File FileName="Notification/Info.plist" />
+      <File FileName="Notification/Entitlements.plist" />
+      <File FileName="Notificare.iOS/ApiDefinition.cs" Line="3642" Column="23" />
+      <File FileName="Notificare.iOS.TestApp/AppDelegate.cs" Line="140" Column="1" />
+      <File FileName="Notificare.iOS.TestApp/Notificare_iOS_TestAppViewController.designer.cs" Line="1" Column="1" />
+      <File FileName="Notificare.iOS.TestApp/Notificare_iOS_TestAppViewController.cs" Line="16" Column="1" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Notificare.iOS" expanded="True">
+            <Node name="Notificare.iOS" expanded="True">
+              <Node name="References" expanded="True" />
+              <Node name="NativeReferenceFolder" expanded="True" />
+            </Node>
+            <Node name="Notificare.iOS.TestApp" expanded="True">
+              <Node name="Notificare_iOS_TestAppViewController.cs" expanded="True" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.Notificare.iOS-Unified.TestApp PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.926F68BC-B392-42EC-8CFA-F26880D772C0">
-    <IPhoneTestFlightSettings_27CAd-Hoc ApiToken="c435746e203539e04628fde01086edb1_MzM2Mjk" TeamToken="eda825d73a564d3604f398dd6ccb3984_ODk2NzEyMDEyLTA1LTEyIDEwOjMxOjQ0LjMxNTAxOQ" ReleaseNotes="Test for Xamarin Ad-Hoc" NotifyTeamMembers="False" ReplaceBinaries="False" DistributionLists="Team Notificare" UploadDSYMs="False" />
-  </MonoDevelop.Ide.ItemProperties.Notificare.iOS-Unified.TestApp>
-  <MonoDevelop.Ide.ItemProperties.Notificare.iOS.TestApp PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.926F68BC-B392-42EC-8CFA-F26880D772C0" />
+  <MonoDevelop.Ide.ItemProperties.Notificare.iOS.TestApp PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.08d575c1a3eea656dca228d0aa485dfb2e789024" />
 </Properties>

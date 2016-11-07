@@ -45,8 +45,12 @@
 	<key>UIPrerenderedIcon</key>
 	<true/>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string></string>
+	<string>This app wants to know your location</string>
 	<key>CFBundleName</key>
 	<string>XamarinTest</string>
+	<key>NSCameraUsageDescription</key>
+	<string>This app wants to use your camera</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>This app wants access to your photo library</string>
 </dict>
 </plist>

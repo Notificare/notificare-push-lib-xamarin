@@ -4,19 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Net;
 using System.Text;
-#if __UNIFIED__
 using Foundation;
 using UIKit;
 using CoreLocation;
 using CoreGraphics;
 using Security;
-#else
-using MonoTouch.Foundation;
-using MonoTouch.UIKit;
-using MonoTouch.CoreLocation;
-using MonoTouch.Security;
-using MonoTouch.CoreGraphics;
-#endif
 using Notificare.iOS;
 
 namespace Notificare.iOS.TestApp
@@ -49,13 +41,10 @@ namespace Notificare.iOS.TestApp
 
 			NotificarePushLib.Shared().Launch ();
 			_pushLibDelegate = new MyPushLibDelegate ();
-			NotificarePushLib.Shared ().Delegate = _pushLibDelegate;
+			NotificarePushLib.Shared().Delegate = _pushLibDelegate;
 
 			// Start notifications
-			if (launchOptions != null && launchOptions.ContainsKey( UIApplication.LaunchOptionsRemoteNotificationKey ) ) 
-			{
-				NotificarePushLib.Shared().HandleOptions (launchOptions [UIApplication.LaunchOptionsRemoteNotificationKey] as NSDictionary);
-			}
+			NotificarePushLib.Shared().HandleOptions (launchOptions);
 
 			return true;
 		}
@@ -129,12 +118,6 @@ namespace Notificare.iOS.TestApp
 			});
 		}
 
-		public override void ReceivedRemoteNotification (UIApplication application, NSDictionary userInfo)
-		{
-			// Open Notification Directly
-			NotificarePushLib.Shared ().OpenNotification (userInfo);
-		}
-
 		public override void HandleAction (UIApplication application, string actionIdentifier, NSDictionary remoteNotificationInfo, NSDictionary responseInfo, Action completionHandler)
 		{
 			Console.WriteLine ("Response: {0}", responseInfo.ObjectForKey((NSString)"UIUserNotificationActionResponseTypedTextKey"));
@@ -152,10 +135,37 @@ namespace Notificare.iOS.TestApp
 			);
 		}
 
+		public override void HandleAction(UIApplication application, string actionIdentifier, NSDictionary remoteNotificationInfo, Action completionHandler)
+		{
+			NotificarePushLib.Shared().HandleActionForNotificationWithData((NSString)actionIdentifier,
+				remoteNotificationInfo,
+				null,
+				(NSDictionary info) =>
+				{
+					Console.WriteLine("HandleAction info: {0}", info);
+					completionHandler();
+				},
+				(NSError error) =>
+				{
+					Console.WriteLine("HandleAction error: {0}", error);
+					completionHandler();
+				}
+			);
+		}
+
 		class MyPushLibDelegate : NotificarePushLibDelegate {
 			public override void OnReady (NotificarePushLib library, NSDictionary info)
 			{
 				library.RegisterForNotifications ();
+			}
+
+			public override void WillHandleNotification(NotificarePushLib library, UserNotifications.UNNotification notification)
+			{
+				library.HandleNotification(notification, (NSDictionary info) => { 
+					Console.WriteLine("HandleNotification info: {0}", info);
+				}, (NSError error) => {
+					Console.WriteLine("HandleNotification error: {0}", error);
+				});
 			}
 
 			public override void WillOpenNotification(NotificarePushLib library, NotificareNotification notification)
@@ -224,6 +234,7 @@ namespace Notificare.iOS.TestApp
 			}
 		
 		}
+
 	}
 
 }

@@ -1,19 +1,12 @@
 using System;
-using System.Drawing;
-#if __UNIFIED__
+using CoreGraphics;
 using Foundation;
 using UIKit;
-#else
-using MonoTouch.Foundation;
-using MonoTouch.UIKit;
-#endif
 
 namespace Notificare.iOS.TestApp
 {
 	public partial class Notificare_iOS_TestAppViewController : UIViewController
 	{
-		UIDatePicker StartPicker;
-		UIDatePicker EndPicker;
 
 		public Notificare_iOS_TestAppViewController () : base ("Notificare_iOS_TestAppViewController", null)
 		{
