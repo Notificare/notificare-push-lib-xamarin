@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProjectGuid>{DA3BEC82-66B3-4596-B7A1-8EC89170E29A}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Notificare.iOS.SampleApp</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>Notificare.iOS-Unified.SampleApp</AssemblyName>
+    <ReleaseVersion>1.8.2</ReleaseVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
+    <DefineConstants>DEBUG;ENABLE_TEST_CLOUD;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <MtouchArch>i386</MtouchArch>
+    <MtouchLink>None</MtouchLink>
+    <MtouchUseRefCounting>true</MtouchUseRefCounting>
+    <MtouchUseSGen>true</MtouchUseSGen>
+    <MtouchDebug>true</MtouchDebug>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchFastDev>true</MtouchFastDev>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchFloat32>true</MtouchFloat32>
+    <MtouchUseSGen>true</MtouchUseSGen>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchUseRefCounting>true</MtouchUseRefCounting>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <MtouchArch>i386</MtouchArch>
+    <MtouchLink>None</MtouchLink>
+    <MtouchUseRefCounting>true</MtouchUseRefCounting>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchUseSGen>true</MtouchUseSGen>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone\Debug</OutputPath>
+    <DefineConstants>DEBUG;ENABLE_TEST_CLOUD;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchUseRefCounting>true</MtouchUseRefCounting>
+    <MtouchDebug>true</MtouchDebug>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchUseSGen>true</MtouchUseSGen>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Xamarin.iOS" />
+    <Reference Include="Notificare.iOS">
+      <HintPath>..\..\..\bin\Notificare.iOS.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Contents.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterfaceDefinition Include="Resources\LaunchScreen.xib" />
+    <InterfaceDefinition Include="Main.storyboard" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Info.plist" />
+    <None Include="Entitlements.plist" />
+    <None Include="Notificare.plist.template" />
+    <None Include="NotificareTags.plist" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Main.cs" />
+    <Compile Include="AppDelegate.cs" />
+    <Compile Include="ViewController.cs" />
+    <Compile Include="ViewController.designer.cs">
+      <DependentUpon>ViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InboxTableViewDataSource.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+  <ItemGroup>
+    <BundleResource Include="Notificare.plist" />
+    <BundleResource Include="DefaultTheme.bundle\Images\actionsIcon.png" />
+    <BundleResource Include="DefaultTheme.bundle\Images\actionsIcon%402x.png" />
+    <BundleResource Include="DefaultTheme.bundle\Images\backButton.png" />
+    <BundleResource Include="DefaultTheme.bundle\Images\backButton%402x.png" />
+    <BundleResource Include="DefaultTheme.bundle\Images\barButtonBackDisabled.png" />
+    <BundleResource Include="DefaultTheme.bundle\Images\barButtonBackDisabled%402x.png" />
+    <BundleResource Include="DefaultTheme.bundle\Images\barButtonBackPressed.png" />
+    <BundleResource Include="DefaultTheme.bundle\Images\barButtonBackPressed%402x.png" />
+    <BundleResource Include="DefaultTheme.bundle\Images\barButtonDisabled.png" />
+    <BundleResource Include="DefaultTheme.bundle\Images\barButtonDisabled%402x.png" />
+    <BundleResource Include="DefaultTheme.bundle\Images\barButtonPressed.png" />
+    <BundleResource Include="DefaultTheme.bundle\Images\barButtonPressed%402x.png" />
+    <BundleResource Include="DefaultTheme.bundle\Images\closeIcon.png" />
+    <BundleResource Include="DefaultTheme.bundle\Images\closeIcon%402x.png" />
+    <BundleResource Include="DefaultTheme.bundle\Images\forwardButton.png" />
+    <BundleResource Include="DefaultTheme.bundle\Images\forwardButton%402x.png" />
+    <BundleResource Include="DefaultTheme.bundle\Images\mapMarker.png" />
+    <BundleResource Include="DefaultTheme.bundle\Images\mapMarker%402x.png" />
+    <BundleResource Include="DefaultTheme.bundle\Images\mapMarkerUserLocation.png" />
+    <BundleResource Include="DefaultTheme.bundle\Images\mapMarkerUserLocation%402x.png" />
+    <BundleResource Include="DefaultTheme.bundle\Images\refreshButton.png" />
+    <BundleResource Include="DefaultTheme.bundle\Images\refreshButton%402x.png" />
+    <BundleResource Include="DefaultTheme.bundle\Images\sendButton.png" />
+    <BundleResource Include="DefaultTheme.bundle\Images\sendButton%402x.png" />
+    <BundleResource Include="DefaultTheme.bundle\Images\toolbarButtonDisabled.png" />
+    <BundleResource Include="DefaultTheme.bundle\Images\toolbarButtonDisabled%402x.png" />
+    <BundleResource Include="DefaultTheme.bundle\Images\toolbarButtonPressed.png" />
+    <BundleResource Include="DefaultTheme.bundle\Images\toolbarButtonPressed%402x.png" />
+    <BundleResource Include="DefaultTheme.bundle\en.lproj\Localizable.strings" />
+    <BundleResource Include="DefaultTheme.bundle\nl.lproj\Localizable.strings" />
+    <BundleResource Include="DefaultTheme.bundle\pt-PT.lproj\Localizable.strings" />
+    <BundleResource Include="DefaultTheme.bundle\pt.lproj\Localizable.strings" />
+    <BundleResource Include="DefaultTheme.bundle\Images\actionsIcon%403x.png" />
+    <BundleResource Include="DefaultTheme.bundle\Images\backButton%403x.png" />
+    <BundleResource Include="DefaultTheme.bundle\Images\closeIcon%403x.png" />
+    <BundleResource Include="DefaultTheme.bundle\Images\forwardButton%403x.png" />
+    <BundleResource Include="DefaultTheme.bundle\Images\mapMarker%403x.png" />
+    <BundleResource Include="DefaultTheme.bundle\Images\mapMarkerUserLocation%403x.png" />
+    <BundleResource Include="DefaultTheme.bundle\Images\refreshButton%403x.png" />
+    <BundleResource Include="DefaultTheme.bundle\Images\sendButton%403x.png" />
+    <BundleResource Include="DefaultTheme.bundle\Images\signalFar.png" />
+    <BundleResource Include="DefaultTheme.bundle\Images\signalFar%402x.png" />
+    <BundleResource Include="DefaultTheme.bundle\Images\signalFar%403x.png" />
+    <BundleResource Include="DefaultTheme.bundle\Images\signalImmediate.png" />
+    <BundleResource Include="DefaultTheme.bundle\Images\signalImmediate%402x.png" />
+    <BundleResource Include="DefaultTheme.bundle\Images\signalImmediate%403x.png" />
+    <BundleResource Include="DefaultTheme.bundle\Images\signalNear.png" />
+    <BundleResource Include="DefaultTheme.bundle\Images\signalNear%402x.png" />
+    <BundleResource Include="DefaultTheme.bundle\Images\signalNear%403x.png" />
+    <BundleResource Include="DefaultTheme.bundle\Images\signalUnkown.png" />
+    <BundleResource Include="DefaultTheme.bundle\Images\signalUnkown%402x.png" />
+    <BundleResource Include="DefaultTheme.bundle\Images\signalUnkown%403x.png" />
+    <BundleResource Include="NotificareManagedModels.bundle\NotificareManagedDeviceInbox.mom" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Notification\Notification.csproj">
+      <IsAppExtension>true</IsAppExtension>
+      <Project>{8C607621-14A6-423D-95CC-74982CC0DC0F}</Project>
+      <Name>Notification</Name>
+    </ProjectReference>
+  </ItemGroup>
+</Project>

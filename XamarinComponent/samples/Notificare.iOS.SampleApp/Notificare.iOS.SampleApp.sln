@@ -1,0 +1,36 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notificare.iOS.SampleApp", "Notificare.iOS.SampleApp\Notificare.iOS.SampleApp.csproj", "{DA3BEC82-66B3-4596-B7A1-8EC89170E29A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notification", "Notification\Notification.csproj", "{8C607621-14A6-423D-95CC-74982CC0DC0F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|iPhoneSimulator = Debug|iPhoneSimulator
+		Release|iPhone = Release|iPhone
+		Release|iPhoneSimulator = Release|iPhoneSimulator
+		Debug|iPhone = Debug|iPhone
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DA3BEC82-66B3-4596-B7A1-8EC89170E29A}.Debug|iPhone.ActiveCfg = Debug|iPhone
+		{DA3BEC82-66B3-4596-B7A1-8EC89170E29A}.Debug|iPhone.Build.0 = Debug|iPhone
+		{DA3BEC82-66B3-4596-B7A1-8EC89170E29A}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
+		{DA3BEC82-66B3-4596-B7A1-8EC89170E29A}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
+		{DA3BEC82-66B3-4596-B7A1-8EC89170E29A}.Release|iPhone.ActiveCfg = Release|iPhone
+		{DA3BEC82-66B3-4596-B7A1-8EC89170E29A}.Release|iPhone.Build.0 = Release|iPhone
+		{DA3BEC82-66B3-4596-B7A1-8EC89170E29A}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
+		{DA3BEC82-66B3-4596-B7A1-8EC89170E29A}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
+		{8C607621-14A6-423D-95CC-74982CC0DC0F}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
+		{8C607621-14A6-423D-95CC-74982CC0DC0F}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
+		{8C607621-14A6-423D-95CC-74982CC0DC0F}.Release|iPhone.ActiveCfg = Release|iPhone
+		{8C607621-14A6-423D-95CC-74982CC0DC0F}.Release|iPhone.Build.0 = Release|iPhone
+		{8C607621-14A6-423D-95CC-74982CC0DC0F}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
+		{8C607621-14A6-423D-95CC-74982CC0DC0F}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
+		{8C607621-14A6-423D-95CC-74982CC0DC0F}.Debug|iPhone.ActiveCfg = Debug|iPhone
+		{8C607621-14A6-423D-95CC-74982CC0DC0F}.Debug|iPhone.Build.0 = Debug|iPhone
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		version = 1.8.2
+	EndGlobalSection
+EndGlobal

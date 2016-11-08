@@ -1,0 +1,15 @@
+﻿<Properties StartupConfiguration="{DA3BEC82-66B3-4596-B7A1-8EC89170E29A}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Notification/NotificationService.cs">
+    <Files>
+      <File FileName="Notification/NotificationService.cs" Line="5" Column="22" />
+      <File FileName="Notification/Info.plist" />
+      <File FileName="../../../Notification/NotificationService.cs" Line="33" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release|iPhoneSimulator" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.Notificare.iOS.SampleApp PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.47D6AFCC-1195-4E6D-BC16-223C7B19899C" />
+</Properties>
