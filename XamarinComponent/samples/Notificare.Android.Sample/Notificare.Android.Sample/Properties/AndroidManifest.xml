@@ -1,43 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="10804" package="notificare.android.sample" android:versionName="1.8.4">
-	<uses-sdk android:minSdkVersion="10" android:targetSdkVersion="23" />
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="10900" package="notificare.android.sample" android:versionName="1.9.0">
+	<uses-sdk android:minSdkVersion="10" android:targetSdkVersion="24" />
 	<!-- PERMISSIONS -->
-	<uses-permission android:name="android.permission.WAKE_LOCK" />
 	<uses-permission android:name="android.permission.INTERNET" />
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="22" />
-	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:maxSdkVersion="22" />
 	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 	<!-- This app has permission to register and receive message -->
 	<uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
-	<!-- 
-		PERMISSIONS REQUIRED for Google Cloud Messaging  
-		Please replace "com.example.pushtest" with your own package name
-	-->
-	<permission android:name="notificare.android.sample.permission.C2D_MESSAGE" android:protectionLevel="signature" />
-	<uses-permission android:name="notificare.android.sample.permission.C2D_MESSAGE" />
 	<uses-permission android:name="android.permission.BLUETOOTH" />
 	<uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
 	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 	<application android:label="Notificare.Android.Sample" android:icon="@drawable/icon">
-		<!--
-	      BroadcastReceiver that will receive intents from GCM
-	      services and handle them to your app's IntentService.
-	 
-	      The com.google.android.c2dm.permission.SEND permission is necessary
-	      so only GCM services can send data messages for the app.
-	    -->
-		<receiver android:name="re.notifica.push.gcm.PushReceiver" android:permission="com.google.android.c2dm.permission.SEND">
-			<intent-filter>
-				<!-- Receives the actual messages. -->
-				<action android:name="com.google.android.c2dm.intent.RECEIVE" />
-				<!-- Receives the registration id. -->
-				<action android:name="com.google.android.c2dm.intent.REGISTRATION" />
-				<!-- Replace with your package name -->
-				<category android:name="notificare.android.sample" />
-			</intent-filter>
-		</receiver>
 		<receiver android:name="org.altbeacon.beacon.startup.StartupBroadcastReceiver">
 			<intent-filter>
 				<action android:name="android.intent.action.BOOT_COMPLETED" />
@@ -50,17 +24,33 @@
 		<!--
 	    	Service running in the background that receives your Push Notifications 
 	     -->
-		<service android:name="re.notifica.push.gcm.PushService" android:label="Notificare Push Service">
+		<service android:name="re.notifica.push.fcm.PushService" android:label="Notificare Push Service" android:exported="false">
 			<intent-filter>
-				<action android:name="com.google.android.c2dm.intent.RECEIVE" />
+				<action android:name="com.google.firebase.MESSAGING_EVENT" />
 			</intent-filter>
 		</service>
-		<service android:name="re.notifica.push.gcm.InstanceIDService" android:exported="false">
+		<service android:name="re.notifica.push.fcm.InstanceIDService" android:exported="false">
 			<intent-filter>
-				<action android:name="com.google.android.gms.iid.InstanceID" />
+				<action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
 			</intent-filter>
 		</service>
-		<service android:name="re.notifica.push.gcm.RegistrationService" android:exported="false" />
+		<service android:name="re.notifica.push.fcm.RegistrationService" android:exported="false" />
+		<receiver
+            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+            android:exported="true"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+                <category android:name="${applicationId}" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.google.firebase.iid.FirebaseInstanceIdInternalReceiver" android:exported="false" />
+		<service android:name="re.notifica.push.gcm.TaskService" android:permission="com.google.android.gms.permission.BIND_NETWORK_TASK_SERVICE" android:exported="true">
+			<intent-filter>
+				<action android:name="com.google.android.gms.gcm.ACTION_TASK_READY" />
+			</intent-filter>
+		</service>
 		<!--
         	Notificare activity that will take care of displaying and handling notifications
         	The default activity will take care of everything, please implement your own

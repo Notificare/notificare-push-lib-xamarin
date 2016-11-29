@@ -1,25 +1,17 @@
 ﻿<Properties StartupConfiguration="{11FC6752-09A2-4776-8093-C1F4152B9FD4}|Default" NuGet.AddPackagesDialog.IncludePrerelease="True">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Notificare.Android/packages.config">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Notificare.Android.Sample/google-services.json">
     <Files>
-      <File FileName="Notificare.Android.Sample/Properties/AndroidManifest.xml" Line="94" Column="12" />
-      <File FileName="Notificare.Android.Sample/Assets/notificareconfig.properties" Line="5" Column="2" />
-      <File FileName="Notificare.Android.Sample/MainActivity.cs" Line="35" Column="14" />
-      <File FileName="Notificare.Android.Sample/MyIntentReceiver.cs" Line="1" Column="1" />
-      <File FileName="Notificare.Android.Sample/MainApplication.cs" Line="25" Column="1" />
-      <File FileName="Notificare.Android.Sample/Properties/AssemblyInfo.cs" Line="18" Column="37" />
-      <File FileName="Notificare.Android.Sample/google-services.json" Line="1" Column="1" />
-      <File FileName="Notificare.Android/Properties/AssemblyInfo.cs" Line="1" Column="1" />
-      <File FileName="Notificare.Android.Sample/packages.config" Line="1" Column="1" />
-      <File FileName="Notificare.Android/packages.config" Line="13" Column="64" />
+      <File FileName="Notificare.Android.Sample/Properties/AndroidManifest.xml" Line="4" Column="22" />
+      <File FileName="Notificare.Android.Sample/MainActivity.cs" Line="1" Column="1" />
+      <File FileName="Notificare.Android.Sample/MainApplication.cs" Line="24" Column="1" />
+      <File FileName="Notificare.Android.Sample/google-services.json" Line="104" Column="2" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Notificare.Android" expanded="True">
-            <Node name="Notificare.Android" expanded="True">
-              <Node name="packages.config" selected="True" />
-            </Node>
-            <Node name="Notificare.Sample.Android" expanded="True">
+            <Node name="Notificare.Sample.Android" expanded="True" selected="True">
+              <Node name="Packages" expanded="True" />
               <Node name="Assets" expanded="True" />
               <Node name="Properties" expanded="True" />
             </Node>
@@ -28,10 +20,11 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
+  <MonoDevelop.Ide.ItemProperties.Notificare.Android PreferredExecutionTarget="Android.TA39100ER9" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.Notificare.Sample.Android PreferredExecutionTarget="Android.MonoForAndroid_API_10" AndroidDeviceId-Debug="8e9372c7" AndroidDeviceId-Release="0123456789ABCDEF" MonoForAntroid.PreferredDevice="3.7&quot; WVGA (Nexus One)" />
+  <MonoDevelop.Ide.ItemProperties.Notificare.Sample.Android PreferredExecutionTarget="Android.068f9ebe2115a907" AndroidDeviceId-Debug="8e9372c7" AndroidDeviceId-Release="0123456789ABCDEF" MonoForAntroid.PreferredDevice="3.7&quot; WVGA (Nexus One)" />
 </Properties>

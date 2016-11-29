@@ -6,3 +6,4 @@ Components/
 *.xam
 notificareconfig.properties
 Notificare.plist
+google-services.json

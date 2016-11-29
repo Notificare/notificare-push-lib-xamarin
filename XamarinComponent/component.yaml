@@ -21,12 +21,13 @@ packages:
     - AndroidAltBeaconLibrary, Version=2.7.0
     - Xamarin.Android.Support.v4, Version=24.2.1
     - Xamarin.Android.Support.v7.AppCompat, Version=24.2.1
-    - Xamarin.GooglePlayServices.Basement, Version=32.961.0-beta1
-    - Xamarin.GooglePlayServices.Base, Version=32.961.0-beta1
-    - Xamarin.GooglePlayServices.GCM, Version=32.961.0-beta1
-    - Xamarin.GooglePlayServices.Location, Version=32.961.0-beta1
-    - Xamarin.GooglePlayServices.Maps, Version=32.961.0-beta1
-    - Xamarin.GooglePlayServices.Tasks, Version=32.961.0-beta1
+    - Xamarin.Firebase.Core, Version=32.961.0
+    - Xamarin.Firebase.Messaging, Version=32.961.0
+    - Xamarin.GooglePlayServices.Base, Version=32.961.0
+    - Xamarin.GooglePlayServices.Gcm, Version=32.961.0
+    - Xamarin.GooglePlayServices.Location, Version=32.961.0
+    - Xamarin.GooglePlayServices.Maps, Version=32.961.0
+    - Xamarin.GooglePlayServices.Tasks, Version=32.961.0
 samples:
   - name: iOS Unified Sample. Demonstrates Notificare on iOS Unified.
     path: samples/Notificare.iOS.SampleApp/Notificare.iOS.SampleApp.sln
