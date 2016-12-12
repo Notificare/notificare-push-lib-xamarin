@@ -1,33 +1,18 @@
 ﻿<Properties StartupConfiguration="{08A88253-B3EB-4856-901E-6D359408F366}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Notificare.iOS.TestApp/AppDelegate.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Notificare.iOS.TestApp/Entitlements.plist">
     <Files>
       <File FileName="Notification/NotificationService.cs" Line="33" Column="1" />
       <File FileName="Notification/Info.plist" />
       <File FileName="Notification/Entitlements.plist" />
       <File FileName="Notificare.iOS/ApiDefinition.cs" Line="1947" Column="7" />
-      <File FileName="Notificare.iOS.TestApp/AppDelegate.cs" Line="44" Column="59" />
+      <File FileName="Notificare.iOS.TestApp/AppDelegate.cs" Line="53" Column="34" />
       <File FileName="Notificare.iOS.TestApp/Notificare_iOS_TestAppViewController.designer.cs" Line="1" Column="1" />
       <File FileName="Notificare.iOS.TestApp/Notificare_iOS_TestAppViewController.cs" Line="21" Column="1" />
       <File FileName="Notificare.iOS.TestApp/Notificare.plist" />
       <File FileName="Notificare.iOS.TestApp/DefaultTheme.bundle/nl.lproj/Localizable.strings" Line="1" Column="1" />
       <File FileName="Notificare.iOS.TestApp/Info.plist" />
+      <File FileName="Notificare.iOS.TestApp/Entitlements.plist" />
     </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State name="__root__">
-          <Node name="Notificare.iOS" expanded="True">
-            <Node name="Notificare.iOS" expanded="True" selected="True">
-              <Node name="References" expanded="True" />
-              <Node name="NativeReferenceFolder" expanded="True" />
-            </Node>
-            <Node name="Notificare.iOS.TestApp" expanded="True">
-              <Node name="Notificare_iOS_TestAppViewController.cs" expanded="True" />
-            </Node>
-            <Node name="Notification" expanded="True" />
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Release|iPhone" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

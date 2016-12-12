@@ -1,10 +1,24 @@
 ﻿<Properties StartupConfiguration="{DA3BEC82-66B3-4596-B7A1-8EC89170E29A}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Notification/NotificationService.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Notificare.iOS.SampleApp/Notificare.iOS.SampleApp.csproj">
     <Files>
       <File FileName="Notification/NotificationService.cs" Line="5" Column="22" />
       <File FileName="Notification/Info.plist" />
       <File FileName="../../../Notification/NotificationService.cs" Line="33" Column="1" />
+      <File FileName="Notification/Notification.csproj" Line="1" Column="1" />
+      <File FileName="Notificare.iOS.SampleApp/Notificare.iOS.SampleApp.csproj" Line="1" Column="1" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Notificare.iOS.SampleApp" expanded="True">
+            <Node name="Notificare.iOS.SampleApp" selected="True" />
+            <Node name="Notification" expanded="True">
+              <Node name="References" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Release|iPhoneSimulator" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

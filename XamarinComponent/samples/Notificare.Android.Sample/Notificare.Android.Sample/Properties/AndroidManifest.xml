@@ -8,19 +8,7 @@
 	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 	<!-- This app has permission to register and receive message -->
 	<uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
-	<uses-permission android:name="android.permission.BLUETOOTH" />
-	<uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
-	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 	<application android:label="Notificare.Android.Sample" android:icon="@drawable/icon">
-		<receiver android:name="org.altbeacon.beacon.startup.StartupBroadcastReceiver">
-			<intent-filter>
-				<action android:name="android.intent.action.BOOT_COMPLETED" />
-				<action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
-				<action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
-			</intent-filter>
-		</receiver>
-		<service android:name="org.altbeacon.beacon.service.BeaconService" android:enabled="true" android:exported="true" android:isolatedProcess="false" android:label="beacon"></service>
-		<service android:name="org.altbeacon.beacon.BeaconIntentProcessor" android:enabled="true"></service>
 		<!--
 	    	Service running in the background that receives your Push Notifications 
 	     -->
