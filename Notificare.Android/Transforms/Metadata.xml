@@ -7,6 +7,8 @@
   <attr path="/api/package[@name='re.notifica.model']" name="managedName">Notificare.Android.Model</attr>
   <attr path="/api/package[@name='re.notifica.notification']" name="managedName">Notificare.Android.Notification</attr>
   <attr path="/api/package[@name='re.notifica.oauth2']" name="managedName">Notificare.Android.OAuth2</attr>
+  <attr path="/api/package[@name='re.notifica.passbook']" name="managedName">Notificare.Android.Passbook</attr>
+  <attr path="/api/package[@name='re.notifica.push.fcm']" name="managedName">Notificare.Android.Push.FCM</attr>
   <attr path="/api/package[@name='re.notifica.push.gcm']" name="managedName">Notificare.Android.Push.GCM</attr>
   <attr path="/api/package[@name='re.notifica.receiver']" name="managedName">Notificare.Android.Receiver</attr>
   <attr path="/api/package[@name='re.notifica.support.v7.app']" name="managedName">Notificare.Android.Support.V7.App</attr>

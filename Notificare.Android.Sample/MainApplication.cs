@@ -12,7 +12,7 @@ using Firebase;
 
 namespace Notificare.Sample.Android
 {
-	[Application]
+[Application(Debuggable = true, AllowClearUserData = true, Icon = "@drawable/icon", Theme = "@style/Theme.AppCompat.Light.DarkActionBar")]
 	public class MainApplication : Application
 	{
 		public MainApplication(IntPtr javaReference, JniHandleOwnership transfer) : base(javaReference, transfer) { }
@@ -21,7 +21,7 @@ namespace Notificare.Sample.Android
 		{
 			base.OnCreate ();
 			// Launch Notificare system
-			Notificare.Android.Notificare.Shared().SetUseLegacyGCM();
+			//Notificare.Android.Notificare.Shared().SetUseLegacyGCM();
 			Notificare.Android.Notificare.Shared ().Launch (this);
 			// Use our custom intent receiver
 			Notificare.Android.Notificare.Shared ().IntentReceiver = Java.Lang.Class.FromType(typeof(MyIntentReceiver));

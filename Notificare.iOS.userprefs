@@ -1,17 +1,10 @@
 ﻿<Properties StartupConfiguration="{08A88253-B3EB-4856-901E-6D359408F366}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Notificare.iOS.TestApp/Entitlements.plist">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Notificare.iOS/StructsAndEnums.cs">
     <Files>
-      <File FileName="Notification/NotificationService.cs" Line="33" Column="1" />
-      <File FileName="Notification/Info.plist" />
-      <File FileName="Notification/Entitlements.plist" />
-      <File FileName="Notificare.iOS/ApiDefinition.cs" Line="1947" Column="7" />
-      <File FileName="Notificare.iOS.TestApp/AppDelegate.cs" Line="53" Column="34" />
-      <File FileName="Notificare.iOS.TestApp/Notificare_iOS_TestAppViewController.designer.cs" Line="1" Column="1" />
-      <File FileName="Notificare.iOS.TestApp/Notificare_iOS_TestAppViewController.cs" Line="21" Column="1" />
-      <File FileName="Notificare.iOS.TestApp/Notificare.plist" />
-      <File FileName="Notificare.iOS.TestApp/DefaultTheme.bundle/nl.lproj/Localizable.strings" Line="1" Column="1" />
-      <File FileName="Notificare.iOS.TestApp/Info.plist" />
-      <File FileName="Notificare.iOS.TestApp/Entitlements.plist" />
+      <File FileName="Notificare.iOS/ApiDefinition.cs" Line="7" Column="16" />
+      <File FileName="Notificare.iOS/StructsAndEnums.cs" Line="6" Column="1" />
+      <File FileName="Notificare.iOS.TestApp/Main.cs" Line="1" Column="1" />
+      <File FileName="Notificare.iOS.TestApp/AppDelegate.cs" Line="12" Column="16" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Release|iPhone" />
@@ -19,5 +12,6 @@
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.Notificare.iOS.TestApp PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.08d575c1a3eea656dca228d0aa485dfb2e789024" />
+  <MonoDevelop.Ide.ItemProperties.Notificare.iOS.TestApp PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget" />
+  <MultiItemStartupConfigurations />
 </Properties>

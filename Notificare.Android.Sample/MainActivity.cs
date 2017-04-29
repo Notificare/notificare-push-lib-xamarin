@@ -16,7 +16,7 @@ using Notificare.Android;
 
 namespace Notificare.Sample.Android
 {
-	[Activity (Label = "Notificare.Sample", Name= "notificare.sample.android.MainActivity", MainLauncher = true)]
+	[Activity (Label = "Notificare.Sample", MainLauncher = true, Icon = "@drawable/icon", Theme = "@style/Theme.AppCompat.Light.DarkActionBar")]
 	[IntentFilter (new[]{Notificare.Android.Notificare.IntentActionNotificationOpened}, Categories=new[]{Intent.CategoryDefault})]
 	public class MainActivity : ActionBarBaseActivity, Notificare.Android.Notificare.IOnNotificareReadyListener, Notificare.Android.Notificare.IOnBillingReadyListener, BillingManager.IOnRefreshFinishedListener
 	{

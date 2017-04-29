@@ -9,6 +9,7 @@ using UIKit;
 using CoreLocation;
 using CoreGraphics;
 using Security;
+using StoreKit;
 using Notificare.iOS;
 
 namespace Notificare.iOS.TestApp
