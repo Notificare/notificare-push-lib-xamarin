@@ -1,5 +1,5 @@
 ﻿<Properties StartupConfiguration="{11FC6752-09A2-4776-8093-C1F4152B9FD4}|Default" NuGet.AddPackagesDialog.IncludePrerelease="True">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Notificare.Android.Sample/MainActivity.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Notificare.Android.Sample/packages.config">
     <Files>
       <File FileName="Notificare.Android.Sample/google-services.json" Line="104" Column="2" />
       <File FileName="Notificare.Android/Transforms/Metadata.xml" Line="11" Column="89" />
@@ -9,31 +9,8 @@
       <File FileName="Notificare.Android.Sample/MainApplication.cs" Line="15" Column="31" />
       <File FileName="Notificare.Android.Sample/MyIntentReceiver.cs" Line="51" Column="20" />
       <File FileName="Notificare.Android/packages.config" Line="1" Column="1" />
+      <File FileName="Notificare.Android.Sample/packages.config" Line="1" Column="1" />
     </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State name="__root__">
-          <Node name="Notificare.Android" expanded="True">
-            <Node name="Notificare.Android" expanded="True">
-              <Node name="References" expanded="True">
-                <Node name="From Packages" expanded="True" />
-              </Node>
-              <Node name="Packages" expanded="True" />
-              <Node name="Additions" expanded="True" />
-              <Node name="Jars" expanded="True" />
-              <Node name="Properties" expanded="True" />
-              <Node name="Transforms" expanded="True" />
-            </Node>
-            <Node name="Notificare.Sample.Android" expanded="True" selected="True">
-              <Node name="References" expanded="True" />
-              <Node name="Packages" expanded="True" />
-              <Node name="Assets" expanded="True" />
-              <Node name="Properties" expanded="True" />
-            </Node>
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.Notificare.Android PreferredExecutionTarget="Android.Android_Accelerated_x86" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
