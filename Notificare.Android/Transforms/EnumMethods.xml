@@ -16,7 +16,7 @@
   - The parameter names will be p0, p1, ... unless you provide JavaDoc file in the project.
   -->
 	<mapping jni-class="re/notifica/Notificare">
-		<method jni-name="checkRequestLocationPermissionResult" parameter="p1" clr-enum-type="Android.Content.PM.Permission[]" />
+		<method jni-name="checkRequestLocationPermissionResult" parameter="grantResults" clr-enum-type="Android.Content.PM.Permission[]" />
 	</mapping>
 
 </enum-method-mappings>

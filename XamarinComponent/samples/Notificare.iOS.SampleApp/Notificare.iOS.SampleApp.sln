@@ -31,6 +31,6 @@ Global
 		{8C607621-14A6-423D-95CC-74982CC0DC0F}.Debug|iPhone.Build.0 = Debug|iPhone
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		version = 1.8.2
+		version = 1.12.0
 	EndGlobalSection
 EndGlobal

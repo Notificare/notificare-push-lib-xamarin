@@ -4,6 +4,7 @@
   <attr path="/api/package[@name='re.notifica.api']" name="managedName">Notificare.Android.API</attr>
   <attr path="/api/package[@name='re.notifica.beacon']" name="managedName">Notificare.Android.Beacon</attr>
   <attr path="/api/package[@name='re.notifica.billing']" name="managedName">Notificare.Android.Billing</attr>
+  <attr path="/api/package[@name='re.notifica.location']" name="managedName">Notificare.Android.Location</attr>
   <attr path="/api/package[@name='re.notifica.model']" name="managedName">Notificare.Android.Model</attr>
   <attr path="/api/package[@name='re.notifica.notification']" name="managedName">Notificare.Android.Notification</attr>
   <attr path="/api/package[@name='re.notifica.oauth2']" name="managedName">Notificare.Android.OAuth2</attr>
@@ -16,8 +17,13 @@
   <attr path="/api/package[@name='re.notifica.util']" name="managedName">Notificare.Android.Util</attr>
   	<remove-node path="/api/package[@name='re.notifica.api']/class[@name='RequestAsyncTask']/method[@name='doInBackground']" />
   	<remove-node path="/api/package[@name='re.notifica.oauth2']/class[@name='OAuth2RequestAsyncTask']/method[@name='doInBackground']" />
-	<remove-node path="/api/package[starts-with(@name, 're.notifica.repackaged')]" />
+	<remove-node path="/api/package[starts-with(@name, 're.notifica.content')]" />
+    <remove-node path="/api/package[starts-with(@name, 're.notifica.contentprovider')]" />
+    <remove-node path="/api/package[starts-with(@name, 're.notifica.database')]" />
+    <remove-node path="/api/package[starts-with(@name, 're.notifica.repackaged')]" />
 	<remove-node path="/api/package[@name='re.notifica']/class[@name='Notificare.OnAddGeofencesResultCallback']" />
 	<remove-node path="/api/package[@name='re.notifica']/class[@name='Notificare.OnRemoveGeofencesByRequestIdsResultCallback']" />
 	<remove-node path="/api/package[@name='re.notifica']/class[@name='Notificare.OnRemoveGeofencesByPendingIntentResultCallback']" />
+
+<!--	<attr path="/api/package[@name='re.notifica']/class[@name='NotificareInboxManager']/method[@name='getItems' and count(parameter)=0]" name="managedReturn">System.Collections.ICollection</attr>-->
 </metadata>

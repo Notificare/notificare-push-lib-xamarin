@@ -153,6 +153,7 @@ namespace Notificare.Sample.Android
 			// Launch Notificare system
 			Notificare.Android.Notificare.Shared ().Launch (this);
 			Notificare.Android.Notificare.Shared ().IntentReceiver = Java.Lang.Class.FromType(typeof(MyIntentReceiver));
+			Notificare.Android.Notificare.Shared ().CreateDefaultChannel();
 			Notificare.Android.Notificare.Shared ().AutoCancel = Java.Lang.Boolean.False;
 
 		}
@@ -164,44 +165,39 @@ namespace Notificare.Sample.Android
 Finally, you should add the following lines to your AndroidManifest.xml
 
 ```xml
-  <uses-permission android:name="android.permission.WAKE_LOCK" />
   <uses-permission android:name="android.permission.INTERNET" />
   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
   <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
   <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
   <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
-  <permission android:name=".permission.C2D_MESSAGE" android:protectionLevel="signature" />
-  <uses-permission android:name=".permission.C2D_MESSAGE" />
 ```
 
 add the following inside the AndroidManifest application element
 
 
 ```xml
-    <receiver android:name="re.notifica.push.gcm.PushReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+    <service android:name="re.notifica.push.fcm.PushService" android:label="Notificare Push Service" android:exported="false">
+      <intent-filter>
+        <action android:name="com.google.firebase.MESSAGING_EVENT" />
+      </intent-filter>
+    </service>
+    <service android:name="re.notifica.push.fcm.InstanceIDService" android:exported="false">
+      <intent-filter>
+        <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+      </intent-filter>
+    </service>
+    <receiver android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:exported="true" android:permission="com.google.android.c2dm.permission.SEND">
       <intent-filter>
         <action android:name="com.google.android.c2dm.intent.RECEIVE" />
         <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
-        <!-- Replace with your package name -->
-        <category android:name="notificare.sample.android" />
+        <category android:name="${applicationId}" />
       </intent-filter>
     </receiver>
-
-    <service android:name="re.notifica.push.gcm.PushService" android:label="Notificare Push Service">
-      <intent-filter>
-        <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-      </intent-filter>
-    </service>
-
-    <service android:name="re.notifica.push.gcm.InstanceIDService" android:exported="false">
-      <intent-filter>
-        <action android:name="com.google.android.gms.iid.InstanceID" />
-      </intent-filter>
-    </service>
-    <service android:name="re.notifica.push.gcm.RegistrationService" android:exported="false" />
+    <receiver android:name="com.google.firebase.iid.FirebaseInstanceIdInternalReceiver" android:exported="false" />
 
     <activity android:name="re.notifica.ui.NotificationActivity" />
+    <activity android:name="re.notifica.ui.PassbookActivity" />
     <activity android:name="re.notifica.ui.UserPreferencesActivity" />
 ```
 

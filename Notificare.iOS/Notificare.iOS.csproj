@@ -11,7 +11,7 @@
     <RootNamespace>Notificare.iOS</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AssemblyName>Notificare.iOS</AssemblyName>
-    <ReleaseVersion>1.9.1</ReleaseVersion>
+    <ReleaseVersion>1.12.0</ReleaseVersion>
     <TargetFrameworkIdentifier>Xamarin.iOS</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v1.0</TargetFrameworkVersion>
   </PropertyGroup>
@@ -54,9 +54,12 @@
       <SmartLink>False</SmartLink>
       <LinkerFlags>-licucore</LinkerFlags>
       <WeakFrameworks>PassKit UserNotifications</WeakFrameworks>
-      <Frameworks>CoreLocation CoreData MobileCoreServices MessageUI UIKit Foundation CoreGraphics MapKit SystemConfiguration Security CFNetwork ImageIO StoreKit SafariServices</Frameworks>
+      <Frameworks>AVFoundation CoreLocation CoreData MobileCoreServices MessageUI UIKit Foundation CoreGraphics MapKit SystemConfiguration Security CFNetwork ImageIO StoreKit SafariServices</Frameworks>
       <ForceLoad>True</ForceLoad>
     </NativeReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
 </Project>

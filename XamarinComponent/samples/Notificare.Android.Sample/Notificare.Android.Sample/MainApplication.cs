@@ -27,6 +27,8 @@ namespace Notificare.Android.Sample
 			Notificare.Shared ().IntentReceiver = Java.Lang.Class.FromType(typeof(MyIntentReceiver));
 			// Use our preferences from XML
 			Notificare.Shared ().UserPreferencesResource = Resource.Xml.preferences;
+            // Create and set a default channel for notifications
+            Notificare.Shared().CreateDefaultChannel();
 			// Keep notifications in the drawer, remove this line or set to true if you want them to clear automatically when opened
 			//Notificare.Shared ().AutoCancel = Java.Lang.Boolean.False;
 			Notificare.Shared ().DefaultLightsColor = "#ff0000";

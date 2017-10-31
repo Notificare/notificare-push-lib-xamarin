@@ -12,1394 +12,1465 @@ using UserNotifications;
 namespace Notificare.iOS
 {
 
-	[BaseType(typeof(NSObject))]
-	public interface NotificareNetworkOperation
-	{
-		// Stub
-	}
+    [BaseType(typeof(NSObject))]
+    public interface NotificareNetworkOperation
+    {
+        // Stub
+    }
 
-	[BaseType(typeof(NSObject))]
-	public interface NotificareAction
-	{
+    [BaseType(typeof(NSObject))]
+    public interface NotificareAction
+    {
 
-		/*
+        /*
 		 * @property (strong, nonatomic) NSString * actionType;
 		 */
 
-		/// <summary>
-		/// Gets the type of the action.
-		/// </summary>
-		/// <value>The type of the action.</value>
-		[Export("actionType")]
-		NSString ActionType { get; }
+        /// <summary>
+        /// Gets the type of the action.
+        /// </summary>
+        /// <value>The type of the action.</value>
+        [Export("actionType")]
+        NSString ActionType { get; }
 
-		/*
+        /*
 		 * @property (strong, nonatomic) NSString * actionLabel;
 		 */
 
-		/// <summary>
-		/// Gets the action label.
-		/// </summary>
-		/// <value>The action label.</value>
-		[Export("actionLabel")]
-		NSString ActionLabel { get; }
+        /// <summary>
+        /// Gets the action label.
+        /// </summary>
+        /// <value>The action label.</value>
+        [Export("actionLabel")]
+        NSString ActionLabel { get; }
 
 
-		/*
+        /*
 		 * @property (strong, nonatomic) NSString * actionTarget;
 		 */
 
-		/// <summary>
-		/// Gets the action target.
-		/// </summary>
-		/// <value>The action target.</value>
-		[Export("actionTarget")]
-		NSString ActionTarget { get; }
+        /// <summary>
+        /// Gets the action target.
+        /// </summary>
+        /// <value>The action target.</value>
+        [Export("actionTarget")]
+        NSString ActionTarget { get; }
 
 
-		/*
+        /*
 		 * @property (nonatomic, assign) BOOL actionKeyboard;
 		 */
 
-		/// <summary>
-		/// Gets a value indicating whether this <see cref="Notificare.iOS.NotificareAction"/> needs keyboard.
-		/// </summary>
-		/// <value><c>true</c> if action keyboard; otherwise, <c>false</c>.</value>
-		[Export("actionKeyboard")]
-		bool ActionKeyboard { get; }
+        /// <summary>
+        /// Gets a value indicating whether this <see cref="Notificare.iOS.NotificareAction"/> needs keyboard.
+        /// </summary>
+        /// <value><c>true</c> if action keyboard; otherwise, <c>false</c>.</value>
+        [Export("actionKeyboard")]
+        bool ActionKeyboard { get; }
 
 
-		/*
+        /*
 		 * @property (nonatomic, assign) BOOL actionCamera;
 		 */
 
-		/// <summary>
-		/// Gets a value indicating whether this <see cref="Notificare.iOS.NotificareAction"/> needs camera.
-		/// </summary>
-		/// <value><c>true</c> if action camera; otherwise, <c>false</c>.</value>
-		[Export("actionCamera")]
-		bool ActionCamera { get; }
+        /// <summary>
+        /// Gets a value indicating whether this <see cref="Notificare.iOS.NotificareAction"/> needs camera.
+        /// </summary>
+        /// <value><c>true</c> if action camera; otherwise, <c>false</c>.</value>
+        [Export("actionCamera")]
+        bool ActionCamera { get; }
 
-		/*
+        /*
 		 * - (void)setValuesWithActionJSON:(NSDictionary* _Nonnull)actionJSON;
 		 */
 
-		/// <summary>
-		/// Sets the values with action json.
-		/// </summary>
-		/// <param name="actionJSON">Action json.</param>
-		[Export("setValuesWithActionJSON:")]
-		void SetValuesWithActionJSON(NSDictionary actionJSON);
-	}
+        /// <summary>
+        /// Sets the values with action json.
+        /// </summary>
+        /// <param name="actionJSON">Action json.</param>
+        [Export("setValuesWithActionJSON:")]
+        void SetValuesWithActionJSON(NSDictionary actionJSON);
+    }
 
-	[BaseType(typeof(NSObject))]
-	public interface NotificareAsset
-	{
-		/*
+    [BaseType(typeof(NSObject))]
+    public interface NotificareAsset
+    {
+        /*
 		 * @property (strong, nonatomic) NSString * assetTitle;
 		 */
 
-		/// <summary>
-		/// Gets the asset title.
-		/// </summary>
-		/// <value>The asset title.</value>
-		[Export("assetTitle")]
-		NSString AssetTitle { get; }
+        /// <summary>
+        /// Gets the asset title.
+        /// </summary>
+        /// <value>The asset title.</value>
+        [Export("assetTitle")]
+        NSString AssetTitle { get; }
 
-		/*
+        /*
 		 * @property (strong, nonatomic) NSString * assetDescription;
 		 */
 
-		/// <summary>
-		/// Gets the asset description.
-		/// </summary>
-		/// <value>The asset description.</value>
-		[Export("assetDescription")]
-		NSString AssetDescription { get; }
+        /// <summary>
+        /// Gets the asset description.
+        /// </summary>
+        /// <value>The asset description.</value>
+        [Export("assetDescription")]
+        NSString AssetDescription { get; }
 
-		/*
+        /*
 		 * @property (strong, nonatomic) NSString * assetUrl;
 		 */
 
-		/// <summary>
-		/// Gets the asset URL.
-		/// </summary>
-		/// <value>The asset URL.</value>
-		[Export("assetUrl")]
-		NSString AssetUrl { get; }
+        /// <summary>
+        /// Gets the asset URL.
+        /// </summary>
+        /// <value>The asset URL.</value>
+        [Export("assetUrl")]
+        NSString AssetUrl { get; }
 
-		/*
+        /*
 		 * @property (strong, nonatomic) NSDictionary * assetButton;
 		 */
 
-		/// <summary>
-		/// Gets the asset button.
-		/// </summary>
-		/// <value>The asset button.</value>
-		[Export("assetButton")]
-		NSDictionary AssetButton { get; }
+        /// <summary>
+        /// Gets the asset button.
+        /// </summary>
+        /// <value>The asset button.</value>
+        [Export("assetButton")]
+        NSDictionary AssetButton { get; }
 
-		/*
+        /*
 		 * @property (strong, nonatomic) NSDictionary * assetMetaData;
 		 */
 
-		/// <summary>
-		/// Gets the asset meta data.
-		/// </summary>
-		/// <value>The asset meta data.</value>
-		[Export("assetMetaData")]
-		NSDictionary AssetMetaData { get; }
+        /// <summary>
+        /// Gets the asset meta data.
+        /// </summary>
+        /// <value>The asset meta data.</value>
+        [Export("assetMetaData")]
+        NSDictionary AssetMetaData { get; }
 
-		/*
+        /*
 		 * - (void)setValuesWithAssetJSON:(NSDictionary* _Nonnull)assetJSON andWithFetchAssetURLString:(NSString* _Nonnull)fetchAssetURLString;
 		 */
 
-		/// <summary>
-		/// Sets the values with asset JSON and with fetch asset URL String.
-		/// </summary>
-		/// <param name="AssetJSON">Asset json.</param>
-		/// <param name="FetchAssetURLString">Fetch asset URLS tring.</param>
-		[Export("setValuesWithAssetJSON:andWithFetchAssetURLString:")]
-		void SetValuesWithAssetJSONAndWithFetchAssetURLString(NSDictionary assetJSON, NSString fetchAssetURLString);
-	}
+        /// <summary>
+        /// Sets the values with asset JSON and with fetch asset URL String.
+        /// </summary>
+        /// <param name="AssetJSON">Asset json.</param>
+        /// <param name="FetchAssetURLString">Fetch asset URLS tring.</param>
+        [Export("setValuesWithAssetJSON:andWithFetchAssetURLString:")]
+        void SetValuesWithAssetJSONAndWithFetchAssetURLString(NSDictionary assetJSON, NSString fetchAssetURLString);
+    }
 
-	[BaseType(typeof(NSObject))]
-	public interface NotificareAttachment
-	{
+    [BaseType(typeof(NSObject))]
+    public interface NotificareAttachment
+    {
 
-		/*
+        /*
 		 * @property (strong, nonatomic) NSString * attachmentURI;
 		 */
 
-		/// <summary>
-		/// Gets the attachment URI.
-		/// </summary>
-		/// <value>The attachment URI.</value>
-		[Export("attachmentURI")]
-		NSString AttachmentURI { get; }
+        /// <summary>
+        /// Gets the attachment URI.
+        /// </summary>
+        /// <value>The attachment URI.</value>
+        [Export("attachmentURI")]
+        NSString AttachmentURI { get; }
 
-		/*
+        /*
 		 * @property (strong, nonatomic) NSString * attachmentMimeType;
 		 */
 
-		/// <summary>
-		/// Gets the MIME type of the attachment.
-		/// </summary>
-		/// <value>The MIME type of the attachment.</value>
-		[Export("attachmentMimeType")]
-		NSString AttachmentMimeType { get; }
+        /// <summary>
+        /// Gets the MIME type of the attachment.
+        /// </summary>
+        /// <value>The MIME type of the attachment.</value>
+        [Export("attachmentMimeType")]
+        NSString AttachmentMimeType { get; }
 
-		/*
+        /*
 		 * - (void)setValuesWithAttachmentJSON:(NSDictionary* _Nonnull)attachmentJSON;
 		 */
 
-		/// <summary>
-		/// Sets the values with attachment json.
-		/// </summary>
-		/// <param name="attachmentJson">Attachment json.</param>
-		[Export("setValuesWithAttachmentJSON:")]
-		void SetValuesWithAttachmentJSON(NSDictionary attachmentJson);
-	}
+        /// <summary>
+        /// Sets the values with attachment json.
+        /// </summary>
+        /// <param name="attachmentJson">Attachment json.</param>
+        [Export("setValuesWithAttachmentJSON:")]
+        void SetValuesWithAttachmentJSON(NSDictionary attachmentJson);
+    }
 
-	[BaseType(typeof(NSObject))]
-	public interface NotificareBeacon
-	{
-		/*
+    [BaseType(typeof(NSObject))]
+    public interface NotificareBeacon
+    {
+        /*
 		 * @property (strong, nonatomic) NSString * name;
 		 */
 
-		/// <summary>
-		/// Gets the name.
-		/// </summary>
-		/// <value>The name.</value>
-		[Export("name")]
-		NSString Name { get; }
+        /// <summary>
+        /// Gets the name.
+        /// </summary>
+        /// <value>The name.</value>
+        [Export("name")]
+        NSString Name { get; }
 
 
-		/*
+        /*
 		 * @property (strong, nonatomic) NSString * region;
 		 */
 
-		/// <summary>
-		/// Gets the region.
-		/// </summary>
-		/// <value>The region.</value>
-		[Export("region")]
-		NSString Region { get; }
+        /// <summary>
+        /// Gets the region.
+        /// </summary>
+        /// <value>The region.</value>
+        [Export("region")]
+        NSString Region { get; }
 
 
-		/*
+        /*
 		 * @property (strong, nonatomic) NSUUID * beaconUUID;
 		 */
 
-		/// <summary>
-		/// Gets the beacon UUI.
-		/// </summary>
-		/// <value>The beacon UUI.</value>
-		[Export("beaconUUID")]
-		NSUuid BeaconUUID { get; }
+        /// <summary>
+        /// Gets the beacon UUI.
+        /// </summary>
+        /// <value>The beacon UUI.</value>
+        [Export("beaconUUID")]
+        NSUuid BeaconUUID { get; }
 
 
-		/*
+        /*
 		 * @property (strong, nonatomic) NSString * major;
 		 */
 
-		/// <summary>
-		/// Gets the major.
-		/// </summary>
-		/// <value>The major.</value>
-		[Export("major")]
-		NSString Major { get; }
+        /// <summary>
+        /// Gets the major.
+        /// </summary>
+        /// <value>The major.</value>
+        [Export("major")]
+        NSString Major { get; }
 
 
-		/*
+        /*
 		 * @property (strong, nonatomic) NSString * minor;
 		 */
 
-		/// <summary>
-		/// Gets the minor.
-		/// </summary>
-		/// <value>The minor.</value>
-		[Export("minor")]
-		NSString Minor { get; }
+        /// <summary>
+        /// Gets the minor.
+        /// </summary>
+        /// <value>The minor.</value>
+        [Export("minor")]
+        NSString Minor { get; }
 
 
-		/*
+        /*
 		 * @property (strong, nonatomic) NSString * proximity;
 		 */
 
-		/// <summary>
-		/// Gets the proximity.
-		/// </summary>
-		/// <value>The proximity.</value>
-		[Export("proximity")]
-		NSString Proximity { get; }
+        /// <summary>
+        /// Gets the proximity.
+        /// </summary>
+        /// <value>The proximity.</value>
+        [Export("proximity")]
+        NSString Proximity { get; }
 
 
-		/*
+        /*
 		 * @property (strong, nonatomic) NSDictionary * proximityNotifications;
 		 */
 
-		/// <summary>
-		/// Gets the proximity notifications.
-		/// </summary>
-		/// <value>The proximity notifications.</value>
-		[Export("proximityNotifications")]
-		NSDictionary ProximityNotifications { get; }
+        /// <summary>
+        /// Gets the proximity notifications.
+        /// </summary>
+        /// <value>The proximity notifications.</value>
+        [Export("proximityNotifications")]
+        NSDictionary ProximityNotifications { get; }
 
 
-		/*
+        /*
 		 * @property (strong, nonatomic) NSString * application;
 		 */
 
-		/// <summary>
-		/// Gets the application.
-		/// </summary>
-		/// <value>The application.</value>
-		[Export("application")]
-		NSString Application { get; }
+        /// <summary>
+        /// Gets the application.
+        /// </summary>
+        /// <value>The application.</value>
+        [Export("application")]
+        NSString Application { get; }
 
 
-		/*
+        /*
 		 * @property (strong, nonatomic) NSDictionary * notification;
 		 */
 
-		/// <summary>
-		/// Gets the notification.
-		/// </summary>
-		/// <value>The notification.</value>
-		[Export("notification")]
-		NSDictionary Notification { get; }
+        /// <summary>
+        /// Gets the notification.
+        /// </summary>
+        /// <value>The notification.</value>
+        [Export("notification")]
+        NSDictionary Notification { get; }
 
 
-		/*
+        /*
 		 * @property (strong, nonatomic) NSString * latitude;
 		 */
 
-		/// <summary>
-		/// Gets the latitude.
-		/// </summary>
-		/// <value>The latitude.</value>
-		[Export("latitude")]
-		NSString Latitude { get; }
+        /// <summary>
+        /// Gets the latitude.
+        /// </summary>
+        /// <value>The latitude.</value>
+        [Export("latitude")]
+        NSString Latitude { get; }
 
 
-		/*
+        /*
 		 * @property (strong, nonatomic) NSString * longitude;
 		 */
 
-		/// <summary>
-		/// Gets the longitude.
-		/// </summary>
-		/// <value>The longitude.</value>
-		[Export("longitude")]
-		NSString Longitude { get; }
+        /// <summary>
+        /// Gets the longitude.
+        /// </summary>
+        /// <value>The longitude.</value>
+        [Export("longitude")]
+        NSString Longitude { get; }
 
 
-		/*
+        /*
 		 * @property (strong, nonatomic) NSString * batteryLevel;
 		 */
 
-		/// <summary>
-		/// Gets the battery level.
-		/// </summary>
-		/// <value>The battery level.</value>
-		[Export("batteryLevel")]
-		NSString BatteryLevel { get; }
+        /// <summary>
+        /// Gets the battery level.
+        /// </summary>
+        /// <value>The battery level.</value>
+        [Export("batteryLevel")]
+        NSString BatteryLevel { get; }
 
 
-		/*
+        /*
 		 * @property (strong, nonatomic) NSString * purpose;
 		 */
 
-		/// <summary>
-		/// Gets the purpose.
-		/// </summary>
-		/// <value>The purpose.</value>
-		[Export("purpose")]
-		NSString Purpose { get; }
+        /// <summary>
+        /// Gets the purpose.
+        /// </summary>
+        /// <value>The purpose.</value>
+        [Export("purpose")]
+        NSString Purpose { get; }
 
 
-		/*
+        /*
 		 * @property (strong, nonatomic) CLBeacon * beacon;
 		 */
 
-		/// <summary>
-		/// Gets the beacon.
-		/// </summary>
-		/// <value>The beacon.</value>
-		[Export("beacon")]
-		CLBeacon Beacon { get; }
+        /// <summary>
+        /// Gets the beacon.
+        /// </summary>
+        /// <value>The beacon.</value>
+        [Export("beacon")]
+        CLBeacon Beacon { get; }
 
 
-		/*
+        /*
 		 * @property (strong, nonatomic) NSString * timezone;
 		 */
 
-		/// <summary>
-		/// Gets the timezone.
-		/// </summary>
-		/// <value>The timezone.</value>
-		[Export("timezone")]
-		NSString Timezone { get; }
+        /// <summary>
+        /// Gets the timezone.
+        /// </summary>
+        /// <value>The timezone.</value>
+        [Export("timezone")]
+        NSString Timezone { get; }
 
 
-		/*
+        /*
 		 * @property (assign, nonatomic) BOOL triggers;	
 		 */
 
-		/// <summary>
-		/// Gets the triggers.
-		/// </summary>
-		/// <value>The triggers.</value>
-		[Export("triggers")]
-		bool Triggers { get; }
+        /// <summary>
+        /// Gets the triggers.
+        /// </summary>
+        /// <value>The triggers.</value>
+        [Export("triggers")]
+        bool Triggers { get; }
 
-		/*
+        /*
 		 * - (void)setValuesWithBeaconJSON:(NSDictionary* _Nonnull)beaconJSON;
 		 */
 
-		/// <summary>
-		/// Sets the values with beacon json.
-		/// </summary>
-		/// <param name="beaconJSON">Beacon json.</param>
-		[Export("setValuesWithBeaconJSON:")]
-		void SetValuesWithBeaconJSON(NSDictionary beaconJSON);
+        /// <summary>
+        /// Sets the values with beacon json.
+        /// </summary>
+        /// <param name="beaconJSON">Beacon json.</param>
+        [Export("setValuesWithBeaconJSON:")]
+        void SetValuesWithBeaconJSON(NSDictionary beaconJSON);
 
-	}
+    }
 
 
-	[BaseType(typeof(NSObject))]
-	public interface NotificareContent
-	{
+    [BaseType(typeof(NSObject))]
+    public interface NotificareContent
+    {
 
-		/*
+        /*
 		 * @property (strong, nonatomic) NSString * type;
 		 */
 
-		/// <summary>
-		/// Gets the type.
-		/// </summary>
-		/// <value>The type.</value>
-		[Export("type")]
-		NSString Type { get; }
+        /// <summary>
+        /// Gets the type.
+        /// </summary>
+        /// <value>The type.</value>
+        [Export("type")]
+        NSString Type { get; }
 
-		/*
+        /*
 		 * @property (strong, nonatomic) NSString * data;
 		 */
 
-		/// <summary>
-		/// Gets the data.
-		/// </summary>
-		/// <value>The data.</value>
-		[Export("data")]
-		NSString Data { get; }
+        /// <summary>
+        /// Gets the data.
+        /// </summary>
+        /// <value>The data.</value>
+        [Export("data")]
+        NSString Data { get; }
 
 
-		/*
+        /*
 		 * @property (strong, nonatomic) NSDictionary * dataDictionary;
 		 */
 
-		/// <summary>
-		/// Gets the data dictionary.
-		/// </summary>
-		/// <value>The data dictionary.</value>
-		[Export("dataDictionary")]
-		NSDictionary DataDictionary { get; }
+        /// <summary>
+        /// Gets the data dictionary.
+        /// </summary>
+        /// <value>The data dictionary.</value>
+        [Export("dataDictionary")]
+        NSDictionary DataDictionary { get; }
 
-		/*
+        /*
 		 * - (void)setValuesWithContentJSON:(NSDictionary* _Nonnull)contentJSON;
 		 */
 
-		/// <summary>
-		/// Sets the values with content json.
-		/// </summary>
-		/// <param name="contentJSON">Content json.</param>
-		[Export("setValuesWithContentJSON:")]
-		void SetValuesWithContentJSON(NSDictionary contentJSON);
-	}
+        /// <summary>
+        /// Sets the values with content json.
+        /// </summary>
+        /// <param name="contentJSON">Content json.</param>
+        [Export("setValuesWithContentJSON:")]
+        void SetValuesWithContentJSON(NSDictionary contentJSON);
+    }
 
-	[BaseType(typeof(NSObject))]
-	public interface NotificareDevice
-	{
-		/*
+    [BaseType(typeof(NSObject))]
+    public interface NotificareDevice
+    {
+        /*
 		 * @property (strong, nonatomic) NSString * deviceID;
 		 */
 
-		/// <summary>
-		/// Gets the device ID
-		/// </summary>
-		/// <value>The device I.</value>
-		[Export("deviceID")]
-		NSString DeviceID { get; }
+        /// <summary>
+        /// Gets the device ID
+        /// </summary>
+        /// <value>The device I.</value>
+        [Export("deviceID")]
+        NSString DeviceID { get; }
 
-		/*
+        /*
 		 * @property (strong, nonatomic) NSString * userID;
 		 */
 
-		/// <summary>
-		/// Gets the user ID
-		/// </summary>
-		/// <value>The user ID.</value>
-		[Export("userID")]
-		NSString UserID { get; }
+        /// <summary>
+        /// Gets the user ID
+        /// </summary>
+        /// <value>The user ID.</value>
+        [Export("userID")]
+        NSString UserID { get; }
 
-		/*
+        /*
 		 * @property (strong, nonatomic) NSString * username;
 		 */
 
-		/// <summary>
-		/// Gets the username.
-		/// </summary>
-		/// <value>The username.</value>
-		[Export("username")]
-		NSString Username { get; }
+        /// <summary>
+        /// Gets the username.
+        /// </summary>
+        /// <value>The username.</value>
+        [Export("username")]
+        NSString Username { get; }
 
-		/*
+        /*
 		 * @property (strong, nonatomic) NSNumber * timezone;
 		 */
 
-		/// <summary>
-		/// Gets the timezone.
-		/// </summary>
-		/// <value>The timezone.</value>
-		[Export("timezone")]
-		NSNumber Timezone { get; }
+        /// <summary>
+        /// Gets the timezone.
+        /// </summary>
+        /// <value>The timezone.</value>
+        [Export("timezone")]
+        NSNumber Timezone { get; }
 
-		/*
+        /*
 		 * @property (strong, nonatomic) NSString * osVersion;
 		 */
 
-		/// <summary>
-		/// Gets the os version.
-		/// </summary>
-		/// <value>The os version.</value>
-		[Export("osVersion")]
-		NSString OsVersion { get; }
+        /// <summary>
+        /// Gets the os version.
+        /// </summary>
+        /// <value>The os version.</value>
+        [Export("osVersion")]
+        NSString OsVersion { get; }
 
-		/*
+        /*
 		 * @property (strong, nonatomic) NSString * sdkVersion;
 		 */
 
-		/// <summary>
-		/// Gets the sdk version.
-		/// </summary>
-		/// <value>The sdk version.</value>
-		[Export("sdkVersion")]
-		NSString SdkVersion { get; }
+        /// <summary>
+        /// Gets the sdk version.
+        /// </summary>
+        /// <value>The sdk version.</value>
+        [Export("sdkVersion")]
+        NSString SdkVersion { get; }
 
-		/*
+        /*
 		 * @property (strong, nonatomic) NSString * appVersion;
 		 */
 
-		/// <summary>
-		/// Gets the app version.
-		/// </summary>
-		/// <value>The app version.</value>
-		[Export("appVersion")]
-		NSString AppVersion { get; }
+        /// <summary>
+        /// Gets the app version.
+        /// </summary>
+        /// <value>The app version.</value>
+        [Export("appVersion")]
+        NSString AppVersion { get; }
 
-		/*
+        /*
 		 * @property (strong, nonatomic) NSString * device;
 		 */
 
-		/// <summary>
-		/// Gets the device string.
-		/// </summary>
-		/// <value>The device.</value>
-		[Export("device")]
-		NSString Device { get; }
+        /// <summary>
+        /// Gets the device string.
+        /// </summary>
+        /// <value>The device.</value>
+        [Export("device")]
+        NSString Device { get; }
 
-		/*
+        /*
 		 * @property (strong, nonatomic) NSString * country;
 		 */
 
-		/// <summary>
-		/// Gets the country.
-		/// </summary>
-		/// <value>The country.</value>
-		[Export("country")]
-		NSString Country { get; }
+        /// <summary>
+        /// Gets the country.
+        /// </summary>
+        /// <value>The country.</value>
+        [Export("country")]
+        NSString Country { get; }
 
-		/*
+        /*
 		 * @property(strong, nonatomic, nullable) NSDictionary* dnd;
 		 */
 
-		/// <summary>
-		/// Gets the dnd.
-		/// </summary>
-		/// <value>The dnd.</value>
-		[Export("dnd")]
-		NSDictionary Dnd { get; }
+        /// <summary>
+        /// Gets the dnd.
+        /// </summary>
+        /// <value>The dnd.</value>
+        [Export("dnd")]
+        NSDictionary Dnd { get; }
 
-		/*
+        /*
 		 * @property(strong, nonatomic, nullable) NSDictionary* userData;
 		 */
 
-		/// <summary>
-		/// Gets the user data.
-		/// </summary>
-		/// <value>The user data.</value>
-		[Export("userData")]
-		NSDictionary UserData { get; }
+        /// <summary>
+        /// Gets the user data.
+        /// </summary>
+        /// <value>The user data.</value>
+        [Export("userData")]
+        NSDictionary UserData { get; }
 
-		/*
+        /*
 		 * @property (nonatomic) float latitude;
 		 */
 
-		/// <summary>
-		/// Gets the latitude.
-		/// </summary>
-		/// <value>The latitude.</value>
-		[Export("latitude")]
-		float Latitude { get; }
+        /// <summary>
+        /// Gets the latitude.
+        /// </summary>
+        /// <value>The latitude.</value>
+        [Export("latitude")]
+        float Latitude { get; }
 
-		/*
+        /*
 		 * @property (nonatomic) float longitude;
 		 */
 
-		/// <summary>
-		/// Gets the longitude.
-		/// </summary>
-		/// <value>The longitude.</value>
-		[Export("longitude")]
-		float Longitude { get; }
+        /// <summary>
+        /// Gets the longitude.
+        /// </summary>
+        /// <value>The longitude.</value>
+        [Export("longitude")]
+        float Longitude { get; }
 
-		/*
+        /*
 		 * @property (assign, nonatomic) BOOL canReceiveNotifications;
 		 */
 
-		/// <summary>
-		/// Gets a value indicating whether this <see cref="Notificare.iOS.NotificareDevice"/> can receive notifications.
-		/// </summary>
-		/// <value><c>true</c> if this instance can receive notifications; otherwise, <c>false</c>.</value>
-		[Export("canReceiveNotifications")]
-		bool CanReceiveNotifications { get; }
+        /// <summary>
+        /// Gets a value indicating whether this <see cref="Notificare.iOS.NotificareDevice"/> can receive notifications.
+        /// </summary>
+        /// <value><c>true</c> if this instance can receive notifications; otherwise, <c>false</c>.</value>
+        [Export("canReceiveNotifications")]
+        bool CanReceiveNotifications { get; }
 
-		/*
+        /*
 		 * @property (assign, nonatomic) BOOL allowedLocationServices;
 		 */
 
-		/// <summary>
-		/// Gets a value indicating whether this <see cref="Notificare.iOS.NotificareDevice"/> allowed location services.
-		/// </summary>
-		/// <value><c>true</c> if allowed location services; otherwise, <c>false</c>.</value>
-		[Export("allowedLocationServices")]
-		bool AllowedLocationServices { get; }
+        /// <summary>
+        /// Gets a value indicating whether this <see cref="Notificare.iOS.NotificareDevice"/> allowed location services.
+        /// </summary>
+        /// <value><c>true</c> if allowed location services; otherwise, <c>false</c>.</value>
+        [Export("allowedLocationServices")]
+        bool AllowedLocationServices { get; }
 
 
-		/*
+        /*
 		 * @property(assign, nonatomic) BOOL allowedUI;
 		 */
 
-		/// <summary>
-		/// Gets a value indicating whether this <see cref="T:Notificare.iOS.NotificareDevice"/> allowed user interface.
-		/// </summary>
-		/// <value><c>true</c> if allowed user interface; otherwise, <c>false</c>.</value>
-		[Export("allowedUI")]
-		bool AllowedUI { get; }
+        /// <summary>
+        /// Gets a value indicating whether this <see cref="T:Notificare.iOS.NotificareDevice"/> allowed user interface.
+        /// </summary>
+        /// <value><c>true</c> if allowed user interface; otherwise, <c>false</c>.</value>
+        [Export("allowedUI")]
+        bool AllowedUI { get; }
 
-	}
+    }
 
-	[BaseType(typeof(NSObject))]
-	public interface NotificareDeviceInbox
-	{
-		/*
+    [BaseType(typeof(NSObject))]
+    public interface NotificareDeviceInbox
+    {
+        /*
 		 * @property (strong, nonatomic) NSString * inboxId;
 		 */
 
-		/// <summary>
-		/// Gets the inbox Id.
-		/// </summary>
-		/// <value>The inbox Id.</value>
-		[Export("inboxId")]
-		NSString InboxId { get; }
+        /// <summary>
+        /// Gets the inbox Id.
+        /// </summary>
+        /// <value>The inbox Id.</value>
+        [Export("inboxId")]
+        NSString InboxId { get; }
 
-		/*
+        /*
 		 * @property (strong, nonatomic) NSString * applicationId;
 		 */
 
-		/// <summary>
-		/// Gets the application identifier.
-		/// </summary>
-		/// <value>The application identifier.</value>
-		[Export("applicationId")]
-		NSString ApplicationId { get; }
+        /// <summary>
+        /// Gets the application identifier.
+        /// </summary>
+        /// <value>The application identifier.</value>
+        [Export("applicationId")]
+        NSString ApplicationId { get; }
 
-		/*
+        /*
 		 * @property (strong, nonatomic) NSString * deviceID;
 		 */
 
-		/// <summary>
-		/// Gets the device ID.
-		/// </summary>
-		/// <value>The device ID.</value>
-		[Export("deviceID")]
-		NSString DeviceID { get; }
+        /// <summary>
+        /// Gets the device ID.
+        /// </summary>
+        /// <value>The device ID.</value>
+        [Export("deviceID")]
+        NSString DeviceID { get; }
 
-		/*
+        /*
 		 * @property (strong, nonatomic) NSDictionary * data;
 		 */
 
-		/// <summary>
-		/// Gets the data.
-		/// </summary>
-		/// <value>The data.</value>
-		[Export("data")]
-		NSDictionary Data { get; }
+        /// <summary>
+        /// Gets the data.
+        /// </summary>
+        /// <value>The data.</value>
+        [Export("data")]
+        NSDictionary Data { get; }
 
-		/*
+        /*
 		 * @property (strong, nonatomic) NSString * message;
 		 */
 
-		/// <summary>
-		/// Gets the inbox Id.
-		/// </summary>
-		/// <value>The inbox Id.</value>
-		[Export("message")]
-		NSString Message { get; }
+        /// <summary>
+        /// Gets the inbox Id.
+        /// </summary>
+        /// <value>The inbox Id.</value>
+        [Export("message")]
+        NSString Message { get; }
 
-		/*
+        /*
 		 * @property (strong, nonatomic) NSString * notification;
 		 */
 
-		/// <summary>
-		/// Gets the notification.
-		/// </summary>
-		/// <value>The notification.</value>
-		[Export("notification")]
-		NSString Notification { get; }
+        /// <summary>
+        /// Gets the notification.
+        /// </summary>
+        /// <value>The notification.</value>
+        [Export("notification")]
+        NSString Notification { get; }
 
-		/*
+        /*
 		 * @property (strong, nonatomic) NSString * time;
 		 */
 
-		/// <summary>
-		/// Gets the time.
-		/// </summary>
-		/// <value>The time.</value>
-		[Export("time")]
-		NSString Time { get; }
+        /// <summary>
+        /// Gets the time.
+        /// </summary>
+        /// <value>The time.</value>
+        [Export("time")]
+        NSString Time { get; }
 
-		/*
+        /*
 		 * @property (strong, nonatomic) NSString * userID;
 		 */
 
-		/// <summary>
-		/// Gets the user ID.
-		/// </summary>
-		/// <value>The user ID.</value>
-		[Export("userID")]
-		NSString UserID { get; }
+        /// <summary>
+        /// Gets the user ID.
+        /// </summary>
+        /// <value>The user ID.</value>
+        [Export("userID")]
+        NSString UserID { get; }
 
-		/*
+        /*
 		 * @property (assign, nonatomic) BOOL opened;
 		 */
 
-		/// <summary>
-		/// Gets a value indicating whether this <see cref="Notificare.iOS.NotificareDeviceInbox"/> is opened.
-		/// </summary>
-		/// <value><c>true</c> if opened; otherwise, <c>false</c>.</value>
-		[Export("opened")]
-		bool Opened { get; }
+        /// <summary>
+        /// Gets a value indicating whether this <see cref="Notificare.iOS.NotificareDeviceInbox"/> is opened.
+        /// </summary>
+        /// <value><c>true</c> if opened; otherwise, <c>false</c>.</value>
+        [Export("opened")]
+        bool Opened { get; }
 
-		/*
+        /*
 		 * - (void)setValuesWithDeviceInboxJSON:(NSDictionary* _Nonnull)deviceInboxJSON;
 		 */
 
-		/// <summary>
-		/// Sets the values with device inbox json.
-		/// </summary>
-		/// <param name="deviceInboxJSON">Device inbox json.</param>
-		[Export("setValuesWithDeviceInboxJSON:")]
-		void SetValuesWithDeviceInboxJSON(NSDictionary deviceInboxJSON);
-	}
+        /// <summary>
+        /// Sets the values with device inbox json.
+        /// </summary>
+        /// <param name="deviceInboxJSON">Device inbox json.</param>
+        [Export("setValuesWithDeviceInboxJSON:")]
+        void SetValuesWithDeviceInboxJSON(NSDictionary deviceInboxJSON);
+    }
 
-	[BaseType(typeof(NSManagedObject))]
-	public interface NotificareManagedDeviceInbox
-	{
-		/*
+    [BaseType(typeof(NSManagedObject))]
+    public interface NotificareManagedDeviceInbox
+    {
+        /*
 		 * @property(strong, nonatomic, nonnull) NSString* inboxId;
 		 */
 
-		/// <summary>
-		/// Gets the inbox identifier.
-		/// </summary>
-		/// <value>The inbox identifier.</value>
-		[Export("inboxId")]
-		NSString InboxId { get; }
+        /// <summary>
+        /// Gets the inbox identifier.
+        /// </summary>
+        /// <value>The inbox identifier.</value>
+        [Export("inboxId")]
+        NSString InboxId { get; }
 
-		/*
+        /*
 		 * @property(strong, nonatomic, nonnull) NSString* applicationId;
 		 */
 
-		/// <summary>
-		/// Gets the application identifier.
-		/// </summary>
-		/// <value>The application identifier.</value>
-		[Export("applicationId")]
-		NSString ApplicationId { get; }
+        /// <summary>
+        /// Gets the application identifier.
+        /// </summary>
+        /// <value>The application identifier.</value>
+        [Export("applicationId")]
+        NSString ApplicationId { get; }
 
-		/*
+        /*
 		 * @property(strong, nonatomic, nonnull) NSString* deviceID;
 		 */
 
-		/// <summary>
-		/// Gets the device identifier.
-		/// </summary>
-		/// <value>The device identifier.</value>
-		[Export("deviceId")]
-		NSString DeviceId { get; }
+        /// <summary>
+        /// Gets the device identifier.
+        /// </summary>
+        /// <value>The device identifier.</value>
+        [Export("deviceId")]
+        NSString DeviceId { get; }
 
 
-		/*
+        /*
 		 * @property(strong, nonatomic, nullable) NSDictionary* data;
 		 */
 
-		/// <summary>
-		/// Gets the data.
-		/// </summary>
-		/// <value>The data.</value>
-		[Export("data")]
-		NSDictionary Data { get; }
+        /// <summary>
+        /// Gets the data.
+        /// </summary>
+        /// <value>The data.</value>
+        [Export("data")]
+        NSDictionary Data { get; }
 
 
-		/*
+        /*
 		 * @property(strong, nonatomic, nonnull) NSString* message;
 		 */
 
-		/// <summary>
-		/// Gets the message.
-		/// </summary>
-		/// <value>The message.</value>
-		[Export("message")]
-		NSString Message { get; }
+        /// <summary>
+        /// Gets the message.
+        /// </summary>
+        /// <value>The message.</value>
+        [Export("message")]
+        NSString Message { get; }
 
-		/*
+        /*
 		 * @property(strong, nonatomic, nonnull) NSString* notification;
 		 */
 
-		/// <summary>
-		/// Gets the notification.
-		/// </summary>
-		/// <value>The notification.</value>
-		[Export("notification")]
-		NSString Notification { get; }
+        /// <summary>
+        /// Gets the notification.
+        /// </summary>
+        /// <value>The notification.</value>
+        [Export("notification")]
+        NSString Notification { get; }
 
-		/*
+        /*
 		 * @property(strong, nonatomic, nonnull) NSDate* time;
 		 */
 
-		/// <summary>
-		/// Gets the time.
-		/// </summary>
-		/// <value>The time.</value>
-		[Export("time")]
-		NSDate Time { get; }
+        /// <summary>
+        /// Gets the time.
+        /// </summary>
+        /// <value>The time.</value>
+        [Export("time")]
+        NSDate Time { get; }
 
-		/*
+        /*
 		 * @property(strong, nonatomic, nullable) NSString* userID;
 		 */
 
-		/// <summary>
-		/// Gets the user identifier.
-		/// </summary>
-		/// <value>The user identifier.</value>
-		[Export("userID")]
-		NSString UserID { get; }
+        /// <summary>
+        /// Gets the user identifier.
+        /// </summary>
+        /// <value>The user identifier.</value>
+        [Export("userID")]
+        NSString UserID { get; }
 
 
-		/*
+        /*
 		 * @property(assign, nonatomic) BOOL opened;
 		 */
 
-		/// <summary>
-		/// Gets a value indicating whether this <see cref="T:Notificare.iOS.NotificareManagedDeviceInbox"/> is opened.
-		/// </summary>
-		/// <value><c>true</c> if opened; otherwise, <c>false</c>.</value>
-		[Export("opened")]
-		bool Opened { get; }
+        /// <summary>
+        /// Gets a value indicating whether this <see cref="T:Notificare.iOS.NotificareManagedDeviceInbox"/> is opened.
+        /// </summary>
+        /// <value><c>true</c> if opened; otherwise, <c>false</c>.</value>
+        [Export("opened")]
+        bool Opened { get; }
 
-		/*
+        /*
 		 * + (NotificareManagedDeviceInbox* _Nullable)ManagedDeviceInbox:(NotificareDeviceInbox* _Nonnull)nonManaged inContext:(NSManagedObjectContext* _Nonnull)managedObjectContext;
 		 */
 
-		/// <summary>
-		/// Manageds the device inbox in context.
-		/// </summary>
-		/// <returns>The device inbox in context.</returns>
-		/// <param name="nonManaged">Non managed.</param>
-		/// <param name="managedObjectContext">Managed object context.</param>
-		[Static]
-		[Export("ManagedDeviceInbox:inContext:")]
-		NotificareManagedDeviceInbox ManagedDeviceInboxInContext(NotificareDeviceInbox nonManaged, NSManagedObjectContext managedObjectContext);
+        /// <summary>
+        /// Manageds the device inbox in context.
+        /// </summary>
+        /// <returns>The device inbox in context.</returns>
+        /// <param name="nonManaged">Non managed.</param>
+        /// <param name="managedObjectContext">Managed object context.</param>
+        [Static]
+        [Export("ManagedDeviceInbox:inContext:")]
+        NotificareManagedDeviceInbox ManagedDeviceInboxInContext(NotificareDeviceInbox nonManaged, NSManagedObjectContext managedObjectContext);
 
-		/*
+        /*
 		 * - (NotificareDeviceInbox* _Nullable)toNonManaged;
 		 */
 
-		/// <summary>
-		/// To the non managed.
-		/// </summary>
-		/// <returns>The non managed.</returns>
-		[Export("toNonManaged")]
-		NotificareDeviceInbox ToNonManaged();
-	}
+        /// <summary>
+        /// To the non managed.
+        /// </summary>
+        /// <returns>The non managed.</returns>
+        [Export("toNonManaged")]
+        NotificareDeviceInbox ToNonManaged();
+    }
 
-	[BaseType(typeof(NSObject))]
-	public interface NotificareNotification
-	{
-		/*
+    [BaseType(typeof(NSObject))]
+    public interface NotificareNotification
+    {
+        /*
 		 * @property (strong, nonatomic) NSString * notificationID;
 		 */
 
-		/// <summary>
-		/// Gets the notification ID.
-		/// </summary>
-		/// <value>The notification ID.</value>
-		[NullAllowed]
-		[Export("notificationID")]
-		NSString NotificationID { get; }
+        /// <summary>
+        /// Gets the notification ID.
+        /// </summary>
+        /// <value>The notification ID.</value>
+        [NullAllowed]
+        [Export("notificationID")]
+        NSString NotificationID { get; }
 
-		/*
+        /*
 		 * @property (strong, nonatomic) NSDictionary * application;
 		 */
 
-		/// <summary>
-		/// Gets the application.
-		/// </summary>
-		/// <value>The application.</value>
-		[Export("application")]
-		NSDictionary Application { get; }
+        /// <summary>
+        /// Gets the application.
+        /// </summary>
+        /// <value>The application.</value>
+        [Export("application")]
+        NSDictionary Application { get; }
 
 
-		/*
+        /*
 		 * @property (strong, nonatomic) NSString * notificationType;
 		 */
 
-		/// <summary>
-		/// Gets the type of the notification.
-		/// </summary>
-		/// <value>The type of the notification.</value>
-		[Export("notificationType")]
-		NSString NotificationType { get; }
+        /// <summary>
+        /// Gets the type of the notification.
+        /// </summary>
+        /// <value>The type of the notification.</value>
+        [Export("notificationType")]
+        NSString NotificationType { get; }
 
 
-		/*
+        /*
 		 * @property (strong, nonatomic) NSString * notificationTime;
 		 */
 
-		/// <summary>
-		/// Gets the notification time.
-		/// </summary>
-		/// <value>The notification time.</value>
-		[Export("notificationTime")]
-		NSString NotificationTime { get; }
+        /// <summary>
+        /// Gets the notification time.
+        /// </summary>
+        /// <value>The notification time.</value>
+        [Export("notificationTime")]
+        NSString NotificationTime { get; }
 
 
-		/*
+        /*
 		 * @property (strong, nonatomic) NSString * notificationMessage;
 		 */
 
-		/// <summary>
-		/// Gets the notification message.
-		/// </summary>
-		/// <value>The notification message.</value>
-		[Export("notificationMessage")]
-		NSString NotificationMessage { get; }
+        /// <summary>
+        /// Gets the notification message.
+        /// </summary>
+        /// <value>The notification message.</value>
+        [Export("notificationMessage")]
+        NSString NotificationMessage { get; }
 
 
-		/*
+        /*
 		 * @property (strong, nonatomic) NSString * notificationLatitude;
 		 */
 
-		/// <summary>
-		/// Gets the notification latitude.
-		/// </summary>
-		/// <value>The notification latitude.</value>
-		[Export("notificationLatitude")]
-		NSString NotificationLatitude { get; }
+        /// <summary>
+        /// Gets the notification latitude.
+        /// </summary>
+        /// <value>The notification latitude.</value>
+        [Export("notificationLatitude")]
+        NSString NotificationLatitude { get; }
 
 
-		/*
+        /*
 		 * @property (strong, nonatomic) NSString * notificationLongitude;
 		 */
 
-		/// <summary>
-		/// Gets the notification latitude.
-		/// </summary>
-		/// <value>The notification latitude.</value>
-		[Export("notificationLongitude")]
-		NSString NotificationLongitude { get; }
+        /// <summary>
+        /// Gets the notification latitude.
+        /// </summary>
+        /// <value>The notification latitude.</value>
+        [Export("notificationLongitude")]
+        NSString NotificationLongitude { get; }
 
 
-		/*
+        /*
 		 * @property (strong, nonatomic) NSString * notificationDistance;
 		 */
 
-		/// <summary>
-		/// Gets the notification distance.
-		/// </summary>
-		/// <value>The notification distance.</value>
-		[Export("notificationDistance")]
-		NSString NotificationDistance { get; }
+        /// <summary>
+        /// Gets the notification distance.
+        /// </summary>
+        /// <value>The notification distance.</value>
+        [Export("notificationDistance")]
+        NSString NotificationDistance { get; }
 
 
-		/*
+        /*
 		 * @property (strong, nonatomic) NSArray * notificationContent;
 		 */
 
-		/// <summary>
-		/// Gets the content of the notification.
-		/// </summary>
-		/// <value>The content of the notification.</value>
-		[Export("notificationContent")]
-		NSArray NotificationContent { get; }
+        /// <summary>
+        /// Gets the content of the notification.
+        /// </summary>
+        /// <value>The content of the notification.</value>
+        [Export("notificationContent")]
+        NSArray NotificationContent { get; }
 
 
-		/*
+        /*
 		 * @property (strong, nonatomic) NSArray * notificationActions;
 		 */
 
-		/// <summary>
-		/// Gets the notification actions.
-		/// </summary>
-		/// <value>The notification actions.</value>
-		[Export("notificationActions")]
-		NSArray NotificationActions { get; }
+        /// <summary>
+        /// Gets the notification actions.
+        /// </summary>
+        /// <value>The notification actions.</value>
+        [Export("notificationActions")]
+        NSArray NotificationActions { get; }
 
 
-		/*
+        /*
 		 * @property (strong, nonatomic) NSArray * notificationAttachments;
 		 */
 
-		/// <summary>
-		/// Gets the notification attachments.
-		/// </summary>
-		/// <value>The notification attachments.</value>
-		[Export("notificationAttachments")]
-		NSArray NotificationAttachments { get; }
+        /// <summary>
+        /// Gets the notification attachments.
+        /// </summary>
+        /// <value>The notification attachments.</value>
+        [Export("notificationAttachments")]
+        NSArray NotificationAttachments { get; }
 
 
-		/*
+        /*
 		 * @property (strong, nonatomic) NSArray * notificationTags;
 		 */
 
-		/// <summary>
-		/// Gets the notification tags.
-		/// </summary>
-		/// <value>The notification tags.</value>
-		[Export("notificationTags")]
-		NSArray NotificationTags { get; }
+        /// <summary>
+        /// Gets the notification tags.
+        /// </summary>
+        /// <value>The notification tags.</value>
+        [Export("notificationTags")]
+        NSArray NotificationTags { get; }
 
 
-		/*
+        /*
 		 * @property (strong, nonatomic) NSArray * notificationSegments;
 		 */
 
-		/// <summary>
-		/// Gets the notification segments.
-		/// </summary>
-		/// <value>The notification segments.</value>
-		[Export("notificationSegments")]
-		NSArray NotificationSegments { get; }
+        /// <summary>
+        /// Gets the notification segments.
+        /// </summary>
+        /// <value>The notification segments.</value>
+        [Export("notificationSegments")]
+        NSArray NotificationSegments { get; }
 
 
-		/*
+        /*
 		 * @property (strong, nonatomic) NSDictionary * notificationExtra;
 		 */
 
-		/// <summary>
-		/// Gets the notification extra.
-		/// </summary>
-		/// <value>The notification extra.</value>
-		[Export("notificationExtra")]
-		NSDictionary NotificationExtra { get; }
+        /// <summary>
+        /// Gets the notification extra.
+        /// </summary>
+        /// <value>The notification extra.</value>
+        [Export("notificationExtra")]
+        NSDictionary NotificationExtra { get; }
 
 
-		/*
+        /*
 		 * @property (strong, nonatomic) NSDictionary * notificationInfo;
 		 */
 
-		/// <summary>
-		/// Gets the notification info.
-		/// </summary>
-		/// <value>The notification info.</value>
-		[Export("notificationInfo")]
-		NSDictionary NotificationInfo { get; }
+        /// <summary>
+        /// Gets the notification info.
+        /// </summary>
+        /// <value>The notification info.</value>
+        [Export("notificationInfo")]
+        NSDictionary NotificationInfo { get; }
 
 
-		/*
+        /*
 		 * @property (strong, nonatomic) NSNumber * displayMessage;
 		 */
 
-		/// <summary>
-		/// Gets the display message.
-		/// </summary>
-		/// <value>The display message.</value>
-		[Export("displayMessage")]
-		NSNumber DisplayMessage { get; }
+        /// <summary>
+        /// Gets the display message.
+        /// </summary>
+        /// <value>The display message.</value>
+        [Export("displayMessage")]
+        NSNumber DisplayMessage { get; }
 
-		/*
+        /*
 		 * - (void)setValuesWithNotificationJSON:(NSDictionary* _Nonnull)notificationJSON;
 		 */
 
-		/// <summary>
-		/// Sets the values with notification json.
-		/// </summary>
-		/// <param name="notificationJSON">Notification json.</param>
-		[Export("setValuesWithNotificationJSON:")]
-		void SetValuesWithNotificationJSON(NSDictionary notificationJSON);
+        /// <summary>
+        /// Sets the values with notification json.
+        /// </summary>
+        /// <param name="notificationJSON">Notification json.</param>
+        [Export("setValuesWithNotificationJSON:")]
+        void SetValuesWithNotificationJSON(NSDictionary notificationJSON);
 
-	}
+    }
 
-	[BaseType(typeof(NSObject))]
-	public interface NotificarePass
-	{
-		/*
+    [BaseType(typeof(NSObject))]
+    public interface NotificarePass
+    {
+        /*
 		 * @property (strong, nonatomic) NSString * passbook;
 		 */
 
-		/// <summary>
-		/// Gets the passbook.
-		/// </summary>
-		/// <value>The passbook.</value>
-		[Export("passbook")]
-		NSString Passbook { get; }
+        /// <summary>
+        /// Gets the passbook.
+        /// </summary>
+        /// <value>The passbook.</value>
+        [Export("passbook")]
+        NSString Passbook { get; }
 
-		/*
+        /*
 		 * @property (strong, nonatomic) NSString * serial;
 		 */
 
-		/// <summary>
-		/// Gets the serial.
-		/// </summary>
-		/// <value>The serial.</value>
-		[Export("serial")]
-		NSString Serial { get; }
+        /// <summary>
+        /// Gets the serial.
+        /// </summary>
+        /// <value>The serial.</value>
+        [Export("serial")]
+        NSString Serial { get; }
 
-		/*
+        /*
 		 * @property (strong, nonatomic) NSString * redeem;
 		 */
 
-		/// <summary>
-		/// Gets the redeem.
-		/// </summary>
-		/// <value>The redeem.</value>
-		[Export("redeem")]
-		NSString Redeem { get; }
+        /// <summary>
+        /// Gets the redeem.
+        /// </summary>
+        /// <value>The redeem.</value>
+        [Export("redeem")]
+        NSString Redeem { get; }
 
-		/*
+        /*
 		 * @property (strong, nonatomic) NSString * token;
 		 */
 
-		/// <summary>
-		/// Gets the token.
-		/// </summary>
-		/// <value>The token.</value>
-		[Export("token")]
-		NSString Token { get; }
+        /// <summary>
+        /// Gets the token.
+        /// </summary>
+        /// <value>The token.</value>
+        [Export("token")]
+        NSString Token { get; }
 
-		/*
+        /*
 		 * @property (strong, nonatomic) NSDate * date;
 		 */
 
-		/// <summary>
-		/// Gets the date.
-		/// </summary>
-		/// <value>The date.</value>
-		[Export("date")]
-		NSDate Date { get; }
+        /// <summary>
+        /// Gets the date.
+        /// </summary>
+        /// <value>The date.</value>
+        [Export("date")]
+        NSDate Date { get; }
 
-		/*
+        /*
 		 * @property (strong, nonatomic) NSDictionary * data;
 		 */
 
-		/// <summary>
-		/// Gets the data.
-		/// </summary>
-		/// <value>The data.</value>
-		[Export("data")]
-		NSDictionary Data { get; }
+        /// <summary>
+        /// Gets the data.
+        /// </summary>
+        /// <value>The data.</value>
+        [Export("data")]
+        NSDictionary Data { get; }
 
-		/*
+        /*
 		 * @property (strong, nonatomic) NSNumber * limit;
 		 */
 
-		/// <summary>
-		/// Gets the limit.
-		/// </summary>
-		/// <value>The limit.</value>
-		[Export("limit")]
-		NSNumber Limit { get; }
+        /// <summary>
+        /// Gets the limit.
+        /// </summary>
+        /// <value>The limit.</value>
+        [Export("limit")]
+        NSNumber Limit { get; }
 
-		/*
+        /*
 		 * @property (strong, nonatomic) NSArray * redeemHistory;
 		 */
 
-		/// <summary>
-		/// Gets the redeem history.
-		/// </summary>
-		/// <value>The redeem history.</value>
-		[Export("redeemHistory")]
-		NSArray RedeemHistory { get; }
+        /// <summary>
+        /// Gets the redeem history.
+        /// </summary>
+        /// <value>The redeem history.</value>
+        [Export("redeemHistory")]
+        NSArray RedeemHistory { get; }
 
-		/*
+        /*
 		 * @property (assign, nonatomic) BOOL active;
 		 */
 
-		/// <summary>
-		/// Gets a value indicating whether this <see cref="Notificare.iOS.NotificarePass"/> is active.
-		/// </summary>
-		/// <value><c>true</c> if active; otherwise, <c>false</c>.</value>
-		[Export("active")]
-		bool Active { get; }
+        /// <summary>
+        /// Gets a value indicating whether this <see cref="Notificare.iOS.NotificarePass"/> is active.
+        /// </summary>
+        /// <value><c>true</c> if active; otherwise, <c>false</c>.</value>
+        [Export("active")]
+        bool Active { get; }
 
-		/*
+        /*
 		 * - (void)setValuesWithPassJSON:(NSDictionary* _Nonnull)passJSON;
 		 */
 
-		/// <summary>
-		/// Sets the values with pass json.
-		/// </summary>
-		/// <param name="passJSON">Pass json.</param>
-		[Export("setValuesWithPassJSON:")]
-		void SetValuesWithPassJSON(NSDictionary passJSON);
-	}
+        /// <summary>
+        /// Sets the values with pass json.
+        /// </summary>
+        /// <param name="passJSON">Pass json.</param>
+        [Export("setValuesWithPassJSON:")]
+        void SetValuesWithPassJSON(NSDictionary passJSON);
+    }
 
-	[BaseType(typeof(NSObject))]
-	public interface NotificareProduct
-	{
+    [BaseType(typeof(NSObject))]
+    public interface NotificareProduct
+    {
 
-		/*
+        /*
 		 * @property (strong, nonatomic) NSString * productName;
 		 */
 
-		/// <summary>
-		/// Gets the name of the product.
-		/// </summary>
-		/// <value>The name of the product.</value>
-		[Export("productName")]
-		NSString ProductName { get; }
+        /// <summary>
+        /// Gets the name of the product.
+        /// </summary>
+        /// <value>The name of the product.</value>
+        [Export("productName")]
+        NSString ProductName { get; }
 
 
-		/*
+        /*
 		 * @property (strong, nonatomic) NSString * productDescription;
 		 */
 
-		/// <summary>
-		/// Gets the product description.
-		/// </summary>
-		/// <value>The product description.</value>
-		[Export("productDescription")]
-		NSString ProductDescription { get; }
+        /// <summary>
+        /// Gets the product description.
+        /// </summary>
+        /// <value>The product description.</value>
+        [Export("productDescription")]
+        NSString ProductDescription { get; }
 
 
-		/*
+        /*
 		 * @property (strong, nonatomic) NSString * type;
 		 */
 
-		/// <summary>
-		/// Gets the type.
-		/// </summary>
-		/// <value>The type.</value>
-		[Export("type")]
-		NSString Type { get; }
+        /// <summary>
+        /// Gets the type.
+        /// </summary>
+        /// <value>The type.</value>
+        [Export("type")]
+        NSString Type { get; }
 
 
-		/*
+        /*
 		 * @property (strong, nonatomic) SKProduct * product;
 		 */
 
-		/// <summary>
-		/// Gets the product.
-		/// </summary>
-		/// <value>The product.</value>
-		[Export("product")]
-		SKProduct Product { get; }
+        /// <summary>
+        /// Gets the product.
+        /// </summary>
+        /// <value>The product.</value>
+        [Export("product")]
+        SKProduct Product { get; }
 
 
-		/*
+        /*
 		 * @property (strong, nonatomic) NSString * application;
 		 */
 
-		/// <summary>
-		/// Gets the application.
-		/// </summary>
-		/// <value>The application.</value>
-		[Export("application")]
-		NSString Application { get; }
+        /// <summary>
+        /// Gets the application.
+        /// </summary>
+        /// <value>The application.</value>
+        [Export("application")]
+        NSString Application { get; }
 
 
-		/*
+        /*
 		 * @property (strong, nonatomic) NSString * identifier;
 		 */
 
-		/// <summary>
-		/// Gets the identifier.
-		/// </summary>
-		/// <value>The identifier.</value>
-		[Export("identifier")]
-		NSString Identifier { get; }
+        /// <summary>
+        /// Gets the identifier.
+        /// </summary>
+        /// <value>The identifier.</value>
+        [Export("identifier")]
+        NSString Identifier { get; }
 
 
-		/*
+        /*
 		 * @property (strong, nonatomic) NSArray * stores;
 		 */
 
-		/// <summary>
-		/// Gets the stores.
-		/// </summary>
-		/// <value>The stores.</value>
-		[Export("stores")]
-		NSArray Stores { get; }
+        /// <summary>
+        /// Gets the stores.
+        /// </summary>
+        /// <value>The stores.</value>
+        [Export("stores")]
+        NSArray Stores { get; }
 
 
-		/*
+        /*
 		 * @property (strong, nonatomic) NSArray * downloads;
 		 */
 
-		/// <summary>
-		/// Gets the downloads.
-		/// </summary>
-		/// <value>The downloads.</value>
-		[Export("downloads")]
-		NSArray Downloads { get; }
+        /// <summary>
+        /// Gets the downloads.
+        /// </summary>
+        /// <value>The downloads.</value>
+        [Export("downloads")]
+        NSArray Downloads { get; }
 
 
-		/*
+        /*
 		 * @property (strong, nonatomic) NSString * date;
 		 */
 
-		/// <summary>
-		/// Gets the date.
-		/// </summary>
-		/// <value>The date.</value>
-		[Export("date")]
-		NSString Date { get; }
+        /// <summary>
+        /// Gets the date.
+        /// </summary>
+        /// <value>The date.</value>
+        [Export("date")]
+        NSString Date { get; }
 
 
-		/*
+        /*
 		 * @property (strong, nonatomic) NSString * priceLocale;
 		 */
 
-		/// <summary>
-		/// Gets the price locale.
-		/// </summary>
-		/// <value>The price locale.</value>
-		[Export("priceLocale")]
-		NSString PriceLocale { get; }
+        /// <summary>
+        /// Gets the price locale.
+        /// </summary>
+        /// <value>The price locale.</value>
+        [Export("priceLocale")]
+        NSString PriceLocale { get; }
 
 
-		/*
+        /*
 		 * @property (strong, nonatomic) NSString * price;
 		 */
 
-		/// <summary>
-		/// Gets the price.
-		/// </summary>
-		/// <value>The price.</value>
-		[Export("price")]
-		NSString Price { get; }
+        /// <summary>
+        /// Gets the price.
+        /// </summary>
+        /// <value>The price.</value>
+        [Export("price")]
+        NSString Price { get; }
 
 
-		/*
+        /*
 		 * @property (strong, nonatomic) NSString * currency;
 		 */
 
-		/// <summary>
-		/// Gets the currency.
-		/// </summary>
-		/// <value>The currency.</value>
-		[Export("currency")]
-		NSString Currency { get; }
+        /// <summary>
+        /// Gets the currency.
+        /// </summary>
+        /// <value>The currency.</value>
+        [Export("currency")]
+        NSString Currency { get; }
 
 
-		/*
+        /*
 		 * @property (assign, nonatomic) BOOL active;
 		 */
 
-		/// <summary>
-		/// Gets a value indicating whether this <see cref="Notificare.iOS.NotificareProduct"/> is active.
-		/// </summary>
-		/// <value><c>true</c> if active; otherwise, <c>false</c>.</value>
-		[Export("active")]
-		bool Active { get; }
+        /// <summary>
+        /// Gets a value indicating whether this <see cref="Notificare.iOS.NotificareProduct"/> is active.
+        /// </summary>
+        /// <value><c>true</c> if active; otherwise, <c>false</c>.</value>
+        [Export("active")]
+        bool Active { get; }
 
 
-		/*
+        /*
 		 * @property (assign, nonatomic) BOOL purchased;
 		 */
 
-		/// <summary>
-		/// Gets a value indicating whether this <see cref="Notificare.iOS.NotificareProduct"/> is purchased.
-		/// </summary>
-		/// <value><c>true</c> if purchased; otherwise, <c>false</c>.</value>
-		[Export("purchased")]
-		bool Purchased { get; }
+        /// <summary>
+        /// Gets a value indicating whether this <see cref="Notificare.iOS.NotificareProduct"/> is purchased.
+        /// </summary>
+        /// <value><c>true</c> if purchased; otherwise, <c>false</c>.</value>
+        [Export("purchased")]
+        bool Purchased { get; }
 
-		/*
+        /*
 		 * - (void)setValuesWithProductJSON:(NSDictionary* _Nonnull)productJSON;
 		 */
 
-		/// <summary>
-		/// Sets the values with product json.
-		/// </summary>
-		/// <param name="productJSON">Product json.</param>
-		[Export("setValuesWithProductJSON:")]
-		void SetValuesWithProductJSON(NSDictionary productJSON);
+        /// <summary>
+        /// Sets the values with product json.
+        /// </summary>
+        /// <param name="productJSON">Product json.</param>
+        [Export("setValuesWithProductJSON:")]
+        void SetValuesWithProductJSON(NSDictionary productJSON);
 
-		/*
+        /*
 		 * - (void)setValuesWithSKProduct:(SKProduct* _Nonnull)skProduct;
 		 */
 
-		/// <summary>
-		/// Sets the values with SKP roduct.
-		/// </summary>
-		/// <param name="skProduct">Sk product.</param>
-		[Export("setValuesWithSKProduct:")]
-		void SetValuesWithSKProduct(SKProduct skProduct);
-	}
+        /// <summary>
+        /// Sets the values with SKP roduct.
+        /// </summary>
+        /// <param name="skProduct">Sk product.</param>
+        [Export("setValuesWithSKProduct:")]
+        void SetValuesWithSKProduct(SKProduct skProduct);
+    }
+
+    [BaseType(typeof(NSObject))]
+    public interface NotificareScannable
+    {
+        /*
+         * @property (strong, nonatomic) NSString * segmentLabel;
+         */
+
+        /// <summary>
+        /// Gets the scannable id.
+        /// </summary>
+        /// <value>The scannable id.</value>
+        [Export("scannableId")]
+        NSString ScannableId { get; }
+
+        /*
+         * @property (strong, nonatomic) NSString * name;
+         */
+
+        /// <summary>
+        /// Gets the scannable name.
+        /// </summary>
+        /// <value>The scannable name.</value>
+        [Export("name")]
+        NSString Name { get; }
+
+        /*
+         * @property (strong, nonatomic) NSString * tag;
+         */
+
+        /// <summary>
+        /// Gets the scannable tag.
+        /// </summary>
+        /// <value>The scannable tag.</value>
+        [Export("tag")]
+        NSString Tag { get; }
+
+        /*
+         * @property (strong, nonatomic) NSString * type;
+         */
+
+        /// <summary>
+        /// Gets the type.
+        /// </summary>
+        /// <value>The scannable type.</value>
+        [Export("type")]
+        NSString Type { get; }
+
+        /*
+         * @property (strong, nonatomic) NSDictionary * data;
+         */
+
+        /// <summary>
+        /// Gets the data.
+        /// </summary>
+        /// <value>The scannable data.</value>
+        [Export("data")]
+        NSDictionary Data { get; }
+
+        /*
+         * - (void)setValuesWithScannableJSON:(NSDictionary * _Nonnull)scannableJSON;
+         */
+
+        /// <summary>
+        /// Sets the values with scannable json.
+        /// </summary>
+        /// <param name="scannableJSON">Scannable json.</param>
+        [Export("setValuesWithScannableJSON:")]
+        void SetValuesWithScannableJSON(NSDictionary scannableJSON);
+
+    }
 
 	[BaseType(typeof(NSObject))]
 	public interface NotificareSegment
@@ -1958,70 +2029,7 @@ namespace Notificare.iOS
 	[Model, Protocol]
 	interface NotificarePushLibDelegate
 	{
-
-		/*
-		 * - (void)notificarePushLib:(NotificarePushLib *)library onReady:(NSDictionary *)info;
-		 */
-
-		/// <summary>
-		/// Raises the ready event.
-		/// </summary>
-		/// <param name="library">Library.</param>
-		/// <param name="info">Info.</param>
-		[Export("notificarePushLib:onReady:")]
-		void OnReady(NotificarePushLib library, NSDictionary info);
-
-		/*
-		 * - (void)notificarePushLib:(NotificarePushLib *)library didRegisterForWebsocketsNotifications:(NSString *)token;
-		 */
-
-		/// <summary>
-		/// Did register for websockets notifications.
-		/// </summary>
-		/// <param name="library">Library.</param>
-		/// <param name="token">Token.</param>
-		[Export("notificarePushLib:didRegisterForWebsocketsNotifications:")]
-		void DidRegisterForWebsocketsNotifications(NotificarePushLib library, NSString token);
-
-
-		/*
-		 * - (void)notificarePushLib:(NotificarePushLib *)library didReceiveWebsocketNotification:(NSDictionary *)info;
-		 */
-
-		/// <summary>
-		/// Did receive websocket notification.
-		/// </summary>
-		/// <param name="library">Library.</param>
-		/// <param name="info">Info.</param>
-		[Export("notificarePushLib:didReceiveWebsocketNotification:")]
-		void DidReceiveWebsocketNotification(NotificarePushLib library, NSDictionary info);
-
-
-		/*
-		 * - (void)notificarePushLib:(NotificarePushLib *)library didFailToRegisterWebsocketNotifications:(NSError *)error;
-		 */
-
-		/// <summary>
-		/// Did fail to register websocket notifications.
-		/// </summary>
-		/// <param name="library">Library.</param>
-		/// <param name="error">Error.</param>
-		[Export("notificarePushLib:didFailToRegisterWebsocketNotifications:")]
-		void DidFailToRegisterWebsocketNotifications(NotificarePushLib library, NSError error);
-
-
-		/*
-		 * - (void)notificarePushLib:(NotificarePushLib *)library didCloseWebsocketConnection:(NSString *)reason;
-		 */
-
-		/// <summary>
-		/// Did close websocket connection.
-		/// </summary>
-		/// <param name="library">Library.</param>
-		/// <param name="reason">Reason.</param>
-		[Export("notificarePushLib:didCloseWebsocketConnection:")]
-		void DidCloseWebsocketConnection(NotificarePushLib library, NSString reason);
-
+        
 		/*
 		 * - (void)notificarePushLib:(NotificarePushLib*)library willHandleNotification:(UNNotification*)notification;
 		 */
@@ -2121,6 +2129,19 @@ namespace Notificare.iOS
 		/// <param name="notification">Notification.</param>
 		[Export("notificarePushLib:didFailToOpenNotification:")]
 		void DidFailToOpenNotification(NotificarePushLib library, NotificareNotification notification);
+
+        /*
+         * - (void)notificarePushLib:(NotificarePushLib *)library didClickURL:(NSURL *)url inNotification:(NotificareNotification *)notification;
+         */
+
+        /// <summary>
+        /// Did click a URL in a notification.
+        /// </summary>
+        /// <param name="library">Library.</param>
+        /// <param name="url">URL.</param>
+        /// <param name="notification">Notification.</param>
+        [Export("notificarePushLib:didClickURL:inNotification:")]
+        void DidClickURLInNotification(NotificarePushLib library, NSUrl url, NotificareNotification notification);
 
 		/*
 		 * - (void)notificarePushLib:(NotificarePushLib *)library willExecuteAction:(Notification *)notification;
@@ -2491,6 +2512,42 @@ namespace Notificare.iOS
 		/// <param name="download">Download.</param>
 		[Export("notificarePushLib:didFinishDownloadContent:")]
 		void DidFinishDownloadContent(NotificarePushLib library, SKDownload download);
+
+        /*
+         * - (void)notificarePushLib:(NotificarePushLib *)library didInvalidateScannableSessionWithError:(NSError *)error;
+         */
+        /// <summary>
+        /// Did invalidate scannable session with error.
+        /// </summary>
+        /// <param name="library">Library.</param>
+        /// <param name="error">Error.</param>
+        [Export("notificarePushLib:didInvalidateScannableSessionWithError:")]
+        void DidInvalidateScannableSessionWithError(NotificarePushLib library, NSError error);
+
+        /*
+         * - (void)notificarePushLib:(NotificarePushLib *)library didDetectScannable:(NotificareScannable *)scannable;
+         */
+
+        /// <summary>
+        /// Did detect scannable.
+        /// </summary>
+        /// <param name="library">Library.</param>
+        /// <param name="scannable">Scannable.</param>
+        [Export("notificarePushLib:didDetectScannable:")]
+        void DidDetectScannable(NotificarePushLib library, NotificareScannable scannable);
+
+        /*
+         * - (void)notificarePushLib:(NotificarePushLib *)library onReady:(NSDictionary *)info;
+         */
+
+        /// <summary>
+        /// Raises the ready event.
+        /// </summary>
+        /// <param name="library">Library.</param>
+        /// <param name="info">Info.</param>
+        [Export("notificarePushLib:onReady:")]
+        void OnReady(NotificarePushLib library, NSDictionary info);
+
 	}
 
 	interface INotificarePushLibDelegate { }
@@ -2690,6 +2747,7 @@ namespace Notificare.iOS
 		/// Registers for websockets.
 		/// </summary>
 		[Export("registerForWebsockets")]
+        [Obsolete("Websockets no longer supported, use APNS instead")]
 		void RegisterForWebsockets();
 
 		/*
@@ -2700,6 +2758,7 @@ namespace Notificare.iOS
 		/// Unregisters for websockets.
 		/// </summary>
 		[Export("unregisterForWebsockets")]
+        [Obsolete("Websockets no longer supported, use APNS instead")]
 		void UnregisterForWebsockets();
 
 		/*
@@ -2713,6 +2772,7 @@ namespace Notificare.iOS
 		/// <param name="completionHandler">Completion handler.</param>
 		/// <param name="errorHandler">Error handler.</param>
 		[Export("registerDeviceForWebsockets:completionHandler:errorHandler:")]
+        [Obsolete("Websockets no longer supported, use APNS instead")]
 		void RegisterDeviceForWebsockets(NSString token, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
 
 		/*
@@ -2731,6 +2791,7 @@ namespace Notificare.iOS
 		/// <param name="completionHandler">Completion handler.</param>
 		/// <param name="errorHandler">Error handler.</param>
 		[Export("registerDeviceForWebsockets:withUserID:completionHandler:errorHandler:")]
+        [Obsolete("Websockets no longer supported, use APNS instead")]
 		void RegisterDeviceForWebsocketsWithUserID(NSString token, NSString userID, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
 
 		/*
@@ -2749,6 +2810,7 @@ namespace Notificare.iOS
 		/// <param name="completionHandler">Completion handler.</param>
 		/// <param name="errorHandler">Error handler.</param>
 		[Export("registerDeviceForWebsockets:withUserID:withUsername:completionHandler:errorHandler:")]
+        [Obsolete("Websockets no longer supported, use APNS instead")]
 		void RegisterDeviceForWebsocketsWithUserIDWithUsername(NSString token, NSString userID, NSString username, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
 
 
@@ -3536,17 +3598,6 @@ namespace Notificare.iOS
 		NSString SdkVersion { get; }
 
 		/*
-		 * -(NSArray *)myPasses;
-		 */
-
-		/// <summary>
-		/// Retrieve a list of passes added to the Passbook app that this app can access
-		/// </summary>
-		/// <value>A NSArray containing PKPasses objects</value>
-		[Export("myPasses")]
-		NSArray MyPasses { get; }
-
-		/*
 		 * (void)fetchPass:(NSString *)serial completionHandler:(SuccessPassBlock)result errorHandler:(ErrorBlock)error;
 		 */
 
@@ -3677,6 +3728,18 @@ namespace Notificare.iOS
 		[Export("fetchAttachment:completionHandler:errorHandler:")]
 		void FetchAttachment(NSDictionary notification, [BlockCallback] SuccessArrayCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
 
+        /*
+         * - (void)fetchUserData:(SuccessBlock)info errorHandler:(ErrorBlock)errorBlock;
+         */
+
+        /// <summary>
+        /// Fetch user data
+        /// </summary>
+        /// <param name="completionHandler">Completion handler.</param>
+        /// <param name="errorHandler">Error handler.</param>
+        [Export("fetchUserData:errorHandler:")]
+        void FetchUserData([BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
+
 		/*
 		 * - (void)updateUserData:(NSDictionary*)data completionHandler:(SuccessBlock)info errorHandler:(ErrorBlock)errorBlock;
 		 */
@@ -3690,6 +3753,39 @@ namespace Notificare.iOS
 		[Export("updateUserData:completionHandler:errorHandler:")]
 		void UpdateUserData(NSDictionary data, [BlockCallback] SuccessCallback completionHandler, [BlockCallback] ErrorCallback errorHandler);
 
+        /*
+         * -(void)startScannableSessionWithQRCode;
+         */
+
+        /// <summary>
+        /// Starts the scannable session with QR code.
+        /// </summary>
+        [Export("startScannableSessionWithQRCode")]
+        void StartScannableSessionWithQRCode();
+
+        /*
+         * -(void)fetchScannable:(NSString *)message;
+         */
+
+        /// <summary>
+        /// Fetchs the scannable.
+        /// </summary>
+        /// <param name="message">Message.</param>
+        [Export("fetchScannable:")]
+        void FetchScannable(NSString message);
+
+        /*
+         * - (nullable NSString *)parseURIPayload:(unsigned char*)payloadBytes length:(NSUInteger)length ;
+         */
+
+        /// <summary>
+        /// Parses the URI Payload.
+        /// </summary>
+        /// <returns>The URI Payload.</returns>
+        /// <param name="payload">Payload.</param>
+        [Export("parseURIPayload:")]
+        [NullAllowed]
+        NSString ParseURIPayload(NSData payload);
 
 		// Properties
 
@@ -3707,8 +3803,6 @@ namespace Notificare.iOS
 		[Export("delegate", ArgumentSemantic.Assign)]
 		[NullAllowed]
 		NSObject WeakDelegate { get; set; }
-
-
 
 		/*
 		 * @property(strong, nonatomic) UNUserNotificationCenter* notificationCenter;

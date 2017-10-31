@@ -11,7 +11,7 @@
     <RootNamespace>Notificare.iOS.TestApp</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AssemblyName>NotificareiOSTestApp</AssemblyName>
-    <ReleaseVersion>1.9.1</ReleaseVersion>
+    <ReleaseVersion>1.12.0</ReleaseVersion>
     <TargetFrameworkIdentifier>Xamarin.iOS</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v1.0</TargetFrameworkVersion>
   </PropertyGroup>
@@ -44,7 +44,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\iPhone\Debug</OutputPath>
-    <DefineConstants>DEBUG;__MOBILE__;__IOS__;</DefineConstants>
+    <DefineConstants>__UNIFIED__;DEBUG;__MOBILE__;__IOS__;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
@@ -53,11 +53,13 @@
     <CodesignKey>iPhone Developer: Joris Verbogt (TLZ9T5CPP8)</CodesignKey>
     <MtouchI18n>
     </MtouchI18n>
-    <MtouchArch>ARMv7, ARMv7s</MtouchArch>
-    <CodesignProvision>cb38c534-6311-4f01-a978-1e2b20bb2213</CodesignProvision>
+    <MtouchArch>ARMv7s, ARM64</MtouchArch>
+    <CodesignProvision>Xamarin Test Dev</CodesignProvision>
     <IpaPackageName>
     </IpaPackageName>
     <MtouchLink>None</MtouchLink>
+    <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
+    <MtouchSdkVersion></MtouchSdkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <DebugType>full</DebugType>
@@ -86,11 +88,12 @@
     <ConsolePause>false</ConsolePause>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <BuildIpa>true</BuildIpa>
-    <CodesignProvision>Automatic:AdHoc</CodesignProvision>
-    <CodesignKey>iPhone Distribution</CodesignKey>
+    <CodesignProvision>Xamarin Test Ad-Hoc</CodesignProvision>
+    <CodesignKey>iPhone Distribution: Notificare B.V. (E3J9DDFVP4)</CodesignKey>
     <MtouchI18n>
     </MtouchI18n>
-    <MtouchArch>ARMv7, ARMv7s, ARM64</MtouchArch>
+    <MtouchArch>ARMv7s, ARM64</MtouchArch>
+    <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'AppStore|iPhone' ">
     <DebugType>full</DebugType>
@@ -203,10 +206,10 @@
       <Project>{D26680A7-801B-499A-A5AA-5CE5F0E49425}</Project>
       <Name>Notificare.iOS</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Notification\Notification.csproj">
+    <ProjectReference Include="..\XamarinTestServiceExtension\XamarinTestServiceExtension.csproj">
       <IsAppExtension>true</IsAppExtension>
-      <Project>{76B4B84E-ECD7-4241-BEC6-C1495904B890}</Project>
-      <Name>Notification</Name>
+      <Project>{61140AD9-F4E8-4241-AD5D-2BEBBD8AC544}</Project>
+      <Name>XamarinTestServiceExtension</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />

@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleShortVersionString</key>
-	<string>1.9.0</string>
+	<string>1.12.0</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>MinimumOSVersion</key>
@@ -24,7 +24,7 @@
 	</array>
 	<key>UIBackgroundModes</key>
 	<array>
-		<string>location</string>
+		<string>audio</string>
 		<string>remote-notification</string>
 	</array>
 	<key>CFBundleIdentifier</key>
@@ -45,12 +45,20 @@
 	<key>UIPrerenderedIcon</key>
 	<true/>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>We would like to use your location to easily provide your location in maps or give you directions</string>
+	<string>We will need to make use of your location to present relevant information about offers around you.</string>
 	<key>CFBundleName</key>
 	<string>XamarinTest</string>
 	<key>NSCameraUsageDescription</key>
-	<string>This app wants to use your camera</string>
+	<string>We will need access to the device&apos;s camera to reply to notifications or scan QR codes</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>We may need to access your photos to reply to notifications</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>You will need to select the Always Allow option if you wish to receive geo-fencing and beacon notifications. Selecting the option Only While Using the App will prevent us from sending you these messages.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We will need to make use of your location to present relevant information about offers around you.</string>
+	<key>NSLocationUsageDescription</key>
+	<string>We will need to make use of your location to present relevant information about offers around you.</string>
+	<key>UIMainNibFile</key>
+	<string>Notificare_iOS_TestAppViewController</string>
 </dict>
 </plist>

@@ -1,6 +1,21 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>aps-environment</key>
+	<string>development</string>
+	<key>com.apple.developer.pass-type-identifiers</key>
+	<array>
+		<string>Y47BY73NFN.pass.re.notifica.demo.test</string>
+		<string>Y47BY73NFN.pass.re.notifica.demo</string>
+		<string>Y47BY73NFN.pass.re.notifica.codept</string>
+		<string>Y47BY73NFN.pass.re.notifica.hybrid</string>
+		<string>Y47BY73NFN.pass.re.notifica.demo.geo</string>
+		<string>Y47BY73NFN.pass.re.notifica.passbook</string>
+		<string>E3J9DDFVP4.pass.re.notifica.demo.example</string>
+		<string>E3J9DDFVP4.pass.re.notifica.scanner</string>
+		<string>E3J9DDFVP4.pass.re.notifica.test</string>
+		<string>E3J9DDFVP4.pass.re.notifica.notificare</string>
+	</array>
 </dict>
 </plist>

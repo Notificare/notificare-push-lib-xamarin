@@ -84,14 +84,14 @@ namespace Notificare.iOS.TestApp
 
 					NotificarePushLib.Shared().FetchDoNotDisturb((NSDictionary dndInfo) => {
 						Console.WriteLine(dndInfo);
-						if (dndInfo.ObjectForKey((NSString)"start") == null) {
-								NSDate start = NSDate.Now;
-								NSDate end = start.AddSeconds(3600);
-								Console.WriteLine("Updating DND with Start {0}, End {1}", start, end);
-								NotificarePushLib.Shared().UpdateDoNotDisturb(start, end, Console.WriteLine, (NSError error) => {
-									Console.WriteLine("error updating DND: {0}", error.LocalizedDescription);
-								});
-							}
+						//if (dndInfo.ObjectForKey((NSString)"start") == null) {
+							//	NSDate start = NSDate.Now;
+							//	NSDate end = start.AddSeconds(3600);
+							//	Console.WriteLine("Updating DND with Start {0}, End {1}", start, end);
+							//	NotificarePushLib.Shared().UpdateDoNotDisturb(start, end, Console.WriteLine, (NSError error) => {
+							//		Console.WriteLine("error updating DND: {0}", error.LocalizedDescription);
+							//	});
+							//}
 						}, (NSError error) => {
 							Console.WriteLine("error fetching DND: {0}", error);
 						}

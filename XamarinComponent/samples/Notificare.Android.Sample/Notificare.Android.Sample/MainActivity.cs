@@ -72,9 +72,8 @@ namespace Notificare.Android.Sample
 			inboxListAdapter.Clear();
 			if (Notificare.Shared().InboxManager != null) {
 				NotificareInboxManager manager = Notificare.Shared ().InboxManager;
-				Java.Util.ISortedSet items = manager.Items;
-				Console.WriteLine ("We have {0} items", Notificare.Shared ().InboxManager.Items.Size ());
-				foreach (NotificareInboxItem item in Notificare.Shared ().InboxManager.Items.ToArray()) {
+                Console.WriteLine ("We have {0} items", Notificare.Shared ().InboxManager.Items.Size());
+                foreach (NotificareInboxItem item in Notificare.Shared ().InboxManager.Items.ToArray()) {
 					inboxListAdapter.Add(item);
 				}
 			}
@@ -107,12 +106,19 @@ namespace Notificare.Android.Sample
 				}
 			}
 			Notificare.Shared ().FetchAssets ("test", new FetchAssetsCallback());
+
+			var data = new Dictionary<string, Java.Lang.Object>();
+			data.Add("myKey1", "My Value 1");
+	        data.Add("myKey2", "My Value 2");
+
+    	    Notificare.Shared().EventLogger.LogCustomEvent("MainActivity", data);
+
 		}
 
 		public override void OnRequestPermissionsResult (int requestCode, string[] permissions, Permission[] grantResults)
 		{
 			switch (requestCode) {
-			case LocationPermissionRequestCode: 
+			case LocationPermissionRequestCode:
 				if (Notificare.Shared ().CheckRequestLocationPermissionResult (permissions, grantResults)) {
 					Notificare.Shared ().EnableLocationUpdates ();
 					Notificare.Shared ().EnableBeacons ();

@@ -1,34 +1,24 @@
 ﻿<Properties StartupConfiguration="{391E7BB9-129B-4BD7-8195-A9F1E64D59D9}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Notificare.Android.Sample/Assets/notificareconfig.properties">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Notificare.Android.Sample/MainActivity.cs">
     <Files>
-      <File FileName="Notificare.Android.Sample/Assets/notificareconfig.properties" Line="6" Column="1" />
-      <File FileName="Notificare.Android.Sample/google-services.json" Line="9" Column="5" />
-      <File FileName="Notificare.Android.Sample/MainApplication.cs" Line="1" Column="1" />
-      <File FileName="Notificare.Android.Sample/MainActivity.cs" Line="1" Column="1" />
+      <File FileName="Notificare.Android.Sample/Assets/notificareconfig.properties" Line="4" Column="31" />
+      <File FileName="Notificare.Android.Sample/google-services.json" Line="39" Column="6" />
+      <File FileName="Notificare.Android.Sample/MainApplication.cs" Line="30" Column="66" />
+      <File FileName="Notificare.Android.Sample/MainActivity.cs" Line="129" Column="1" />
       <File FileName="Notificare.Android.Sample/MyIntentReceiver.cs" Line="57" Column="4" />
-      <File FileName="Notificare.Android.Sample/packages.config" Line="1" Column="1" />
       <File FileName="Notificare.Android.Sample/Notificare.Android.Sample.csproj" Line="1" Column="1" />
+      <File FileName="../../../Notificare.Android.Sample/Assets/notificareconfig.properties" Line="6" Column="19" />
+      <File FileName="../../../Notificare.Android.Sample/google-services.json" Line="92" Column="11" />
+      <File FileName="Notificare.Android.Sample/Properties/AndroidManifest.xml" Line="44" Column="12" />
+      <File FileName="Notificare.Android.Sample/packages.config" Line="1" Column="1" />
+      <File FileName="Notificare.Android.Sample/Properties/AssemblyInfo.cs" Line="21" Column="36" />
     </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State name="__root__">
-          <Node name="Notificare.Android.Sample" expanded="True">
-            <Node name="Notificare.Android.Sample" expanded="True">
-              <Node name="References" expanded="True" />
-              <Node name="Assets" expanded="True">
-                <Node name="notificareconfig.properties" selected="True" />
-              </Node>
-            </Node>
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.Notificare.Android.Sample PreferredExecutionTarget="Android.Android_Accelerated_x86" />
+  <MonoDevelop.Ide.ItemProperties.Notificare.Android.Sample PreferredExecutionTarget="Android.FA7A11A00960" />
   <MultiItemStartupConfigurations />
 </Properties>
