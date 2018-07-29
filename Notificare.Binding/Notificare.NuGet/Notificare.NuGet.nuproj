@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(NuGetAuthoringPath)\NuGet.Packaging.Authoring.props" Condition="Exists('$(NuGetAuthoringPath)\NuGet.Packaging.Authoring.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C30D0FA8-83DB-4ED5-BE7F-B79CCCC719A0}</ProjectGuid>
+    <Description>Notificare Bindings</Description>
+    <PackageId>Notificare</PackageId>
+    <PackageVersion>1.14.0-alpha</PackageVersion>
+    <Authors>Notificare</Authors>
+    <DevelopmentDependency>false</DevelopmentDependency>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Notificare</RootNamespace>
+    <UsePartialTypes>false</UsePartialTypes>
+    <AssemblyName>Notificare.NuGet</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <ReleaseVersion>1.14.0</ReleaseVersion>
+    <Owners>Notificare</Owners>
+    <Copyright>Notificare B.V.</Copyright>
+    <Title>Notificare Xamarin Bindings</Title>
+    <PackageProjectUrl>https://docs.notifica.re/sdk/v1/xamarin/android/setup/</PackageProjectUrl>
+    <PackageIconUrl>https://notificare.com/favicon-196x196.png</PackageIconUrl>
+    <TargetFrameworkIdentifier>.NETPortable</TargetFrameworkIdentifier>
+    <TargetFrameworkProfile>Profile111</TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <OutputPath>bin\Debug</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="NuGet.Build.Packaging">
+      <Version>0.2.2</Version>
+      <PrivateAssets>All</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Notificare.Android\Notificare.Android.csproj">
+      <Project>{169474EA-96DF-41A7-B6FB-A26237A4B1CC}</Project>
+      <Name>Notificare.Android</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Notificare.iOS\Notificare.iOS.csproj">
+      <Project>{8FAD772C-71D9-40D7-A992-61C49E15307D}</Project>
+      <Name>Notificare.iOS</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ReferenceAssemblyFramework Include=".NETPortable,Version=v4.5,Profile=Profile111" />
+    <ReferenceAssemblyFramework Include=".NETPortable,Version=v4.5,Profile=Profile111" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.Common.targets" />
+  <Import Project="$(NuGetAuthoringPath)\NuGet.Packaging.Authoring.targets" Condition="Exists('$(NuGetAuthoringPath)\NuGet.Packaging.Authoring.targets')" />
+</Project>

@@ -1,8 +1,10 @@
 .idea/
+.vs/
 .DS_Store
 bin/
 obj/
 Components/
+packages/
 *.xam
 notificareconfig.properties
 Notificare.plist

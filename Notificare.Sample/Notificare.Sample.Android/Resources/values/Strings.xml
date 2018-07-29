@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello World, Click Me!</string>
+    <string name="open_user_preferences">Open User Preferences</string>
+    <string name="app_name">Notificare.Android.Sample</string>
+    <string name="alert_location_permission_rationale">We need your location to offer you the best experience</string>
+    <string name="button_location_permission_rationale_ok">got it</string>
+</resources>

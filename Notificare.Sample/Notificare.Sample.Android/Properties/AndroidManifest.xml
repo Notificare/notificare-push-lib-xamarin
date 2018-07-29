@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="11400" package="re.notifica.xamarin" android:versionName="1.14.0">
+	<uses-sdk android:minSdkVersion="16" android:targetSdkVersion="27" />
+	<!-- PERMISSIONS -->
+	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+	<!-- This app has permission to register and receive message -->
+	<uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+	<application android:label="NotificareSample" android:icon="@mipmap/icon">
+		<!--
+	    	Service running in the background that receives your Push Notifications 
+	     -->
+		<service android:name="re.notifica.push.fcm.PushService" android:label="Notificare Push Service" android:exported="false">
+			<intent-filter>
+				<action android:name="com.google.firebase.MESSAGING_EVENT" />
+			</intent-filter>
+		</service>
+		<service android:name="re.notifica.push.fcm.InstanceIDService" android:exported="false">
+			<intent-filter>
+				<action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+			</intent-filter>
+		</service>
+		<!--		<service android:name="re.notifica.push.fcm.RegistrationService" android:exported="false" />-->
+		<receiver android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:exported="true" android:permission="com.google.android.c2dm.permission.SEND">
+			<intent-filter>
+				<action android:name="com.google.android.c2dm.intent.RECEIVE" />
+				<action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+				<category android:name="${applicationId}" />
+			</intent-filter>
+		</receiver>
+		<receiver android:name="com.google.firebase.iid.FirebaseInstanceIdInternalReceiver" android:exported="false" />
+		<!--		<service android:name="re.notifica.push.gcm.TaskService" android:permission="com.google.android.gms.permission.BIND_NETWORK_TASK_SERVICE" android:exported="true">
+			<intent-filter>
+				<action android:name="com.google.android.gms.gcm.ACTION_TASK_READY" />
+			</intent-filter>
+		</service>
+-->
+		<!--
+        	Notificare activity that will take care of displaying and handling notifications
+        	The default activity will take care of everything, please implement your own
+        	activity if you want to handle all user interaction yourself. 
+
+        	re.notifica.ui.NotificationActivity
+         -->
+		<activity android:name="re.notifica.ui.NotificationActivity" />
+		<activity android:name="re.notifica.ui.PassbookActivity">
+			<intent-filter>
+				<action android:name="android.intent.action.VIEW" />
+				<category android:name="android.intent.category.DEFAULT" />
+				<category android:name="android.intent.category.BROWSABLE" />
+				<data android:host="push.notifica.re" android:pathPrefix="/pass/forapplication/536b4a8a08889c02291cbb20" android:scheme="https" />
+			</intent-filter>
+		</activity>
+		<activity android:name="re.notifica.ui.UserPreferencesActivity" />
+		<meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="" />
+	</application>
+</manifest>

@@ -1,0 +1,15 @@
+## Notificare is all public
+-keep class re.notifica.** { *; }
+-dontwarn re.notifica.**
+
+## Picasso refers to okhttp
+-dontwarn com.squareup.okhttp.**
+
+## Google API Client
+-keepattributes Signature,RuntimeVisibleAnnotations,AnnotationDefault
+-keepclassmembers class * {
+  @com.google.api.client.util.Key <fields>;
+}
+
+## Google API CLient refers to Apache HTTPClient
+-dontwarn javax.annotation.**
